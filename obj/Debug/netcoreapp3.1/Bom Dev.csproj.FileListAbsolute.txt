@@ -1,0 +1,95 @@
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/appsettings.Development.json
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/appsettings.json
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Properties/launchSettings.json
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Bom Dev.StaticWebAssets.xml
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/app.db
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Bom Dev
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Bom Dev.deps.json
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Bom Dev.runtimeconfig.json
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Bom Dev.runtimeconfig.dev.json
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Bom Dev.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Bom Dev.pdb
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Bom Dev.Views.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Bom Dev.Views.pdb
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.Internal.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.Bcl.AsyncInterfaces.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.Bcl.HashCode.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.Data.Sqlite.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.DotNet.PlatformAbstractions.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Abstractions.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Design.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Relational.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Sqlite.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Caching.Abstractions.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Caching.Memory.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Configuration.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Configuration.Binder.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.Extensions.DependencyModel.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.Extensions.FileProviders.Embedded.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Core.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Stores.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Logging.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Logging.Abstractions.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Options.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Primitives.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/SQLitePCLRaw.batteries_v2.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/SQLitePCLRaw.nativelibrary.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/SQLitePCLRaw.core.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/SQLitePCLRaw.provider.dynamic_cdecl.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/System.Collections.Immutable.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/System.ComponentModel.Annotations.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/System.Diagnostics.DiagnosticSource.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/System.Text.Json.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/runtimes/alpine-x64/native/libe_sqlite3.so
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/runtimes/linux-arm/native/libe_sqlite3.so
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/runtimes/linux-arm64/native/libe_sqlite3.so
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/runtimes/linux-armel/native/libe_sqlite3.so
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/runtimes/linux-musl-x64/native/libe_sqlite3.so
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/runtimes/linux-x64/native/libe_sqlite3.so
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/runtimes/linux-x86/native/libe_sqlite3.so
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/runtimes/osx-x64/native/libe_sqlite3.dylib
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/runtimes/win-arm/native/e_sqlite3.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/runtimes/win-arm64/native/e_sqlite3.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/runtimes/win-x64/native/e_sqlite3.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/e_sqlite3.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Bom Dev.csprojAssemblyReference.cache
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Bom Dev.AssemblyInfoInputs.cache
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Bom Dev.AssemblyInfo.cs
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Bom Dev.csproj.CoreCompileInputs.cache
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Bom Dev.MvcApplicationPartsAssemblyInfo.cs
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Bom Dev.MvcApplicationPartsAssemblyInfo.cache
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Bom Dev.RazorAssemblyInfo.cache
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Bom Dev.RazorAssemblyInfo.cs
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Bom Dev.TagHelpers.input.cache
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Bom Dev.TagHelpers.output.cache
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Bom Dev.RazorCoreGenerate.cache
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Razor/Areas/Identity/Pages/_ViewStart.cshtml.g.cs
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Razor/Views/Home/Privacy.cshtml.g.cs
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Error.cshtml.g.cs
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_LoginPartial.cshtml.g.cs
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Razor/Views/_ViewStart.cshtml.g.cs
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Bom Dev.RazorTargetAssemblyInfo.cache
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Bom Dev.RazorTargetAssemblyInfo.cs
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Bom Dev.Views.pdb
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Bom Dev.csproj.CopyComplete
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/staticwebassets/Bom Dev.StaticWebAssets.Manifest.cache
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/staticwebassets/Bom Dev.StaticWebAssets.xml
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Bom Dev.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Bom Dev.pdb
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Bom Dev.genruntimeconfig.cache

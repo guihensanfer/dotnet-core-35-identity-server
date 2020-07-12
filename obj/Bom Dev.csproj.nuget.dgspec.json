@@ -1,0 +1,83 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Bom Dev.csproj": {}
+  },
+  "projects": {
+    "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Bom Dev.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Bom Dev.csproj",
+        "projectName": "Bom Dev",
+        "projectPath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Bom Dev.csproj",
+        "packagesPath": "/home/guilherme/.nuget/packages/",
+        "outputPath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/guilherme/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.301/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
