@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="243.217"
+   height="198.075"
+   viewBox="0 0 64.351 52.407"
+   version="1.1"
+   id="svg827"
+   sodipodi:docname="BomDev.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+  <metadata
+     id="metadata831">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="731"
+     id="namedview829"
+     showgrid="false"
+     inkscape:zoom="0.93888218"
+     inkscape:cx="76.844464"
+     inkscape:cy="148.99031"
+     inkscape:window-x="1366"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg827" />
+  <defs
+     id="defs815" />
+  <path
+     d="M 0.5209715,0 H 64.870971 V 52.407 H 0.5209715 Z"
+     id="path817"
+     inkscape:connector-curvature="0"
+     style="stroke:none" />
+  <path
+     d="M 0.521,12.851 H 64.870943 V 25.702 H 0.521 Z m 0,12.851 H 64.870943 V 38.554 H 0.521 Z M 0.521,0 H 64.870943 V 12.851 H 0.521 Z"
+     id="path819"
+     inkscape:connector-curvature="0"
+     style="fill:#3a3a3a;stroke-width:1.01658022;fill-opacity:1" />
+  <text
+     x="6.8113461"
+     y="48.500782"
+     style="font-weight:400;font-size:10.58300018px;line-height:1.25;font-family:sans-serif;letter-spacing:0;word-spacing:0;fill:#ffffff;stroke-width:0.1999995;stroke-miterlimit:4;stroke-dasharray:none"
+     font-size="10.583"
+     font-weight="400"
+     letter-spacing="0"
+     word-spacing="0"
+     id="text823">
+    <tspan
+       x="6.8113461"
+       y="48.500782"
+       id="tspan821"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.1999995;stroke-miterlimit:4;stroke-dasharray:none">BOM DEV</tspan>
+  </text>
+  <path
+     d="M1.042 39.688C54.993 11.718 19.66 1.707 19.66 1.707c34.77 31.268 29.114 25.297 43.649 37.98"
+     id="path825"
+     style="stroke-width:1.99999492;stroke-miterlimit:4;stroke-dasharray:none"
+     stroke-width="1.565"
+     stroke="red" />
+</svg>
