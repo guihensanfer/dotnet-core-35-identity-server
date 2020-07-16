@@ -28,8 +28,7 @@ a {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
-  font-family: 'Roboto', sans-serif;
+  font-size: 14px;  
 }
 @media (min-width: 768px) {
   html {
@@ -75,6 +74,8 @@ body {
 }
 
 #layoutLogo{width:48px;border-radius: 3px;}
+h1,h2,a,span,p{font-family: 'Roboto';}
+
 
 @media (max-width: 400px) {
   html {
