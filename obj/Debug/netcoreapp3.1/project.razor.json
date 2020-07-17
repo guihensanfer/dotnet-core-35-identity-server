@@ -20546,6 +20546,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Views/Home/Produtos.cshtml",
+      "TargetPath": "Views\\Home\\Produtos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Views/Shared/Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
