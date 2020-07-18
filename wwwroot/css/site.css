@@ -64,6 +64,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;    
+  background:#000;
 }
 .footer {
   position: absolute;
@@ -74,8 +75,8 @@ body {
 }
 
 #layoutLogo{width:48px;}
-h1,h2,a,span,p{font-family: 'Roboto';}
-
+h1,h2,h3,h4,h5,a,span,p, label{font-family: 'Roboto';color:#FFFFFF;}
+h4,h5,p{font-weight: 300;}
 
 @media (max-width: 400px) {
   html {
