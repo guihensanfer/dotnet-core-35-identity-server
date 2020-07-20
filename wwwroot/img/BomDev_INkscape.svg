@@ -53,8 +53,8 @@
      id="namedview829"
      showgrid="false"
      inkscape:zoom="0.93888218"
-     inkscape:cx="191.77565"
-     inkscape:cy="168.03068"
+     inkscape:cx="477.22147"
+     inkscape:cy="253.23839"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -83,5 +83,21 @@
        d="M 1.042,39.688 C 10.194077,34.781031 19.591596,29.674612 26.711641,21.953625 29.75828,18.610414 32.488374,13.592585 30.11564,9.1246666 27.961213,5.2298294 23.741936,3.0542996 19.66,1.707 32.332068,13.101157 45.015407,24.492306 58.206331,35.287596 59.917897,36.741625 61.616796,38.210504 63.309,39.687"
        id="path825"
        inkscape:connector-curvature="0" />
+    <path
+       style="stroke:none;stroke-width:2.11666131;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 113.82678,-67.988609 c 21.45,0 42.9,0 64.35,0 0,17.469 0,34.938 0,52.407002 -21.45,0 -42.9,0 -64.35,0 0,-17.469002 0,-34.938002 0,-52.407002 z"
+       id="path817-3"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/guilherme/Área de Trabalho/bomDevFavIconPNG.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="stroke:#ff0000;stroke-width:1.99999487;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 114.34781,-28.300609 c 9.15207,-4.906969 18.54959,-10.013388 25.66964,-17.734375 3.04664,-3.343211 5.77673,-8.36104 3.404,-12.828958 -2.15443,-3.894837 -6.37371,-6.070367 -10.45564,-7.417667 12.67206,11.394157 25.3554,22.785306 38.54633,33.580596 1.71156,1.45403 3.41046,2.922908 5.10267,4.399404"
+       id="path825-7"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/guilherme/Área de Trabalho/bomDevFavIconPNG.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
   </g>
 </svg>
