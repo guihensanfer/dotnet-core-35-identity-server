@@ -26,6 +26,12 @@ namespace Bom_Dev
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            
+            // Login com Google
+            services.AddAuthentication().AddGoogle(g => {
+                g.ClientSecret = Configuration.GetValue<string>("GoogleLogin:ClientSecret");
+                g.ClientId = Configuration.GetValue<string>("GoogleLogin:ClientId");                                
+            });
             services.AddControllersWithViews();
            services.AddRazorPages();
         }
