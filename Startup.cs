@@ -6,6 +6,8 @@ using Bom_Dev.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Bom_Dev.Models;
 
 namespace Bom_Dev
 {
@@ -33,7 +35,8 @@ namespace Bom_Dev
                 g.ClientId = Configuration.GetValue<string>("GoogleLogin:ClientId");                                
             });
             services.AddControllersWithViews();
-           services.AddRazorPages();
+            services.AddRazorPages();
+            services.AddTransient<IEmailSender, EmailConfiguracao>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

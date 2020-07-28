@@ -63,7 +63,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;    
-  background:#F5F5F5;
+  background:#E0E0E0;
 }
 .footer {
   position: absolute;
@@ -107,6 +107,8 @@ a {
   margin-left: .1rem;
   margin-right: .1rem;
 }
+
+input[type="text"],input[type="email"],input[type="password"]{background: transparent;border:none;border-bottom:solid 2px #323232;border-radius: 0px;}
 
 @media (max-width: 400px) {
   html {
