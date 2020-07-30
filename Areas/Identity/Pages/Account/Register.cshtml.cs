@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
@@ -88,8 +89,22 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    #region Obtém assinatura Bom Dev
+                    
+                    string assinaturaHTML = string.Empty;
+
+                    try
+                    {
+                        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "recursos", "Assinatura.html");
+
+                        assinaturaHTML = System.IO.File.ReadAllText(path);
+                    }
+                    catch{}
+
+                    #endregion
+
+                    await _emailSender.SendEmailAsync(Input.Email, "Confirmação de registro",
+                        $"Olá, confirme seu e-mail <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicando aqui</a>.{assinaturaHTML}");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
