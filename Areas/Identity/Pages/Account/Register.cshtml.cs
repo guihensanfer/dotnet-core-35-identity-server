@@ -87,24 +87,10 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
                         "/Account/ConfirmEmail",
                         pageHandler: null,
                         values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
-                        protocol: Request.Scheme);
-
-                    #region Obtém assinatura Bom Dev
-                    
-                    string assinaturaHTML = string.Empty;
-
-                    try
-                    {
-                        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "recursos", "Assinatura.html");
-
-                        assinaturaHTML = System.IO.File.ReadAllText(path);
-                    }
-                    catch{}
-
-                    #endregion
+                        protocol: Request.Scheme);                                        
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirmação de registro",
-                        $"Olá, confirme seu e-mail <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicando aqui</a>.{assinaturaHTML}");
+                        $"Olá, confirme seu e-mail <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicando aqui</a>.{Models.EmailConfiguracao.ObterAssinaturaPadraoHTML()}");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {

@@ -61,7 +61,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
                 protocol: Request.Scheme);
             await _emailSender.SendEmailAsync(
                 Input.Email,
-                "Confirm your email",
+                "Confirme seu e-mail",
                 $"Por favor, confirme sua conta <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicando aqui</a>.");
 
             ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");

@@ -2,11 +2,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using System.Net.Mail;
 using System.Net;
+using System.IO;
 
 namespace Bom_Dev.Models
 {
     public class EmailConfiguracao : IEmailSender
-    {
+    {        
         public Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
             var client = new SmtpClient("smtp-mail.outlook.com") {
@@ -24,6 +25,19 @@ namespace Bom_Dev.Models
             mailMessage.To.Add(email);                        
             
             return client.SendMailAsync(mailMessage);
+        }
+
+        public static string ObterAssinaturaPadraoHTML()
+        {        
+            string caminho = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "recursos", "Assinatura.html");
+
+            try
+            {
+                return File.ReadAllText(caminho);
+            }
+            catch{}     
+
+            return null;
         }
     }
 }
