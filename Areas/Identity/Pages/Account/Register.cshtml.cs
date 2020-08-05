@@ -46,20 +46,20 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = "{0} é obrigatório.")]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = "{0} é obrigatório.")]
+            [StringLength(100, ErrorMessage = "A {0} deve ter no mínimo {2} e no máximo {1} caracteres.", MinimumLength = 8)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Senha")]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Confirmar senha")]
+            [Compare("Password", ErrorMessage = "Senhas não coincidem.")]
             public string ConfirmPassword { get; set; }
         }
 
