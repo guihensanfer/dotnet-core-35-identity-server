@@ -10,7 +10,7 @@
     <div class="col-md-12 col-md-offset-2">
         <section style="background:#F5F5F5;padding:10px;">
             <div style="margin-left: 25%;margin-right: 25%;">
-                <h4>Continuar usando</h4>            
+                <h4 class="text-dark">Continuar usando</h4>            
                 @{
                     if ((Model.ExternalLogins?.Count ?? 0) == 0)
                     {
@@ -41,21 +41,21 @@
     <div class="col-md-12">
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post" style="background:#FFF;">
             <div style="margin-left: 25%;margin-right: 25%;padding-bottom:5%;padding-top:5%;">
-                <h4>Criar uma nova conta</h4>
+                <h4 class="text-dark">Criar uma nova conta</h4>
                 <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="Input.Email"></label>
+                    <label class="text-dark" asp-for="Input.Email"></label>
                     <input asp-for="Input.Email" class="form-control" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Input.Password"></label>
+                    <label class="text-dark" asp-for="Input.Password"></label>
                     <input asp-for="Input.Password" class="form-control" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Input.ConfirmPassword"></label>
+                    <label class="text-dark" asp-for="Input.ConfirmPassword"></label>
                     <input asp-for="Input.ConfirmPassword" class="form-control" />
                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                 </div>

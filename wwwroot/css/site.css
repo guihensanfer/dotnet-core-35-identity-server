@@ -58,12 +58,18 @@ html {
   min-height: 100%;
   margin-left: 4%;
   margin-right: 4%;
+  /* -webkit-box-shadow: 0px 0px 5px 0px rgba(181,181,181,1);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(181,181,181,1);
+  box-shadow: 0px 0px 5px 0px rgba(181,181,181,1); */
+  background-color: #101010;
+  /* border-left:solid 1px #fff;
+  border-right: solid 1px #fff; */
 }
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;    
-  background:#E0E0E0;
+  margin-bottom: 60px;      
+  background-color: #000;
 }
 .footer {
   position: absolute;
@@ -74,7 +80,7 @@ body {
 }
 
 #layoutLogo{width:48px;}
-h1,h2,h3,h4,h5,a,span,p, label{font-family: 'Roboto';}
+h1,h2,h3,h4,h5,a,span,p, label{font-family: 'Roboto';color:#FFFFFF;}
 h4,h5,p{font-weight: 300;}
 .text-descricao-P{font-size: 70%;}
 .text-descricao-M{font-size: 85%;}

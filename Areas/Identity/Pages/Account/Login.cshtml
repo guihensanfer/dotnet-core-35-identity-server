@@ -8,7 +8,7 @@
 <h1>@ViewData["Title"]</h1>
 <div class="row">
     <div class="col-md-6 my-auto">
-        <div style="text-align:center;border-bottom:dashed 1px #FFF;padding-bottom:0.8em;margin-left:3em;margin-right:3em;">
+        <div style="text-align:center;border-bottom:dashed 1px #F0F0F0;padding-bottom:0.8em;margin-left:3em;margin-right:3em;">
             <h3>Tenha acesso aos nossos softwares</h3>
             <h4>Com apenas uma conta</h4>
         </div>                
@@ -17,23 +17,23 @@
         <div class="row">            
             <div class="col-md-8">
                 <section>
-                    <form id="account" method="post" style="background:#FFF;border-radius:10px;padding:15px;">
-                        <h4>Tenho uma conta Bom Dev</h4>
+                    <form id="account" method="post" style="background:#F0F0F0;border-radius:10px;padding:15px;">
+                        <h4 class="text-dark">Tenho uma conta Bom Dev</h4>
                         <hr />
                         <div asp-validation-summary="All" class="text-danger"></div>
                         <div class="form-group">
-                            <label asp-for="Input.Email"></label>
+                            <label asp-for="Input.Email" class="text-dark"></label>
                             <input asp-for="Input.Email" class="form-control" />
                             <span asp-validation-for="Input.Email" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="Input.Password"></label>
+                            <label asp-for="Input.Password" class="text-dark"></label>
                             <input asp-for="Input.Password" class="form-control" />
                             <span asp-validation-for="Input.Password" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <div class="checkbox">
-                                <label asp-for="Input.RememberMe">
+                                <label asp-for="Input.RememberMe" class="text-dark">
                                     <input asp-for="Input.RememberMe" />
                                     @Html.DisplayNameFor(m => m.Input.RememberMe)
                                 </label>
@@ -58,8 +58,8 @@
             </div>
             <div class="col-md-4 col-md-offset-1">                
                 <section>
-                    <div style="background:#FFF;padding:10px;border-radius:15px;">
-                        <h4>Continuar com</h4>
+                    <div style="background:#F0F0F0;padding:10px;border-radius:15px;">
+                        <h4 class="text-dark">Continuar com</h4>
                         <hr />
                         @{
                             if ((Model.ExternalLogins?.Count ?? 0) == 0)
