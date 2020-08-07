@@ -6,9 +6,9 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<div class="row">
+<div class="row">    
     <div class="col-md-12 col-md-offset-2">
-        <section style="background:#D0D0D0;padding:10px;">
+        <section style="background:#F0F0F0;border-bottom:dashed 1px #323232;padding:10px;">
             <div style="margin-left: 25%;margin-right: 25%;">
                 <h4 class="text-dark">Continuar usando</h4>            
                 @{
@@ -39,7 +39,7 @@
         </section>
     </div>
     <div class="col-md-12">
-        <form asp-route-returnUrl="@Model.ReturnUrl" method="post" style="background:#F0F0F0;">
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post" style="background-color: #F0F0F0;">
             <div style="margin-left: 25%;margin-right: 25%;padding-bottom:5%;padding-top:5%;">
                 <h4 class="text-dark">Criar uma nova conta</h4>
                 <hr />
