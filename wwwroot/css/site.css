@@ -58,13 +58,13 @@ html {
   min-height: 100%;
   margin-left: 0%;
   margin-right: 0%;  
-  background-color: #101010;  
+  background-color: #f0f0f0;  
 }
 
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;      
-  background-color: #101010;
+  background-color: #f0f0f0;
 }
 .footer {
   position: absolute;
@@ -72,11 +72,10 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
-  background: #000;
 }
 
 #layoutLogo{width:48px;}
-h1,h2,h3,h4,h5,a,span,p, label{font-family: 'Roboto';color:#FFF;}
+h1,h2,h3,h4,h5,a,span,p, label{font-family: 'Roboto';}
 h4,h5,p{font-weight: 300;}
 .text-descricao-P{font-size: 70%;}
 .text-descricao-M{font-size: 85%;}
@@ -110,7 +109,7 @@ a {
   margin-right: .1rem;
 }
 
-input[type="text"],input[type="email"],input[type="password"]{background: transparent;border:none;border-bottom:solid 2px #A0A0A0;border-radius: 0px;}
+input[type="text"],input[type="email"],input[type="password"]{background: transparent;border:none;border-bottom:solid 2px #323232;border-radius: 0px;}
 
 @media (max-width: 400px) {
   html {
