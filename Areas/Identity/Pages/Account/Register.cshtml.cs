@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using BomDev.Data;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -20,14 +19,14 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<BomDevUser> _signInManager;
+        private readonly UserManager<BomDevUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
         public RegisterModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
+            UserManager<BomDevUser> userManager,
+            SignInManager<BomDevUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
@@ -45,7 +44,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
 
         public class InputModel
-        {
+        {            
             [Required(ErrorMessage = "{0} é obrigatório.")]
             [EmailAddress]
             [Display(Name = "Email")]
@@ -60,7 +59,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
             [DataType(DataType.Password)]
             [Display(Name = "Confirmar senha")]
             [Compare("Password", ErrorMessage = "Senhas não coincidem.")]
-            public string ConfirmPassword { get; set; }
+            public string ConfirmPassword { get; set; }            
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -75,7 +74,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                var user = new BomDevUser { UserName = Input.Email, Email = Input.Email};
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

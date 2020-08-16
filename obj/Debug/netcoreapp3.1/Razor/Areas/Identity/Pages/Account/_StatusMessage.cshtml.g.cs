@@ -34,6 +34,13 @@ using Bom_Dev.Areas.Identity.Pages;
 #line hidden
 #nullable disable
 #nullable restore
+#line 4 "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Areas/Identity/Pages/_ViewImports.cshtml"
+using BomDev.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Areas/Identity/Pages/Account/_ViewImports.cshtml"
 using Bom_Dev.Areas.Identity.Pages.Account;
 
@@ -41,7 +48,7 @@ using Bom_Dev.Areas.Identity.Pages.Account;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0723a602e84d5a261d35f2702dcc54883c69cad5", @"/Areas/Identity/Pages/Account/_StatusMessage.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8ea66053a8dde4bb3a8ea9c9f2be7631c7c1ebe9", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"56929938e42ab01049204f3eb7cdde22e7d1229c", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"95d6b36ca338b32b59135c937ec61968710c082b", @"/Areas/Identity/Pages/Account/_ViewImports.cshtml")]
     public class Areas_Identity_Pages_Account__StatusMessage : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<string>
     {

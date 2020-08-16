@@ -3,17 +3,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using BomDev.Data;
 
 namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
 {
     public partial class IndexModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<BomDevUser> _userManager;
+        private readonly SignInManager<BomDevUser> _signInManager;
 
         public IndexModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            UserManager<BomDevUser> userManager,
+            SignInManager<BomDevUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -33,9 +34,13 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Telefone")]
             public string PhoneNumber { get; set; }
+
+            [DataType(DataType.Text)]
+            [Display(Name = "Nome completo")]
+            public string Nome{get;set;}                        
         }
 
-        private async Task LoadAsync(IdentityUser user)
+        private async Task LoadAsync(BomDevUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
@@ -44,7 +49,8 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,                
+                Nome = user.Nome            
             };
         }
 
@@ -84,6 +90,11 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
                     return RedirectToPage();
                 }
             }
+
+            if(Input.Nome != user.Nome)
+                user.Nome = Input.Nome;
+
+            await _userManager.UpdateAsync(user);
 
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Perfil atualizado com sucesso!";
