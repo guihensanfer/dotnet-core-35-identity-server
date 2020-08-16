@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Bom Dev</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="~/css/site.css" />    
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark mb-3 box-shadow border-bottom" style="background:#000">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light mb-3" style="background:#F5F5F5">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                     <img id="layoutLogo" src="~/img/BomDev.svg" alt="Bom Dev" title="Bom Dev" />
@@ -23,14 +22,14 @@
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-light" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle text-dark" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Produtos e Serviços
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">                            
                                 <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Setores</a>
                                     <ul class="dropdown-menu">                                    
                                         @* <li><a class="dropdown-item" href="#">Another submenu action</a></li> *@                                                                                
-                                        <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Financeiro/ Investimentos</a>
+                                        <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Finanças/ Investimentos</a>
                                             <ul class="dropdown-menu">
                                                 <li>
                                                     <div class="dropdown-item-bomdev">                                                     
@@ -47,8 +46,8 @@
                                         </li>                                    
                                     </ul>
                                 </li>
-                                <div class="dropdown-divider"></div>
-                                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Desenvolvimento sob demanda</a>
+                                @* <div class="dropdown-divider"></div> *@
+                                @* <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Desenvolvimento sob demanda</a>
                                     <ul class="dropdown-menu">                                    
                                         <div class="dropdown-item-bomdev">                                                     
                                             <a class="text-dark" href="#">
@@ -60,11 +59,11 @@
                                             </a>                                                       
                                         </div>                                        
                                     </ul>
-                                </li>
+                                </li> *@
                             </ul>                            
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Sobre nós</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Sobre nós</a>
                         </li>
                     </ul>
                 </div>
@@ -77,7 +76,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="footer text-muted">
         <div class="container">
             &copy; 2020 - Bom Dev - <a asp-area="" asp-controller="Home" asp-action="Privacy">Sobre nós</a>
         </div>

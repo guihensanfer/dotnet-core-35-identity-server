@@ -6,6 +6,8 @@ using Bom_Dev.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Bom_Dev.Models;
 
 namespace Bom_Dev
 {
@@ -24,10 +26,17 @@ namespace Bom_Dev
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<BomDev.Data.BomDevUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            
+            // Login com Google
+            services.AddAuthentication().AddGoogle(g => {
+                g.ClientSecret = Configuration.GetValue<string>("GoogleLogin:ClientSecret");
+                g.ClientId = Configuration.GetValue<string>("GoogleLogin:ClientId");                                
+            });
             services.AddControllersWithViews();
-           services.AddRazorPages();
+            services.AddRazorPages();
+            services.AddTransient<IEmailSender, EmailConfiguracao>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
