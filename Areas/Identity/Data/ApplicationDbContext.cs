@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace BomDev.Data
+namespace Bom_Dev.Data
 {
     public class ApplicationDbContext : IdentityDbContext<BomDevUser>
     {

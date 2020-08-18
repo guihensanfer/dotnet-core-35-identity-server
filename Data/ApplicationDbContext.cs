@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Bom_Dev.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<BomDev.Data.BomDevUser>
+    public class ApplicationDbContextIdentity : IdentityDbContext<BomDevUser>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public ApplicationDbContextIdentity(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }

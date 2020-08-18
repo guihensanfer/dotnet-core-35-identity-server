@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using BomDev.Data;
+using Bom_Dev.Data;
 
 namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
 {
