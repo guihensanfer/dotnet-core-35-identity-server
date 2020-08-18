@@ -8,10 +8,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 
 namespace Bom_Dev.Areas.Identity.Pages.Account
-{
+{    
     [AllowAnonymous]
     public class ConfirmEmailChangeModel : PageModel
-    {
+    {        
         private readonly UserManager<BomDevUser> _userManager;
         private readonly SignInManager<BomDevUser> _signInManager;
 
@@ -37,7 +37,8 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
                 return NotFound($"Unable to load user with ID '{userId}'.");
             }
 
-            code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code));
+            code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code));                  
+
             var result = await _userManager.ChangeEmailAsync(user, email, code);
             if (!result.Succeeded)
             {
