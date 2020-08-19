@@ -37,7 +37,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID 'user.Id'.");
+                return NotFound($"Impossível obter com Id  'user.Id'.");
             }
 
             CurrentLogins = await _userManager.GetLoginsAsync(user);
@@ -53,18 +53,18 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID 'user.Id'.");
+                return NotFound($"Impossível obter com Id  'user.Id'.");
             }
 
             var result = await _userManager.RemoveLoginAsync(user, loginProvider, providerKey);
             if (!result.Succeeded)
             {
-                StatusMessage = "The external login was not removed.";
+                StatusMessage = "Login externo não foi removido.";
                 return RedirectToPage();
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "The external login was removed.";
+            StatusMessage = "Login externo foi removido.";
             return RedirectToPage();
         }
 
@@ -84,7 +84,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID 'user.Id'.");
+                return NotFound($"Impossível obter com Id 'user.Id'.");
             }
 
             var info = await _signInManager.GetExternalLoginInfoAsync(user.Id);
@@ -103,7 +103,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
-            StatusMessage = "The external login was added.";
+            StatusMessage = "Login externo adicionado com sucesso!";
             return RedirectToPage();
         }
     }

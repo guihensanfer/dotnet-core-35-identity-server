@@ -34,7 +34,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"Impossível obter com Id  '{_userManager.GetUserId(User)}'.");
             }
 
             var isTwoFactorEnabled = await _userManager.GetTwoFactorEnabledAsync(user);
@@ -52,7 +52,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"Impossível obter com Id  '{_userManager.GetUserId(User)}'.");
             }
 
             var isTwoFactorEnabled = await _userManager.GetTwoFactorEnabledAsync(user);
