@@ -95,7 +95,7 @@ a {
 .nav-item{margin-left: 4px;}
 
 .fundo-arredondado{
-  background:rgba(0, 0, 0, .02);  
+  background:rgba(0, 0, 0, .03);  
   padding-top:3px;
   padding-bottom:3px;
   padding-left:7px;
@@ -103,9 +103,14 @@ a {
   border-radius: 15px;
 }
 
+a.fundo-arredondado{
+  padding-top:4px;
+  padding-bottom: 4px;
+}
+
 .text-info
 {
-  color: #000!important;
+  color: #000;
 }
 
 .dropdown-item-bomdev{margin-left: 20px;margin-top:10px;margin-right: 15px;}

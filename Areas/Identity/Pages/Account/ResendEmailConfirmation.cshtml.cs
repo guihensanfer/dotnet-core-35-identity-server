@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.WebUtilities;
 namespace Bom_Dev.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    public abstract class ResendEmailConfirmationModel : PageModel
+    public class ResendEmailConfirmationModel : PageModel
     {
         private readonly UserManager<BomDevUser> _userManager;
         private readonly IEmailSender _emailSender;
