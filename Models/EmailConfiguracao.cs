@@ -27,7 +27,12 @@ namespace Bom_Dev.Models
             return client.SendMailAsync(mailMessage);
         }
 
-        public static string ObterAssinaturaPadraoHTML()
+        public static string CorpoEmailConfirmarEmail(string linkConfirmacao)
+        {
+            return $"Olá, confirme seu e-mail <a href='{linkConfirmacao}'>clicando aqui</a>.{ObterAssinaturaPadraoHTML()}";
+        }
+
+        private static string ObterAssinaturaPadraoHTML()
         {        
             string caminho = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "recursos", "Assinatura.html");
 

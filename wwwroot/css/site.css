@@ -36,7 +36,7 @@ html {
 
   .dropdown-item-bomdev {
     min-width: 300px;  
-  }
+  }  
 }
 
 .border-top {
@@ -60,15 +60,13 @@ button.accept-policy {
 html {
   position: relative;
   min-height: 100%;
-  margin-left: 4%;
-  margin-right: 4%; 
-  background: #F0F0F0;   
+   /* margin-left: 4%;
+  margin-right: 4%;   */
 }
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;      
-  background: #F0F0F0;   
+  margin-bottom: 60px;        
   
 }
 .footer {
@@ -95,7 +93,16 @@ a {
 .nav-item{margin-left: 4px;}
 
 .fundo-arredondado{
-  background:rgba(0, 0, 0, .03);  
+  background:#FFFFFF;
+  padding-top:3px;
+  padding-bottom:3px;
+  padding-left:7px;
+  padding-right: 7px;
+  border-radius: 15px;
+}
+
+.fundo-arredondado-branco{
+  background:#FFFFFF;  
   padding-top:3px;
   padding-bottom:3px;
   padding-left:7px;
@@ -110,7 +117,7 @@ a.fundo-arredondado{
 
 .text-info
 {
-  color: #000;
+  color: #323232!important;
 }
 
 .dropdown-item-bomdev{margin-left: 20px;margin-top:10px;margin-right: 15px;}
@@ -141,5 +148,12 @@ input[type="text"],input[type="email"], input[type="tel"],input[type="password"]
   html {
     margin-left: 0px;
     margin-right: 0px;    
-  }
+  }  
+}
+
+/*  */
+@media (max-width: 580px) {  
+  .fundo-arredondado{
+    background:transparent;      
+  }  
 }

@@ -96,7 +96,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Usuário ou senha inválidos");
                     return Page();
                 }
             }

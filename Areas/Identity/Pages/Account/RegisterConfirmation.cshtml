@@ -9,7 +9,8 @@
     if (@Model.DisplayConfirmAccountLink)
     {
         <div class="alert alert-warning" role="alert">
-            Enviado e-mail de confirmação de registro para @Model.Email
+            Enviado e-mail de confirmação de registro para @Model.Email            
+            <a asp-area="Identity" asp-page="/Account/ResendEmailConfirmation" asp-route-email="@Model.Email" class="btn btn-primary">Reenviar</a>             
         </div>        
     }
     else
