@@ -19,7 +19,7 @@ namespace Bom_Dev.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Sobre()
         {
             return View();
         }
