@@ -27,7 +27,7 @@ a.navbar-brand {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;  
+  font-size: 14px;    
 }
 @media (min-width: 768px) {
   html {
@@ -59,15 +59,12 @@ button.accept-policy {
 -------------------------------------------------- */
 html {
   position: relative;
-  min-height: 100%;
-   /* margin-left: 4%;
-  margin-right: 4%;   */
+  min-height: 100%;  
 }
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;        
-  
+  margin-bottom: 60px;     
 }
 .footer {
   position: absolute;
@@ -93,16 +90,7 @@ a {
 .nav-item{margin-left: 4px;}
 
 .fundo-arredondado{
-  background:#FFFFFF;
-  padding-top:3px;
-  padding-bottom:3px;
-  padding-left:7px;
-  padding-right: 7px;
-  border-radius: 15px;
-}
-
-.fundo-arredondado-branco{
-  background:#FFFFFF;  
+  background:rgba(0, 0, 0, .02);
   padding-top:3px;
   padding-bottom:3px;
   padding-left:7px;
@@ -144,19 +132,12 @@ a.fundo-arredondado{
 
 input[type="text"],input[type="email"], input[type="tel"],input[type="password"]{background: transparent;border:none;border-bottom:solid 2px #626262;border-radius: 0px;}
 
-@media (max-width: 400px) {
-  html {
-    margin-left: 0px;
-    margin-right: 0px;    
-  }  
-}
-
 /*  */
 @media (max-width: 580px) {  
   .fundo-arredondado{
     background:transparent;      
   }  
-  .fundo-arredondado-branco{
+  .fundo-arredondado{
     background:transparent;      
   }  
 }
