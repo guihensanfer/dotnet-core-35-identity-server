@@ -1,8 +1,37 @@
 ﻿@{
     ViewData["Title"] = "Início";
 }
+<nav id="navBarSecundario" class="navbar navbar-light navbar-expand justify-content-center">
+    <div class="container">
+        <ul class="navbar-nav nav-justified w-100 text-center">
+            <li class="nav-item">
+                <a href="#" class="nav-link d-flex flex-column">                    
+                    <span class="d-sm-inline text-dark">Softwares</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link d-flex flex-column">                    
+                    <span class="d-sm-inline text-dark">Soluções com hardwares</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+@section Scripts
+{
+    <style>
+        #navBarSecundario{background:#F5F5F5;padding-top:10px;padding-bottom:10px;}        
+    </style>
+    <script>
+        $( document ).ready(function() {
+            var x = document.getElementsByClassName("container")[1];
+            x.classList.remove("container");
+
+            console.log("Bom Dev -> Container principal removido");
+        });
+    </script>
+}
