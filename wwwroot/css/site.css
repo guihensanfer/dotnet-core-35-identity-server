@@ -90,7 +90,8 @@ a {
 .nav-item{margin-left: 4px;}
 
 .fundo-arredondado{
-  background:rgba(0, 0, 0, .02);
+  background:rgba(0, 0, 0, .03);
+  font-size:85%;
   padding-top:3px;
   padding-bottom:3px;
   padding-left:7px;
