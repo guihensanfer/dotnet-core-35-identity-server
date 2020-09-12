@@ -47,7 +47,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
                     return NotFound($"Usuário com e-mail {email} não encontrado.");
 
                 Email = email;
-            }
+            }            
 
             return Page();
         }

@@ -92,6 +92,7 @@ a {
 .fundo-arredondado{
   background:rgba(0, 0, 0, .03);
   font-size:85%;
+  font-weight: 400;
   padding-top:3px;
   padding-bottom:3px;
   padding-left:7px;
