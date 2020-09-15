@@ -6,7 +6,7 @@
         <ul class="navbar-nav nav-justified w-100 text-center">
             <li class="nav-item">
                 <a href="#" class="nav-link d-flex flex-column">                    
-                    <span class="d-sm-inline text-dark">Softwares</span>
+                    <span class="d-sm-inline text-dark">Em destaque</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -18,13 +18,36 @@
     </div>
 </nav>
 <div class="container">
+    <h4 id="softwares" style="margin-top: 2%;">Em destaque</h4>
+    <ul style="list-style: none;margin:0;padding:0;margin-top:2%;">
+        @{
+            var projetos = Bom_Dev.Models.Projetos.InstanciarProjetos();            
 
+            foreach(var proj in projetos)
+            {
+                string statusDesenvolvimento = proj.EmDesenvolvimentoInicial ? "(Em desenvolvimento) " : null;
+
+                <li>
+                    <div class="bloco-destaque" style="background-color: @System.Drawing.ColorTranslator.ToHtml(proj.CorIdentidade.Fundo);color:@System.Drawing.ColorTranslator.ToHtml(proj.CorIdentidade.Texto);">
+                        <h3>@proj.Nome</h3>        
+                        <h4>@string.Concat(statusDesenvolvimento, proj.DescricaoBreve)</h4>
+                        <a href="@proj.LinkAcesso">Saiba mais...</a>
+                    </div>
+                </li>
+            }
+        }        
+    </ul>
 </div>
 
 @section Scripts
 {
     <style>
-        #navBarSecundario{background:#F5F5F5;padding-top:10px;padding-bottom:10px;}        
+        #navBarSecundario{background:#F5F5F5;padding-top:5px;padding-bottom:5px;}     
+        .bloco-destaque{
+            display: inline-block;
+            width:250px;
+            padding:20px;
+        }           
     </style>
     <script>
         $( document ).ready(function() {

@@ -20,38 +20,50 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">                        
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark fundo-arredondado" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Finanças & Investimentos
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-bomdev" aria-labelledby="navbarDropdownMenuLink">                            
-                                <li>
-                                    <div class="dropdown-item-bomdev">                                                     
-                                        <a class="text-dark" href="#">
-                                            Controle de despesas pessoais                                                    
-                                            <p class="text-descricao-P text-dark">
-                                                Organização de pendências financeiras  pessoais. 
-                                            </p>                                            
-                                        </a>                                                       
-                                    </div>                                                                                                                     
-                                </li>                                                                
-                                @* <div class="dropdown-divider"></div> *@
-                                @* <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Desenvolvimento sob demanda</a>
-                                    <ul class="dropdown-menu">                                    
-                                        <div class="dropdown-item-bomdev">                                                     
-                                            <a class="text-dark" href="#">
-                                                Desenvolvimento de sistemas webs dedicados                                               
-                                                <p class="text-descricao-P text-dark">
-                                                    Deseja padronizar processos? Ou disponibilizar informações via Web API? Podemos lhe ajudar com o serviço de desenvolvimento da idéia.
-                                                </p>
-                                                <span class="link-destacado text-descricao-M">Saiba mais</span>
-                                            </a>                                                       
-                                        </div>                                        
-                                    </ul>
-                                </li> *@
-                            </ul>                            
-                        </li>
+                    <ul class="navbar-nav flex-grow-1">     
+                        @{
+                            var projetos = Bom_Dev.Models.Projetos.InstanciarProjetos();
+                            var setores = projetos
+                                .Where(x => x.Ativo)                            
+                                .Select(x => x.Setor)
+                                .Distinct()
+                                .OrderByDescending(x => x.ToString())
+                                .ToList();
+                            
+                            foreach(var setor in setores)
+                            {
+                                <li class="nav-item dropdown">                                    
+                                    @{
+                                        var p = setor.GetAttribute<System.ComponentModel.DataAnnotations.DisplayAttribute>();
+                                        var x = p is null ? setor.ToString() : p.Name;
+                                        
+                                        <a class="nav-link dropdown-toggle text-dark fundo-arredondado" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @x.ToString()
+                                        </a>
+                                    }
+                                    
+                                    <ul class="dropdown-menu dropdown-menu-bomdev" aria-labelledby="navbarDropdownMenuLink">   
+                                        @{
+                                            var projetosSetor = projetos.Where(p => p.Setor == setor).ToList();
+
+                                            foreach(var projeto in projetosSetor)    
+                                            {
+                                                <li>
+                                                    <div class="dropdown-item-bomdev">                                                     
+                                                        <a class="text-dark" href="@projeto.LinkAcesso">
+                                                            @projeto.Nome
+                                                            <p class="text-descricao-P text-dark">
+                                                                @projeto.DescricaoBreve
+                                                            </p>                                            
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }                                        
+                                    </ul>                            
+                                </li>
+                            }
+                        }                                           
                         <li class="nav-item">
                             <a class="nav-link text-dark fundo-arredondado" asp-area="" asp-controller="Home" asp-action="Sobre">Sobre nós</a>
                         </li>
