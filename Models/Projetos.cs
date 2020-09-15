@@ -44,6 +44,7 @@ namespace Bom_Dev.Models
                     return VersaoCompilacao <= 0;
                 }
             }
+            public string PalavrasChaves{get;set;}
         }
 
         public static List<Projeto> InstanciarProjetos() => new List<Projeto>(){
@@ -58,7 +59,8 @@ namespace Bom_Dev.Models
                 CorIdentidade = new Cores{
                     Texto = System.Drawing.Color.FromArgb(49, 212, 117), // Verde
                     Fundo = System.Drawing.Color.FromArgb(50, 50, 50) // Quase preto
-                }
+                },
+                PalavrasChaves = "Finanças; Dinheiro; Controle; Economia; Poupança"                
             }
         };
     }

@@ -12,8 +12,8 @@ a.navbar-brand {
 
 .btn-primary {
   color: #1e90ff;
-  background-color: #E5E5E5;
-  border-color: #E5E5E5;
+  background-color: #F5F5F5;
+  border: none;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
