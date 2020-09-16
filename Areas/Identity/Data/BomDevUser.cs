@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace BomDev.Data
+namespace Bom_Dev.Data
 {
     public class BomDevUser : IdentityUser
     {

@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using BomDev.Data;
+using Bom_Dev.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.WebUtilities;
 namespace Bom_Dev.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
-    public abstract class ResendEmailConfirmationModel : PageModel
+    public class ResendEmailConfirmationModel : PageModel
     {
         private readonly UserManager<BomDevUser> _userManager;
         private readonly IEmailSender _emailSender;
@@ -27,15 +27,29 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
         [BindProperty]
         public InputModel Input { get; set; }
 
+        public string Email{get;set;}
+
         public class InputModel
         {
             [Required]
             [EmailAddress]
+            [Display(Name = "E-mail")]
             public string Email { get; set; }
         }
 
-        public void OnGet()
-        {
+        public async Task<IActionResult> OnGet(string email = null)
+        {            
+            if(!string.IsNullOrEmpty(email))
+            {
+                var user = _userManager.FindByEmailAsync(email);
+
+                if(user is null)                
+                    return NotFound($"Usuário com e-mail {email} não encontrado.");
+
+                Email = email;
+            }            
+
+            return Page();
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -48,7 +62,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
             var user = await _userManager.FindByEmailAsync(Input.Email);
             if (user == null)
             {
-                ModelState.AddModelError(string.Empty, "E-mail enviado, por favor verifique seu e-mail.");
+                ModelState.AddModelError(string.Empty, "E-mail informado não cadastrado.");
                 return Page();
             }
 
@@ -63,9 +77,9 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
             await _emailSender.SendEmailAsync(
                 Input.Email,
                 "Confirme seu e-mail",
-                $"Por favor, confirme sua conta <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicando aqui</a>.");
+                Models.EmailConfiguracao.CorpoEmailConfirmarEmail(HtmlEncoder.Default.Encode(callbackUrl))); 
 
-            ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");
+            ModelState.AddModelError(string.Empty, "E-mail enviado, por favor verifique seu e-mail.");
             return Page();
         }
     }

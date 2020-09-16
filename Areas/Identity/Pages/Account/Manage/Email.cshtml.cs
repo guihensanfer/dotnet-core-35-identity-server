@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using BomDev.Data;
+using Bom_Dev.Data;
 
 namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
 {
@@ -32,6 +32,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
 
         public string Username { get; set; }
 
+        [Display(Name = "E-mail")]
         public string Email { get; set; }
 
         public bool IsEmailConfirmed { get; set; }
@@ -46,7 +47,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
         {
             [Required]
             [EmailAddress]
-            [Display(Name = "New email")]
+            [Display(Name = "Novo e-mail")]
             public string NewEmail { get; set; }
         }
 
@@ -68,7 +69,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"Impossível carregar usuário com Id '{_userManager.GetUserId(User)}'.");
             }
 
             await LoadAsync(user);
@@ -80,7 +81,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"Impossível carregar usuário com Id '{_userManager.GetUserId(User)}'.");
             }
 
             if (!ModelState.IsValid)
@@ -94,6 +95,8 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
             {
                 var userId = await _userManager.GetUserIdAsync(user);
                 var code = await _userManager.GenerateChangeEmailTokenAsync(user, Input.NewEmail);
+                byte[] tokenGeneratedBytes = Encoding.UTF8.GetBytes(code);
+                code = WebEncoders.Base64UrlEncode(tokenGeneratedBytes);      
                 var callbackUrl = Url.Page(
                     "/Account/ConfirmEmailChange",
                     pageHandler: null,
@@ -101,14 +104,14 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
                     protocol: Request.Scheme);
                 await _emailSender.SendEmailAsync(
                     Input.NewEmail,
-                    "Confirm your email",
-                    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    "Confirme seu e-mail",
+                    Models.EmailConfiguracao.CorpoEmailConfirmarEmail(HtmlEncoder.Default.Encode(callbackUrl))); 
 
-                StatusMessage = "Confirmation link to change email sent. Please check your email.";
+                StatusMessage = $"Enviado um e-mail de confirmação para {Input.NewEmail}. Por favor, verifique seu e-mail.";
                 return RedirectToPage();
             }
 
-            StatusMessage = "Your email is unchanged.";
+            StatusMessage = "Seu e-mail não foi alterado.";
             return RedirectToPage();
         }
 
@@ -117,7 +120,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"Impossível carregar usuário com Id '{_userManager.GetUserId(User)}'.");
             }
 
             if (!ModelState.IsValid)
@@ -129,7 +132,9 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
             var userId = await _userManager.GetUserIdAsync(user);
             var email = await _userManager.GetEmailAsync(user);
             var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+            // code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+            byte[] tokenGeneratedBytes = Encoding.UTF8.GetBytes(code);
+            code = WebEncoders.Base64UrlEncode(tokenGeneratedBytes);      
             var callbackUrl = Url.Page(
                 "/Account/ConfirmEmail",
                 pageHandler: null,
@@ -137,10 +142,10 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
                 protocol: Request.Scheme);
             await _emailSender.SendEmailAsync(
                 email,
-                "Confirm your email",
-                $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                "Confirme seu e-mail",
+                Models.EmailConfiguracao.CorpoEmailConfirmarEmail(HtmlEncoder.Default.Encode(callbackUrl))); 
 
-            StatusMessage = "Verification email sent. Please check your email.";
+            StatusMessage = "E-mail de confirmação enviado. Por favor, verique seu e-mail.";
             return RedirectToPage();
         }
     }

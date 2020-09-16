@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Bom_Dev.Models;
+using System.Linq;
 
 namespace Bom_Dev.Controllers
 {
@@ -14,12 +15,23 @@ namespace Bom_Dev.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string aplicacao = null)
         {
+            var projetos = Models.Projetos.InstanciarProjetos();
+
+            if(!string.IsNullOrEmpty(aplicacao))
+                projetos = projetos
+                    .Where(x => x.Nome.Contains(aplicacao, System.StringComparison.OrdinalIgnoreCase) 
+                        || x.DescricaoBreve.Contains(aplicacao) 
+                        || x.PalavrasChaves.Contains(aplicacao, System.StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+
+            @ViewData["projetos"] = projetos.OrderBy(x => x.DataLancamento).ToList();
+
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Sobre()
         {
             return View();
         }

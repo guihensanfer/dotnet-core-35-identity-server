@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using BomDev.Data;
+using Bom_Dev.Data;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -89,7 +89,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
                         protocol: Request.Scheme);                                        
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirmação de registro",
-                        $"Olá, confirme seu e-mail <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicando aqui</a>.{Models.EmailConfiguracao.ObterAssinaturaPadraoHTML()}");
+                        Models.EmailConfiguracao.CorpoEmailConfirmarEmail(HtmlEncoder.Default.Encode(callbackUrl))); 
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {

@@ -181,8 +181,6 @@
 /home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Razor/Areas/Identity/Pages/_ViewImports.cshtml.g.cs
 /home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Razor/Areas/Identity/Pages/_ViewStart.cshtml.g.cs
 /home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs
-/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Razor/Views/Home/Privacy.cshtml.g.cs
-/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Razor/Views/Home/Produtos.cshtml.g.cs
 /home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Error.cshtml.g.cs
 /home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs
 /home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_LoginPartial.cshtml.g.cs
@@ -198,3 +196,4 @@
 /home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Bom Dev.dll
 /home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Bom Dev.pdb
 /home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Bom Dev.genruntimeconfig.cache
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/obj/Debug/netcoreapp3.1/Razor/Views/Home/Sobre.cshtml.g.cs

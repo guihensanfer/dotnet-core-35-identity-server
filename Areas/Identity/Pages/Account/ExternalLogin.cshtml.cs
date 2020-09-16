@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using BomDev.Data;
+using Bom_Dev.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -49,6 +49,9 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
             [Required]
             [EmailAddress]
             public string Email { get; set; }
+
+            [DataType(DataType.Text)]
+            public string Nome{get;set;}            
         }
 
         public IActionResult OnGetAsync()
@@ -99,7 +102,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
                 {
                     Input = new InputModel
                     {
-                        Email = info.Principal.FindFirstValue(ClaimTypes.Email)
+                        Email = info.Principal.FindFirstValue(ClaimTypes.Email)                        
                     };
                 }
                 return Page();
@@ -119,7 +122,11 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                var user = new BomDevUser { UserName = Input.Email, Email = Input.Email };
+                var user = new BomDevUser { 
+                    UserName = Input.Email, 
+                    Email = Input.Email, 
+                    Nome = info.Principal.FindFirstValue(ClaimTypes.Name) ?? info.Principal.FindFirstValue(ClaimTypes.GivenName)                    
+                };
 
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
@@ -138,8 +145,8 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
                             values: new { area = "Identity", userId = userId, code = code },
                             protocol: Request.Scheme);
 
-                        await _emailSender.SendEmailAsync(Input.Email, "Confirme seu e-mail",
-                            $"Olá, confirme seu e-mail <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicando aqui</a>.{Models.EmailConfiguracao.ObterAssinaturaPadraoHTML()}");
+                        await _emailSender.SendEmailAsync(Input.Email, "Confirme seu e-mail",  
+                            Models.EmailConfiguracao.CorpoEmailConfirmarEmail(HtmlEncoder.Default.Encode(callbackUrl)));                            
 
                         // If account confirmation is required, we need to show the link if we don't have a real email sender
                         if (_userManager.Options.SignIn.RequireConfirmedAccount)

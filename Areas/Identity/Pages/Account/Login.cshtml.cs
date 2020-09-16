@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using BomDev.Data;
+using Bom_Dev.Data;
 
 namespace Bom_Dev.Areas.Identity.Pages.Account
 {
@@ -96,7 +96,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Usuário ou senha inválidos");
                     return Page();
                 }
             }

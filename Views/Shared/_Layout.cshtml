@@ -9,10 +9,10 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light mb-3" style="background:#F5F5F5">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img id="layoutLogo" src="~/img/BomDev.svg" alt="Bom Dev" title="Bom Dev" />
+                <a id="layoutLogo" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" title="Bom Dev">
+                    
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -20,55 +20,57 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Produtos e Serviços
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">                            
-                                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Setores</a>
-                                    <ul class="dropdown-menu">                                    
-                                        @* <li><a class="dropdown-item" href="#">Another submenu action</a></li> *@                                                                                
-                                        <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Finanças/ Investimentos</a>
-                                            <ul class="dropdown-menu">
+                    <ul class="navbar-nav flex-grow-1">     
+                        @{
+                            var projetos = Bom_Dev.Models.Projetos.InstanciarProjetos();
+                            var setores = projetos
+                                .Where(x => x.Ativo)                            
+                                .Select(x => x.Setor)
+                                .Distinct()
+                                .OrderBy(x => x.ToString())
+                                .ToList();
+                            
+                            foreach(var setor in setores)
+                            {
+                                <li class="nav-item dropdown">                                    
+                                    @{
+                                        var p = setor.GetAttribute<System.ComponentModel.DataAnnotations.DisplayAttribute>();
+                                        var x = p is null ? setor.ToString() : p.Name;
+                                        
+                                        <a class="nav-link dropdown-toggle text-dark fundo-arredondado" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @x.ToString()
+                                        </a>
+                                    }
+                                    
+                                    <ul class="dropdown-menu dropdown-menu-bomdev" aria-labelledby="navbarDropdownMenuLink">   
+                                        @{
+                                            var projetosSetor = projetos.Where(p => p.Setor == setor).ToList();
+
+                                            foreach(var projeto in projetosSetor)    
+                                            {
                                                 <li>
                                                     <div class="dropdown-item-bomdev">                                                     
-                                                        <a class="text-dark" href="#">
-                                                            Controle de despesas pessoais                                                    
+                                                        <a class="text-dark" href="@projeto.LinkAcesso">
+                                                            @projeto.Nome
                                                             <p class="text-descricao-P text-dark">
-                                                                Organize suas pendências financeiras de forma fácil e simples. Você possui despesas trimestrais, semestrais ou anuais? Garanta o recurso financeiro para compri-lás e ainda ganhe juros da poupança com isso. Tenha o controle disto e mais nesta ferramenta!
-                                                            </p>
-                                                            <span class="link-destacado text-descricao-M">Saiba mais</span>
-                                                        </a>                                                       
-                                                    </div>                                                                                                                     
-                                                </li>                                               
-                                            </ul>
-                                        </li>                                    
-                                    </ul>
+                                                                @projeto.DescricaoBreve
+                                                            </p>                                            
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                            }
+                                        }                                        
+                                    </ul>                            
                                 </li>
-                                @* <div class="dropdown-divider"></div> *@
-                                @* <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Desenvolvimento sob demanda</a>
-                                    <ul class="dropdown-menu">                                    
-                                        <div class="dropdown-item-bomdev">                                                     
-                                            <a class="text-dark" href="#">
-                                                Desenvolvimento de sistemas webs dedicados                                               
-                                                <p class="text-descricao-P text-dark">
-                                                    Deseja padronizar processos? Ou disponibilizar informações via Web API? Podemos lhe ajudar com o serviço de desenvolvimento da idéia.
-                                                </p>
-                                                <span class="link-destacado text-descricao-M">Saiba mais</span>
-                                            </a>                                                       
-                                        </div>                                        
-                                    </ul>
-                                </li> *@
-                            </ul>                            
-                        </li>
+                            }
+                        }                                           
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Sobre nós</a>
+                            <a class="nav-link text-dark fundo-arredondado" asp-area="" asp-controller="Home" asp-action="Sobre">Sobre nós</a>
                         </li>
                     </ul>
                 </div>
-            </div>
-        </nav>
+            </div>            
+        </nav>        
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -78,7 +80,7 @@
 
     <footer class="footer text-muted">
         <div class="container">
-            &copy; 2020 - Bom Dev - <a asp-area="" asp-controller="Home" asp-action="Privacy">Sobre nós</a>
+            &copy; 2020 - Bom Dev - <a asp-area="" asp-controller="Home" asp-action="Sobre">Sobre nós</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
