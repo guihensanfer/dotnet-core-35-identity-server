@@ -6,8 +6,8 @@
         <ul class="navbar-nav nav-justified w-100 text-center">
             <li class="nav-item">
                 <form method="GET">
-                    <input type="text" name="aplicacao" placeholder="Buscar por aplicação..." required />
-                    <button type="submit" class="btn btn-primary">Buscar</button>
+                    <input type="text" name="aplicacao" style="font-size: 14px!important;" placeholder="Buscar por aplicação..." required />
+                    <button type="submit" class="btn btn-primary" style="font-size:14px!important;">Buscar</button>
                 </form>                
             </li>            
         </ul>
@@ -22,13 +22,14 @@
             foreach(var proj in projetos)
             {
                 string statusDesenvolvimento = proj.EmDesenvolvimentoInicial ? "(Em desenvolvimento) " : null;
+                var p = proj.Setor.GetAttribute<System.ComponentModel.DataAnnotations.DisplayAttribute>();
+                var projetoSetor = p is null ? null : p.Name;
 
-                <li>
-                    <div class="bloco-destaque" style="background-color: @System.Drawing.ColorTranslator.ToHtml(proj.CorIdentidade.Fundo);color:@System.Drawing.ColorTranslator.ToHtml(proj.CorIdentidade.Texto);">
-                        <h3>@proj.Nome</h3>        
-                        <h4>@string.Concat(statusDesenvolvimento, proj.DescricaoBreve)</h4>
-                        <a href="@proj.LinkAcesso">Saiba mais...</a>
-                    </div>
+                <li class="bloco-destaque" style="background-color:@System.Drawing.ColorTranslator.ToHtml(proj.CorIdentidade.Fundo);color:@System.Drawing.ColorTranslator.ToHtml(proj.CorIdentidade.Texto);">                                        
+                    <h3>@proj.Nome</h3>        
+                    <h4>@string.Concat(statusDesenvolvimento, proj.DescricaoBreve)</h4>
+                    <span class="fundo-arredondado text-light fundo-blur">@projetoSetor</span>
+                    <a class="fundo-arredondado fundo-blur text-light" style="margin-top:15px;display:block;text-align:center;" href="@proj.LinkAcesso">Saiba mais...</a>                    
                 </li>
             }
         }        
@@ -38,14 +39,15 @@
 @section Scripts
 {
     <style>
-        #navBarSecundario{background:#F5F5F5;padding-top:10px;padding-bottom:10px;}     
+        #navBarSecundario{background:#F5F5F5;padding-top:0.5%;padding-bottom:0.5%;}     
         .bloco-destaque{
             display: inline-block;
             width:250px;
-            padding:20px;
+            padding:2%;
+            margin-right: 1.5%;
         }   
         @@media (max-width: 580px) {  
-            .bloco-destaque{width: 100%;}
+            .bloco-destaque{width: 50%;}
         }        
     </style>
     <script>

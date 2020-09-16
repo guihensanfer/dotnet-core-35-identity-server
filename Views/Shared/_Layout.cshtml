@@ -27,7 +27,7 @@
                                 .Where(x => x.Ativo)                            
                                 .Select(x => x.Setor)
                                 .Distinct()
-                                .OrderByDescending(x => x.ToString())
+                                .OrderBy(x => x.ToString())
                                 .ToList();
                             
                             foreach(var setor in setores)

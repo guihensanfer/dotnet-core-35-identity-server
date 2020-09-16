@@ -59,7 +59,7 @@ button.accept-policy {
 -------------------------------------------------- */
 html {
   position: relative;
-  min-height: 100%;  
+  min-height: 100%;   
 }
 
 body {
@@ -104,6 +104,10 @@ a {
   padding-left:7px;
   padding-right: 7px;
   border-radius: 15px;
+}
+
+.fundo-blur{
+  background:rgba(0, 0, 0, .09)!important;  
 }
 
 a.fundo-arredondado{

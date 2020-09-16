@@ -26,7 +26,7 @@ namespace Bom_Dev.Controllers
                         || x.PalavrasChaves.Contains(aplicacao, System.StringComparison.OrdinalIgnoreCase))
                     .ToList();
 
-            @ViewData["projetos"] = projetos;
+            @ViewData["projetos"] = projetos.OrderBy(x => x.DataLancamento).ToList();
 
             return View();
         }
