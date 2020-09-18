@@ -46,7 +46,7 @@ namespace Bom_Dev.Models
                 }
             }
             public string PalavrasChaves{get;set;}
-            public DateTime DataLancamento{get;set;}
+            public DateTime? DataLancamento{get;set;}
         }
 
         public static List<Projeto> InstanciarProjetos() => new List<Projeto>(){
@@ -63,7 +63,7 @@ namespace Bom_Dev.Models
                     Fundo = System.Drawing.Color.FromArgb(50, 50, 50) // Quase preto
                 },
                 PalavrasChaves = "Finanças; Dinheiro; Controle; Economia; Poupança",
-                DataLancamento = DateTime.Parse("14/09/2020")
+                DataLancamento = new DateTime(2020, 9, 15)
             },
             new Projeto(){
                 Nome = "Padronizei",
@@ -78,7 +78,7 @@ namespace Bom_Dev.Models
                     Fundo = System.Drawing.Color.FromArgb(110, 72, 29) // Quase preto
                 },
                 PalavrasChaves = "Base de conhecimento; Gestão da informação; Engajamento",
-                DataLancamento = DateTime.Now
+                DataLancamento = null
             },
         };
     }
