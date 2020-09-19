@@ -26,7 +26,15 @@ namespace Bom_Dev
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<Bom_Dev.Data.BomDevUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<Bom_Dev.Data.BomDevUser>(options => {
+                    options.SignIn.RequireConfirmedAccount = true;
+                    
+                    // Senha
+                    options.Password.RequiredLength = 8;
+                    options.Password.RequireLowercase = false;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireNonAlphanumeric = false;                    
+                })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             
             // Login com Google
