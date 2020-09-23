@@ -8,6 +8,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Bom_Dev.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System;
 
 namespace Bom_Dev
 {
@@ -33,7 +35,10 @@ namespace Bom_Dev
                     options.Password.RequiredLength = 8;
                     options.Password.RequireLowercase = false;
                     options.Password.RequireUppercase = false;
-                    options.Password.RequireNonAlphanumeric = false;                    
+                    options.Password.RequireNonAlphanumeric = false;      
+
+                    // Máximo tentativas login
+                    options.Lockout.MaxFailedAccessAttempts = 5;              
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             
@@ -44,7 +49,17 @@ namespace Bom_Dev
             });
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddTransient<IEmailSender, EmailConfiguracao>();
+            services.AddTransient<IEmailSender, EmailConfiguracao>();      
+
+            services.ConfigureApplicationCookie(options =>  
+            {  
+                // Cookie settings  
+                options.Cookie.HttpOnly = true;  
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);  
+                options.LoginPath = "/Identity/Pages/Account/Login";  
+                options.AccessDeniedPath = "/Identity/Account/AccessDenied";  
+                options.SlidingExpiration = true;  
+            });  
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -75,7 +90,7 @@ namespace Bom_Dev
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
-            });
+            });            
         }
     }
 }
