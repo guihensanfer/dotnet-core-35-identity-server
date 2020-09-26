@@ -14412,18 +14412,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Teste/Views/Shared/_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Teste\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Views/_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Teste/Views/Home/Index.cshtml",
-      "TargetPath": "Teste\\Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14497,11 +14487,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Teste/Views/Shared/_LoginPartial.cshtml",
-      "TargetPath": "Teste\\Views\\Shared\\_LoginPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Views/Shared/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
@@ -14524,11 +14509,6 @@
     {
       "FilePath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Teste/Views/Shared/Error.cshtml",
-      "TargetPath": "Teste\\Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14562,11 +14542,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Teste/Views/Home/Privacy.cshtml",
-      "TargetPath": "Teste\\Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\ForgotPasswordConfirmation.cshtml",
       "FileKind": "mvc"
@@ -14579,16 +14554,6 @@
     {
       "FilePath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_StatusMessage.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Teste/Views/_ViewImports.cshtml",
-      "TargetPath": "Teste\\Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Teste/Views/_ViewStart.cshtml",
-      "TargetPath": "Teste\\Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14619,11 +14584,6 @@
     {
       "FilePath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_ManageNav.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Teste/Views/Shared/_Layout.cshtml",
-      "TargetPath": "Teste\\Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14659,11 +14619,6 @@
     {
       "FilePath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/Bom Dev/Teste/Areas/Identity/Pages/_ViewStart.cshtml",
-      "TargetPath": "Teste\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {

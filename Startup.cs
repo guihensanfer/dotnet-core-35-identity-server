@@ -38,7 +38,7 @@ namespace Bom_Dev
                     options.Password.RequireNonAlphanumeric = false;      
 
                     // Máximo tentativas login
-                    options.Lockout.MaxFailedAccessAttempts = 5;              
+                    options.Lockout.MaxFailedAccessAttempts = 3;              
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             
