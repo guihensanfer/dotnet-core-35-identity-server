@@ -1,4 +1,4 @@
-comusing Bom_Dev.Data;
+using Bom_Dev.Data;
 using Bom_Dev.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
