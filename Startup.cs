@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Bom_Dev.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System;
+using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.Http;
 
 namespace Bom_Dev
 {
@@ -46,20 +48,27 @@ namespace Bom_Dev
             services.AddAuthentication().AddGoogle(g => {
                 g.ClientSecret = Configuration.GetValue<string>("GoogleLogin:ClientSecret");
                 g.ClientId = Configuration.GetValue<string>("GoogleLogin:ClientId");                                
+            })
+            .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options => {
+                options.Cookie.Name = "_auth";
+                options.Cookie.HttpOnly = true;
+                options.LoginPath = new PathString("/account/login");
+                options.LogoutPath = new PathString("/account/logout");
+                options.AccessDeniedPath = new PathString("/account/login");
+                options.ExpireTimeSpan = TimeSpan.FromDays(1);
+                options.SlidingExpiration = false;            
             });
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddTransient<IEmailSender, EmailConfiguracao>();      
 
-            services.ConfigureApplicationCookie(options =>  
-            {  
-                // Cookie settings  
-                options.Cookie.HttpOnly = true;  
-                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);  
-                options.LoginPath = "/Identity/Pages/Account/Login";  
-                options.AccessDeniedPath = "/Identity/Account/AccessDenied";  
-                options.SlidingExpiration = true;  
-            });  
+            // services.AddDataProtection()
+            //     .PersistKeysToFileSystem(new System.IO.DirectoryInfo(""))
+            //     .SetApplicationName("BomDev");
+
+            // services.ConfigureApplicationCookie(options => {
+            //     options.Cookie.Name = ".BomDev.BomDevUserSharedCookie";
+            // });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -79,10 +88,10 @@ namespace Bom_Dev
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseRouting();
+            app.UseRouting();            
 
             app.UseAuthentication();
-            app.UseAuthorization();
+            app.UseAuthorization();            
 
             app.UseEndpoints(endpoints =>
             {
