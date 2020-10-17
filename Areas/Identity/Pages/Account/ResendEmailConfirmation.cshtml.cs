@@ -41,7 +41,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
         {            
             if(!string.IsNullOrEmpty(email))
             {
-                var user = _userManager.FindByEmailAsync(email);
+                var user = await _userManager.FindByEmailAsync(email);
 
                 if(user is null)                
                     return NotFound($"Usuário com e-mail {email} não encontrado.");

@@ -75,17 +75,15 @@ body {
 }
 
 #layoutLogo{  
-  width: 48px;
-  height: 40px;
+  width: 82px;
+  height: 16px;
   background-image: url(../img/BomDev.svg);  
   background-repeat: no-repeat;  
-  background-size: 48px 39.375px;  
+  background-size: 82px 16px;  
 }
 h1,h2,h3,h4,h5,a,span,p, label{font-family: 'Lato', sans-serif;}
 h4,h5,p{font-weight: 300;}
-.text-descricao-P{font-size: 70%;}
-.text-descricao-M{font-size: 85%;}
-.text-descricao-G{font-size: 90%;}
+.text-descricao-P{font-size: 90%;}
 .link-destacado{color:#1e90ff;}
 
 /* Provide sufficient contrast against white background */

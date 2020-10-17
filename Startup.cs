@@ -1,13 +1,15 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Bom_Dev.Data;
+using Bom_Dev.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.AspNetCore.Identity.UI.Services;
-using Bom_Dev.Models;
+using System;
 
 namespace Bom_Dev
 {
@@ -26,17 +28,45 @@ namespace Bom_Dev
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<Bom_Dev.Data.BomDevUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<Bom_Dev.Data.BomDevUser>(options => {
+                    options.SignIn.RequireConfirmedAccount = true;
+                    
+                    // Senha
+                    options.Password.RequiredLength = 8;
+                    options.Password.RequireLowercase = false;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireNonAlphanumeric = false;      
+
+                    // Máximo tentativas login
+                    options.Lockout.MaxFailedAccessAttempts = 3;              
+                })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             
             // Login com Google
             services.AddAuthentication().AddGoogle(g => {
                 g.ClientSecret = Configuration.GetValue<string>("GoogleLogin:ClientSecret");
                 g.ClientId = Configuration.GetValue<string>("GoogleLogin:ClientId");                                
+            })
+            .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options => {
+                options.Cookie.Name = "_auth";
+                options.Cookie.HttpOnly = true;
+                options.LoginPath = new PathString("/account/login");
+                options.LogoutPath = new PathString("/account/logout");
+                options.AccessDeniedPath = new PathString("/account/login");
+                options.ExpireTimeSpan = TimeSpan.FromDays(1);
+                options.SlidingExpiration = false;            
             });
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddTransient<IEmailSender, EmailConfiguracao>();
+            services.AddTransient<IEmailSender, EmailConfiguracao>();      
+
+            // services.AddDataProtection()
+            //     .PersistKeysToFileSystem(new System.IO.DirectoryInfo(""))
+            //     .SetApplicationName("BomDev");
+
+            // services.ConfigureApplicationCookie(options => {
+            //     options.Cookie.Name = ".BomDev.BomDevUserSharedCookie";
+            // });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,10 +86,10 @@ namespace Bom_Dev
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseRouting();
+            app.UseRouting();            
 
             app.UseAuthentication();
-            app.UseAuthorization();
+            app.UseAuthorization();            
 
             app.UseEndpoints(endpoints =>
             {
@@ -67,7 +97,7 @@ namespace Bom_Dev
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
-            });
+            });            
         }
     }
 }
