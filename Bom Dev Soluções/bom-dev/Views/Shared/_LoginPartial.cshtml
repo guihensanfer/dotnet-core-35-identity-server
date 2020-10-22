@@ -1,0 +1,34 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<BomDevUser> SignInManager
+@inject UserManager<BomDevUser> UserManager
+
+@{
+    var nomeUser = UserManager.GetUserAsync(User).Result?.Nome ?? User.Identity.Name;
+}
+
+<ul class="navbar-nav">
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark fundo-arredondado" asp-area="Identity" style="max-width: 13em;overflow:hidden;white-space:nowrap;text-overflow: ellipsis;" asp-page="/Account/Manage/Index" title="Minha conta @nomeUser">@nomeUser</a>
+    </li>
+    <li class="nav-item">
+        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button type="submit" class="nav-link btn btn-link fundo-arredondado" style="color:#FF0000;">Sair</button>
+        </form>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark fundo-arredondado" asp-area="Identity" asp-page="/Account/Register">              
+            Cadastrar-se
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark fundo-arredondado" asp-area="Identity" asp-page="/Account/Login">                            
+            Login
+        </a>
+    </li>
+}
+</ul>
