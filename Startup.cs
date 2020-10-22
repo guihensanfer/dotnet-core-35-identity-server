@@ -1,15 +1,13 @@
 using Bom_Dev.Data;
 using Bom_Dev.Models;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
 
 namespace Bom_Dev
 {
@@ -41,32 +39,26 @@ namespace Bom_Dev
                     options.Lockout.MaxFailedAccessAttempts = 3;              
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            
+
             // Login com Google
-            services.AddAuthentication().AddGoogle(g => {
+            services.AddAuthentication().AddGoogle(g =>
+            {
                 g.ClientSecret = Configuration.GetValue<string>("GoogleLogin:ClientSecret");
-                g.ClientId = Configuration.GetValue<string>("GoogleLogin:ClientId");                                
-            })
-            .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options => {
-                options.Cookie.Name = "_auth";
-                options.Cookie.HttpOnly = true;
-                options.LoginPath = new PathString("/account/login");
-                options.LogoutPath = new PathString("/account/logout");
-                options.AccessDeniedPath = new PathString("/account/login");
-                options.ExpireTimeSpan = TimeSpan.FromDays(1);
-                options.SlidingExpiration = false;            
+                g.ClientId = Configuration.GetValue<string>("GoogleLogin:ClientId");
             });
+            
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddTransient<IEmailSender, EmailConfiguracao>();      
+            services.AddTransient<IEmailSender, EmailConfiguracao>();
 
-            // services.AddDataProtection()
-            //     .PersistKeysToFileSystem(new System.IO.DirectoryInfo(""))
-            //     .SetApplicationName("BomDev");
+            services.AddDataProtection()                
+                .PersistKeysToFileSystem(new System.IO.DirectoryInfo("C:\\BomDevAuth"))
+                .SetApplicationName("SharedCookieApp");
 
-            // services.ConfigureApplicationCookie(options => {
-            //     options.Cookie.Name = ".BomDev.BomDevUserSharedCookie";
-            // });
+            services.ConfigureApplicationCookie(options => {
+                options.Cookie.Name = ".AspNet.SharedCookie";
+                options.Cookie.Path = "/";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

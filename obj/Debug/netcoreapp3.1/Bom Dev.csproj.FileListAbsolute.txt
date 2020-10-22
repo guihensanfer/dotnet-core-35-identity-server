@@ -530,9 +530,6 @@ C:\Users\guihe\source\repos\bom-dev\bin\Debug\netcoreapp3.1\runtimes\win\lib\net
 C:\Users\guihe\source\repos\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.csprojAssemblyReference.cache
 C:\Users\guihe\source\repos\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.AssemblyInfoInputs.cache
 C:\Users\guihe\source\repos\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.AssemblyInfo.cs
-C:\Users\guihe\source\repos\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.csproj.CoreCompileInputs.cache
-C:\Users\guihe\source\repos\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\guihe\source\repos\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\guihe\source\repos\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.RazorAssemblyInfo.cache
 C:\Users\guihe\source\repos\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.RazorAssemblyInfo.cs
 C:\Users\guihe\source\repos\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.TagHelpers.input.cache
@@ -594,3 +591,12 @@ C:\Users\guihe\source\repos\bom-dev\obj\Debug\netcoreapp3.1\staticwebassets\Bom 
 C:\Users\guihe\source\repos\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.dll
 C:\Users\guihe\source\repos\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.pdb
 C:\Users\guihe\source\repos\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.genruntimeconfig.cache
+C:\Users\guihe\source\repos\bom-dev\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
+C:\Users\guihe\source\repos\bom-dev\bin\Debug\netcoreapp3.1\EntityFramework.dll
+C:\Users\guihe\source\repos\bom-dev\bin\Debug\netcoreapp3.1\System.CodeDom.dll
+C:\Users\guihe\source\repos\bom-dev\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\guihe\source\repos\bom-dev\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\guihe\source\repos\bom-dev\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\guihe\source\repos\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.csproj.CoreCompileInputs.cache
+C:\Users\guihe\source\repos\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\guihe\source\repos\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.MvcApplicationPartsAssemblyInfo.cache
