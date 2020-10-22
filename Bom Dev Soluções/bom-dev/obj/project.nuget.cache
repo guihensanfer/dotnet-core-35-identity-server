@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8SqRios5Nb2HCtJkmJkeH3kTjk+UI8a1ysZ93E7EFphUfLAoEr9q3So9NgCqwob0bhXZWeMlKvZmi0LvTFZq4g==",
+  "dgSpecHash": "zqjI5pp6etQXNoNSeUQP9NfqD7/NX5i7V0hNNFEJk+8IfUBAd8CMDNKS9zz0n0vbN7uHV71nGWJtz+CQ5yHcuA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\guihe\\source\\repos\\Bom Dev Soluções\\bom-dev\\Bom Dev Soluções\\bom-dev\\Bom Dev.csproj",
+  "projectFilePath": "C:\\Users\\guihe\\source\\repos\\Bom Dev Soluções\\Bom Dev Soluções\\bom-dev\\Bom Dev.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\guihe\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\3.1.6\\microsoft.aspnetcore.authentication.google.3.1.6.nupkg.sha512",

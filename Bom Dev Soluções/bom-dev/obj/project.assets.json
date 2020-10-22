@@ -9047,11 +9047,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\guihe\\source\\repos\\Bom Dev Soluções\\bom-dev\\Bom Dev Soluções\\bom-dev\\Bom Dev.csproj",
+      "projectUniqueName": "C:\\Users\\guihe\\source\\repos\\Bom Dev Soluções\\Bom Dev Soluções\\bom-dev\\Bom Dev.csproj",
       "projectName": "Bom Dev",
-      "projectPath": "C:\\Users\\guihe\\source\\repos\\Bom Dev Soluções\\bom-dev\\Bom Dev Soluções\\bom-dev\\Bom Dev.csproj",
+      "projectPath": "C:\\Users\\guihe\\source\\repos\\Bom Dev Soluções\\Bom Dev Soluções\\bom-dev\\Bom Dev.csproj",
       "packagesPath": "C:\\Users\\guihe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\guihe\\source\\repos\\Bom Dev Soluções\\bom-dev\\Bom Dev Soluções\\bom-dev\\obj\\",
+      "outputPath": "C:\\Users\\guihe\\source\\repos\\Bom Dev Soluções\\Bom Dev Soluções\\bom-dev\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
