@@ -26,7 +26,7 @@ namespace Bom_Dev
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<Bom_Dev.Data.BomDevUser>(options => {
+                    services.AddDefaultIdentity<BomDevUser>(options => {
                     options.SignIn.RequireConfirmedAccount = true;
                     
                     // Senha
