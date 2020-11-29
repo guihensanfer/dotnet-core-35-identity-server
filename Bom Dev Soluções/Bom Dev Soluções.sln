@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bom Dev", "bom-dev\Bom Dev.csproj", "{534FBC87-385A-4043-9681-268B619B09A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BomDevAPI", "BomDevAPI\BomDevAPI.csproj", "{E14A2308-38B2-464D-A3A5-8A12CC598C1B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

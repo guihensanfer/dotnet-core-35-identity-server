@@ -75,11 +75,11 @@ body {
 }
 
 #layoutLogo{  
-  width: 82px;
-  height: 16px;
+  width: 92px;
+  height: 17px;
   background-image: url(../img/BomDev.svg);  
   background-repeat: no-repeat;  
-  background-size: 82px 16px;  
+  background-size: 92px 17px;  
 }
 h1,h2,h3,h4,h5,a,span,p, label{font-family: 'Lato', sans-serif;}
 h4,h5,p{font-weight: 300;}
@@ -94,14 +94,14 @@ a {
 .nav-item{margin-left: 4px;}
 
 .fundo-arredondado{
-  background:rgba(0, 0, 0, .03);
+  /* background:rgba(0, 0, 0, .03); */
   font-size:85%;
   font-weight: 400;
-  padding-top:3px;
+  /* padding-top:3px;
   padding-bottom:3px;
   padding-left:7px;
   padding-right: 7px;
-  border-radius: 15px;
+  border-radius: 15px; */
 }
 
 .fundo-blur{

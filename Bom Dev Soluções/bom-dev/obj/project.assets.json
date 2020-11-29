@@ -9041,30 +9041,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\guihe\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/home/guilherme/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\guihe\\source\\repos\\Bom Dev Soluções\\Bom Dev Soluções\\bom-dev\\Bom Dev.csproj",
+      "projectUniqueName": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/Bom Dev.csproj",
       "projectName": "Bom Dev",
-      "projectPath": "C:\\Users\\guihe\\source\\repos\\Bom Dev Soluções\\Bom Dev Soluções\\bom-dev\\Bom Dev.csproj",
-      "packagesPath": "C:\\Users\\guihe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\guihe\\source\\repos\\Bom Dev Soluções\\Bom Dev Soluções\\bom-dev\\obj\\",
+      "projectPath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/Bom Dev.csproj",
+      "packagesPath": "/home/guilherme/.nuget/packages/",
+      "outputPath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\guihe\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/guilherme/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -9140,7 +9134,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.404/RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -51,14 +51,14 @@ namespace Bom_Dev
             services.AddRazorPages();
             services.AddTransient<IEmailSender, EmailConfiguracao>();
 
-            services.AddDataProtection()                
-                .PersistKeysToFileSystem(new System.IO.DirectoryInfo("C:\\BomDevAuth"))
-                .SetApplicationName("SharedCookieApp");
+            // services.AddDataProtection()                
+            //     .PersistKeysToFileSystem(new System.IO.DirectoryInfo("C:\\BomDevAuth"))
+            //     .SetApplicationName("SharedCookieApp");
 
-            services.ConfigureApplicationCookie(options => {
-                options.Cookie.Name = ".AspNet.SharedCookie";
-                options.Cookie.Path = "/";
-            });
+            // services.ConfigureApplicationCookie(options => {
+            //     options.Cookie.Name = ".AspNet.SharedCookie";
+            //     options.Cookie.Path = "/";
+            // });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
