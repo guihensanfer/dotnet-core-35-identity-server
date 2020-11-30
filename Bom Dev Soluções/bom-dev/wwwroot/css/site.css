@@ -108,11 +108,6 @@ a {
   background:rgba(0, 0, 0, .09)!important;  
 }
 
-a.fundo-arredondado{
-  padding-top:4px;
-  padding-bottom: 4px;
-}
-
 .text-info
 {
   color: #323232!important;
@@ -148,8 +143,5 @@ input[type="text"],input[type="email"], input[type="tel"],input[type="password"]
 @media (max-width: 580px) {  
   .fundo-arredondado{
     background:transparent;      
-  }  
-  .fundo-arredondado{
-    background:transparent;      
-  }  
+  }    
 }

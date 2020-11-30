@@ -26,39 +26,47 @@ namespace Bom_Dev
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-                    services.AddDefaultIdentity<BomDevUser>(options => {
-                    options.SignIn.RequireConfirmedAccount = true;
-                    
-                    // Senha
-                    options.Password.RequiredLength = 8;
-                    options.Password.RequireLowercase = false;
-                    options.Password.RequireUppercase = false;
-                    options.Password.RequireNonAlphanumeric = false;      
+            services.AddDefaultIdentity<BomDevUser>(options => {
+                options.SignIn.RequireConfirmedAccount = true;
+                
+                // Senha
+                options.Password.RequiredLength = 8;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonAlphanumeric = false;      
 
-                    // Máximo tentativas login
-                    options.Lockout.MaxFailedAccessAttempts = 3;              
-                })
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                // Máximo tentativas login
+                options.Lockout.MaxFailedAccessAttempts = 3;              
+            })            
+            .AddEntityFrameworkStores<ApplicationDbContext>();
 
             // Login com Google
             services.AddAuthentication().AddGoogle(g =>
             {
                 g.ClientSecret = Configuration.GetValue<string>("GoogleLogin:ClientSecret");
                 g.ClientId = Configuration.GetValue<string>("GoogleLogin:ClientId");
-            });
+            });            
             
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddTransient<IEmailSender, EmailConfiguracao>();
 
-            // services.AddDataProtection()                
-            //     .PersistKeysToFileSystem(new System.IO.DirectoryInfo("C:\\BomDevAuth"))
-            //     .SetApplicationName("SharedCookieApp");
+            // Identity Server
+            services.AddIdentityServer()
+                .AddDeveloperSigningCredential()
+                .AddInMemoryApiScopes(Config.GetApiScopes())
+                .AddInMemoryApiResources(Config.GetApiResources())
+                .AddInMemoryClients(Config.GetClients())
+                .AddTestUsers(Config.GetUsers());
+                // .AddAspNetIdentity<BomDevUser>();
 
-            // services.ConfigureApplicationCookie(options => {
-            //     options.Cookie.Name = ".AspNet.SharedCookie";
-            //     options.Cookie.Path = "/";
-            // });
+            services.AddAuthentication("Bearer")
+                .AddIdentityServerAuthentication(options =>
+                {
+                    options.Authority = "https://localhost:5001/";
+                    options.RequireHttpsMetadata = false;
+                    options.ApiName = "api1";
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -78,8 +86,11 @@ namespace Bom_Dev
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseRouting();            
 
+            app.UseIdentityServer();
+
+            app.UseRouting();            
+            
             app.UseAuthentication();
             app.UseAuthorization();            
 

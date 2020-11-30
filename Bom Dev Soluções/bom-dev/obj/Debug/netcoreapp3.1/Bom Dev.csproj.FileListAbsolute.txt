@@ -211,3 +211,18 @@
 /home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/obj/Debug/netcoreapp3.1/Bom Dev.dll
 /home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/obj/Debug/netcoreapp3.1/Bom Dev.pdb
 /home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/obj/Debug/netcoreapp3.1/Bom Dev.genruntimeconfig.cache
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/bin/Debug/netcoreapp3.1/IdentityModel.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/bin/Debug/netcoreapp3.1/IdentityServer4.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/bin/Debug/netcoreapp3.1/IdentityServer4.AspNetIdentity.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/bin/Debug/netcoreapp3.1/IdentityServer4.Storage.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Logging.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Tokens.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/bin/Debug/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/bin/Debug/netcoreapp3.1/System.Text.Encodings.Web.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/bin/Debug/netcoreapp3.1/IdentityModel.AspNetCore.OAuth2Introspection.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/bin/Debug/netcoreapp3.1/IdentityServer4.AccessTokenValidation.dll
+/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll

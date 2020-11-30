@@ -54,6 +54,13 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
             public bool RememberMe { get; set; }
         }
 
+        [Authorize]
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return new JsonResult(from c in User.Claims select new { c.Type, c.Value });
+        }
+
         public async Task OnGetAsync(string returnUrl = null)
         {
             if (!string.IsNullOrEmpty(ErrorMessage))
