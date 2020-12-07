@@ -29,7 +29,7 @@ namespace Bom_Dev.Controllers
             @ViewData["projetos"] = projetos.OrderBy(x => x.DataLancamento).ToList();            
 
             return View();
-        }
+        }                      
 
         public IActionResult Sobre()
         {

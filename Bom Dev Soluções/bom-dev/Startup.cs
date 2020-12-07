@@ -1,5 +1,12 @@
+using System.Net;
+using System.Net.Http;
+using System.Net.Security;
+using System.Security.Authentication;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using Bom_Dev.Data;
 using Bom_Dev.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
@@ -8,6 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Logging;
 
 namespace Bom_Dev
 {
@@ -22,7 +30,34 @@ namespace Bom_Dev
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        {      
+            // Identity Server
+            services.AddIdentityServer(o => {
+                o.Events.RaiseErrorEvents = true;
+                o.Events.RaiseInformationEvents = true;
+                o.Events.RaiseFailureEvents = true;
+                o.Events.RaiseSuccessEvents = true;                                
+            })            
+            .AddDeveloperSigningCredential()
+            .AddInMemoryApiScopes(Config.GetApiScopes())            
+            .AddInMemoryClients(Config.GetClients())
+            .AddTestUsers(Config.GetUsers())
+            .AddJwtBearerClientAuthentication()           
+            .AddDeveloperSigningCredential() 
+            .AddInMemoryApiResources(Config.GetApiResources());         
+           
+            // .AddAspNetIdentity<BomDevUser>();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddIdentityServerAuthentication(options =>
+                {
+                    options.Authority = "https://localhost:5001";                    
+                    options.RequireHttpsMetadata = false;
+                    options.ApiName = "api1";                                                                                                                               
+                });        
+
+            IdentityModelEventSource.ShowPII = true; //Add this line
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -51,27 +86,17 @@ namespace Bom_Dev
             services.AddRazorPages();
             services.AddTransient<IEmailSender, EmailConfiguracao>();
 
-            // Identity Server
-            services.AddIdentityServer()
-                .AddDeveloperSigningCredential()
-                .AddInMemoryApiScopes(Config.GetApiScopes())
-                .AddInMemoryApiResources(Config.GetApiResources())
-                .AddInMemoryClients(Config.GetClients())
-                .AddTestUsers(Config.GetUsers());
-                // .AddAspNetIdentity<BomDevUser>();
-
-            services.AddAuthentication("Bearer")
-                .AddIdentityServerAuthentication(options =>
-                {
-                    options.Authority = "https://localhost:5001/";
-                    options.RequireHttpsMetadata = false;
-                    options.ApiName = "api1";
-                });
+                                           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
+        {                        
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls
+            | SecurityProtocolType.Tls11
+            | SecurityProtocolType.Tls12;
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -86,21 +111,19 @@ namespace Bom_Dev
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-
-            app.UseIdentityServer();
-
-            app.UseRouting();            
+            app.UseRouting();    
             
-            app.UseAuthentication();
-            app.UseAuthorization();            
+            app.UseIdentityServer();                                                                                                                  
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
-            {
+            {                
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");              
                 endpoints.MapRazorPages();
             });            
+                       
         }
     }
 }

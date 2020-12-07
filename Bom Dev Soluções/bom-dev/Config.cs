@@ -1,3 +1,4 @@
+using IdentityServer4;
 using IdentityServer4.Models;
 using IdentityServer4.Test;
 using System.Collections.Generic;
@@ -13,16 +14,20 @@ namespace Bom_Dev
                 new ApiScope
                 {
                     Name = "api1",
-                    Emphasize=true,
+                    Emphasize=true,                    
                 },
-            };
-        }
 
+                new  ApiScope(IdentityServerConstants.StandardScopes.OpenId)
+            };
+        }              
         public static IEnumerable<ApiResource> GetApiResources()
         {
             return new List<ApiResource>
             {
                 new ApiResource("api1", "Nossa API")
+                {
+                    
+                }
             };
         }
 
@@ -38,7 +43,15 @@ namespace Bom_Dev
                     {
                         new Secret("secret".Sha256())
                     },
-                    AllowedScopes = { "api1" }                                  
+                    AllowAccessTokensViaBrowser = true,
+                    AllowOfflineAccess = true,
+                    AlwaysSendClientClaims = true,
+                    AlwaysIncludeUserClaimsInIdToken = true,
+                    
+                    AllowedScopes = { 
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        // IdentityServerConstants.StandardScopes.Profile,
+                        "api1" }                                  
                 }
             };
         }
@@ -51,7 +64,7 @@ namespace Bom_Dev
                 {
                     SubjectId = "1",
                     Username = "guilherme",
-                    Password = "123456"
+                    Password = "123456"                
                 },
                 new TestUser
                 {
