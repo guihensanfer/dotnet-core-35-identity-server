@@ -3,12 +3,13 @@ using Microsoft.Extensions.Logging;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using IdentityServer4.AccessTokenValidation;
 
 namespace Bom_Dev.Controllers
 {    
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("api/[controller]")]
-    [Produces("application/json")]
+    [ApiController]
     public class AuthController : ControllerBase
     {
         private readonly ILogger<HomeController> _logger;
@@ -20,11 +21,10 @@ namespace Bom_Dev.Controllers
 
         [HttpGet]       
         [Route("get")] 
-        public string Get()
+        public IActionResult Get()
         {
             _logger.LogInformation("teste");
-return "teste";
-            // return new JsonResult(from c in User.Claims select new { c.Type, c.Value });
+            return new JsonResult(from c in User.Claims select new { c.Type, c.Value });
         }
     }
 }

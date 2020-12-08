@@ -1,11 +1,15 @@
+Commitusing System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Net.Http;
 using System.Net.Security;
 using System.Security.Authentication;
 using System.Security.Claims;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Bom_Dev.Data;
 using Bom_Dev.Models;
+using IdentityModel;
+using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
@@ -30,7 +34,11 @@ namespace Bom_Dev
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {      
+        {     
+            services.AddControllersWithViews();
+            services.AddRazorPages();
+            services.AddTransient<IEmailSender, EmailConfiguracao>();
+
             // Identity Server
             services.AddIdentityServer(o => {
                 o.Events.RaiseErrorEvents = true;
@@ -48,15 +56,13 @@ namespace Bom_Dev
            
             // .AddAspNetIdentity<BomDevUser>();
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddIdentityServerAuthentication(options =>
-                {
-                    options.Authority = "https://localhost:5001";                    
-                    options.RequireHttpsMetadata = false;
-                    options.ApiName = "api1";                                                                                                                               
-                });        
-
-            IdentityModelEventSource.ShowPII = true; //Add this line
+            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+            .AddIdentityServerAuthentication(options =>
+            {
+                options.Authority = "https://localhost:5001";                    
+                options.RequireHttpsMetadata = false;
+                options.ApiName = "api1";                                                                                                                                                            
+            });                                           
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
@@ -80,22 +86,28 @@ namespace Bom_Dev
             {
                 g.ClientSecret = Configuration.GetValue<string>("GoogleLogin:ClientSecret");
                 g.ClientId = Configuration.GetValue<string>("GoogleLogin:ClientId");
-            });            
-            
-            services.AddControllersWithViews();
-            services.AddRazorPages();
-            services.AddTransient<IEmailSender, EmailConfiguracao>();
+            });                                                                           
+        }
 
-                                           
+        public static bool ValidateServerCertificate(object sender,X509Certificate certificate,X509Chain chain,SslPolicyErrors sslPolicyErrors)
+        {
+            return true;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {                        
+        {  
+            IdentityModelEventSource.ShowPII = true;                      
             ServicePointManager.Expect100Continue = true;
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls
             | SecurityProtocolType.Tls11
             | SecurityProtocolType.Tls12;
+            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) =>
+            {
+                // local dev, just approve all certs
+                if (env.IsDevelopment()) return true;
+                return errors == SslPolicyErrors.None ;
+            };
 
             if (env.IsDevelopment())
             {
@@ -113,8 +125,10 @@ namespace Bom_Dev
 
             app.UseRouting();    
             
-            app.UseIdentityServer();                                                                                                                  
-            app.UseAuthorization();
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+            app.UseAuthentication();
+            app.UseIdentityServer();      
+            app.UseAuthorization();   
 
             app.UseEndpoints(endpoints =>
             {                
