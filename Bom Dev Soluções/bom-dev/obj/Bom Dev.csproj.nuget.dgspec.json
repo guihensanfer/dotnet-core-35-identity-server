@@ -1,25 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/Bom Dev.csproj": {}
+    "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\bom-dev\\Bom Dev.csproj": {}
   },
   "projects": {
-    "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/Bom Dev.csproj": {
+    "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\bom-dev\\Bom Dev.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/Bom Dev.csproj",
+        "projectUniqueName": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\bom-dev\\Bom Dev.csproj",
         "projectName": "Bom Dev",
-        "projectPath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/Bom Dev.csproj",
-        "packagesPath": "/home/guilherme/.nuget/packages/",
-        "outputPath": "/home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/obj/",
+        "projectPath": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\bom-dev\\Bom Dev.csproj",
+        "packagesPath": "C:\\Users\\guihe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\bom-dev\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/home/guilherme/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\guihe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,18 +44,6 @@
             "EntityFramework": {
               "target": "Package",
               "version": "[6.4.4, )"
-            },
-            "IdentityServer4": {
-              "target": "Package",
-              "version": "[4.1.1, )"
-            },
-            "IdentityServer4.AccessTokenValidation": {
-              "target": "Package",
-              "version": "[3.0.1, )"
-            },
-            "IdentityServer4.AspNetIdentity": {
-              "target": "Package",
-              "version": "[4.1.1, )"
             },
             "Microsoft.AspNetCore.Authentication.Google": {
               "target": "Package",
@@ -107,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.404/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
