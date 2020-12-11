@@ -53,15 +53,9 @@ namespace Bom_Dev.Controllers
             var apiResponse = apiClient.GetAsync
         ("https://localhost:44302/auth").Result;
             var jsonApiData = apiResponse.Content.
-        ReadAsStringAsync().Result;
+        ReadAsStringAsync().Result;            
 
-            List<string> apiData =JsonConvert.DeserializeObject
-        <List<string>>(jsonApiData);
-
-            if (apiData is null || !apiData.Any())
-                return Unauthorized("Acesso não autorizado.");
-
-            return View(apiData);
+            return View(jsonApiData);
         }
     }
 }

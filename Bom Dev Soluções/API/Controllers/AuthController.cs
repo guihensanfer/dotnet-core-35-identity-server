@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace API.Controllers
 {
@@ -10,9 +10,9 @@ namespace API.Controllers
     public class AuthController : ControllerBase
     {        
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "Acesso liberado!" };
+            return new JsonResult(from c in User.Claims select new { c.Type, c.Value });
         }
     }
 }

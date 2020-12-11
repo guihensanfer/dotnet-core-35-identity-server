@@ -1,4 +1,5 @@
-﻿using IdentityServer4.Models;
+﻿using IdentityServer4;
+using IdentityServer4.Models;
 using IdentityServer4.Test;
 using System;
 using System.Collections.Generic;
@@ -77,6 +78,33 @@ namespace IdentityServer
                         "roles",
                         "employeesWebApi"
                     }
+                };
+
+                Client client2 = new Client
+                {
+                    ClientName = "Client 2",
+                    ClientId = "client2",
+                    ClientSecrets = {
+                new Secret("client2_secret_code".Sha512())
+                    },
+                        AllowedGrantTypes = GrantTypes.Hybrid,
+                        AllowedScopes = {
+                    IdentityServerConstants.StandardScopes.OpenId,
+                    IdentityServerConstants.StandardScopes.Profile,
+                    IdentityServerConstants.StandardScopes.Address,
+                    IdentityServerConstants.StandardScopes.Email,
+                    IdentityServerConstants.StandardScopes.Phone,
+                    "employeesWebApi",
+                    "roles"
+                },
+                        RedirectUris = new List<string> {
+                    "http://localhost:5010/signin-oidc"
+                },
+                        PostLogoutRedirectUris = new List<string> {
+                    "http://localhost:5010/signout-callback-oidc"
+                },
+                    RequirePkce = false,
+                    RequireConsent = true
                 };
 
                 List<Client> clients = new List<Client>();

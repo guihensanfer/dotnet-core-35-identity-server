@@ -1,5 +1,6 @@
 using Bom_Dev.Data;
 using Bom_Dev.Models;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Bom_Dev
 {
@@ -51,6 +53,34 @@ namespace Bom_Dev
                 g.ClientId = Configuration.GetValue<string>("GoogleLogin:ClientId");
             });
             #endregion
+
+            services.AddAuthentication(o => {
+                o.DefaultScheme = "Cookies";
+                o.DefaultChallengeScheme = "oidc";
+            })
+            .AddCookie("Cookies", o =>
+            {
+                o.AccessDeniedPath = "/Account/AccessDenied";
+            })        
+            .AddOpenIdConnect("oidc", o =>
+            {
+                o.ClientId = "client2";
+                o.ClientSecret = "client2_secret_code";
+                o.SignInScheme = "Cookies";
+                o.Authority = "https://localhost:44399";
+                o.RequireHttpsMetadata = false;
+                o.ResponseType = "code id_token";
+                o.SaveTokens = true;
+                o.GetClaimsFromUserInfoEndpoint = true;
+                o.Scope.Add("employeesWebApi");
+                o.Scope.Add("roles");
+                o.ClaimActions.MapUniqueJsonKey("role", "role");
+                o.TokenValidationParameters = new
+                TokenValidationParameters
+                {
+                    RoleClaimType = "role"
+                };
+            });
         }
         
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

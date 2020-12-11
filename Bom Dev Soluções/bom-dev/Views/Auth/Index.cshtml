@@ -1,9 +1,10 @@
-﻿@model List<string>
+﻿@model string
 @{
     ViewData["Title"] = "Auth";
 }
 
-@foreach (var item in Model)
-{
-    <h2>@item</h2>
+@{ 
+    var r = Model;
+
+    <h1>@r</h1>
 }
