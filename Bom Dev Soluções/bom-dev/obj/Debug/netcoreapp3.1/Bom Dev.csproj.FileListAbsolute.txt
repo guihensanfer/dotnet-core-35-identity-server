@@ -366,9 +366,6 @@ C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.csprojAssemblyReference.cache
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.AssemblyInfoInputs.cache
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.AssemblyInfo.cs
-C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.csproj.CoreCompileInputs.cache
-C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.RazorAssemblyInfo.cache
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.RazorAssemblyInfo.cs
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.TagHelpers.input.cache
@@ -430,3 +427,9 @@ C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.dll
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.pdb
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.genruntimeconfig.cache
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\IdentityModel.dll
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.csproj.CoreCompileInputs.cache
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Razor\Views\Auth\Index.cshtml.g.cs
