@@ -228,9 +228,8 @@
 /home/guilherme/Área de Trabalho/Bom Dev Software House/Projeto/bom-dev/Bom Dev Soluções/bom-dev/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
-C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\app.db
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Bom Dev.StaticWebAssets.xml
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\app.db
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Bom Dev.exe
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Bom Dev.deps.json
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Bom Dev.runtimeconfig.json
@@ -241,7 +240,9 @@ C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Bom Dev.Views.pdb
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\EntityFramework.dll
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\IdentityModel.dll
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
@@ -279,6 +280,11 @@ C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.dll
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
@@ -299,8 +305,10 @@ C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
@@ -366,6 +374,9 @@ C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.csprojAssemblyReference.cache
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.AssemblyInfoInputs.cache
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.AssemblyInfo.cs
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.csproj.CoreCompileInputs.cache
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.RazorAssemblyInfo.cache
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.RazorAssemblyInfo.cs
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.TagHelpers.input.cache
@@ -410,6 +421,7 @@ C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Razor\Views\Auth\Index.cshtml.g.cs
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Razor\Views\Home\Sobre.cshtml.g.cs
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
@@ -427,16 +439,4 @@ C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.dll
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.pdb
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.genruntimeconfig.cache
-C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\IdentityModel.dll
-C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
-C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Razor\Views\Auth\Index.cshtml.g.cs
-C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
-C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
-C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
-C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
-C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.csproj.CoreCompileInputs.cache
-C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\scopedcss\bundle\Bom Dev.styles.css

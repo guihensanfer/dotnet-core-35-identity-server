@@ -1,16 +1,17 @@
 ﻿using IdentityServer4;
 using IdentityServer4.Models;
 using IdentityServer4.Test;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 
 namespace IdentityServer
 {
     public class ServerConfiguration
     {
+        private const string IdentityServerHTTPSBaseURL = "https://localhost:44399";
+        private const string MVCClientHTTPSBaseURL = "https://localhost:44378";
+        private const string APIHTTPSBaseURL = "https://localhost:44302";
+
         public static List<IdentityResource> IdentityResources {
             get
             {
@@ -81,34 +82,36 @@ namespace IdentityServer
                 };
 
                 Client client2 = new Client
-                {
+                {                    
                     ClientName = "Client 2",
                     ClientId = "client2",
                     ClientSecrets = {
-                new Secret("client2_secret_code".Sha512())
+                        new Secret("client2_secret_code".Sha512())
                     },
-                        AllowedGrantTypes = GrantTypes.Hybrid,
-                        AllowedScopes = {
-                    IdentityServerConstants.StandardScopes.OpenId,
-                    IdentityServerConstants.StandardScopes.Profile,
-                    IdentityServerConstants.StandardScopes.Address,
-                    IdentityServerConstants.StandardScopes.Email,
-                    IdentityServerConstants.StandardScopes.Phone,
-                    "employeesWebApi",
-                    "roles"
-                },
-                        RedirectUris = new List<string> {
-                    "http://localhost:5010/signin-oidc"
-                },
-                        PostLogoutRedirectUris = new List<string> {
-                    "http://localhost:5010/signout-callback-oidc"
-                },
+                    AllowedGrantTypes = GrantTypes.Hybrid,
+                    AllowedScopes = {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Address,
+                        IdentityServerConstants.StandardScopes.Email,
+                        IdentityServerConstants.StandardScopes.Phone,
+                        "employeesWebApi",
+                        "roles"
+                    },                    
+                    RedirectUris = new List<string> {
+                        $"{MVCClientHTTPSBaseURL}/signin-oidc"
+                    },
+                    PostLogoutRedirectUris = new List<string> {
+                         $"{MVCClientHTTPSBaseURL}/signout-callback-oidc"
+                    },                    
                     RequirePkce = false,
-                    RequireConsent = true
+                    RequireConsent = true,
+                    //AllowedCorsOrigins = new[] {  $"{MVCClientHTTPSBaseURL}/signin-oidc",  $"{MVCClientHTTPSBaseURL}/signout-callback-oidc" }
                 };
 
                 List<Client> clients = new List<Client>();
                 clients.Add(client1);
+                clients.Add(client2);
 
                 return clients;
             }
@@ -135,7 +138,7 @@ namespace IdentityServer
                 TestUser usr2 = new TestUser()
                 {
                     SubjectId = "5747df40-1bff-49ee-aadf-905bacb39a3a",
-                    Username = "user2",
+                    Username = "user2",                   
                     Password = "password2",
                     Claims = new List<Claim>
                     {

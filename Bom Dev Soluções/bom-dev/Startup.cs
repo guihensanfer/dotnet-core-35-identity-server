@@ -9,11 +9,16 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace Bom_Dev
 {
     public class Startup
     {
+        private const string IdentityServerHTTPSBaseURL = "https://localhost:44399";
+        private const string MVCClientHTTPSBaseURL = "https://localhost:44378";
+        private const string APIHTTPSBaseURL = "https://localhost:44302";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -54,6 +59,9 @@ namespace Bom_Dev
             });
             #endregion
 
+            #region Identity Server
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
             services.AddAuthentication(o => {
                 o.DefaultScheme = "Cookies";
                 o.DefaultChallengeScheme = "oidc";
@@ -61,19 +69,24 @@ namespace Bom_Dev
             .AddCookie("Cookies", o =>
             {
                 o.AccessDeniedPath = "/Account/AccessDenied";
-            })        
+            })
             .AddOpenIdConnect("oidc", o =>
             {
-                o.ClientId = "client2";
-                o.ClientSecret = "client2_secret_code";
                 o.SignInScheme = "Cookies";
-                o.Authority = "https://localhost:44399";
+
+                o.Authority = IdentityServerHTTPSBaseURL;
                 o.RequireHttpsMetadata = false;
+
+                o.ClientId = "client2";
+                o.ClientSecret = "client2_secret_code";                                                
                 o.ResponseType = "code id_token";
+
                 o.SaveTokens = true;
                 o.GetClaimsFromUserInfoEndpoint = true;
+
                 o.Scope.Add("employeesWebApi");
                 o.Scope.Add("roles");
+
                 o.ClaimActions.MapUniqueJsonKey("role", "role");
                 o.TokenValidationParameters = new
                 TokenValidationParameters
@@ -81,6 +94,7 @@ namespace Bom_Dev
                     RoleClaimType = "role"
                 };
             });
+            #endregion            
         }
         
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
