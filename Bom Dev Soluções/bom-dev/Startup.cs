@@ -1,15 +1,16 @@
 using Bom_Dev.Data;
 using Bom_Dev.Models;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
 
 namespace Bom_Dev
 {
@@ -59,26 +60,25 @@ namespace Bom_Dev
             });
             #endregion
 
-            #region Identity Server
-            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-
-            services.AddAuthentication(o => {
-                o.DefaultScheme = "Cookies";
-                o.DefaultChallengeScheme = "oidc";
+            #region Identity Server            
+            services.AddAuthentication(o =>
+            {
+                //o.DefaultScheme = IdentityConstants.ExternalScheme;                
+                o.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;                     
             })
             .AddCookie("Cookies", o =>
             {
                 o.AccessDeniedPath = "/Account/AccessDenied";
             })
-            .AddOpenIdConnect("oidc", o =>
-            {
-                o.SignInScheme = "Cookies";
+            .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, "Bom Dev", o =>
+            {                
+                o.SignInScheme = IdentityConstants.ExternalScheme;
 
                 o.Authority = IdentityServerHTTPSBaseURL;
                 o.RequireHttpsMetadata = false;
 
                 o.ClientId = "client2";
-                o.ClientSecret = "client2_secret_code";                                                
+                o.ClientSecret = "client2_secret_code";
                 o.ResponseType = "code id_token";
 
                 o.SaveTokens = true;
@@ -88,12 +88,11 @@ namespace Bom_Dev
                 o.Scope.Add("roles");
 
                 o.ClaimActions.MapUniqueJsonKey("role", "role");
-                o.TokenValidationParameters = new
-                TokenValidationParameters
+                o.TokenValidationParameters = new TokenValidationParameters
                 {
                     RoleClaimType = "role"
                 };
-            });
+            });            
             #endregion            
         }
         
