@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "9xmX1raOdNa+UP9Ou27AQl7/Q2HPXXC2wvzKGNAKa3PzjeqU09+WRyzaJlW4x3OpjFy46bBd/hhTHpC5oAC0Hw==",
+  "dgSpecHash": "vOaW2ysuH1LY2GUFr0DR4TpU+nNIofRwP8jZphDKPODXYhJoUMVRJ8lg64QyC3cWf00w6YGzM53da7IGvd+d6Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\IdentityServer\\IdentityServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\guihe\\.nuget\\packages\\identitymodel\\4.4.0\\identitymodel.4.4.0.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\identityserver4\\4.1.1\\identityserver4.4.1.1.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\identityserver4.storage\\4.1.1\\identityserver4.storage.4.1.1.nupkg.sha512",
+    "C:\\Users\\guihe\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\3.1.10\\microsoft.aspnetcore.authentication.google.3.1.10.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\3.1.0\\microsoft.aspnetcore.authentication.openidconnect.3.1.0.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\5.6.0\\microsoft.identitymodel.jsonwebtokens.5.6.0.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\microsoft.identitymodel.logging\\5.6.0\\microsoft.identitymodel.logging.5.6.0.nupkg.sha512",

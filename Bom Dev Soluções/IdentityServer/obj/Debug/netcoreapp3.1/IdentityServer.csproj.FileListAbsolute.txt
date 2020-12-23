@@ -58,3 +58,4 @@ C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\IdentityServer\obj\Debug\netco
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.pdb
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.genruntimeconfig.cache
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\IdentityServer\obj\Debug\netcoreapp3.1\scopedcss\bundle\IdentityServer.styles.css
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Google.dll

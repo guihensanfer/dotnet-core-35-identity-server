@@ -52,14 +52,8 @@ namespace Bom_Dev
                 options.Lockout.MaxFailedAccessAttempts = 3;
             })
             .AddEntityFrameworkStores<ApplicationDbContext>();
-            // Login com Google
-            services.AddAuthentication().AddGoogle(g =>
-            {
-                g.ClientSecret = Configuration.GetValue<string>("GoogleLogin:ClientSecret");
-                g.ClientId = Configuration.GetValue<string>("GoogleLogin:ClientId");
-            });
             #endregion
-
+            
             #region Identity Server            
             services.AddAuthentication(o =>
             {
