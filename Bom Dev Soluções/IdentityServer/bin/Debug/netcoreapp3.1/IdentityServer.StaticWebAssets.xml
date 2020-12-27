@@ -1,0 +1,4 @@
+﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="/Identity" Path="C:\Users\guihe\.nuget\packages\microsoft.aspnetcore.identity.ui\3.1.5\staticwebassets\V4\" />
+  <ContentRoot BasePath="_content/Bom Dev" Path="C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\wwwroot\" />
+</StaticWebAssets>

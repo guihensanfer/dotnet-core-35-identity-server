@@ -1,9 +1,13 @@
+using IdentityServer.Data;
+using IdentityServer4;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.IdentityModel.Tokens.Jwt;
+using System.Reflection;
 
 namespace IdentityServer
 {
@@ -17,24 +21,38 @@ namespace IdentityServer
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
-        {            
-            services.AddControllersWithViews();            
+        {
+            string connectionString = Configuration.GetConnectionString("DefaultConnection");
+            var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
+
+            services.AddDbContext<ConfigurationDbContext>(options => options.UseSqlServer(connectionString));
+
+            services.AddDefaultIdentity<Bom_Dev.Data.BomDevUser>()
+                .AddEntityFrameworkStores<ConfigurationDbContext>();
+
+            services.AddControllersWithViews();
             services.AddIdentityServer()
-                .AddInMemoryIdentityResources
-                    (ServerConfiguration.IdentityResources)
-                .AddInMemoryApiResources
-                    (ServerConfiguration.ApiResources)
-                .AddInMemoryApiScopes
-                    (ServerConfiguration.ApiScopes)
-                .AddInMemoryClients
-                    (ServerConfiguration.Clients)
-                .AddTestUsers
-                    (ServerConfiguration.TestUsers)
-                .AddDeveloperSigningCredential();
+                .AddInMemoryIdentityResources(ServerConfiguration.IdentityResources)
+                .AddInMemoryApiResources(ServerConfiguration.ApiResources)
+                .AddInMemoryApiScopes(ServerConfiguration.ApiScopes)
+                .AddInMemoryClients(ServerConfiguration.Clients)
+                .AddDeveloperSigningCredential()
+                .AddConfigurationStore(options =>
+                {
+                    options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
+                })
+                .AddOperationalStore(options =>
+                {
+                    options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
+                    options.EnableTokenCleanup = true;
+                })
+                .AddAspNetIdentity<Bom_Dev.Data.BomDevUser>();
 
             // Login com Google
             services.AddAuthentication().AddGoogle(g =>
             {
+                g.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+
                 g.ClientSecret = Configuration.GetValue<string>("GoogleLogin:ClientSecret");
                 g.ClientId = Configuration.GetValue<string>("GoogleLogin:ClientId");
             });
@@ -53,6 +71,7 @@ namespace IdentityServer
             app.UseStaticFiles();
             app.UseRouting();
             app.UseIdentityServer();
+            //app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

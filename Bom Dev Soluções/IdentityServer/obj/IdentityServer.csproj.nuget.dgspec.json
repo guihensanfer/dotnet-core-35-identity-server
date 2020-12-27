@@ -4,14 +4,14 @@
     "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\IdentityServer\\IdentityServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\IdentityServer\\IdentityServer.csproj": {
+    "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\bom-dev\\Bom Dev.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\IdentityServer\\IdentityServer.csproj",
-        "projectName": "IdentityServer",
-        "projectPath": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\IdentityServer\\IdentityServer.csproj",
+        "projectUniqueName": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\bom-dev\\Bom Dev.csproj",
+        "projectName": "Bom Dev",
+        "projectPath": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\bom-dev\\Bom Dev.csproj",
         "packagesPath": "C:\\Users\\guihe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\IdentityServer\\obj\\",
+        "outputPath": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\bom-dev\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -43,11 +43,143 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
+            "IdentityModel": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.AspNetCore.Authentication.OpenIdConnect": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\IdentityServer\\IdentityServer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\IdentityServer\\IdentityServer.csproj",
+        "projectName": "IdentityServer",
+        "projectPath": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\IdentityServer\\IdentityServer.csproj",
+        "packagesPath": "C:\\Users\\guihe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\IdentityServer\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\guihe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\bom-dev\\Bom Dev.csproj": {
+                "projectPath": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\bom-dev\\Bom Dev.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
             "IdentityServer4": {
               "target": "Package",
               "version": "[4.1.1, )"
             },
+            "IdentityServer4.AspNetIdentity": {
+              "target": "Package",
+              "version": "[4.1.1, )"
+            },
+            "IdentityServer4.EntityFramework": {
+              "target": "Package",
+              "version": "[4.1.1, )"
+            },
             "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.10, )"
             }

@@ -38,7 +38,7 @@ namespace Bom_Dev
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            #region Identity
+            #region Identity            
             services.AddDefaultIdentity<BomDevUser>(options => {
                 options.SignIn.RequireConfirmedAccount = true;
 
