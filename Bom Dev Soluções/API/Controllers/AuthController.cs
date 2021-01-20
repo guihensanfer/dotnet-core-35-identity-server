@@ -6,9 +6,10 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
+    [Authorize]
     public class AuthController : ControllerBase
-    {        
+    {                
         [HttpGet]
         public IActionResult Get()
         {

@@ -1,13 +1,10 @@
-using IdentityServer.Data;
 using IdentityServer4;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.IdentityModel.Tokens.Jwt;
-using System.Reflection;
 
 namespace IdentityServer
 {
@@ -22,13 +19,13 @@ namespace IdentityServer
 
         public void ConfigureServices(IServiceCollection services)
         {
-            string connectionString = Configuration.GetConnectionString("DefaultConnection");
-            var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
+            //string connectionString = Configuration.GetConnectionString("DefaultConnection");
+            //var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
-            services.AddDbContext<ConfigurationDbContext>(options => options.UseSqlServer(connectionString));
+            //services.AddDbContext<ConfigurationDbContext>(options => options.UseSqlServer(connectionString));
 
-            services.AddDefaultIdentity<Bom_Dev.Data.BomDevUser>()
-                .AddEntityFrameworkStores<ConfigurationDbContext>();
+            //services.AddDefaultIdentity<Bom_Dev.Data.BomDevUser>()
+            //    .AddEntityFrameworkStores<ConfigurationDbContext>();
 
             services.AddControllersWithViews();
             services.AddIdentityServer()
@@ -36,17 +33,18 @@ namespace IdentityServer
                 .AddInMemoryApiResources(ServerConfiguration.ApiResources)
                 .AddInMemoryApiScopes(ServerConfiguration.ApiScopes)
                 .AddInMemoryClients(ServerConfiguration.Clients)
-                .AddDeveloperSigningCredential()
-                .AddConfigurationStore(options =>
-                {
-                    options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
-                })
-                .AddOperationalStore(options =>
-                {
-                    options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
-                    options.EnableTokenCleanup = true;
-                })
-                .AddAspNetIdentity<Bom_Dev.Data.BomDevUser>();
+                .AddTestUsers(ServerConfiguration.TestUsers)
+                .AddDeveloperSigningCredential();
+                //.AddConfigurationStore(options =>
+                //{
+                //    options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
+                //})
+                //.AddOperationalStore(options =>
+                //{
+                //    options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
+                //    options.EnableTokenCleanup = true;
+                //})
+                //.AddAspNetIdentity<Bom_Dev.Data.BomDevUser>();
 
             // Login com Google
             services.AddAuthentication().AddGoogle(g =>
