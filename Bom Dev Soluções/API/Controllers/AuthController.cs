@@ -5,7 +5,7 @@ using System.Linq;
 namespace API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     //[Authorize(Roles = "Admin")]
     [Authorize]
     public class AuthController : ControllerBase
