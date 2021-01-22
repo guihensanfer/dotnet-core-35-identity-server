@@ -5,17 +5,12 @@ using System.Linq;
 namespace API.Models
 {
     public class Version
-    {
-        public Version(string releaseVersion = null, DateTime? releaseDate = null, List<string> news = null)
+    {        
+        public Version(string releaseVersion, DateTime releaseDate, List<string> news)
         {
-            if(releaseDate.HasValue)
-                this.releaseDate = releaseDate.Value;
-
-            if (!string.IsNullOrEmpty(releaseVersion))
-                this.releaseVersion = releaseVersion;
-
-            if (news != null)
-                this.news = news;
+            this.releaseDate = releaseDate;            
+            this.releaseVersion = releaseVersion;            
+            this.news = news;                    
         }
 
         public string releaseVersion { get; private set; } = "v1.0.0.1";
@@ -26,23 +21,15 @@ namespace API.Models
         {
             "Modificado padrão de nomenclatura das models para Camel Case e mudado para inglês como padrão.",            
         };
-
-        public List<Version> releaseHistory {
-            get {
-                return releaseHistory?
-                    .OrderByDescending(x => x.releaseDate)
-                    .ToList();
-            }
-            set
-            {
-                releaseHistory = new List<Version>() {
-                    new Version("v1.0.0.0", new DateTime(2021, 01, 20), new List<string>()
-                    {
-                        "Controller Auth listando dados do usuário logado.",
-                        "Adicionado nova controller para informações de versão."
-                    })
-                };
-            }
-        }         
+        
+        public static List<Version> GetVersions() => new List<Version>() { 
+            new Version("1.0.0.0", new DateTime(2021, 01, 01), new List<string>(){ 
+                "Implementado funcionamento do controle de versão desta API."
+            }),
+            new Version("1.0.0.1", new DateTime(2021, 01, 22), new List<string>(){
+                "Alterado para inglês as model e padrão camel case nas propriedades."
+            }),
+        }.OrderByDescending(x => x.releaseDate)
+        .ToList();
     }
 }

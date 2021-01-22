@@ -49,7 +49,7 @@ namespace API.Models
             public DateTime? releaseDate{get;set;}
         }
 
-        public static List<Projeto> InstanciarProjetos() => new List<Projeto>(){
+        public static List<Projeto> GetProjects() => new List<Projeto>(){
             new Projeto(){
                 name = "Controle de despesas pessoais",
                 description = "Organização de pendências financeiras  pessoais.",
