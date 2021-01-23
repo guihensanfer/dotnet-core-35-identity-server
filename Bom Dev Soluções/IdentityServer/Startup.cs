@@ -34,7 +34,7 @@ namespace IdentityServer
 
             services.AddControllersWithViews();
             services.AddIdentityServer()
-                .AddDeveloperSigningCredential()                
+                .AddDeveloperSigningCredential()                   
                 .AddConfigurationStore(options =>
                 {
                     options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));

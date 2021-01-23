@@ -47,14 +47,6 @@
               "target": "Package",
               "version": "[6.4.4, )"
             },
-            "IdentityModel": {
-              "target": "Package",
-              "version": "[4.5.0, )"
-            },
-            "Microsoft.AspNetCore.Authentication.Google": {
-              "target": "Package",
-              "version": "[3.1.6, )"
-            },
             "Microsoft.AspNetCore.Authentication.OpenIdConnect": {
               "target": "Package",
               "version": "[3.1.10, )"
@@ -69,7 +61,7 @@
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[3.1.5, )"
+              "version": "[3.1.11, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
