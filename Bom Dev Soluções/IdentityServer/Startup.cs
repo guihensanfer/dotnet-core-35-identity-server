@@ -25,7 +25,7 @@ namespace IdentityServer
         public void ConfigureServices(IServiceCollection services)
         {
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
-            var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
+            var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;            
 
             //services.AddDbContext<ConfigurationDbContext>(options => options.UseSqlServer(connectionString));
 
@@ -33,9 +33,8 @@ namespace IdentityServer
             //    .AddEntityFrameworkStores<ConfigurationDbContext>();
 
             services.AddControllersWithViews();
-            services.AddIdentityServer()                
-                .AddTestUsers(ServerConfiguration.TestUsers)
-                .AddDeveloperSigningCredential()
+            services.AddIdentityServer()
+                .AddDeveloperSigningCredential()                
                 .AddConfigurationStore(options =>
                 {
                     options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
@@ -44,7 +43,7 @@ namespace IdentityServer
                 {
                     options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
                     options.EnableTokenCleanup = true;
-                });                
+                });            
 
             // Login com Google
             services.AddAuthentication().AddGoogle(g =>
@@ -115,7 +114,7 @@ namespace IdentityServer
                         context.ApiResources.Add(resource.ToEntity());
                     }
                     context.SaveChanges();
-                }
+                }                
             }
         }
     }
