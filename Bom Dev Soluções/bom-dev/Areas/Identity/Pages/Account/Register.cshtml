@@ -1,0 +1,73 @@
+@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Cadastrar-se";
+}
+<div class="row">    
+    <div class="col-md-12 col-md-offset-2">
+        <section style="border-bottom:dashed 2px #DCDCDC;padding-top:10px;padding-bottom:10px;">
+            <div id="divContinuarOutrosProvedores" style="margin-left: 25%;margin-right: 25%;">
+                <h4 class="text-dark">Continuar usando</h4>                            
+                @{
+                    if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                    {
+                        @* <div>
+                            <p>
+                                There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                                for details on setting up this ASP.NET application to support logging in via external services.
+                            </p>
+                        </div> *@
+                    }
+                    else
+                    {
+                        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                            <div>
+                                <p>
+                                    @foreach (var provider in Model.ExternalLogins)
+                                    {
+                                        <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                    }
+                                </p>
+                            </div>
+                        </form>
+                    }
+                }                             
+            </div>        
+        </section>
+    </div>
+    <div class="col-md-12">
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <div id="divCadastroBomDev" style="margin-left: 25%;margin-right: 25%;padding-bottom:5%;padding-top:5%;">
+                <h4 class="text-dark">Criar uma nova conta</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>                
+                <div class="form-group">
+                    <label class="text-dark" asp-for="Input.Email"></label>
+                    <input asp-for="Input.Email" class="form-control" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="text-dark" asp-for="Input.Password"></label>
+                    <input asp-for="Input.Password" class="form-control" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="text-dark" asp-for="Input.ConfirmPassword"></label>
+                    <input asp-for="Input.ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Registrar</button>
+            </div>            
+        </form>
+    </div>    
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <style>
+        @@media (max-width: 580px) {  
+            #divCadastroBomDev{margin:0px!important;}
+            #divContinuarOutrosProvedores{margin:0px!important;}
+        }
+    </style>
+}

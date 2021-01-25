@@ -1,0 +1,29 @@
+﻿@model List<string>
+
+@if (User.IsInRole("Admin"))
+{
+    <h2>You are Admin</h2>
+}
+
+@if (User.IsInRole("Operator"))
+{
+    <h2>You are Operator</h2>
+}
+
+<h3>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item</li>
+        }
+    </ul>
+</h3>
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    <h3>
+        <a asp-controller="Account"
+           asp-action="SignOut">SignOut</a>
+    </h3>
+}
