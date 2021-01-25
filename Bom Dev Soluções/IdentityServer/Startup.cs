@@ -1,8 +1,12 @@
+using IdentityServer.Data;
 using IdentityServer4;
 using IdentityServer4.EntityFramework.DbContexts;
 using IdentityServer4.EntityFramework.Mappers;
+using IdentityServer4.Services;
+using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,16 +29,16 @@ namespace IdentityServer
         public void ConfigureServices(IServiceCollection services)
         {
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
-            var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;            
+            var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
-            //services.AddDbContext<ConfigurationDbContext>(options => options.UseSqlServer(connectionString));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));            
 
             //services.AddDefaultIdentity<Bom_Dev.Data.BomDevUser>()
-            //    .AddEntityFrameworkStores<ConfigurationDbContext>();
+            //    .AddEntityFrameworkStores<ConfigurationDbContext>();       
 
             services.AddControllersWithViews();
             services.AddIdentityServer()
-                .AddDeveloperSigningCredential()                   
+                .AddDeveloperSigningCredential()
                 .AddConfigurationStore(options =>
                 {
                     options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
@@ -43,7 +47,7 @@ namespace IdentityServer
                 {
                     options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
                     options.EnableTokenCleanup = true;
-                });            
+                });                       
 
             // Login com Google
             services.AddAuthentication().AddGoogle(g =>
@@ -54,7 +58,9 @@ namespace IdentityServer
                 g.ClientId = Configuration.GetValue<string>("GoogleLogin:ClientId");
             });
 
-            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+            services.AddTransient<IResourceOwnerPasswordValidator, ResourceOwnerPasswordValidator>()
+                .AddTransient<IProfileService, ProfileService>()
+                .AddTransient<IAuthRepository, AuthRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,6 +79,8 @@ namespace IdentityServer
             //app.UseAuthentication();
             app.UseAuthorization();
 
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -89,6 +97,16 @@ namespace IdentityServer
 
                 var context = serviceScope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
                 context.Database.Migrate();
+
+                if(!context.ApiScopes.Any())
+                {
+                    foreach(var scope in ServerConfiguration.ApiScopes)
+                    {
+                        context.ApiScopes.Add(scope.ToEntity());
+                    }
+
+                    context.SaveChanges();
+                }
                 if (!context.Clients.Any())
                 {
                     foreach (var client in ServerConfiguration.Clients)
