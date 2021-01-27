@@ -1,38 +1,46 @@
-﻿using IdentityServer4.Test;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 using System.Linq;
 
 namespace IdentityServer.Data
 {
     public class AuthRepository : IAuthRepository
-	{
-		private readonly ApplicationDbContext db;
+    {
+        private readonly ApplicationDbContext db;
+        private readonly ILogger<AuthRepository> _logger;
 
-		public AuthRepository(ApplicationDbContext context)
-		{
-			db = context;
-		}
-		
-        public TestUser GetUserById(string id)
+        public AuthRepository(ApplicationDbContext context, ILogger<AuthRepository> logger)
         {
-			var user = db.AspNetUsers.Where(u => u.SubjectId == id).FirstOrDefault();
+            db = context;
+            _logger = logger;
+        }
 
-			return user;
-		}
-
-		public TestUser GetUserByUsername(string username)
+        public IdentityUser GetUserById(string id)
         {
-			var user = db.AspNetUsers.Where(u => string.Equals(u.Username, username)).FirstOrDefault();
+            _logger.LogInformation("teste!!!!!");
+            var user = db.Users.Where(u => u.Id == id).FirstOrDefault();
 
-			return user;
-		}
+            return user;
+        }
+
+        public IdentityUser GetUserByUsername(string username)
+        {
+            _logger.LogInformation("teste!!!!!");
+            var user = db.Users.Where(u => string.Equals(u.UserName, username)).FirstOrDefault();
+
+            return user;
+        }
 
         public bool ValidatePassword(string username, string plainTextPassword)
         {
-			var user = db.AspNetUsers.Where(u => string.Equals(u.Username, username)).FirstOrDefault();
-			if (user == null) return false;
-			if (string.Equals(plainTextPassword, user.Password)) return true;			
+            _logger.LogInformation("teste!!!!!");
+            System.IO.File.WriteAllText(@"C:\Users\guihe\Desktop\teste.txt", "baguio é loco");
 
-			return false;
-		}        
-	}
+            var user = db.Users.Where(u => string.Equals(u.UserName, username)).FirstOrDefault();
+            if (user == null) return false;
+            if (string.Equals(plainTextPassword, user.PasswordHash)) return true;
+
+            return false;
+        }
+    }
 }

@@ -31,10 +31,10 @@ namespace IdentityServer
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));            
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
-            //services.AddDefaultIdentity<Bom_Dev.Data.BomDevUser>()
-            //    .AddEntityFrameworkStores<ConfigurationDbContext>();       
+            services.AddIdentity<IdentityUser, IdentityRole>()                                
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddControllersWithViews();
             services.AddIdentityServer()
@@ -47,7 +47,11 @@ namespace IdentityServer
                 {
                     options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
                     options.EnableTokenCleanup = true;
-                });                       
+                })
+                .AddAspNetIdentity<IdentityUser>()
+                    .AddConfigurationStore(options => {
+                        options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
+                    });                       
 
             // Login com Google
             services.AddAuthentication().AddGoogle(g =>
@@ -74,9 +78,8 @@ namespace IdentityServer
             InitializeDatabase(app);
 
             app.UseStaticFiles();
-            app.UseRouting();
-            app.UseIdentityServer();
-            //app.UseAuthentication();
+            app.UseRouting();            
+            app.UseIdentityServer();            
             app.UseAuthorization();
 
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();

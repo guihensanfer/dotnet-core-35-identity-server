@@ -1,11 +1,11 @@
-﻿using IdentityServer4.Test;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace IdentityServer.Data
 {
     public interface IAuthRepository
 	{
-		TestUser GetUserById(string id);
-		TestUser GetUserByUsername(string username);
+		IdentityUser GetUserById(string id);
+		IdentityUser GetUserByUsername(string username);
 		bool ValidatePassword(string username, string plainTextPassword);
 	}
 }

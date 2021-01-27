@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XaiZoTusgZEzuGUU/gXl/PkNLvi8t9iUVhgHfSDxMv868K8K66FM9zJNR75tz04CZvgpzoLaqPMlGG8QZxxpDw==",
+  "dgSpecHash": "clg4DxqB3wBUgA9E3eixRj+u2HuBDfHPxLHfXnvLJAyI4QyNHGSUGRhbdnaCaXvg4YpBJrF7SAxIcair5oxaRQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\IdentityServer\\IdentityServer.csproj",
   "expectedPackageFiles": [
@@ -13,6 +13,9 @@
     "C:\\Users\\guihe\\.nuget\\packages\\identityserver4.storage\\4.1.1\\identityserver4.storage.4.1.1.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\3.1.10\\microsoft.aspnetcore.authentication.google.3.1.10.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\3.1.0\\microsoft.aspnetcore.authentication.openidconnect.3.1.0.nupkg.sha512",
+    "C:\\Users\\guihe\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.11\\microsoft.aspnetcore.cryptography.internal.3.1.11.nupkg.sha512",
+    "C:\\Users\\guihe\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.11\\microsoft.aspnetcore.cryptography.keyderivation.3.1.11.nupkg.sha512",
+    "C:\\Users\\guihe\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\3.1.11\\microsoft.aspnetcore.identity.entityframeworkcore.3.1.11.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
@@ -30,6 +33,8 @@
     "C:\\Users\\guihe\\.nuget\\packages\\microsoft.extensions.configuration.binder\\3.1.11\\microsoft.extensions.configuration.binder.3.1.11.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.11\\microsoft.extensions.dependencyinjection.3.1.11.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.11\\microsoft.extensions.dependencyinjection.abstractions.3.1.11.nupkg.sha512",
+    "C:\\Users\\guihe\\.nuget\\packages\\microsoft.extensions.identity.core\\3.1.11\\microsoft.extensions.identity.core.3.1.11.nupkg.sha512",
+    "C:\\Users\\guihe\\.nuget\\packages\\microsoft.extensions.identity.stores\\3.1.11\\microsoft.extensions.identity.stores.3.1.11.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\microsoft.extensions.logging\\3.1.11\\microsoft.extensions.logging.3.1.11.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.11\\microsoft.extensions.logging.abstractions.3.1.11.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\microsoft.extensions.options\\3.1.11\\microsoft.extensions.options.3.1.11.nupkg.sha512",

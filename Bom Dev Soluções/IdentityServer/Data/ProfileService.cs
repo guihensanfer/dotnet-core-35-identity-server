@@ -21,14 +21,17 @@ namespace IdentityServer.Data
 		{
 			try
 			{
+				//_logger.LogInformation("Teste");
+				System.IO.File.WriteAllText(@"C:\Users\guihe\Desktop\teste.txt", "Teste");
+
 				var subjectId = context.Subject.GetSubjectId();
 				var user = _repository.GetUserById(subjectId);
 
 				var claims = new List<Claim>
 				{
-					new Claim(JwtClaimTypes.Subject, user.SubjectId.ToString()),
-					//add as many claims as you want!new Claim(JwtClaimTypes.Email, user.Email),new Claim(JwtClaimTypes.EmailVerified, "true", ClaimValueTypes.Boolean)
-				};
+					new Claim(JwtClaimTypes.Subject, user.Id)
+                    
+                };
 
 				context.IssuedClaims = claims;
 				return Task.FromResult(0);
@@ -41,8 +44,11 @@ namespace IdentityServer.Data
 
 		public Task IsActiveAsync(IsActiveContext context)
 		{
+			//_logger.LogInformation("Teste");
+			System.IO.File.WriteAllText(@"C:\Users\guihe\Desktop\teste.txt", "Teste");
+
 			var user = _repository.GetUserById(context.Subject.GetSubjectId());
-			context.IsActive = (user != null) && user.IsActive;
+			context.IsActive = (user != null) && user.EmailConfirmed;
 
 			return Task.FromResult(0);
 		}
