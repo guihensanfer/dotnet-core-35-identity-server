@@ -31,14 +31,20 @@ namespace IdentityServer
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+            //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
-            services.AddIdentity<IdentityUser, IdentityRole>()                                
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            //services.AddIdentity<IdentityUser, IdentityRole>()            
+            //    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            //services.AddTransient<IAuthRepository, AuthRepository>();
 
             services.AddControllersWithViews();
+
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
+                .AddTestUsers(ServerConfiguration.TestUsers)
+                //.AddResourceOwnerValidator<ResourceOwnerPasswordValidator>()
+                //.AddProfileService<ProfileService>()
                 .AddConfigurationStore(options =>
                 {
                     options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
@@ -47,11 +53,11 @@ namespace IdentityServer
                 {
                     options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
                     options.EnableTokenCleanup = true;
-                })
-                .AddAspNetIdentity<IdentityUser>()
-                    .AddConfigurationStore(options => {
-                        options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
-                    });                       
+                });
+                //.AddAspNetIdentity<IdentityUser>();
+                    //.AddConfigurationStore(options => {
+                    //    options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
+                    //});                       
 
             // Login com Google
             services.AddAuthentication().AddGoogle(g =>
@@ -61,10 +67,12 @@ namespace IdentityServer
                 g.ClientSecret = Configuration.GetValue<string>("GoogleLogin:ClientSecret");
                 g.ClientId = Configuration.GetValue<string>("GoogleLogin:ClientId");
             });
+            
+                //.AddTransient<IProfileService, ProfileService>();
 
-            services.AddTransient<IResourceOwnerPasswordValidator, ResourceOwnerPasswordValidator>()
-                .AddTransient<IProfileService, ProfileService>()
-                .AddTransient<IAuthRepository, AuthRepository>();
+            //services.AddTransient<IResourceOwnerPasswordValidator, ResourceOwnerPasswordValidator>()
+            //    .AddTransient<IProfileService, ProfileService>()
+            //    .AddTransient<IAuthRepository, AuthRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -79,7 +87,8 @@ namespace IdentityServer
 
             app.UseStaticFiles();
             app.UseRouting();            
-            app.UseIdentityServer();            
+            app.UseIdentityServer();
+            //app.UseAuthentication();
             app.UseAuthorization();
 
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();

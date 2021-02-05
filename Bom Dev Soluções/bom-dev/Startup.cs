@@ -80,8 +80,10 @@ namespace Bom_Dev
 
                 o.Scope.Add("employeesWebApi");
                 o.Scope.Add("roles");
+                o.Scope.Add("email");
 
                 o.ClaimActions.MapUniqueJsonKey("role", "role");
+                o.ClaimActions.MapUniqueJsonKey("email", "email");
                 o.TokenValidationParameters = new TokenValidationParameters
                 {
                     RoleClaimType = "role"
