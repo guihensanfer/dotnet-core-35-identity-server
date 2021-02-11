@@ -35,9 +35,7 @@ namespace IdentityServer
 
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
-
-            //services.AddTransient<IAuthRepository, AuthRepository>();
+                .AddDefaultTokenProviders();            
 
             services.AddControllersWithViews();            
 
@@ -48,9 +46,7 @@ namespace IdentityServer
                 options.Events.RaiseSuccessEvents = true;                
                 options.EmitStaticAudienceClaim = true;
             })
-            .AddDeveloperSigningCredential()
-            //.AddResourceOwnerValidator<ResourceOwnerPasswordValidator>()
-            //.AddProfileService<ProfileService>()
+            .AddDeveloperSigningCredential()            
             .AddConfigurationStore(options =>
             {
                 options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
@@ -61,11 +57,7 @@ namespace IdentityServer
                 options.EnableTokenCleanup = true;
             })
             .AddAspNetIdentity<IdentityUser>();
-                    //.AddConfigurationStore(options =>
-                    // {
-                    //     options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
-                    // });
-
+            
             // Login com Google
             services.AddAuthentication().AddGoogle(g =>
             {
@@ -73,18 +65,14 @@ namespace IdentityServer
 
                 g.ClientSecret = Configuration.GetValue<string>("GoogleLogin:ClientSecret");
                 g.ClientId = Configuration.GetValue<string>("GoogleLogin:ClientId");
-            });            
-
-            //.AddTransient<IProfileService, ProfileService>();
-
-            //services.AddTransient<IResourceOwnerPasswordValidator, ResourceOwnerPasswordValidator>()
-            //    .AddTransient<IProfileService, ProfileService>()
-            //    .AddTransient<IAuthRepository, AuthRepository>();
+            });                        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+            //JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
