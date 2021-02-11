@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace Bom_Dev
 {
@@ -29,7 +30,9 @@ namespace Bom_Dev
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {     
+        {
+            JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
+
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddTransient<IEmailSender, EmailConfiguracao>();                                                                         
@@ -71,23 +74,21 @@ namespace Bom_Dev
                 o.Authority = IdentityServerHTTPSBaseURL;
                 o.RequireHttpsMetadata = false;
 
-                o.ClientId = "client2";
-                o.ClientSecret = "client2_secret_code";
+                o.ClientId = "client1";
+                o.ClientSecret = "client1_secret_code";
                 o.ResponseType = "code id_token";
 
                 o.SaveTokens = true;
                 o.GetClaimsFromUserInfoEndpoint = true;
 
                 o.Scope.Add("employeesWebApi");
-                o.Scope.Add("roles");
-                o.Scope.Add("email");
+                o.Scope.Add("roles");                
 
-                o.ClaimActions.MapUniqueJsonKey("role", "role");
-                o.ClaimActions.MapUniqueJsonKey("email", "email");
-                o.TokenValidationParameters = new TokenValidationParameters
-                {
-                    RoleClaimType = "role"
-                };
+                //o.ClaimActions.MapUniqueJsonKey("role", "role");                
+                //o.TokenValidationParameters = new TokenValidationParameters
+                //{
+                //    RoleClaimType = "role"
+                //};
             });            
             #endregion            
         }

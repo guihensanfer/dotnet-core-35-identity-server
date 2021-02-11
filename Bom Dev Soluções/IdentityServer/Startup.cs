@@ -31,33 +31,40 @@ namespace IdentityServer
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
-            //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
-            //services.AddIdentity<IdentityUser, IdentityRole>()            
-            //    .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
 
             //services.AddTransient<IAuthRepository, AuthRepository>();
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews();            
 
-            services.AddIdentityServer()
-                .AddDeveloperSigningCredential()
-                .AddTestUsers(ServerConfiguration.TestUsers)
-                //.AddResourceOwnerValidator<ResourceOwnerPasswordValidator>()
-                //.AddProfileService<ProfileService>()
-                .AddConfigurationStore(options =>
-                {
-                    options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
-                })
-                .AddOperationalStore(options =>
-                {
-                    options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
-                    options.EnableTokenCleanup = true;
-                });
-                //.AddAspNetIdentity<IdentityUser>();
-                    //.AddConfigurationStore(options => {
-                    //    options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
-                    //});                       
+            services.AddIdentityServer(options => {
+                options.Events.RaiseErrorEvents = true;
+                options.Events.RaiseInformationEvents = true;
+                options.Events.RaiseFailureEvents = true;
+                options.Events.RaiseSuccessEvents = true;                
+                options.EmitStaticAudienceClaim = true;
+            })
+            .AddDeveloperSigningCredential()
+            //.AddResourceOwnerValidator<ResourceOwnerPasswordValidator>()
+            //.AddProfileService<ProfileService>()
+            .AddConfigurationStore(options =>
+            {
+                options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
+            })
+            .AddOperationalStore(options =>
+            {
+                options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
+                options.EnableTokenCleanup = true;
+            })
+            .AddAspNetIdentity<IdentityUser>();
+                    //.AddConfigurationStore(options =>
+                    // {
+                    //     options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
+                    // });
 
             // Login com Google
             services.AddAuthentication().AddGoogle(g =>
@@ -66,9 +73,9 @@ namespace IdentityServer
 
                 g.ClientSecret = Configuration.GetValue<string>("GoogleLogin:ClientSecret");
                 g.ClientId = Configuration.GetValue<string>("GoogleLogin:ClientId");
-            });
-            
-                //.AddTransient<IProfileService, ProfileService>();
+            });            
+
+            //.AddTransient<IProfileService, ProfileService>();
 
             //services.AddTransient<IResourceOwnerPasswordValidator, ResourceOwnerPasswordValidator>()
             //    .AddTransient<IProfileService, ProfileService>()
@@ -85,13 +92,12 @@ namespace IdentityServer
 
             InitializeDatabase(app);
 
+            app.UseHttpsRedirection();
+
             app.UseStaticFiles();
             app.UseRouting();            
-            app.UseIdentityServer();
-            //app.UseAuthentication();
+            app.UseIdentityServer();            
             app.UseAuthorization();
-
-            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             app.UseEndpoints(endpoints =>
             {

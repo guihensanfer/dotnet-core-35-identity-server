@@ -73,12 +73,24 @@ namespace IdentityServer
                     ClientSecrets = new[] {
                         new Secret("client1_secret_code".Sha512()) },
                     AllowedGrantTypes = GrantTypes.
-                    ResourceOwnerPasswordAndClientCredentials,
+                    Hybrid,
                     AllowedScopes = {
-                        "openid",
-                        "roles",
-                        "employeesWebApi"
-                    }
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Address,
+                        IdentityServerConstants.StandardScopes.Email,
+                        IdentityServerConstants.StandardScopes.Phone,
+                        "employeesWebApi",
+                        "roles"
+                    },
+                    RedirectUris = new List<string> {
+                        $"{MVCClientHTTPSBaseURL}/signin-oidc"
+                    },
+                    PostLogoutRedirectUris = new List<string> {
+                         $"{MVCClientHTTPSBaseURL}/signout-callback-oidc"
+                    },
+                    RequirePkce = false,
+                    RequireConsent = false,
                 };
 
                 Client client2 = new Client
