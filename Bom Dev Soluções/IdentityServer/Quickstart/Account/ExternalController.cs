@@ -216,7 +216,10 @@ namespace IdentityServerHost.Quickstart.UI
 
             var user = new IdentityUser
             {
-                UserName = Guid.NewGuid().ToString(),
+                Id = Guid.NewGuid().ToString(),
+                Email = email,
+                UserName = email,
+                EmailConfirmed = true               
             };
             var identityResult = await _userManager.CreateAsync(user);
             if (!identityResult.Succeeded) throw new Exception(identityResult.Errors.First().Description);

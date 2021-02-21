@@ -1,6 +1,8 @@
 using Bom_Dev.Data;
 using Bom_Dev.Models;
+using IdentityServer4;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -12,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace Bom_Dev
 {
@@ -58,16 +61,21 @@ namespace Bom_Dev
             #region Identity Server            
             services.AddAuthentication(o =>
             {
-                //o.DefaultScheme = IdentityConstants.ExternalScheme;                
-                o.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;                     
+                //o.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                //o.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+
+                o.DefaultScheme = IdentityConstants.ApplicationScheme;
+                o.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+                o.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+                o.DefaultSignInScheme = IdentityConstants.ExternalScheme;
+                o.DefaultSignOutScheme = IdentityConstants.ApplicationScheme;
             })
-            .AddCookie("Cookies", o =>
-            {
-                o.AccessDeniedPath = "/Account/AccessDenied";
-            })
+            .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, "Bom Dev", o =>
-            {                
+            {
+                //o.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;    // "idsrv.external"             
                 o.SignInScheme = IdentityConstants.ExternalScheme;
+                o.SignOutScheme = IdentityConstants.ApplicationScheme;
 
                 o.Authority = IdentityServerHTTPSBaseURL;
                 o.RequireHttpsMetadata = false;
@@ -80,14 +88,10 @@ namespace Bom_Dev
                 o.GetClaimsFromUserInfoEndpoint = true;
 
                 o.Scope.Add("employeesWebApi");
-                o.Scope.Add("roles");                
+                o.Scope.Add("roles");              
+            });
 
-                //o.ClaimActions.MapUniqueJsonKey("role", "role");                
-                //o.TokenValidationParameters = new TokenValidationParameters
-                //{
-                //    RoleClaimType = "role"
-                //};
-            });            
+            services.AddAuthorization();
             #endregion            
         }
         
@@ -111,7 +115,7 @@ namespace Bom_Dev
             app.UseRouting();    
                         
             app.UseAuthentication();             
-            app.UseAuthorization();   
+            app.UseAuthorization();               
 
             app.UseEndpoints(endpoints =>
             {                
@@ -119,8 +123,7 @@ namespace Bom_Dev
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");              
                 endpoints.MapRazorPages();
-            });            
-                       
-        }
+            });                                   
+        }       
     }
 }

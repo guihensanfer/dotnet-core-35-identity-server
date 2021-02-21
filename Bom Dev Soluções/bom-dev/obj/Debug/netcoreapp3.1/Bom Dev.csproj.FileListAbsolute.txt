@@ -437,3 +437,6 @@ C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.pdb
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.genruntimeconfig.cache
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\scopedcss\bundle\Bom Dev.styles.css
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\IdentityModel.dll
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\IdentityServer4.dll
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\IdentityServer4.Storage.dll
