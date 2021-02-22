@@ -1,0 +1,5 @@
+{
+  "IdentityServerBaseURL": "https://localhost:44399",
+  "BomDevBaseURL": "https://localhost:44378",
+  "APIBaseURL": "https://localhost:44302"
+}

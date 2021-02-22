@@ -8,9 +8,9 @@ namespace IdentityServer
 {
     public class ServerConfiguration
     {
-        private const string IdentityServerHTTPSBaseURL = "https://localhost:44399";
-        private const string MVCClientHTTPSBaseURL = "https://localhost:44378";
-        private const string APIHTTPSBaseURL = "https://localhost:44302";
+        //private const string IdentityServerHTTPSBaseURL = "https://localhost:44399";
+        //private const string MVCClientHTTPSBaseURL = "https://localhost:44378";
+        //private const string APIHTTPSBaseURL = "https://localhost:44302";
 
         public static List<IdentityResource> IdentityResources {
             get
@@ -66,6 +66,8 @@ namespace IdentityServer
         public static List<Client> Clients {
             get
             {
+                var accessProjectsURLs = Bom_Dev.Shared.Projects.Hosts.GetHosts.GetAwaiter().GetResult();
+
                 Client client1 = new Client
                 {
                     ClientId = "client1",
@@ -84,10 +86,10 @@ namespace IdentityServer
                         "roles"
                     },
                     RedirectUris = new List<string> {
-                        $"{MVCClientHTTPSBaseURL}/signin-oidc"
+                        $"{accessProjectsURLs.BomDevBaseURL}/signin-oidc"
                     },
                     PostLogoutRedirectUris = new List<string> {
-                         $"{MVCClientHTTPSBaseURL}/signout-callback-oidc"
+                         $"{accessProjectsURLs.BomDevBaseURL}/signout-callback-oidc"
                     },
                     RequirePkce = false,
                     RequireConsent = false,
@@ -111,10 +113,10 @@ namespace IdentityServer
                         "roles"
                     },                    
                     RedirectUris = new List<string> {
-                        $"{MVCClientHTTPSBaseURL}/signin-oidc"
+                        $"{accessProjectsURLs.BomDevBaseURL}/signin-oidc"
                     },
                     PostLogoutRedirectUris = new List<string> {
-                         $"{MVCClientHTTPSBaseURL}/signout-callback-oidc"
+                         $"{accessProjectsURLs.BomDevBaseURL}/signout-callback-oidc"
                     },                    
                     RequirePkce = false,
                     RequireConsent = true,

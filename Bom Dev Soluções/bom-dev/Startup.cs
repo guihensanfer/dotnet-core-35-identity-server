@@ -1,7 +1,5 @@
-using Bom_Dev.Data;
+using Bom_Dev.Shared.Identity;
 using Bom_Dev.Models;
-using IdentityServer4;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
@@ -12,18 +10,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 
 namespace Bom_Dev
 {
     public class Startup
-    {
-        private const string IdentityServerHTTPSBaseURL = "https://localhost:44399";
-        private const string MVCClientHTTPSBaseURL = "https://localhost:44378";
-        private const string APIHTTPSBaseURL = "https://localhost:44302";
-
+    {        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -33,12 +24,14 @@ namespace Bom_Dev
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {            
+        {
+            var accessProjectsURLs = Shared.Projects.Hosts.GetHosts.GetAwaiter().GetResult();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddTransient<IEmailSender, EmailConfiguracao>();                                                                         
 
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<IdentityDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
@@ -55,7 +48,7 @@ namespace Bom_Dev
                 // Máximo tentativas login
                 options.Lockout.MaxFailedAccessAttempts = 3;
             })
-            .AddEntityFrameworkStores<ApplicationDbContext>();
+            .AddEntityFrameworkStores<IdentityDbContext>();
             #endregion
             
             #region Identity Server            
@@ -77,7 +70,7 @@ namespace Bom_Dev
                 o.SignInScheme = IdentityConstants.ExternalScheme;
                 o.SignOutScheme = IdentityConstants.ApplicationScheme;
 
-                o.Authority = IdentityServerHTTPSBaseURL;
+                o.Authority = accessProjectsURLs.IdentityServerBaseURL;
                 o.RequireHttpsMetadata = false;
 
                 o.ClientId = "client1";

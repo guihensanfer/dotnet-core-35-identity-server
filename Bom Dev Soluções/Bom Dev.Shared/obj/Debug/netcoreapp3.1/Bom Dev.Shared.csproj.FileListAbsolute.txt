@@ -1,0 +1,9 @@
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\Bom Dev.Shared\bin\Debug\netcoreapp3.1\Bom Dev.Shared.deps.json
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\Bom Dev.Shared\bin\Debug\netcoreapp3.1\Bom Dev.Shared.dll
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\Bom Dev.Shared\bin\Debug\netcoreapp3.1\Bom Dev.Shared.pdb
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\Bom Dev.Shared\obj\Debug\netcoreapp3.1\Bom Dev.Shared.csprojAssemblyReference.cache
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\Bom Dev.Shared\obj\Debug\netcoreapp3.1\Bom Dev.Shared.AssemblyInfoInputs.cache
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\Bom Dev.Shared\obj\Debug\netcoreapp3.1\Bom Dev.Shared.AssemblyInfo.cs
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\Bom Dev.Shared\obj\Debug\netcoreapp3.1\Bom Dev.Shared.csproj.CoreCompileInputs.cache
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\Bom Dev.Shared\obj\Debug\netcoreapp3.1\Bom Dev.Shared.dll
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\Bom Dev.Shared\obj\Debug\netcoreapp3.1\Bom Dev.Shared.pdb

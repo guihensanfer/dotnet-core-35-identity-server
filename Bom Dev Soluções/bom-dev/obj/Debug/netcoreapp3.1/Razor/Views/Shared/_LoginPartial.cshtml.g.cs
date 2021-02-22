@@ -12,9 +12,10 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
+    using Bom_Dev.Shared.Identity;
 #nullable restore
 #line 1 "C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\Views\_ViewImports.cshtml"
-using Bom_Dev;
+    using Bom_Dev;
 
 #line default
 #line hidden

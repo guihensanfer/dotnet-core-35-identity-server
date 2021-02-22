@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace IdentityServer.Data
+namespace Bom_Dev.Shared.Identity
 {
-    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
+    public class IdentityDbContext : IdentityDbContext<BomDevUser>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public IdentityDbContext(DbContextOptions<IdentityDbContext> options)
             : base(options)
         {
         }

@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using Bom_Dev.Data;
+using Bom_Dev.Shared.Identity;
 
 namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
 {
