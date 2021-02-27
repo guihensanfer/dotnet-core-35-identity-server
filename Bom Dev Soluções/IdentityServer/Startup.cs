@@ -10,7 +10,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
 using System.Reflection;
-using Bom_Dev.Shared.Identity;
 
 namespace IdentityServer
 {
@@ -28,10 +27,10 @@ namespace IdentityServer
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
-            services.AddDbContext<IdentityDbContext>(options => options.UseSqlServer(connectionString));
+            services.AddDbContext<Bom_Dev.Shared.Identity.IdentityDbContext>(options => options.UseSqlServer(connectionString));
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<IdentityDbContext>()
+            services.AddIdentity<Bom_Dev.Shared.Identity.BomDevUser, IdentityRole>()
+                .AddEntityFrameworkStores<Bom_Dev.Shared.Identity.IdentityDbContext>()
                 .AddDefaultTokenProviders();            
 
             services.AddControllersWithViews();            
@@ -53,7 +52,7 @@ namespace IdentityServer
                 options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
                 options.EnableTokenCleanup = true;
             })
-            .AddAspNetIdentity<IdentityUser>();
+            .AddAspNetIdentity<Bom_Dev.Shared.Identity.BomDevUser>();
             
             // Login com Google
             services.AddAuthentication().AddGoogle(g =>
@@ -67,9 +66,7 @@ namespace IdentityServer
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-
-            //JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
+        {            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -96,14 +93,14 @@ namespace IdentityServer
         {
             using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
             {
+                ServerConfiguration serverConfiguration = new ServerConfiguration(Configuration.GetValue<string>("Hosts:BomDevBaseURL"));
                 serviceScope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>().Database.Migrate();
-
                 var context = serviceScope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
                 context.Database.Migrate();
 
                 if(!context.ApiScopes.Any())
                 {
-                    foreach(var scope in ServerConfiguration.ApiScopes)
+                    foreach(var scope in serverConfiguration.ApiScopes)
                     {
                         context.ApiScopes.Add(scope.ToEntity());
                     }
@@ -112,7 +109,7 @@ namespace IdentityServer
                 }
                 if (!context.Clients.Any())
                 {
-                    foreach (var client in ServerConfiguration.Clients)
+                    foreach (var client in serverConfiguration.Clients)
                     {
                         context.Clients.Add(client.ToEntity());
                     }
@@ -121,7 +118,7 @@ namespace IdentityServer
 
                 if (!context.IdentityResources.Any())
                 {
-                    foreach (var resource in ServerConfiguration.IdentityResources)
+                    foreach (var resource in serverConfiguration.IdentityResources)
                     {
                         context.IdentityResources.Add(resource.ToEntity());
                     }
@@ -130,7 +127,7 @@ namespace IdentityServer
 
                 if (!context.ApiResources.Any())
                 {
-                    foreach (var resource in ServerConfiguration.ApiResources)
+                    foreach (var resource in serverConfiguration.ApiResources)
                     {
                         context.ApiResources.Add(resource.ToEntity());
                     }

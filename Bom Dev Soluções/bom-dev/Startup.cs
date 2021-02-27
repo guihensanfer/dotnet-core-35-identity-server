@@ -24,9 +24,7 @@ namespace Bom_Dev
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
-            var accessProjectsURLs = Shared.Projects.Hosts.GetHosts.GetAwaiter().GetResult();
-
+        {            
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddTransient<IEmailSender, EmailConfiguracao>();                                                                         
@@ -54,9 +52,6 @@ namespace Bom_Dev
             #region Identity Server            
             services.AddAuthentication(o =>
             {
-                //o.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                //o.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
-
                 o.DefaultScheme = IdentityConstants.ApplicationScheme;
                 o.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
                 o.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
@@ -65,12 +60,11 @@ namespace Bom_Dev
             })
             .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, "Bom Dev", o =>
-            {
-                //o.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;    // "idsrv.external"             
+            {                
                 o.SignInScheme = IdentityConstants.ExternalScheme;
                 o.SignOutScheme = IdentityConstants.ApplicationScheme;
 
-                o.Authority = accessProjectsURLs.IdentityServerBaseURL;
+                o.Authority = Configuration.GetValue<string>("Hosts:IdentityServerBaseURL");
                 o.RequireHttpsMetadata = false;
 
                 o.ClientId = "client1";
@@ -83,8 +77,6 @@ namespace Bom_Dev
                 o.Scope.Add("employeesWebApi");
                 o.Scope.Add("roles");              
             });
-
-            services.AddAuthorization();
             #endregion            
         }
         
