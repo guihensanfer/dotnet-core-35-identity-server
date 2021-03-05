@@ -28,13 +28,13 @@ using Bom_Dev.Models;
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\Views\_ViewImports.cshtml"
-using Bom_Dev.Data;
+using Bom_Dev.Shared.Identity;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"80f5c70082a6be0b0152e6418c4fae49b2aa8737", @"/Views/Auth/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dc3787ef2f2e41e3be8f52336c9b41dccc538108", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a4f1f55d811d6dbc34ee13d151740ab44ae5c132", @"/Views/_ViewImports.cshtml")]
     public class Views_Auth_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<string>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Account", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -132,7 +132,7 @@ using Bom_Dev.Data;
 #line hidden
 #nullable disable
             WriteLiteral("    <h3>\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "80f5c70082a6be0b0152e6418c4fae49b2aa87375756", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "80f5c70082a6be0b0152e6418c4fae49b2aa87375767", async() => {
                 WriteLiteral("SignOut");
             }
             );

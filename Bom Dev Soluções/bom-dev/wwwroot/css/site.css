@@ -74,6 +74,8 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
+/*Bom Dev 2*/
+
 #layoutLogo{  
   width: 68px;
   height: 20px;
@@ -81,6 +83,15 @@ body {
   background-repeat: no-repeat;  
   background-size: 68px 20px;  
 }
+
+/*Bom Dev 1*/
+/*#layoutLogo{  
+  width: 85px;
+  height: 16px;
+  background-image: url(../img/BomDev.svg);  
+  background-repeat: no-repeat;  
+  background-size: 85px 16px;  
+}*/
 
 h1,h2,h3,h4,h5,a,span,p, label{font-family: 'Lato', sans-serif;}
 h4,h5,p{font-weight: 300;}

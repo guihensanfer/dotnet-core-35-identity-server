@@ -34,7 +34,7 @@ namespace Bom_Dev
                     Configuration.GetConnectionString("DefaultConnection")));
 
             #region Identity            
-            services.AddDefaultIdentity<BomDevUser>(options => {
+            services.AddDefaultIdentity<Bom_Dev.Shared.Identity.BomDevUser>(options => {
                 options.SignIn.RequireConfirmedAccount = true;
 
                 // Senha

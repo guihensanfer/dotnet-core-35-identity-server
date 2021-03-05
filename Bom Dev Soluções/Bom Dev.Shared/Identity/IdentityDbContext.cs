@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Bom_Dev.Shared.Identity
 {
-    public class IdentityDbContext : IdentityDbContext<BomDevUser>
+    public class IdentityDbContext : IdentityDbContext<Bom_Dev.Shared.Identity.BomDevUser>
     {
         public IdentityDbContext(DbContextOptions<IdentityDbContext> options)
             : base(options)
