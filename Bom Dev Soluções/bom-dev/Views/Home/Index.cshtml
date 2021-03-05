@@ -1,14 +1,16 @@
 ﻿@{
     ViewData["Title"] = "Início";
 }
-<nav id="navBarSecundario" class="navbar navbar-light navbar-expand justify-content-center">
+<nav id="navBarSecundario" class="navbar navbar-expand justify-content-center">
     <div class="container">
         <ul class="navbar-nav nav-justified w-100 text-center">
             <li class="nav-item">
-                <form method="GET">
-                    <input type="text" name="aplicacao" style="font-size: 14px!important;" placeholder="Buscar por aplicação..." required />
-                    <button type="submit" class="btn btn-primary" style="font-size:14px!important;">Buscar</button>
-                </form>                
+                <div id="containerBusca">
+                    <form method="GET">
+                        <input type="text" name="aplicacao" style="font-size: 14px!important;" placeholder="Buscar por aplicação..." required />
+                        <button type="submit" class="btn btn-primary" style="font-size:14px!important;">Buscar</button>
+                    </form>
+                </div>                
             </li>            
         </ul>
     </div>
@@ -39,11 +41,12 @@
 @section Scripts
 {
     <style>
-        #navBarSecundario{background:#F5F5F5;padding-top:0.5%;padding-bottom:0.5%;}     
-        .bloco-destaque{
+        #navBarSecundario{padding-top:0.5%;padding-bottom:0.5%;}
+        #containerBusca{padding:1% 2% 1% 2%;border-radius:15px;background:#F0F0F0;}
+        .bloco-destaque {
             display: inline-block;
-            width:250px;
-            padding:2%;
+            width: 250px;
+            padding: 2%;
             margin-right: 1.5%;
         }   
         @@media (max-width: 580px) {  

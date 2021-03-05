@@ -75,12 +75,13 @@ body {
 }
 
 #layoutLogo{  
-  width: 92px;
-  height: 17px;
+  width: 68px;
+  height: 20px;
   background-image: url(../img/BomDev.svg);  
   background-repeat: no-repeat;  
-  background-size: 92px 17px;  
+  background-size: 68px 20px;  
 }
+
 h1,h2,h3,h4,h5,a,span,p, label{font-family: 'Lato', sans-serif;}
 h4,h5,p{font-weight: 300;}
 .text-descricao-P{font-size: 90%;}

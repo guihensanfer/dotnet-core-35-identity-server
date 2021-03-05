@@ -89,7 +89,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
                         protocol: Request.Scheme);                                        
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirmação de registro",
-                        Models.EmailConfiguracao.CorpoEmailConfirmarEmail(HtmlEncoder.Default.Encode(callbackUrl))); 
+                        Models.EmailConfig.CorpoEmailConfirmarEmail(HtmlEncoder.Default.Encode(callbackUrl))); 
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {

@@ -59,7 +59,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
                 await _emailSender.SendEmailAsync(
                     Input.Email,
                     "Redefinir senha",
-                    Models.EmailConfiguracao.CorpoEmailEsqueciSenha(HtmlEncoder.Default.Encode(callbackUrl)));
+                    Models.EmailConfig.CorpoEmailEsqueciSenha(HtmlEncoder.Default.Encode(callbackUrl)));
 
                 return RedirectToPage("./ForgotPasswordConfirmation");
             }

@@ -27,7 +27,7 @@ namespace Bom_Dev
         {            
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddTransient<IEmailSender, EmailConfiguracao>();                                                                         
+            services.AddTransient<IEmailSender, EmailSender>();               
 
             services.AddDbContext<IdentityDbContext>(options =>
                 options.UseSqlServer(

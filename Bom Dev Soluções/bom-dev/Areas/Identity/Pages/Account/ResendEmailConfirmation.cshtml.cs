@@ -77,7 +77,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
             await _emailSender.SendEmailAsync(
                 Input.Email,
                 "Confirme seu e-mail",
-                Models.EmailConfiguracao.CorpoEmailConfirmarEmail(HtmlEncoder.Default.Encode(callbackUrl))); 
+                Models.EmailConfig.CorpoEmailConfirmarEmail(HtmlEncoder.Default.Encode(callbackUrl))); 
 
             ModelState.AddModelError(string.Empty, "E-mail enviado, por favor verifique seu e-mail.");
             return Page();

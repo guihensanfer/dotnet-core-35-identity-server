@@ -12,10 +12,9 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
-    using Bom_Dev.Shared.Identity;
 #nullable restore
 #line 1 "C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\Areas\Identity\Pages\_ViewImports.cshtml"
-    using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
@@ -260,7 +259,7 @@ AddHtmlAttributeValue(" ", 1111, ManageNavPages.PersonalDataNavClass(ViewContext
         }
         #pragma warning restore 1998
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public SignInManager<BomDevUser> SignInManager { get; private set; }
+        public SignInManager<Bom_Dev.Shared.Identity.BomDevUser> SignInManager { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
         public global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider ModelExpressionProvider { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
