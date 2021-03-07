@@ -27,7 +27,15 @@ namespace Bom_Dev
         {            
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddTransient<IEmailSender, EmailSender>();               
+            services.AddTransient<IEmailSender, EmailSender>();
+
+            // Atualiza as informações de conexão com e-mail conforme appsettings
+            EmailConfig.host = Configuration.GetValue<string>("Email:Host");
+            EmailConfig.enableSsl = Configuration.GetValue<bool>("Email:EnableSsl");
+            EmailConfig.email = Configuration.GetValue<string>("Email:Email");
+            EmailConfig.password = Configuration.GetValue<string>("Email:Password");
+            EmailConfig.port = Configuration.GetValue<short>("Email:Port");
+            EmailConfig.signatureHTML = Configuration.GetValue<string>("Email:SignatureHTML");
 
             services.AddDbContext<IdentityDbContext>(options =>
                 options.UseSqlServer(
