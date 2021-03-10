@@ -20,6 +20,9 @@ namespace Bom_Dev
             Configuration = configuration;
         }
 
+        public const string IdentityServerName = "Bom Dev";
+        public const string IdentityServerScheme = OpenIdConnectDefaults.AuthenticationScheme;
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -67,7 +70,7 @@ namespace Bom_Dev
                 o.DefaultSignOutScheme = IdentityConstants.ApplicationScheme;
             })
             .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
-            .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, "Bom Dev", o =>
+            .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, IdentityServerName, o =>
             {                
                 o.SignInScheme = IdentityConstants.ExternalScheme;
                 o.SignOutScheme = IdentityConstants.ApplicationScheme;
