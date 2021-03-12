@@ -1,3 +1,4 @@
+using IdentityServer.Quickstart;
 using IdentityServer4;
 using IdentityServer4.EntityFramework.DbContexts;
 using IdentityServer4.EntityFramework.Mappers;
@@ -61,7 +62,11 @@ namespace IdentityServer
 
                 g.ClientSecret = Configuration.GetValue<string>("GoogleLogin:ClientSecret");
                 g.ClientId = Configuration.GetValue<string>("GoogleLogin:ClientId");
-            });                        
+            });
+
+            var appSettingsUtil = new AppSettingsUtil(Configuration.GetValue<string>("Links:BomDevRegisterURL"));
+
+            services.AddSingleton(prov => appSettingsUtil);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -93,7 +98,7 @@ namespace IdentityServer
         {
             using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
             {
-                ServerConfiguration serverConfiguration = new ServerConfiguration(Configuration.GetValue<string>("Hosts:BomDevBaseURL"));
+                ServerConfiguration serverConfiguration = new ServerConfiguration(Configuration.GetValue<string>("Links:BomDevBaseURL"));
                 serviceScope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>().Database.Migrate();
                 var context = serviceScope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
                 context.Database.Migrate();

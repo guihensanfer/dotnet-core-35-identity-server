@@ -1,4 +1,6 @@
 @model LoginViewModel
+@using IdentityServer.Quickstart;
+@inject AppSettingsUtil _appConfig
 
 <div class="login-page">
     <div class="lead">
@@ -29,6 +31,9 @@
                             <div class="form-group">
                                 <label asp-for="Password"></label>
                                 <input type="password" class="form-control" placeholder="Password" asp-for="Password" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <a href="@_appConfig.bomDevRegisterURL">Ainda n&atilde;o possui uma conta? Registre-se</a>
                             </div>
                             @if (Model.AllowRememberLogin)
                             {
