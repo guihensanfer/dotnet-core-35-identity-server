@@ -64,7 +64,9 @@ namespace IdentityServer
                 g.ClientId = Configuration.GetValue<string>("GoogleLogin:ClientId");
             });
 
-            var appSettingsUtil = new AppSettingsUtil(Configuration.GetValue<string>("Links:BomDevRegisterURL"));
+            var appSettingsUtil = new BomDevAppSettingsUtil(Configuration.GetValue<string>("Links:BomDevRegisterURL"),
+                Configuration.GetValue<string>("Links:BomDevForgotPassword"),
+                Configuration.GetValue<string>("Links:BomDevBaseURL"));
 
             services.AddSingleton(prov => appSettingsUtil);
         }
