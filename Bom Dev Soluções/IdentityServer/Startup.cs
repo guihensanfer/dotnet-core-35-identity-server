@@ -41,7 +41,7 @@ namespace IdentityServer
                 options.Events.RaiseInformationEvents = true;
                 options.Events.RaiseFailureEvents = true;
                 options.Events.RaiseSuccessEvents = true;                
-                options.EmitStaticAudienceClaim = true;
+                options.EmitStaticAudienceClaim = true;                        
             })
             .AddDeveloperSigningCredential()            
             .AddConfigurationStore(options =>
@@ -53,7 +53,7 @@ namespace IdentityServer
                 options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
                 options.EnableTokenCleanup = true;
             })
-            .AddAspNetIdentity<Bom_Dev.Shared.Identity.BomDevUser>();
+            .AddAspNetIdentity<Bom_Dev.Shared.Identity.BomDevUser>();            
             
             // Login com Google
             services.AddAuthentication().AddGoogle(g =>

@@ -11,10 +11,10 @@
 }
 
 <div class="nav-page">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light menuNav">
         <div class="container">
             <a id="layoutLogo" class="navbar-brand" href="@_util.homeURL" title="Bom Dev">
-                
+
             </a>
 
             @if (!string.IsNullOrWhiteSpace(name))
@@ -29,6 +29,14 @@
                     </li>
                 </ul>
             }
+
+            <div class="navbar d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link link-destacado text-descricao-P" href="@_util.registerURL" title="Registrar-se">Registrar-se</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </nav>
+</nav>
 </div>

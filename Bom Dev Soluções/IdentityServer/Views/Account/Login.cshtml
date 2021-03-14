@@ -2,88 +2,110 @@
 @using IdentityServer.Quickstart;
 @inject BomDevAppSettingsUtil _appConfig
 
-<div class="login-page">    
+@*<div class="login-page">*@    
     <partial name="_ValidationSummary" />
 
     <div class="row">
+        <div class="col-md-6 my-auto">
+            <div class="loginDescricaoAEsquerda">
+                <h3>Tenha acesso aos nossos softwares</h3>
+                <h4>Com apenas uma conta</h4>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-8">
+                    <section>
+                        <div class="loginContinuarCom">
+                            <h4 class="text-light">Continuar com</h4>
+                            <hr />
+                            @if (Model.VisibleExternalProviders.Any())
+                            {
+                                @*<div class="col-sm-6">*@
+                                @*<div class="card">*@
+                                @*<div class="card-header">*@
+                                @*</div>*@
+                                @*<div class="card-body">*@
+                                <ul class="list-inline">
+                                    @foreach (var provider in Model.VisibleExternalProviders)
+                                    {
+                                        <li class="list-inline-item">
+                                            <a class="btn btn-primary"
+                                               asp-controller="External"
+                                               asp-action="Challenge"
+                                               asp-route-scheme="@provider.AuthenticationScheme"
+                                               asp-route-returnUrl="@Model.ReturnUrl">
+                                                @provider.DisplayName
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                                @*</div>*@
+                                @*</div>*@
+                                @*</div>*@
+                            }
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row loginMargin5Percent">
+                <div class="col-md-8">
+                    <section>
+                        @if (Model.EnableLocalLogin)
+                        {
+                            @*<div class="col-sm-6">*@
+                            @*<div class="card">
+            <div class="card-header">*@                            
+                            @*</div>*@
 
-        @if (Model.EnableLocalLogin)
-        {
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h2>Tenho uma conta Bom Dev</h2>
-                    </div>
-
-                    <div class="card-body">
-                        <form asp-route="Login">
+                            @*<div class="card-body">*@
+                        <form asp-route="Login" class="loginForm">
+                            <h4 class="text-light">Tenho uma conta Bom Dev</h4>
+                            <hr />
                             <input type="hidden" asp-for="ReturnUrl" />
 
                             <div class="form-group">
-                                <label asp-for="Username"></label>
+                                <label asp-for="Username" class="text-light"></label>
                                 <input class="form-control" placeholder="E-mail" asp-for="Username" autofocus>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Password"></label>
+                                <label asp-for="Password" class="text-light"></label>
                                 <input type="password" class="form-control" placeholder="Senha" asp-for="Password" autocomplete="off">
                             </div>
                             @if (Model.AllowRememberLogin)
                             {
                                 <div class="form-group">
                                     <div class="form-check">
-                                        <input class="form-check-input" asp-for="RememberLogin">
-                                        <label class="form-check-label" asp-for="RememberLogin">
+                                        <input class="form-check-input text-light" asp-for="RememberLogin">
+                                        <label class="form-check-label text-light" asp-for="RememberLogin">
                                             Lembrar meu login
                                         </label>
                                     </div>
                                 </div>
                             }
                             <div class="form-group">
-                                <a href="@_appConfig.forgotPasswordURL">Esqueci minha senha</a>
+                                <a href="@_appConfig.forgotPasswordURL" class="fundo-arredondado text-light">Esqueci minha senha</a>
                             </div>
                             <div class="form-group">
-                                <a href="@_appConfig.registerURL">Ainda n&atilde;o possui uma conta? Registre-se</a>
+                                <a href="@_appConfig.registerURL" class="fundo-arredondado text-light">Ainda n&atilde;o possui uma conta? Registre-se</a>
                             </div>
-                            <button class="btn btn-primary" name="button" value="login">Login</button>                            
+                            <button class="btn btn-primary" name="button" value="login">Login</button>
                         </form>
-                    </div>
+                            @*</div>*@
+                            @*</div>*@
+                            @*</div>*@
+                        }
+                    </section>
                 </div>
             </div>
-        }
-
-        @if (Model.VisibleExternalProviders.Any())
-        {
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h2>External Account</h2>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-inline">
-                            @foreach (var provider in Model.VisibleExternalProviders)
-                            {
-                                <li class="list-inline-item">
-                                    <a class="btn btn-secondary"
-                                       asp-controller="External"
-                                       asp-action="Challenge"
-                                       asp-route-scheme="@provider.AuthenticationScheme"
-                                       asp-route-returnUrl="@Model.ReturnUrl">
-                                        @provider.DisplayName
-                                    </a>
-                                </li>
-                            }
-                        </ul>
-                    </div>
+                
+            @if (!Model.EnableLocalLogin && !Model.VisibleExternalProviders.Any())
+            {
+                <div class="alert alert-warning">
+                    <strong>Invalid login request</strong>
+                    There are no login schemes configured for this request.
                 </div>
-            </div>
-        }
-
-        @if (!Model.EnableLocalLogin && !Model.VisibleExternalProviders.Any())
-        {
-            <div class="alert alert-warning">
-                <strong>Invalid login request</strong>
-                There are no login schemes configured for this request.
-            </div>
-        }
+            }
+        </div>
     </div>
-</div>
+@*</div>*@
