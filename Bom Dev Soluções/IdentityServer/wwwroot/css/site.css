@@ -69,13 +69,13 @@ h4, h5, p {
 }
 
 .loginContinuarCom {
-    background: #CD5C5C;
+    border: solid 2px #CD5C5C;
     padding: 10px;
     border-radius: 7px;
 }
 
 .loginForm {
-    background: #CD5C5C;
+    border: solid 2px #CD5C5C;
     border-radius: 7px;
     padding: 15px;
 }
@@ -86,5 +86,6 @@ h4, h5, p {
 
 .menuNav {    
     padding-top: 15px;
-    padding-bottom:15px;
+    padding-bottom:0px;
+    background:#FFF !important;
 }

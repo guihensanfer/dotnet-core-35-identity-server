@@ -42,7 +42,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
         {            
             [Required(ErrorMessage = "{0} é obrigatório.")]
             [EmailAddress]
-            [Display(Name = "Email")]
+            [Display(Name = "E-mail")]
             public string Email { get; set; }
 
             [Required(ErrorMessage = "{0} é obrigatório.")]
@@ -53,8 +53,16 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
 
             [DataType(DataType.Password)]
             [Display(Name = "Confirmar senha")]
-            [Compare("Password", ErrorMessage = "Senhas não coincidem.")]
-            public string ConfirmPassword { get; set; }            
+            [Compare(nameof(Password), ErrorMessage = "Senhas não coincidem.")]
+            public string ConfirmPassword { get; set; }
+
+            [Display(Name = "Nome completo")]
+            [StringLength(256, ErrorMessage = "A {0} deve ter no mínimo {2} e no máximo {1} caracteres.", MinimumLength = 8)]
+            public string Nome { get; set; }
+
+            [Display(Name = "Telefone")]
+            [DataType(DataType.PhoneNumber)]
+            public string PhoneNumber { get; set; }
         }
 
         public void OnGetAsync(string returnUrl = null)
@@ -67,7 +75,12 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");            
             if (ModelState.IsValid)
             {
-                var user = new BomDevUser { UserName = Input.Email, Email = Input.Email};
+                var user = new BomDevUser { 
+                    UserName = Input.Email, 
+                    Email = Input.Email, 
+                    Nome = Input.Nome,
+                    PhoneNumber = Input.PhoneNumber
+                };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
