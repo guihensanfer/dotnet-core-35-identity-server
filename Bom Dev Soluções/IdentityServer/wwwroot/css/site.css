@@ -45,7 +45,7 @@ h4, h5, p {
 }
 
 .text-descricao-P {
-    font-size: 90%;
+    font-size: 80%;
 }
 
 .link-destacado {
@@ -60,32 +60,58 @@ h4, h5, p {
     background-size: 68px 20px;
 }
 
-.loginDescricaoAEsquerda {
-    text-align: center;
-    border-bottom: dashed 1px indianred;
+.loginDescricaoADireita {
+    text-align: center;   
     padding-bottom: 0.8em;
     margin-left: 3em;
     margin-right: 3em;
 }
 
-.loginContinuarCom {
-    border: solid 2px #CD5C5C;
-    padding: 10px;
-    border-radius: 7px;
+.descricaoADiretaBackground1 {
+    background: rgb(255,0,0);
+    background: linear-gradient(90deg, rgba(255,0,0,1) 42%, rgba(255,255,255,1) 82%);
+    height: 2px;
+    width: 50%;
+    margin-top: 12.8%;
+    float: right;
+    /*margin-left: 35%;*/
+    display: block;
+}
+.descricaoADiretaBackground2 {
+    background: rgb(160,44,44);
+    background: linear-gradient(90deg, rgba(160,44,44,1) 42%, rgba(255,255,255,1) 82%);
+    height: 2px;
+    width: 50%;
+    margin-top: 2px;
+    float:right;
+    /*margin-left:35%;*/
+    display: block;
 }
 
-.loginForm {
-    border: solid 2px #CD5C5C;
+.loginContinuarCom {
+    background: #FFF;
+    padding: 10px;
+    border-bottom: dashed 2px #C0C0C0;
+}
+
+.loginForm {    
+    background: #FFF;
     border-radius: 7px;
     padding: 15px;
 }
 
-.loginMargin5Percent{
-    margin-top:2.5%;
+.loginMargin4Percent{
+    margin-top:4%
 }
 
 .menuNav {    
-    padding-top: 15px;
+    padding-top: 30px;
     padding-bottom:0px;
     background:#FFF !important;
+}
+
+@media (max-width: 720px) {
+    .descricaoADireita {
+        display:none;
+    }
 }

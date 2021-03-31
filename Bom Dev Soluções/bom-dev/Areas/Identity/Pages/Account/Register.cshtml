@@ -5,8 +5,8 @@
 }
 <div class="row">    
     <div class="col-md-12 col-md-offset-2">
-        <section style="border-bottom:dashed 2px #DCDCDC;padding-top:10px;padding-bottom:10px;">
-            <div id="divContinuarOutrosProvedores" style="margin-left: 25%;margin-right: 25%;">
+        <section>
+            <div id="divContinuarOutrosProvedores" style="margin-left: 25%;margin-right: 25%;border-bottom: dashed 2px #DCDCDC;padding-top: 10px;padding-bottom: 10px;">
                 <h4 class="text-dark">J&aacute; possui uma conta?</h4>                            
                 <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
                     <div>
@@ -34,7 +34,7 @@
                             <span asp-validation-for="Input.Email" class="text-danger"></span>
                         </div>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-7">
                         <div class="form-group">
                             <label class="text-dark" asp-for="Input.Nome"></label>
                             <input asp-for="Input.Nome" class="form-control" />

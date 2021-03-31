@@ -4,49 +4,57 @@
 
 <partial name="_ValidationSummary" />
 
-<div class="row">
-    <div class="col-md-6 my-auto">
-        <div class="loginDescricaoAEsquerda">
-            <h3>Tenha acesso aos nossos softwares</h3>
-            <h4>Com apenas uma conta</h4>
-        </div>
-    </div>
+<div class="row">    
     <div class="col-md-6">
         <div class="row">
+            <div class="col-md-8 loginMargin4Percent">
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a class="btn btn-primary text-descricao-P text-dark"
+                           href="@_appConfig.registerURL">
+                            Cadastrar-se
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="btn btn-primary text-descricao-P text-dark"
+                           href="@_appConfig.forgotPasswordURL">
+                            Esqueci minha senha
+                        </a>
+                    </li>                    
+                </ul>
+            </div>
             <div class="col-md-8">
                 <section>
                     <div class="loginContinuarCom">
                         <h4 class="text-dark">Continuar com</h4>
-                        <hr />
                         @if (Model.VisibleExternalProviders.Any())
-                        {                                
+                        {
                             <ul class="list-inline">
                                 @foreach (var provider in Model.VisibleExternalProviders)
                                 {
                                     <li class="list-inline-item">
                                         <a class="btn btn-primary"
-                                            asp-controller="External"
-                                            asp-action="Challenge"
-                                            asp-route-scheme="@provider.AuthenticationScheme"
-                                            asp-route-returnUrl="@Model.ReturnUrl">
+                                           asp-controller="External"
+                                           asp-action="Challenge"
+                                           asp-route-scheme="@provider.AuthenticationScheme"
+                                           asp-route-returnUrl="@Model.ReturnUrl">
                                             @provider.DisplayName
                                         </a>
                                     </li>
                                 }
-                            </ul>                                
+                            </ul>
                         }
                     </div>
                 </section>
             </div>
         </div>
-        <div class="row loginMargin5Percent">
+        <div class="row loginMargin4Percent">
             <div class="col-md-8">
                 <section>
                     @if (Model.EnableLocalLogin)
-                    {                            
+                    {
                         <form asp-route="Login" class="loginForm">
                             <h4 class="text-dark">Tenho uma conta Bom Dev</h4>
-                            <hr />
                             <input type="hidden" asp-for="ReturnUrl" />
 
                             <div class="form-group">
@@ -67,20 +75,14 @@
                                         </label>
                                     </div>
                                 </div>
-                            }
-                            <div class="form-group">
-                                <a href="@_appConfig.forgotPasswordURL" class="fundo-arredondado text-dark">Esqueci minha senha</a>
-                            </div>
-                            <div class="form-group">
-                                <a href="@_appConfig.registerURL" class="fundo-arredondado text-dark">Ainda n&atilde;o possui uma conta? Registre-se</a>
-                            </div>
+                            }                            
                             <button class="btn btn-primary" name="button" value="login">Login</button>
-                        </form>                            
+                        </form>
                     }
                 </section>
             </div>
         </div>
-                
+
         @if (!Model.EnableLocalLogin && !Model.VisibleExternalProviders.Any())
         {
             <div class="alert alert-warning">
@@ -88,5 +90,19 @@
                 There are no login schemes configured for this request.
             </div>
         }
+    </div>
+    <div class="col-md-6 my-auto descricaoADireita">
+        <div class="loginDescricaoADireita">
+            <h4>Tenha acesso aos nossos softwares</h4>
+            <h5>Com apenas uma conta</h5>
+
+        </div>
+        <div class="descricaoADiretaBackground1"></div>
+        <div class="descricaoADiretaBackground2"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 loginMargin4Percent">
+        <span class="text-dark text-descricao-P">@Bom_Dev.Shared.Util.copyright</span>
     </div>
 </div>

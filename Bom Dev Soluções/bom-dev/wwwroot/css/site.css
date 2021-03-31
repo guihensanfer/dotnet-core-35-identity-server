@@ -93,7 +93,7 @@ body {
   background-size: 85px 16px;  
 }*/
 
-h1,h2,h3,h4,h5,a,span,p, label{font-family: 'Lato', sans-serif;}
+h1,h2,h3,h4,h5,a,span,p, label, input, button{font-family: 'Lato', sans-serif;}
 h4,h5,p{font-weight: 300;}
 .text-descricao-P{font-size: 90%;}
 .link-destacado{color:#1e90ff;}
@@ -150,6 +150,13 @@ a {
 }
 
 input[type="text"],input[type="email"], input[type="tel"],input[type="password"]{background: transparent;border:none;border-bottom:solid 2px #626262;border-radius: 0px;}
+.bomDevSearchInputStyle {
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaWQ9IkxheWVyXzFfMV8iIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDE2IDE2OyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMTYgMTYiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik01LDEwYzEuMTk4LDAsMi4yODQtMC40NDEsMy4xNDctMS4xNDZsNyw3bDAuNzA3LTAuNzA3bC03LTdDOS41NTksNy4yODQsMTAsNi4xOTgsMTAsNWMwLTIuNzU3LTIuMjQzLTUtNS01UzAsMi4yNDMsMCw1ICBTMi4yNDMsMTAsNSwxMHogTTUsMWMyLjIwOSwwLDQsMS43OTEsNCw0YzAsMi4yMDktMS43OTEsNC00LDRTMSw3LjIwOSwxLDVDMSwyLjc5MSwyLjc5MSwxLDUsMXoiLz48L3N2Zz4=') !important;
+    background-repeat: no-repeat !important;
+    background-size: 14px 14px !important;
+    background-position-y:center !important;
+    padding-left:25px !important;    
+}
 
 /*  */
 @media (max-width: 580px) {  
