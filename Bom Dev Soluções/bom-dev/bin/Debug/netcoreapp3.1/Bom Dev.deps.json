@@ -31,6 +31,7 @@
     ".NETCoreApp,Version=v3.1": {
       "Bom Dev/1.0.0": {
         "dependencies": {
+          "API": "1.0.0",
           "EntityFramework": "6.4.4",
           "IdentityServer4": "4.1.1",
           "Microsoft.AspNetCore.Authentication.OpenIdConnect": "3.1.10",
@@ -382,6 +383,20 @@
         },
         "compile": {
           "lib/netstandard2.0/IdentityServer4.Storage.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.6": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.6.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "assemblyVersion": "3.1.6.0",
+            "fileVersion": "3.100.620.31714"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authentication.OpenIdConnect/3.1.10": {
@@ -2457,6 +2472,17 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
+      "API/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.6"
+        },
+        "runtime": {
+          "API.dll": {}
+        },
+        "compile": {
+          "API.dll": {}
+        }
+      },
       "Bom Dev.Shared/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.11",
@@ -4096,6 +4122,13 @@
       "path": "identityserver4.storage/4.1.1",
       "hashPath": "identityserver4.storage.4.1.1.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XT5yph4cdiMbas6FyvVafCKfg1QgPZM7Ssma7aDCG0Ee8JhZMMpXGottBeUC43/lDHCaw8wTq29HOKOTDB41vA==",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/3.1.6",
+      "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.3.1.6.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Authentication.OpenIdConnect/3.1.10": {
       "type": "package",
       "serviceable": true,
@@ -5292,6 +5325,11 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "API/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Bom Dev.Shared/1.0.0": {
       "type": "project",

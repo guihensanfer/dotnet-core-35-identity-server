@@ -17,14 +17,14 @@ namespace Bom_Dev.Controllers
 
         public IActionResult Index(string searchApp = null)
         {
-            var projetos = Models.Projetos.InstanciarProjetos();            
+            var projetos = API.Models.Projects.GetProjects();
 
             if(!string.IsNullOrWhiteSpace(searchApp))
                 projetos = projetos
-                    .Where(x => x.Nome.Contains(searchApp, System.StringComparison.OrdinalIgnoreCase) 
-                        || x.DescricaoBreve.Contains(searchApp) 
-                        || x.PalavrasChaves.Contains(searchApp, System.StringComparison.OrdinalIgnoreCase))
-                    .OrderBy(x => x.DataLancamento)
+                    .Where(x => x.name.Contains(searchApp, System.StringComparison.OrdinalIgnoreCase) 
+                        || x.description.Contains(searchApp) 
+                        || x.keywords.Contains(searchApp, System.StringComparison.OrdinalIgnoreCase))
+                    .OrderBy(x => x.releaseDate)
                     .ToList();
 
             @ViewData["projetos"] = projetos;            

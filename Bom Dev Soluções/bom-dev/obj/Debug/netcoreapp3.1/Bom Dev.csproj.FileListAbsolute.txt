@@ -439,3 +439,10 @@ C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.Views.pdb
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.csproj.CopyComplete
 C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.genruntimeconfig.cache
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\API.deps.json
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\API.runtimeconfig.json
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\API.runtimeconfig.dev.json
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\API.exe
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\API.dll
+C:\Users\guihe\Desktop\Bom Dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\API.pdb

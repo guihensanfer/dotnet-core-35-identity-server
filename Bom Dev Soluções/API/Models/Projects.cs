@@ -8,11 +8,8 @@ namespace API.Models
     {
         public enum Setores
         {
-            [Display(Name = "Finanças & Investimentos")]
-            FinancasInvestimentos = 1,
-
-            [Display(Name = "Soluções empresariais")]
-            SolucoesEmpresariais = 2
+            [Display(Name = "Finanças pessoais & Investimentos")]
+            FinancasEInvestimentos = 0,
         }    
 
         public struct Cores
@@ -21,9 +18,9 @@ namespace API.Models
             public System.Drawing.Color background{get;set;}
         }
         
-        public class Projeto
+        public class Project
         {
-            public Projeto()
+            public Project()
             {
                 enable = true;
                 colorId = new Cores{
@@ -34,13 +31,15 @@ namespace API.Models
 
             public string name{get;set;}
             public string description{get;set;}
+
+            [StringLength(100)]
             public string bio{get;set;}
             public Setores department{get;set;}
             public int compilationVersion{get;set;}
             public string linkAccess{get;set;}            
             public bool enable{get;set;}
             public Cores colorId{get;set;}
-            public bool EmDesenvolvimentoInicial{
+            public bool hasRelease{
                 get{
                     return compilationVersion <= 0;
                 }
@@ -49,35 +48,35 @@ namespace API.Models
             public DateTime? releaseDate{get;set;}
         }
 
-        public static List<Projeto> GetProjects() => new List<Projeto>(){
-            new Projeto(){
-                name = "Controle de despesas pessoais",
-                description = "Organização de pendências financeiras  pessoais.",
-                bio = "Organize suas pendências financeiras de forma fácil e simples. Você possui despesas trimestrais, semestrais ou anuais? Garanta o recurso financeiro para compri-lás e ainda ganhe juros da poupança com isso.",
+        public static List<Project> GetProjects() => new List<Project>(){
+            new Project(){
+                name = "Potes de Ouro",
+                description = "Solução para pendências financeiras pessoais.",
+                bio = "Organize suas pendências financeiras de forma fácil e simples.",
                 linkAccess = "https://www.google.com.br/",
                 compilationVersion = 0,
-                department = Setores.FinancasInvestimentos,
+                department = Setores.FinancasEInvestimentos,
                 enable = true,
                 colorId = new Cores{
-                    foreColor = System.Drawing.Color.FromArgb(49, 212, 117), // Verde
-                    background = System.Drawing.Color.FromArgb(50, 50, 50) // Quase preto
+                    foreColor = System.Drawing.Color.Orange,
+                    background = System.Drawing.Color.FromArgb(110, 72, 29)
                 },
                 keywords = "Finanças; Dinheiro; Controle; Economia; Poupança",
                 releaseDate = new DateTime(2020, 9, 15)
             },
-            new Projeto(){
-                name = "Padronizei",
-                description = "Base de conhecimento para organizações.",
-                bio = "",
+            new Project(){
+                name = "Bom Invest",
+                description = "Plataforma de compartilhamento de carteiras de investimentos.",
+                bio = "Torne sua carteira de investimentos pública e compartilhe sua performance com outros investidores.",
                 linkAccess = "https://www.google.com.br/",
                 compilationVersion = 0,
-                department = Setores.SolucoesEmpresariais,
+                department = Setores.FinancasEInvestimentos,
                 enable = true,
                 colorId = new Cores{
-                    foreColor = System.Drawing.Color.Orange, // Verde
-                    background = System.Drawing.Color.FromArgb(110, 72, 29) // Quase preto
+                    foreColor = System.Drawing.Color.FromArgb(49, 212, 117), // Verde
+                    background = System.Drawing.Color.FromArgb(50, 50, 50) // Quase preto                    
                 },
-                keywords = "Base de conhecimento; Gestão da informação; Engajamento",
+                keywords = "Bolsa de valores; Investimentos; Ranking; Top;",
                 releaseDate = null
             },
         };

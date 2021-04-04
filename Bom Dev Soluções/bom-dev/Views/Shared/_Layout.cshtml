@@ -22,14 +22,14 @@
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">     
                         @{
-                            var projetos = Bom_Dev.Models.Projetos.InstanciarProjetos();
+                            var projetos = API.Models.Projects.GetProjects();
                             var setores = projetos
-                                .Where(x => x.Ativo)                            
-                                .Select(x => x.Setor)
+                                .Where(x => x.enable)
+                                .Select(x => x.department)
                                 .Distinct()
                                 .OrderBy(x => x.ToString())
                                 .ToList();
-                            
+
                             foreach(var setor in setores)
                             {
                                 <li class="nav-item dropdown">                                    
@@ -44,16 +44,16 @@
                                     
                                     <ul class="dropdown-menu dropdown-menu-bomdev" aria-labelledby="navbarDropdownMenuLink">   
                                         @{
-                                            var projetosSetor = projetos.Where(p => p.Setor == setor).ToList();
+                                            var projetosSetor = projetos.Where(p => p.department == setor).ToList();
 
                                             foreach(var projeto in projetosSetor)    
                                             {
                                                 <li>
                                                     <div class="dropdown-item-bomdev">                                                     
-                                                        <a class="text-dark" href="@projeto.LinkAcesso">
-                                                            @projeto.Nome
+                                                        <a class="text-dark" href="@projeto.linkAccess">
+                                                            @projeto.name
                                                             <p class="text-descricao-P text-dark">
-                                                                @projeto.DescricaoBreve
+                                                                @projeto.bio
                                                             </p>                                            
                                                         </a>
                                                     </div>

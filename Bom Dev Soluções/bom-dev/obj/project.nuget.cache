@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "BQXBXCRmcYTop/vQBlWJkD7nPtwZTEV06yRfFbpLni9CaCq+tzYep/m/I/l+U01CNP/1ThNt56Z9D5qusXbsww==",
+  "dgSpecHash": "h0Ji8dOi2lrNjvykXoAxxkNnSu8lQXK9ez9Zaj30FfFVi+RF1To2b0KPSp2ET7hpA5+4tRBfWv5r/TuM6iyUkA==",
   "success": true,
   "projectFilePath": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\bom-dev\\Bom Dev.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\guihe\\.nuget\\packages\\identitymodel\\4.4.0\\identitymodel.4.4.0.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\identityserver4\\4.1.1\\identityserver4.4.1.1.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\identityserver4.storage\\4.1.1\\identityserver4.storage.4.1.1.nupkg.sha512",
+    "C:\\Users\\guihe\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.6\\microsoft.aspnetcore.authentication.jwtbearer.3.1.6.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\3.1.10\\microsoft.aspnetcore.authentication.openidconnect.3.1.10.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.3\\microsoft.aspnetcore.cryptography.internal.5.0.3.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.3\\microsoft.aspnetcore.cryptography.keyderivation.5.0.3.nupkg.sha512",
