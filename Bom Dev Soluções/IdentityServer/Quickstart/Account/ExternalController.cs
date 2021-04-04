@@ -167,7 +167,7 @@ namespace IdentityServerHost.Quickstart.UI
             claims.Remove(userIdClaim);
 
             var provider = result.Properties.Items["scheme"];
-            var providerUserId = userIdClaim.Value;
+            var providerUserId = userIdClaim.Value;            
 
             // find external user
             var user = await _userManager.FindByLoginAsync(provider, providerUserId);
@@ -223,17 +223,32 @@ namespace IdentityServerHost.Quickstart.UI
                 EmailConfirmed = true,
                 Nome = name
             };
-            var identityResult = await _userManager.CreateAsync(user);
-            if (!identityResult.Succeeded) throw new Exception(identityResult.Errors.First().Description);
 
-            if (filtered.Any())
+            var userLocal = await _userManager.FindByEmailAsync(user.Email);
+
+            if(userLocal is null)
             {
-                identityResult = await _userManager.AddClaimsAsync(user, filtered);
+                var identityResult = await _userManager.CreateAsync(user);
+                if (!identityResult.Succeeded) throw new Exception(identityResult.Errors.First().Description);
+
+                if (filtered.Any())
+                {
+                    identityResult = await _userManager.AddClaimsAsync(user, filtered);
+                    if (!identityResult.Succeeded) throw new Exception(identityResult.Errors.First().Description);
+                }
+
+                identityResult = await _userManager.AddLoginAsync(user, new UserLoginInfo(provider, providerUserId, provider));
                 if (!identityResult.Succeeded) throw new Exception(identityResult.Errors.First().Description);
             }
+            else
+            {
+                // Se o usuário já possui uma conta local, somente adiciona a nova forma de login externa a lista
 
-            identityResult = await _userManager.AddLoginAsync(user, new UserLoginInfo(provider, providerUserId, provider));
-            if (!identityResult.Succeeded) throw new Exception(identityResult.Errors.First().Description);
+                user = userLocal;
+
+                var identityResult = await _userManager.AddLoginAsync(user, new UserLoginInfo(provider, providerUserId, provider));
+                if (!identityResult.Succeeded) throw new Exception(identityResult.Errors.First().Description);                
+            }            
 
             return user;
         }

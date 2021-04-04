@@ -36,18 +36,9 @@
         </tbody>
     </table>
 }
-@if (Model.OtherLogins?.Count > 0)
-{
-    <h4>Adicionar serviço para logar, escolha uma opção</h4>
-    <hr />
-    <form id="link-login-form" asp-page-handler="LinkLogin" method="post" class="form-horizontal">
-        <div id="socialLoginList">
-            <p>
-                @foreach (var provider in Model.OtherLogins)
-                {
-                    <button id="@($"link-login-button-{provider.Name}")" type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Usar @provider.DisplayName para logar.">@provider.DisplayName</button>
-                }
-            </p>
-        </div>
-    </form>
-}
+<h4>Adicionar serviço para logar</h4>
+<hr />
+<form id="external-account" asp-area="Identity" asp-page="/Account/ExternalLogin" method="post" class="form-horizontal">
+    <button class="nav-link text-dark fundo-arredondado btn btn-primary" style="background:transparent;" type="submit" name="provider" value="@Bom_Dev.Startup.IdentityServerScheme">Outras formas de logins externos</button>
+</form>
+
