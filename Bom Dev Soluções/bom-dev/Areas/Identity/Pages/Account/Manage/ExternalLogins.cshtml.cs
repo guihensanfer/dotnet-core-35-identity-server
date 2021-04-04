@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Bom_Dev.Data;
+using Bom_Dev.Shared.Identity;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -25,8 +25,6 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
 
         public IList<UserLoginInfo> CurrentLogins { get; set; }
 
-        public IList<AuthenticationScheme> OtherLogins { get; set; }
-
         public bool ShowRemoveButton { get; set; }
 
         [TempData]
@@ -41,9 +39,8 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
             }
 
             CurrentLogins = await _userManager.GetLoginsAsync(user);
-            OtherLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync())
-                .Where(auth => CurrentLogins.All(ul => auth.Name != ul.LoginProvider))
-                .ToList();
+            // Remove o login Bom Dev
+            CurrentLogins = CurrentLogins.Where(x => x.LoginProvider != Startup.IdentityServerScheme).ToList();           
             ShowRemoveButton = user.PasswordHash != null || CurrentLogins.Count > 1;
             return Page();
         }

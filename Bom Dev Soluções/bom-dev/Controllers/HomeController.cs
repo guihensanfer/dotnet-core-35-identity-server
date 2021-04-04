@@ -13,20 +13,21 @@ namespace Bom_Dev.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-        }
+        }        
 
-        public IActionResult Index(string aplicacao = null)
+        public IActionResult Index(string searchApp = null)
         {
-            var projetos = Models.Projetos.InstanciarProjetos();
+            var projetos = Models.Projetos.InstanciarProjetos();            
 
-            if(!string.IsNullOrEmpty(aplicacao))
+            if(!string.IsNullOrWhiteSpace(searchApp))
                 projetos = projetos
-                    .Where(x => x.Nome.Contains(aplicacao, System.StringComparison.OrdinalIgnoreCase) 
-                        || x.DescricaoBreve.Contains(aplicacao) 
-                        || x.PalavrasChaves.Contains(aplicacao, System.StringComparison.OrdinalIgnoreCase))
+                    .Where(x => x.Nome.Contains(searchApp, System.StringComparison.OrdinalIgnoreCase) 
+                        || x.DescricaoBreve.Contains(searchApp) 
+                        || x.PalavrasChaves.Contains(searchApp, System.StringComparison.OrdinalIgnoreCase))
+                    .OrderBy(x => x.DataLancamento)
                     .ToList();
 
-            @ViewData["projetos"] = projetos.OrderBy(x => x.DataLancamento).ToList();            
+            @ViewData["projetos"] = projetos;            
 
             return View();
         }                      

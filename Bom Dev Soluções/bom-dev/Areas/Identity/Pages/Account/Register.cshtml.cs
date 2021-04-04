@@ -1,11 +1,4 @@
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Text.Encodings.Web;
-using System.Threading.Tasks;
-using Bom_Dev.Data;
-using Microsoft.AspNetCore.Authentication;
+using Bom_Dev.Shared.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -13,6 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
+using System.Text.Encodings.Web;
+using System.Threading.Tasks;
 
 namespace Bom_Dev.Areas.Identity.Pages.Account
 {
@@ -39,15 +36,13 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
         [BindProperty]
         public InputModel Input { get; set; }
 
-        public string ReturnUrl { get; set; }
-
-        public IList<AuthenticationScheme> ExternalLogins { get; set; }
+        public string ReturnUrl { get; set; }        
 
         public class InputModel
         {            
             [Required(ErrorMessage = "{0} é obrigatório.")]
             [EmailAddress]
-            [Display(Name = "Email")]
+            [Display(Name = "E-mail")]
             public string Email { get; set; }
 
             [Required(ErrorMessage = "{0} é obrigatório.")]
@@ -58,23 +53,34 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
 
             [DataType(DataType.Password)]
             [Display(Name = "Confirmar senha")]
-            [Compare("Password", ErrorMessage = "Senhas não coincidem.")]
-            public string ConfirmPassword { get; set; }            
+            [Compare(nameof(Password), ErrorMessage = "Senhas não coincidem.")]
+            public string ConfirmPassword { get; set; }
+
+            [Display(Name = "Nome completo")]
+            [StringLength(256, ErrorMessage = "A {0} deve ter no mínimo {2} e no máximo {1} caracteres.", MinimumLength = 8)]
+            public string Nome { get; set; }
+
+            [Display(Name = "Telefone")]
+            [DataType(DataType.PhoneNumber)]
+            public string PhoneNumber { get; set; }
         }
 
-        public async Task OnGetAsync(string returnUrl = null)
+        public void OnGetAsync(string returnUrl = null)
         {
-            ReturnUrl = returnUrl;
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            ReturnUrl = returnUrl;            
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl = returnUrl ?? Url.Content("~/");
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            returnUrl = returnUrl ?? Url.Content("~/");            
             if (ModelState.IsValid)
             {
-                var user = new BomDevUser { UserName = Input.Email, Email = Input.Email};
+                var user = new BomDevUser { 
+                    UserName = Input.Email, 
+                    Email = Input.Email, 
+                    Nome = Input.Nome,
+                    PhoneNumber = Input.PhoneNumber
+                };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
@@ -89,7 +95,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
                         protocol: Request.Scheme);                                        
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirmação de registro",
-                        Models.EmailConfiguracao.CorpoEmailConfirmarEmail(HtmlEncoder.Default.Encode(callbackUrl))); 
+                        Models.EmailConfig.CorpoEmailConfirmarEmail(HtmlEncoder.Default.Encode(callbackUrl))); 
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {

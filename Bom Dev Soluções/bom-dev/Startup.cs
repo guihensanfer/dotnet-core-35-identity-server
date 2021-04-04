@@ -1,6 +1,6 @@
-using Bom_Dev.Data;
+using Bom_Dev.Shared.Identity;
 using Bom_Dev.Models;
-using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,36 +10,42 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.IdentityModel.Tokens;
 
 namespace Bom_Dev
 {
     public class Startup
-    {
-        private const string IdentityServerHTTPSBaseURL = "https://localhost:44399";
-        private const string MVCClientHTTPSBaseURL = "https://localhost:44378";
-        private const string APIHTTPSBaseURL = "https://localhost:44302";
-
+    {        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+        public const string IdentityServerName = "Bom Dev";
+        public const string IdentityServerScheme = OpenIdConnectDefaults.AuthenticationScheme;
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {     
+        {            
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddTransient<IEmailSender, EmailConfiguracao>();                                                                         
+            services.AddTransient<IEmailSender, EmailSender>();
 
-            services.AddDbContext<ApplicationDbContext>(options =>
+            // Atualiza as informações de conexão com e-mail conforme appsettings
+            EmailConfig.host = Configuration.GetValue<string>("Email:Host");
+            EmailConfig.enableSsl = Configuration.GetValue<bool>("Email:EnableSsl");
+            EmailConfig.email = Configuration.GetValue<string>("Email:Email");
+            EmailConfig.password = Configuration.GetValue<string>("Email:Password");
+            EmailConfig.port = Configuration.GetValue<short>("Email:Port");
+            EmailConfig.signatureHTML = Configuration.GetValue<string>("Email:SignatureHTML");
+
+            services.AddDbContext<IdentityDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
             #region Identity            
-            services.AddDefaultIdentity<BomDevUser>(options => {
+            services.AddDefaultIdentity<Bom_Dev.Shared.Identity.BomDevUser>(options => {
                 options.SignIn.RequireConfirmedAccount = true;
 
                 // Senha
@@ -51,42 +57,37 @@ namespace Bom_Dev
                 // Máximo tentativas login
                 options.Lockout.MaxFailedAccessAttempts = 3;
             })
-            .AddEntityFrameworkStores<ApplicationDbContext>();
+            .AddEntityFrameworkStores<IdentityDbContext>();
             #endregion
             
             #region Identity Server            
             services.AddAuthentication(o =>
             {
-                //o.DefaultScheme = IdentityConstants.ExternalScheme;                
-                o.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;                     
+                o.DefaultScheme = IdentityConstants.ApplicationScheme;
+                o.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+                o.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+                o.DefaultSignInScheme = IdentityConstants.ExternalScheme;
+                o.DefaultSignOutScheme = IdentityConstants.ApplicationScheme;
             })
-            .AddCookie("Cookies", o =>
-            {
-                o.AccessDeniedPath = "/Account/AccessDenied";
-            })
-            .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, "Bom Dev", o =>
+            .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, IdentityServerName, o =>
             {                
                 o.SignInScheme = IdentityConstants.ExternalScheme;
+                o.SignOutScheme = IdentityConstants.ApplicationScheme;
 
-                o.Authority = IdentityServerHTTPSBaseURL;
+                o.Authority = Configuration.GetValue<string>("Hosts:IdentityServerBaseURL");
                 o.RequireHttpsMetadata = false;
 
-                o.ClientId = "client2";
-                o.ClientSecret = "client2_secret_code";
+                o.ClientId = "client1";
+                o.ClientSecret = "client1_secret_code";
                 o.ResponseType = "code id_token";
 
                 o.SaveTokens = true;
                 o.GetClaimsFromUserInfoEndpoint = true;
 
                 o.Scope.Add("employeesWebApi");
-                o.Scope.Add("roles");
-
-                o.ClaimActions.MapUniqueJsonKey("role", "role");
-                o.TokenValidationParameters = new TokenValidationParameters
-                {
-                    RoleClaimType = "role"
-                };
-            });            
+                o.Scope.Add("roles");              
+            });
             #endregion            
         }
         
@@ -110,7 +111,7 @@ namespace Bom_Dev
             app.UseRouting();    
                         
             app.UseAuthentication();             
-            app.UseAuthorization();   
+            app.UseAuthorization();               
 
             app.UseEndpoints(endpoints =>
             {                
@@ -118,8 +119,7 @@ namespace Bom_Dev
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");              
                 endpoints.MapRazorPages();
-            });            
-                       
-        }
+            });                                   
+        }       
     }
 }

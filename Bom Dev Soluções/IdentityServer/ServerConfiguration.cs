@@ -1,18 +1,22 @@
 ﻿using IdentityServer4;
 using IdentityServer4.Models;
-using IdentityServer4.Test;
 using System.Collections.Generic;
-using System.Security.Claims;
 
 namespace IdentityServer
 {
     public class ServerConfiguration
     {
-        private const string IdentityServerHTTPSBaseURL = "https://localhost:44399";
-        private const string MVCClientHTTPSBaseURL = "https://localhost:44378";
-        private const string APIHTTPSBaseURL = "https://localhost:44302";
+        private string _clientBomDevURLBase;
 
-        public static List<IdentityResource> IdentityResources {
+        public ServerConfiguration(string clientBomDevURLBase)
+        {
+            if (string.IsNullOrEmpty(clientBomDevURLBase))
+                throw new System.ArgumentNullException(nameof(clientBomDevURLBase), "Standard client Bom Dev is null.");
+
+            _clientBomDevURLBase = clientBomDevURLBase;
+        }
+
+        public List<IdentityResource> IdentityResources {
             get
             {
                 List<IdentityResource> idResources =
@@ -28,7 +32,7 @@ namespace IdentityServer
                 return idResources;
             }
         }
-        public static List<ApiScope> ApiScopes {
+        public List<ApiScope> ApiScopes {
             get
             {
                 List<ApiScope> apiScopes =
@@ -39,7 +43,7 @@ namespace IdentityServer
                 return apiScopes;
             }
         }
-        public static List<ApiResource> ApiResources {
+        public List<ApiResource> ApiResources {
             get
             {
                 ApiResource apiResource1 = new
@@ -63,9 +67,9 @@ namespace IdentityServer
                 return apiResources;
             }
         }
-        public static List<Client> Clients {
+        public List<Client> Clients {
             get
-            {
+            {                
                 Client client1 = new Client
                 {
                     ClientId = "client1",
@@ -73,12 +77,24 @@ namespace IdentityServer
                     ClientSecrets = new[] {
                         new Secret("client1_secret_code".Sha512()) },
                     AllowedGrantTypes = GrantTypes.
-                    ResourceOwnerPasswordAndClientCredentials,
+                    Hybrid,
                     AllowedScopes = {
-                        "openid",
-                        "roles",
-                        "employeesWebApi"
-                    }
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Address,
+                        IdentityServerConstants.StandardScopes.Email,
+                        IdentityServerConstants.StandardScopes.Phone,
+                        "employeesWebApi",
+                        "roles"
+                    },
+                    RedirectUris = new List<string> {
+                        $"{_clientBomDevURLBase}/signin-oidc"
+                    },
+                    PostLogoutRedirectUris = new List<string> {
+                         $"{_clientBomDevURLBase}/signout-callback-oidc"
+                    },
+                    RequirePkce = false,
+                    RequireConsent = false,
                 };
 
                 Client client2 = new Client
@@ -99,10 +115,10 @@ namespace IdentityServer
                         "roles"
                     },                    
                     RedirectUris = new List<string> {
-                        $"{MVCClientHTTPSBaseURL}/signin-oidc"
+                        $"{_clientBomDevURLBase}/signin-oidc"
                     },
                     PostLogoutRedirectUris = new List<string> {
-                         $"{MVCClientHTTPSBaseURL}/signout-callback-oidc"
+                         $"{_clientBomDevURLBase}/signout-callback-oidc"
                     },                    
                     RequirePkce = false,
                     RequireConsent = true,
@@ -115,48 +131,6 @@ namespace IdentityServer
 
                 return clients;
             }
-        }
-        public static List<TestUser> TestUsers {
-            get
-            {
-                TestUser usr1 = new TestUser()
-                {
-                    SubjectId = "2f47f8f0-bea1-4f0e-ade1-88533a0eaf57",
-                    Username = "user1",
-                    Password = "password1",
-                    Claims = new List<Claim>
-                    {
-                        new Claim("given_name", "firstName1"),
-                        new Claim("family_name", "lastName1"),
-                        new Claim("address", "USA"),
-                        new Claim("email","user1@localhost"),
-                        new Claim("phone", "123"),
-                        new Claim("role", "Admin")
-                    }
-                };
-
-                TestUser usr2 = new TestUser()
-                {
-                    SubjectId = "5747df40-1bff-49ee-aadf-905bacb39a3a",
-                    Username = "user2",                   
-                    Password = "password2",
-                    Claims = new List<Claim>
-                    {
-                        new Claim("given_name", "firstName2"),
-                        new Claim("family_name", "lastName2"),
-                        new Claim("address", "UK"),
-                        new Claim("email","user2@localhost"),
-                        new Claim("phone", "456"),
-                        new Claim("role", "Operator")
-                    }
-                };
-
-                List<TestUser> testUsers = new List<TestUser>();
-                testUsers.Add(usr1);
-                testUsers.Add(usr2);
-
-                return testUsers;
-            }
-        }
+        }        
     }
 }

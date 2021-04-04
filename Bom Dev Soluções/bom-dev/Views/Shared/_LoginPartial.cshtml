@@ -24,9 +24,9 @@ else
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark fundo-arredondado" asp-area="Identity" asp-page="/Account/Login">                            
-            Login
-        </a>
+        <form id="external-account" asp-area="Identity" asp-page="/Account/ExternalLogin" method="post" class="form-horizontal">
+            <button class="nav-link text-dark fundo-arredondado btn btn-primary" style="background:transparent;" type="submit" name="provider" value="@Startup.IdentityServerScheme">Login</button>
+        </form>        
     </li>
 }
 </ul>

@@ -1,9 +1,7 @@
-using IdentityServer.Data;
+using IdentityServer.Quickstart;
 using IdentityServer4;
 using IdentityServer4.EntityFramework.DbContexts;
 using IdentityServer4.EntityFramework.Mappers;
-using IdentityServer4.Services;
-using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -11,7 +9,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Reflection;
 
@@ -31,24 +28,33 @@ namespace IdentityServer
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));            
+            services.AddDbContext<Bom_Dev.Shared.Identity.IdentityDbContext>(options => options.UseSqlServer(connectionString));
 
-            //services.AddDefaultIdentity<Bom_Dev.Data.BomDevUser>()
-            //    .AddEntityFrameworkStores<ConfigurationDbContext>();       
+            services.AddIdentity<Bom_Dev.Shared.Identity.BomDevUser, IdentityRole>()
+                .AddEntityFrameworkStores<Bom_Dev.Shared.Identity.IdentityDbContext>()
+                .AddDefaultTokenProviders();            
 
-            services.AddControllersWithViews();
-            services.AddIdentityServer()
-                .AddDeveloperSigningCredential()
-                .AddConfigurationStore(options =>
-                {
-                    options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
-                })
-                .AddOperationalStore(options =>
-                {
-                    options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
-                    options.EnableTokenCleanup = true;
-                });                       
+            services.AddControllersWithViews();            
 
+            services.AddIdentityServer(options => {
+                options.Events.RaiseErrorEvents = true;
+                options.Events.RaiseInformationEvents = true;
+                options.Events.RaiseFailureEvents = true;
+                options.Events.RaiseSuccessEvents = true;                
+                options.EmitStaticAudienceClaim = true;          
+            })
+            .AddDeveloperSigningCredential()            
+            .AddConfigurationStore(options =>
+            {
+                options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
+            })
+            .AddOperationalStore(options =>
+            {
+                options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
+                options.EnableTokenCleanup = true;
+            })
+            .AddAspNetIdentity<Bom_Dev.Shared.Identity.BomDevUser>();            
+            
             // Login com Google
             services.AddAuthentication().AddGoogle(g =>
             {
@@ -58,14 +64,16 @@ namespace IdentityServer
                 g.ClientId = Configuration.GetValue<string>("GoogleLogin:ClientId");
             });
 
-            services.AddTransient<IResourceOwnerPasswordValidator, ResourceOwnerPasswordValidator>()
-                .AddTransient<IProfileService, ProfileService>()
-                .AddTransient<IAuthRepository, AuthRepository>();
+            var appSettingsUtil = new BomDevAppSettingsUtil(Configuration.GetValue<string>("Links:BomDevRegisterURL"),
+                Configuration.GetValue<string>("Links:BomDevForgotPassword"),
+                Configuration.GetValue<string>("Links:BomDevBaseURL"));
+
+            services.AddSingleton(prov => appSettingsUtil);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
+        {            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -73,13 +81,12 @@ namespace IdentityServer
 
             InitializeDatabase(app);
 
-            app.UseStaticFiles();
-            app.UseRouting();
-            app.UseIdentityServer();
-            //app.UseAuthentication();
-            app.UseAuthorization();
+            app.UseHttpsRedirection();
 
-            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+            app.UseStaticFiles();
+            app.UseRouting();            
+            app.UseIdentityServer();            
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
@@ -93,14 +100,14 @@ namespace IdentityServer
         {
             using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
             {
+                ServerConfiguration serverConfiguration = new ServerConfiguration(Configuration.GetValue<string>("Links:BomDevBaseURL"));
                 serviceScope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>().Database.Migrate();
-
                 var context = serviceScope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
                 context.Database.Migrate();
 
                 if(!context.ApiScopes.Any())
                 {
-                    foreach(var scope in ServerConfiguration.ApiScopes)
+                    foreach(var scope in serverConfiguration.ApiScopes)
                     {
                         context.ApiScopes.Add(scope.ToEntity());
                     }
@@ -109,7 +116,7 @@ namespace IdentityServer
                 }
                 if (!context.Clients.Any())
                 {
-                    foreach (var client in ServerConfiguration.Clients)
+                    foreach (var client in serverConfiguration.Clients)
                     {
                         context.Clients.Add(client.ToEntity());
                     }
@@ -118,7 +125,7 @@ namespace IdentityServer
 
                 if (!context.IdentityResources.Any())
                 {
-                    foreach (var resource in ServerConfiguration.IdentityResources)
+                    foreach (var resource in serverConfiguration.IdentityResources)
                     {
                         context.IdentityResources.Add(resource.ToEntity());
                     }
@@ -127,7 +134,7 @@ namespace IdentityServer
 
                 if (!context.ApiResources.Any())
                 {
-                    foreach (var resource in ServerConfiguration.ApiResources)
+                    foreach (var resource in serverConfiguration.ApiResources)
                     {
                         context.ApiResources.Add(resource.ToEntity());
                     }

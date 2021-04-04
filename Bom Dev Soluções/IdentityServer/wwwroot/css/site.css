@@ -22,3 +22,96 @@
       height: 100px; }
   .grants-page .card label {
     font-weight: bold; }
+
+input[type="text"], input[type="email"], input[type="tel"], input[type="password"] {
+    background: transparent;
+    border: none;
+    border-bottom: solid 2px #626262;
+    border-radius: 0px;
+}
+
+.btn-primary {
+    color: #1e90ff;
+    background-color: #F5F5F5;
+    border: none;
+}
+
+h1, h2, h3, h4, h5, a, span, p, label {
+    font-family: sans-serif;
+}
+
+h4, h5, p {
+    font-weight: 300;
+}
+
+.text-descricao-P {
+    font-size: 80%;
+}
+
+.link-destacado {
+    color: #1e90ff !important;
+}
+
+#layoutLogo {
+    width: 68px;
+    height: 20px;
+    background-image: url(../img/BomDev.svg);
+    background-repeat: no-repeat;
+    background-size: 68px 20px;
+}
+
+.loginDescricaoADireita {
+    text-align: center;   
+    padding-bottom: 0.8em;
+    margin-left: 3em;
+    margin-right: 3em;
+}
+
+.descricaoADiretaBackground1 {
+    background: rgb(255,0,0);
+    background: linear-gradient(90deg, rgba(255,0,0,1) 42%, rgba(255,255,255,1) 82%);
+    height: 2px;
+    width: 50%;
+    margin-top: 12.8%;
+    float: right;
+    /*margin-left: 35%;*/
+    display: block;
+}
+.descricaoADiretaBackground2 {
+    background: rgb(160,44,44);
+    background: linear-gradient(90deg, rgba(160,44,44,1) 42%, rgba(255,255,255,1) 82%);
+    height: 2px;
+    width: 50%;
+    margin-top: 2px;
+    float:right;
+    /*margin-left:35%;*/
+    display: block;
+}
+
+.loginContinuarCom {
+    background: #FFF;
+    padding: 10px;
+    border-bottom: dashed 2px #C0C0C0;
+}
+
+.loginForm {    
+    background: #FFF;
+    border-radius: 7px;
+    padding: 15px;
+}
+
+.loginMargin4Percent{
+    margin-top:4%
+}
+
+.menuNav {    
+    padding-top: 30px;
+    padding-bottom:0px;
+    background:#FFF !important;
+}
+
+@media (max-width: 720px) {
+    .descricaoADireita {
+        display:none;
+    }
+}

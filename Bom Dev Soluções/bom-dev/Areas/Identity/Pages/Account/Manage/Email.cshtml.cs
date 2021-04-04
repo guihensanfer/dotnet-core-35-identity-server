@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using Bom_Dev.Data;
+using Bom_Dev.Shared.Identity;
 
 namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
 {
@@ -105,7 +105,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
                 await _emailSender.SendEmailAsync(
                     Input.NewEmail,
                     "Confirme seu e-mail",
-                    Models.EmailConfiguracao.CorpoEmailConfirmarEmail(HtmlEncoder.Default.Encode(callbackUrl))); 
+                    Models.EmailConfig.CorpoEmailConfirmarEmail(HtmlEncoder.Default.Encode(callbackUrl))); 
 
                 StatusMessage = $"Enviado um e-mail de confirmação para {Input.NewEmail}. Por favor, verifique seu e-mail.";
                 return RedirectToPage();
@@ -143,7 +143,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
             await _emailSender.SendEmailAsync(
                 email,
                 "Confirme seu e-mail",
-                Models.EmailConfiguracao.CorpoEmailConfirmarEmail(HtmlEncoder.Default.Encode(callbackUrl))); 
+                Models.EmailConfig.CorpoEmailConfirmarEmail(HtmlEncoder.Default.Encode(callbackUrl))); 
 
             StatusMessage = "E-mail de confirmação enviado. Por favor, verique seu e-mail.";
             return RedirectToPage();

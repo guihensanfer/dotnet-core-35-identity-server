@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using Bom_Dev.Data;
+using Bom_Dev.Shared.Identity;
 
 namespace Bom_Dev.Areas.Identity.Pages.Account
 {

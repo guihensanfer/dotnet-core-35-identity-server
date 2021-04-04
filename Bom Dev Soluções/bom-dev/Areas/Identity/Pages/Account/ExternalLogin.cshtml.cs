@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using Bom_Dev.Data;
+using Bom_Dev.Shared.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -80,10 +80,11 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
             {
                 ErrorMessage = "Error loading external login information.";
                 return RedirectToPage("./Login", new { ReturnUrl = returnUrl });
-            }
+            }            
+
 
             // Sign in the user with this external login provider if the user already has a login.
-            var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor : true);            
+            var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false);            
            
             if (result.Succeeded)
             {
@@ -96,16 +97,42 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
             }
             else
             {
-                // If the user does not have an account, then ask the user to create an account.
-                ReturnUrl = returnUrl;
-                ProviderDisplayName = info.ProviderDisplayName;
-                if (info.Principal.HasClaim(c => c.Type == ClaimTypes.Email))
+                string userId = info.Principal.FindFirstValue(ClaimTypes.NameIdentifier);
+
+                if(!string.IsNullOrEmpty(userId))
                 {
-                    Input = new InputModel
+                    var user = await _userManager.FindByIdAsync(userId);
+
+                    if(user is null)
                     {
-                        Email = info.Principal.FindFirstValue(ClaimTypes.Email)                        
-                    };
+                        user = new BomDevUser()
+                        {
+                            UserName = info.Principal.FindFirstValue(ClaimTypes.Name),
+                            Email = userId
+                        };
+
+                        await _userManager.CreateAsync(user);
+                    }
+
+                    await _userManager.AddLoginAsync(user, info);
+                    await _signInManager.SignInAsync(user, false);
+
+                    return LocalRedirect(returnUrl);
                 }
+                else
+                {
+                    // If the user does not have an account, then ask the user to create an account.
+                    ReturnUrl = returnUrl;
+                    ProviderDisplayName = info.ProviderDisplayName;
+                    if (info.Principal.HasClaim(c => c.Type == ClaimTypes.Email))
+                    {
+                        Input = new InputModel
+                        {
+                            Email = info.Principal.FindFirstValue(ClaimTypes.Email)
+                        };
+                    }
+                }
+
                 return Page();
             }
         }
@@ -147,7 +174,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
                             protocol: Request.Scheme);
 
                         await _emailSender.SendEmailAsync(Input.Email, "Confirme seu e-mail",  
-                            Models.EmailConfiguracao.CorpoEmailConfirmarEmail(HtmlEncoder.Default.Encode(callbackUrl)));                            
+                            Models.EmailConfig.CorpoEmailConfirmarEmail(HtmlEncoder.Default.Encode(callbackUrl)));                            
 
                         // If account confirmation is required, we need to show the link if we don't have a real email sender
                         if (_userManager.Options.SignIn.RequireConfirmedAccount)
