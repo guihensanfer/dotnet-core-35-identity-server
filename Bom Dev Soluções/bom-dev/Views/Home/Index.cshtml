@@ -19,7 +19,7 @@
 
             foreach(var proj in projetos)
             {
-                string statusDesenvolvimento = proj.hasRelease ? "(Em breve) " : null;
+                string statusDesenvolvimento = proj.hasRelease.Equals(false) ? "(Em breve) " : null;
                 var p = proj.department.GetAttribute<System.ComponentModel.DataAnnotations.DisplayAttribute>();
                 var projetoSetor = p is null ? null : p.Name;
 

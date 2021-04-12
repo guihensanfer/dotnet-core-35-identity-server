@@ -41,11 +41,11 @@ namespace API.Models
             public Cores colorId{get;set;}
             public bool hasRelease{
                 get{
-                    return compilationVersion <= 0;
+                    return compilationVersion > 0;
                 }
             }
             public string keywords{get;set;}
-            public DateTime? releaseDate{get;set;}
+            public DateTime? lastReleaseDate{get;set;}
         }
 
         public static List<Project> GetProjects() => new List<Project>(){
@@ -62,7 +62,7 @@ namespace API.Models
                     background = System.Drawing.Color.FromArgb(110, 72, 29)
                 },
                 keywords = "Finanças; Dinheiro; Controle; Economia; Poupança",
-                releaseDate = new DateTime(2020, 9, 15)
+                lastReleaseDate = null
             },
             new Project(){
                 name = "Bom Invest",
@@ -77,7 +77,7 @@ namespace API.Models
                     background = System.Drawing.Color.FromArgb(50, 50, 50) // Quase preto                    
                 },
                 keywords = "Bolsa de valores; Investimentos; Ranking; Top;",
-                releaseDate = null
+                lastReleaseDate = null
             },
         };
     }

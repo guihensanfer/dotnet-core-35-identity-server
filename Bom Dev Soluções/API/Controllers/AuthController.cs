@@ -5,15 +5,14 @@ using System.Linq;
 namespace API.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
-    //[Authorize(Roles = "Admin")]
-    [Authorize]
-    public class AuthController : ControllerBase
+    [Route("api/[controller]")]    
+    [AllowAnonymous]
+    public class ProjectsController : ControllerBase
     {                
         [HttpGet]
         public IActionResult Get()
         {
-            return new JsonResult(from c in User.Claims select new { c.Type, c.Value });
+            return new JsonResult(Models.Projects.GetProjects());
         }
     }
 }

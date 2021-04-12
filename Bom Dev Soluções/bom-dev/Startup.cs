@@ -78,8 +78,8 @@ namespace Bom_Dev
                 o.Authority = Configuration.GetValue<string>("Hosts:IdentityServerBaseURL");
                 o.RequireHttpsMetadata = false;
 
-                o.ClientId = "client1";
-                o.ClientSecret = "client1_secret_code";
+                o.ClientId = "WebClient";
+                o.ClientSecret = "89C9FD35E23FA2E1A63EE8A59FB9F";
                 o.ResponseType = "code id_token";
 
                 o.SaveTokens = true;

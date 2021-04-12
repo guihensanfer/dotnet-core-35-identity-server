@@ -24,7 +24,7 @@ namespace Bom_Dev.Controllers
                     .Where(x => x.name.Contains(searchApp, System.StringComparison.OrdinalIgnoreCase) 
                         || x.description.Contains(searchApp) 
                         || x.keywords.Contains(searchApp, System.StringComparison.OrdinalIgnoreCase))
-                    .OrderBy(x => x.releaseDate)
+                    .OrderBy(x => x.lastReleaseDate)
                     .ToList();
 
             @ViewData["projetos"] = projetos;            
