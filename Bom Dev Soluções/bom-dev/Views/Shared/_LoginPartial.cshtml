@@ -5,7 +5,7 @@
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
-    var nomeUser = UserManager.GetUserAsync(User).Result?.Nome ?? User.Identity.Name;
+    var nomeUser = UserManager.GetUserAsync(User).Result?.FullName ?? User.Identity.Name;
 
     <li class="nav-item">        
         <a class="nav-link text-dark fundo-arredondado" style="font-weight: bold;margin-top: 2px;" asp-area="Identity" asp-page="/Account/Manage/Index" title="Minha conta @nomeUser">@nomeUser</a>

@@ -153,7 +153,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
                 var user = new BomDevUser { 
                     UserName = Input.Email, 
                     Email = Input.Email, 
-                    Nome = info.Principal.FindFirstValue(ClaimTypes.Name) ?? info.Principal.FindFirstValue(ClaimTypes.GivenName)                    
+                    FullName = info.Principal.FindFirstValue(ClaimTypes.Name) ?? info.Principal.FindFirstValue(ClaimTypes.GivenName)                    
                 };
 
                 var result = await _userManager.CreateAsync(user);

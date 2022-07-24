@@ -3542,21 +3542,17 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\guihe\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\guihe\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\API\\API.csproj",
+      "projectPath": "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\API\\API.csproj",
       "packagesPath": "C:\\Users\\guihe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\API\\obj\\",
+      "outputPath": "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\API\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
         "C:\\Users\\guihe\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -3607,7 +3603,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
       }
     }
   }

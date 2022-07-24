@@ -78,7 +78,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
                 var user = new BomDevUser { 
                     UserName = Input.Email, 
                     Email = Input.Email, 
-                    Nome = Input.Nome,
+                    FullName = Input.Nome,
                     PhoneNumber = Input.PhoneNumber
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);

@@ -221,7 +221,7 @@ namespace IdentityServerHost.Quickstart.UI
                 Email = email,
                 UserName = email,
                 EmailConfirmed = true,
-                Nome = name
+                FullName = name
             };
 
             var userLocal = await _userManager.FindByEmailAsync(user.Email);

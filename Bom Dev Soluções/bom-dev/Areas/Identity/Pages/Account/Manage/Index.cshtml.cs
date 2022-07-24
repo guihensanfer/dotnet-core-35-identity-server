@@ -50,7 +50,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
             Input = new InputModel
             {
                 PhoneNumber = phoneNumber,                
-                Nome = user.Nome            
+                Nome = user.FullName            
             };
         }
 
@@ -91,8 +91,8 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
                 }
             }
 
-            if(Input.Nome != user.Nome)
-                user.Nome = Input.Nome;
+            if(Input.Nome != user.FullName)
+                user.FullName = Input.Nome;
 
             await _userManager.UpdateAsync(user);
 

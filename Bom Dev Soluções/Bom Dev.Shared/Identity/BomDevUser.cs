@@ -5,6 +5,6 @@ namespace Bom_Dev.Shared.Identity
     public class BomDevUser : IdentityUser
     {
         [PersonalData]
-        public string Nome{get;set;}        
+        public string FullName{get;set;}        
     }
 }
