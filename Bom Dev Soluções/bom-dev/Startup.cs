@@ -20,7 +20,7 @@ namespace Bom_Dev
             Configuration = configuration;
         }
 
-        public const string IdentityServerName = "Bom Dev";
+        public const string IdentityServerName = "Bom Terrários";
         public const string IdentityServerScheme = OpenIdConnectDefaults.AuthenticationScheme;
 
         public IConfiguration Configuration { get; }

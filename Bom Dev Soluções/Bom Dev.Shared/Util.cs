@@ -6,6 +6,6 @@ namespace Bom_Dev.Shared
 {
     public class Util
     {
-        public const string copyright = "(c) Copyright 2021 Bom Dev. Todos os direitos reservados.";
+        public const string copyright = "(c) Copyright 2021 Bom Terrários. Todos os direitos reservados.";
     }
 }
