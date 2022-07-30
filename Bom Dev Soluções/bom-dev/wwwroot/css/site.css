@@ -3,6 +3,20 @@ for details on configuring this project to bundle and minify static web assets. 
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
 
+#menu0 {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background: #48503E;
+    color:#fff;
+    font-size:85%;
+}
+
+#menu {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background:#000;
+}
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -77,11 +91,11 @@ body {
 /*Bom Terrários 2*/
 
 #layoutLogo{  
-  width: 68px;
-  height: 20px;
+  width: 82px;
+  height: 42px;
   background-image: url(../img/bt.svg);  
   background-repeat: no-repeat;  
-  background-size: 68px 20px;  
+  background-size: 82px 42px;  
 }
 
 /*Bom Terrários 1*/
