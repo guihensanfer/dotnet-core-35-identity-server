@@ -43,7 +43,6 @@ C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\API\bin\Debug\netcoreapp3
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\API\obj\Debug\netcoreapp3.1\API.csproj.AssemblyReference.cache
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\API\obj\Debug\netcoreapp3.1\API.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\API\obj\Debug\netcoreapp3.1\API.AssemblyInfoInputs.cache
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\API\obj\Debug\netcoreapp3.1\API.AssemblyInfo.cs
@@ -57,3 +56,4 @@ C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\API\obj\Debug\netcoreapp3
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\API\obj\Debug\netcoreapp3.1\API.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\API\obj\Debug\netcoreapp3.1\API.pdb
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\API\obj\Debug\netcoreapp3.1\API.genruntimeconfig.cache
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\API\obj\Debug\netcoreapp3.1\API.csproj.AssemblyReference.cache

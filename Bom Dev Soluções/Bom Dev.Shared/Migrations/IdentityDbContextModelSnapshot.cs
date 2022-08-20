@@ -15,9 +15,46 @@ namespace Bom_Dev.Shared.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.11")
+                .HasAnnotation("ProductVersion", "3.1.25")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Bom_Dev.Shared.Category", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("CategoryId")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnName("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnName("Description")
+                        .HasColumnType("nvarchar(300)")
+                        .HasMaxLength(300);
+
+                    b.Property<string>("Name")
+                        .HasColumnName("Name")
+                        .HasColumnType("nvarchar(60)")
+                        .HasMaxLength(60);
+
+                    b.Property<int?>("ParentCategoryIdFk")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Url")
+                        .HasColumnName("Url")
+                        .HasColumnType("nvarchar(2048)")
+                        .HasMaxLength(2048);
+
+                    b.HasKey("CategoryId");
+
+                    b.HasIndex("ParentCategoryIdFk");
+
+                    b.ToTable("Category");
+                });
 
             modelBuilder.Entity("Bom_Dev.Shared.Identity.BomDevUser", b =>
                 {
@@ -220,6 +257,13 @@ namespace Bom_Dev.Shared.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("UserTokens");
+                });
+
+            modelBuilder.Entity("Bom_Dev.Shared.Category", b =>
+                {
+                    b.HasOne("Bom_Dev.Shared.Category", "ParentCategoryId")
+                        .WithMany()
+                        .HasForeignKey("ParentCategoryIdFk");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

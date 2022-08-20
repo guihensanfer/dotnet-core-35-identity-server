@@ -50,7 +50,7 @@
             },
             "Microsoft.Extensions.Identity.Core": {
               "target": "Package",
-              "version": "[5.0.3, )"
+              "version": "[3.1.25, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

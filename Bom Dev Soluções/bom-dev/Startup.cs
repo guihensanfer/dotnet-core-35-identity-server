@@ -45,7 +45,7 @@ namespace Bom_Dev
                     Configuration.GetConnectionString("DefaultConnection")));
 
             #region Identity            
-            services.AddDefaultIdentity<Bom_Dev.Shared.Identity.BomDevUser>(options => {
+            services.AddDefaultIdentity<BomDevUser>(options => {
                 options.SignIn.RequireConfirmedAccount = true;
 
                 // Senha
@@ -117,9 +117,14 @@ namespace Bom_Dev
             {                
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");              
-                endpoints.MapRazorPages();
-            });                                   
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                // adm
+                endpoints.MapAreaControllerRoute(
+                    name: "adm",
+                    areaName: "adm",
+                    pattern: "adm/{controller=Category}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();                
+            });            
         }       
     }
 }

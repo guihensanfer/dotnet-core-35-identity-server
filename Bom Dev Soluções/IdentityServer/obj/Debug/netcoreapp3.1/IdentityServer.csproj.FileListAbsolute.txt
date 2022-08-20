@@ -149,7 +149,6 @@ C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
-C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
@@ -205,3 +204,6 @@ C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\obj\Debug\
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.pdb
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.genruntimeconfig.cache
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll

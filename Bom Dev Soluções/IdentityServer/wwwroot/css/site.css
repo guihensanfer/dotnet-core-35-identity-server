@@ -53,11 +53,11 @@ h4, h5, p {
 }
 
 #layoutLogo {
-    width: 68px;
-    height: 20px;
-    background-image: url(../img/BomDev.svg);
+    width: 82px;
+    height: 42px;
+    background-image: url(../img/bt.svg);
     background-repeat: no-repeat;
-    background-size: 68px 20px;
+    background-size: 82px 42px;
 }
 
 .loginDescricaoADireita {
@@ -88,15 +88,21 @@ h4, h5, p {
     display: block;
 }
 
-.loginContinuarCom {
-    background: #FFF;
-    padding: 10px;
-    border-bottom: dashed 2px #C0C0C0;
+.canvas-background{
+    background-image:url('../img/canvas/background.jpg');
+    background-size: cover;
+   
 }
 
-.loginForm {    
-    background: #FFF;
-    border-radius: 7px;
+.loginContinuarCom {
+    background: #a2c7a1;
+    padding: 10px;
+    border-radius: 0px 0px 7px 7px;
+}
+
+.loginForm {
+    background: darkseagreen;
+    border-radius: 7px 7px 0px 0px;
     padding: 15px;
 }
 
@@ -107,7 +113,7 @@ h4, h5, p {
 .menuNav {    
     padding-top: 30px;
     padding-bottom:0px;
-    background:#FFF !important;
+    /*background:#FFF !important;*/
 }
 
 @media (max-width: 720px) {

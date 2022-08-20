@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,9 +5,12 @@ namespace Bom_Dev.Shared.Identity
 {
     public class IdentityDbContext : IdentityDbContext<BomDevUser>
     {
+        public DbSet<Category> Category { get; set; }
+
         public IdentityDbContext(DbContextOptions<IdentityDbContext> options)
             : base(options)
         {
+            
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
