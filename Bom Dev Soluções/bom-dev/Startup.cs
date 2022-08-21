@@ -46,7 +46,8 @@ namespace Bom_Dev
                     Configuration.GetConnectionString("DefaultConnection")));
 
             #region Identity            
-            services.AddDefaultIdentity<PersonalUser>(options => {
+            services.AddDefaultIdentity<PersonalUser>(options =>
+            {
                 options.SignIn.RequireConfirmedAccount = true;
 
                 // Senha
@@ -89,7 +90,7 @@ namespace Bom_Dev
                 o.Scope.Add("employeesWebApi");
                 o.Scope.Add("roles");              
             });
-            #endregion            
+            #endregion
         }
         
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

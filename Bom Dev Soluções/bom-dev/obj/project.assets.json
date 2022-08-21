@@ -15,11 +15,11 @@
           "lib/netstandard2.0/IdentityModel.dll": {}
         }
       },
-      "IdentityServer4/4.1.1": {
+      "IdentityServer4/4.1.2": {
         "type": "package",
         "dependencies": {
           "IdentityModel": "4.4.0",
-          "IdentityServer4.Storage": "4.1.1",
+          "IdentityServer4.Storage": "4.1.2",
           "Microsoft.AspNetCore.Authentication.OpenIdConnect": "3.1.0",
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.6.0",
           "Newtonsoft.Json": "12.0.2"
@@ -34,7 +34,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "IdentityServer4.Storage/4.1.1": {
+      "IdentityServer4.Storage/4.1.2": {
         "type": "package",
         "dependencies": {
           "IdentityModel": "4.4.0"
@@ -2841,30 +2841,30 @@
         "lib/netstandard2.0/IdentityModel.xml"
       ]
     },
-    "IdentityServer4/4.1.1": {
-      "sha512": "PA7IYDMoUQQY7czXa8lmIorvMvLkbjUaWCpB9+guG6N4EvpyHWwsccDXrc/rHIKDdtXsqSgo5jIbsu3y7qOqww==",
+    "IdentityServer4/4.1.2": {
+      "sha512": "blaxxGuOA7v/w1q+fxn97wZ+x2ecG1ZD4mc/N/ZOXMNeFZZhqv+4LF26Gecyik3nWrJPmbMEtQbLmRsKG8k61w==",
       "type": "package",
-      "path": "identityserver4/4.1.1",
+      "path": "identityserver4/4.1.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.jpg",
-        "identityserver4.4.1.1.nupkg.sha512",
+        "identityserver4.4.1.2.nupkg.sha512",
         "identityserver4.nuspec",
         "lib/netcoreapp3.1/IdentityServer4.dll",
         "lib/netcoreapp3.1/IdentityServer4.pdb",
         "lib/netcoreapp3.1/IdentityServer4.xml"
       ]
     },
-    "IdentityServer4.Storage/4.1.1": {
-      "sha512": "RfbD+kx9/Nss5Cbn43PwUt2LU2ELXZVNamnjX4HsOIscBF+5qLHkofuCd0Gj3Qn4wfO6f/vSLYgvofZRHdVWUg==",
+    "IdentityServer4.Storage/4.1.2": {
+      "sha512": "KoSffyZyyeCNTIyJiZnCuPakJ1QbCHlpty6gbWUj/7yl+w0PXIchgmmJnJSvddzBb8iZ2xew/vGlxWUIP17P2g==",
       "type": "package",
-      "path": "identityserver4.storage/4.1.1",
+      "path": "identityserver4.storage/4.1.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.jpg",
-        "identityserver4.storage.4.1.1.nupkg.sha512",
+        "identityserver4.storage.4.1.2.nupkg.sha512",
         "identityserver4.storage.nuspec",
         "lib/netstandard2.0/IdentityServer4.Storage.dll",
         "lib/netstandard2.0/IdentityServer4.Storage.pdb",
@@ -9035,7 +9035,7 @@
     ".NETCoreApp,Version=v3.1": [
       "API >= 1.0.0",
       "Data >= 1.0.0",
-      "IdentityServer4 >= 4.1.1",
+      "IdentityServer4 >= 4.1.2",
       "Microsoft.AspNetCore.Authentication.OpenIdConnect >= 3.1.10",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 3.1.25",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.11",
@@ -9094,7 +9094,7 @@
         "dependencies": {
           "IdentityServer4": {
             "target": "Package",
-            "version": "[4.1.1, )"
+            "version": "[4.1.2, )"
           },
           "Microsoft.AspNetCore.Authentication.OpenIdConnect": {
             "target": "Package",

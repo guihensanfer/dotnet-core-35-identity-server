@@ -133,6 +133,9 @@ C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
@@ -162,6 +165,8 @@ C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Data.dll
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Data.pdb
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.csproj.AssemblyReference.cache
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.AssemblyInfoInputs.cache
@@ -202,8 +207,3 @@ C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\obj\Debug\
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.pdb
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\obj\Debug\netcoreapp3.1\IdentityServer.genruntimeconfig.cache
-C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
-C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
-C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Data.dll
-C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\IdentityServer\bin\Debug\netcoreapp3.1\Data.pdb

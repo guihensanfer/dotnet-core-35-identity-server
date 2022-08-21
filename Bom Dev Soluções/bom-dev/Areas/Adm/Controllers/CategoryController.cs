@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace Bom_Dev.Areas.Adm.Controllers
 {
-    [Area("Adm")]
-    [Authorize]
+    [Authorize(AuthenticationSchemes = "Identity.Application")]
+    [Area("Adm")]    
     public class CategoryController : Controller
     {
         private readonly IdentityDbContext _context;

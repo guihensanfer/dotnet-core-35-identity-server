@@ -32,7 +32,7 @@
       "IdentityServer/1.0.0": {
         "dependencies": {
           "Data": "1.0.0",
-          "IdentityServer4": "4.1.1",
+          "IdentityServer4": "4.1.2",
           "IdentityServer4.AspNetIdentity": "4.1.1",
           "IdentityServer4.EntityFramework": "4.1.1",
           "Microsoft.AspNetCore.Authentication.Google": "3.1.10",
@@ -342,18 +342,18 @@
           "lib/netstandard2.0/IdentityModel.dll": {}
         }
       },
-      "IdentityServer4/4.1.1": {
+      "IdentityServer4/4.1.2": {
         "dependencies": {
           "IdentityModel": "4.4.0",
-          "IdentityServer4.Storage": "4.1.1",
+          "IdentityServer4.Storage": "4.1.2",
           "Microsoft.AspNetCore.Authentication.OpenIdConnect": "3.1.0",
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.6.0",
           "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "lib/netcoreapp3.1/IdentityServer4.dll": {
-            "assemblyVersion": "4.1.1.0",
-            "fileVersion": "4.1.1.0"
+            "assemblyVersion": "4.1.2.0",
+            "fileVersion": "4.1.2.0"
           }
         },
         "compile": {
@@ -362,7 +362,7 @@
       },
       "IdentityServer4.AspNetIdentity/4.1.1": {
         "dependencies": {
-          "IdentityServer4": "4.1.1"
+          "IdentityServer4": "4.1.2"
         },
         "runtime": {
           "lib/netcoreapp3.1/IdentityServer4.AspNetIdentity.dll": {
@@ -376,7 +376,7 @@
       },
       "IdentityServer4.EntityFramework/4.1.1": {
         "dependencies": {
-          "IdentityServer4": "4.1.1",
+          "IdentityServer4": "4.1.2",
           "IdentityServer4.EntityFramework.Storage": "4.1.1"
         },
         "runtime": {
@@ -392,7 +392,7 @@
       "IdentityServer4.EntityFramework.Storage/4.1.1": {
         "dependencies": {
           "AutoMapper": "10.0.0",
-          "IdentityServer4.Storage": "4.1.1",
+          "IdentityServer4.Storage": "4.1.2",
           "Microsoft.EntityFrameworkCore.Relational": "3.1.11"
         },
         "runtime": {
@@ -405,14 +405,14 @@
           "lib/netstandard2.0/IdentityServer4.EntityFramework.Storage.dll": {}
         }
       },
-      "IdentityServer4.Storage/4.1.1": {
+      "IdentityServer4.Storage/4.1.2": {
         "dependencies": {
           "IdentityModel": "4.4.0"
         },
         "runtime": {
           "lib/netstandard2.0/IdentityServer4.Storage.dll": {
-            "assemblyVersion": "4.1.1.0",
-            "fileVersion": "4.1.1.0"
+            "assemblyVersion": "4.1.2.0",
+            "fileVersion": "4.1.2.0"
           }
         },
         "compile": {
@@ -3146,12 +3146,12 @@
       "path": "identitymodel/4.4.0",
       "hashPath": "identitymodel.4.4.0.nupkg.sha512"
     },
-    "IdentityServer4/4.1.1": {
+    "IdentityServer4/4.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-PA7IYDMoUQQY7czXa8lmIorvMvLkbjUaWCpB9+guG6N4EvpyHWwsccDXrc/rHIKDdtXsqSgo5jIbsu3y7qOqww==",
-      "path": "identityserver4/4.1.1",
-      "hashPath": "identityserver4.4.1.1.nupkg.sha512"
+      "sha512": "sha512-blaxxGuOA7v/w1q+fxn97wZ+x2ecG1ZD4mc/N/ZOXMNeFZZhqv+4LF26Gecyik3nWrJPmbMEtQbLmRsKG8k61w==",
+      "path": "identityserver4/4.1.2",
+      "hashPath": "identityserver4.4.1.2.nupkg.sha512"
     },
     "IdentityServer4.AspNetIdentity/4.1.1": {
       "type": "package",
@@ -3174,12 +3174,12 @@
       "path": "identityserver4.entityframework.storage/4.1.1",
       "hashPath": "identityserver4.entityframework.storage.4.1.1.nupkg.sha512"
     },
-    "IdentityServer4.Storage/4.1.1": {
+    "IdentityServer4.Storage/4.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-RfbD+kx9/Nss5Cbn43PwUt2LU2ELXZVNamnjX4HsOIscBF+5qLHkofuCd0Gj3Qn4wfO6f/vSLYgvofZRHdVWUg==",
-      "path": "identityserver4.storage/4.1.1",
-      "hashPath": "identityserver4.storage.4.1.1.nupkg.sha512"
+      "sha512": "sha512-KoSffyZyyeCNTIyJiZnCuPakJ1QbCHlpty6gbWUj/7yl+w0PXIchgmmJnJSvddzBb8iZ2xew/vGlxWUIP17P2g==",
+      "path": "identityserver4.storage/4.1.2",
+      "hashPath": "identityserver4.storage.4.1.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.Google/3.1.10": {
       "type": "package",
