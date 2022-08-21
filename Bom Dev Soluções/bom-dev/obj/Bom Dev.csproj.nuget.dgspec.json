@@ -67,12 +67,12 @@
         }
       }
     },
-    "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\Bom Dev.Shared\\Bom Dev.Shared.csproj": {
+    "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\Bom Dev.Shared\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\Bom Dev.Shared\\Bom Dev.Shared.csproj",
-        "projectName": "Bom Dev.Shared",
-        "projectPath": "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\Bom Dev.Shared\\Bom Dev.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\Bom Dev.Shared\\Data.csproj",
+        "projectName": "Data",
+        "projectPath": "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\Bom Dev.Shared\\Data.csproj",
         "packagesPath": "C:\\Users\\guihe\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\Bom Dev.Shared\\obj\\",
         "projectStyle": "PackageReference",
@@ -166,8 +166,8 @@
               "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\API\\API.csproj": {
                 "projectPath": "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\API\\API.csproj"
               },
-              "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\Bom Dev.Shared\\Bom Dev.Shared.csproj": {
-                "projectPath": "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\Bom Dev.Shared\\Bom Dev.Shared.csproj"
+              "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\Bom Dev.Shared\\Data.csproj": {
+                "projectPath": "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\Bom Dev.Shared\\Data.csproj"
               }
             }
           }

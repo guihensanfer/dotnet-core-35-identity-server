@@ -10,19 +10,19 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using Bom_Dev.Shared.Identity;
+using Data.Identity;
 
 namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
 {
     public partial class EmailModel : PageModel
     {
-        private readonly UserManager<BomDevUser> _userManager;
-        private readonly SignInManager<BomDevUser> _signInManager;
+        private readonly UserManager<PersonalUser> _userManager;
+        private readonly SignInManager<PersonalUser> _signInManager;
         private readonly IEmailSender _emailSender;
 
         public EmailModel(
-            UserManager<BomDevUser> userManager,
-            SignInManager<BomDevUser> signInManager,
+            UserManager<PersonalUser> userManager,
+            SignInManager<PersonalUser> signInManager,
             IEmailSender emailSender)
         {
             _userManager = userManager;
@@ -51,7 +51,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
             public string NewEmail { get; set; }
         }
 
-        private async Task LoadAsync(BomDevUser user)
+        private async Task LoadAsync(PersonalUser user)
         {
             var email = await _userManager.GetEmailAsync(user);
             Email = email;

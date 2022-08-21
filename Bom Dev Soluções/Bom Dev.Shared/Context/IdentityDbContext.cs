@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Data.Models;
 
-namespace Bom_Dev.Shared.Identity
+namespace Data.Context
 {
-    public class IdentityDbContext : IdentityDbContext<BomDevUser>
+    public class IdentityDbContext : IdentityDbContext<Identity.PersonalUser>
     {
         public DbSet<Category> Category { get; set; }
 

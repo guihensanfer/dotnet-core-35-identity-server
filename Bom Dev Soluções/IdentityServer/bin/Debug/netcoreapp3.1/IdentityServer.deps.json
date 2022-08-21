@@ -31,6 +31,7 @@
     ".NETCoreApp,Version=v3.1": {
       "IdentityServer/1.0.0": {
         "dependencies": {
+          "Data": "1.0.0",
           "IdentityServer4": "4.1.1",
           "IdentityServer4.AspNetIdentity": "4.1.1",
           "IdentityServer4.EntityFramework": "4.1.1",
@@ -1519,7 +1520,7 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
-      "Bom Dev.Shared/1.0.0": {
+      "Data/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.11",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.10",
@@ -1527,10 +1528,10 @@
           "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
-          "Bom Dev.Shared.dll": {}
+          "Data.dll": {}
         },
         "compile": {
-          "Bom Dev.Shared.dll": {}
+          "Data.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -3901,7 +3902,7 @@
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
-    "Bom Dev.Shared/1.0.0": {
+    "Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

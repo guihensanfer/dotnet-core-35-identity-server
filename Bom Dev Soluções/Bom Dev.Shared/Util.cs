@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Bom_Dev.Shared
+namespace Data
 {
     public class Util
     {

@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
 using System.Reflection;
+using Data.Context;
+using Data.Identity;
 
 namespace IdentityServer
 {
@@ -28,10 +30,10 @@ namespace IdentityServer
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
-            services.AddDbContext<Bom_Dev.Shared.Identity.IdentityDbContext>(options => options.UseSqlServer(connectionString));
+            services.AddDbContext<IdentityDbContext>(options => options.UseSqlServer(connectionString));
 
-            services.AddIdentity<Bom_Dev.Shared.Identity.BomDevUser, IdentityRole>()
-                .AddEntityFrameworkStores<Bom_Dev.Shared.Identity.IdentityDbContext>()
+            services.AddIdentity<PersonalUser, IdentityRole>()
+                .AddEntityFrameworkStores<IdentityDbContext>()
                 .AddDefaultTokenProviders();            
 
             services.AddControllersWithViews();            
@@ -53,7 +55,7 @@ namespace IdentityServer
                 options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
                 options.EnableTokenCleanup = true;
             })
-            .AddAspNetIdentity<Bom_Dev.Shared.Identity.BomDevUser>();            
+            .AddAspNetIdentity<PersonalUser>();            
             
             // Login com Google
             services.AddAuthentication().AddGoogle(g =>

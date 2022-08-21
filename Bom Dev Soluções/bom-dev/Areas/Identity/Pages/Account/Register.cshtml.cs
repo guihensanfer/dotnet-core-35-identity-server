@@ -1,4 +1,4 @@
-using Bom_Dev.Shared.Identity;
+using Data.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -16,14 +16,14 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<BomDevUser> _signInManager;
-        private readonly UserManager<BomDevUser> _userManager;
+        private readonly SignInManager<PersonalUser> _signInManager;
+        private readonly UserManager<PersonalUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
         public RegisterModel(
-            UserManager<BomDevUser> userManager,
-            SignInManager<BomDevUser> signInManager,
+            UserManager<PersonalUser> userManager,
+            SignInManager<PersonalUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
@@ -75,7 +75,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");            
             if (ModelState.IsValid)
             {
-                var user = new BomDevUser { 
+                var user = new PersonalUser { 
                     UserName = Input.Email, 
                     Email = Input.Email, 
                     FullName = Input.Nome,

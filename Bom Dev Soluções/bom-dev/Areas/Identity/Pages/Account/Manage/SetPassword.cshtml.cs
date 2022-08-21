@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
-using Bom_Dev.Shared.Identity;
+using Data.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,12 +9,12 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
 {
     public class SetPasswordModel : PageModel
     {
-        private readonly UserManager<BomDevUser> _userManager;
-        private readonly SignInManager<BomDevUser> _signInManager;
+        private readonly UserManager<PersonalUser> _userManager;
+        private readonly SignInManager<PersonalUser> _signInManager;
 
         public SetPasswordModel(
-            UserManager<BomDevUser> userManager,
-            SignInManager<BomDevUser> signInManager)
+            UserManager<PersonalUser> userManager,
+            SignInManager<PersonalUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;

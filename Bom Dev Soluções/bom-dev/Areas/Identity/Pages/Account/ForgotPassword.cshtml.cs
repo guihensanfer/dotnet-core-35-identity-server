@@ -8,17 +8,17 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using Bom_Dev.Shared.Identity;
+using Data.Identity;
 
 namespace Bom_Dev.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class ForgotPasswordModel : PageModel
     {
-        private readonly UserManager<BomDevUser> _userManager;
+        private readonly UserManager<PersonalUser> _userManager;
         private readonly IEmailSender _emailSender;
 
-        public ForgotPasswordModel(UserManager<BomDevUser> userManager, IEmailSender emailSender)
+        public ForgotPasswordModel(UserManager<PersonalUser> userManager, IEmailSender emailSender)
         {
             _userManager = userManager;
             _emailSender = emailSender;

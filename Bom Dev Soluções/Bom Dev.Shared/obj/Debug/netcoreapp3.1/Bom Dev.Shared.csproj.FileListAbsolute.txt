@@ -7,3 +7,4 @@ C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\Bom Dev.Shared\obj\Debug\
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\Bom Dev.Shared\obj\Debug\netcoreapp3.1\Bom Dev.Shared.csproj.CoreCompileInputs.cache
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\Bom Dev.Shared\obj\Debug\netcoreapp3.1\Bom Dev.Shared.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\Bom Dev.Shared\obj\Debug\netcoreapp3.1\Bom Dev.Shared.pdb
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\Bom Dev.Shared\obj\Debug\netcoreapp3.1\Bom Dev.Shared.csproj.AssemblyReference.cache

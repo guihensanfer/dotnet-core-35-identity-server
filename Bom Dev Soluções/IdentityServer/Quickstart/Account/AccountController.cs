@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Bom_Dev.Shared.Identity;
+using Data.Identity;
 
 namespace IdentityServerHost.Quickstart.UI
 {
@@ -20,16 +20,16 @@ namespace IdentityServerHost.Quickstart.UI
     [AllowAnonymous]
     public class AccountController : Controller
     {
-        private readonly UserManager<BomDevUser> _userManager;
-        private readonly SignInManager<BomDevUser> _signInManager;
+        private readonly UserManager<PersonalUser> _userManager;
+        private readonly SignInManager<PersonalUser> _signInManager;
         private readonly IIdentityServerInteractionService _interaction;
         private readonly IClientStore _clientStore;
         private readonly IAuthenticationSchemeProvider _schemeProvider;
         private readonly IEventService _events;
 
         public AccountController(
-            UserManager<BomDevUser> userManager,
-            SignInManager<BomDevUser> signInManager,
+            UserManager<PersonalUser> userManager,
+            SignInManager<PersonalUser> signInManager,
             IIdentityServerInteractionService interaction,
             IClientStore clientStore,
             IAuthenticationSchemeProvider schemeProvider,

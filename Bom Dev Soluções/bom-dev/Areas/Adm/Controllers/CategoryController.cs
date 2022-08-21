@@ -1,5 +1,5 @@
-﻿using Bom_Dev.Shared;
-using Bom_Dev.Shared.Identity;
+﻿using Data.Models;
+using Data.Context;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

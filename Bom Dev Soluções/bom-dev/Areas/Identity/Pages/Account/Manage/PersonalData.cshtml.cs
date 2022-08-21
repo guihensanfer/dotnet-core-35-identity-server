@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using Bom_Dev.Shared.Identity;
+using Data.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,11 +9,11 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
 {
     public class PersonalDataModel : PageModel
     {
-        private readonly UserManager<BomDevUser> _userManager;
+        private readonly UserManager<PersonalUser> _userManager;
         private readonly ILogger<PersonalDataModel> _logger;
 
         public PersonalDataModel(
-            UserManager<BomDevUser> userManager,
+            UserManager<PersonalUser> userManager,
             ILogger<PersonalDataModel> logger)
         {
             _userManager = userManager;

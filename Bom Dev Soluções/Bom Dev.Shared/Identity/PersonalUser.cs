@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace Bom_Dev.Shared.Identity
+namespace Data.Identity
 {
-    public class BomDevUser : IdentityUser
+    public class PersonalUser : IdentityUser
     {
         [PersonalData]
         public string FullName{get;set;}        

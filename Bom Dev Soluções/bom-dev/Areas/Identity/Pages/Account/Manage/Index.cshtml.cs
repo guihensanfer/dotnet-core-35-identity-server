@@ -3,18 +3,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Bom_Dev.Shared.Identity;
+using Data.Identity;
 
 namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
 {
     public partial class IndexModel : PageModel
     {
-        private readonly UserManager<BomDevUser> _userManager;
-        private readonly SignInManager<BomDevUser> _signInManager;
+        private readonly UserManager<PersonalUser> _userManager;
+        private readonly SignInManager<PersonalUser> _signInManager;
 
         public IndexModel(
-            UserManager<BomDevUser> userManager,
-            SignInManager<BomDevUser> signInManager)
+            UserManager<PersonalUser> userManager,
+            SignInManager<PersonalUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -40,7 +40,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
             public string Nome{get;set;}                        
         }
 
-        private async Task LoadAsync(BomDevUser user)
+        private async Task LoadAsync(PersonalUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);

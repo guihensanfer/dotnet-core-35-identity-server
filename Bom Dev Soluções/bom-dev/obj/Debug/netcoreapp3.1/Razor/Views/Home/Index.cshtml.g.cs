@@ -28,13 +28,13 @@ using Bom_Dev.Models;
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\Views\_ViewImports.cshtml"
-using Bom_Dev.Shared.Identity;
+using Data.Identity;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4ad3697efd17dfbb3a14f5a6f1814fe7b78fe4fe", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a4f1f55d811d6dbc34ee13d151740ab44ae5c132", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"aec36cc0cbda5b9a0a5903b72fef2cbedd7e09a2", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("method", "GET", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -72,7 +72,7 @@ using Bom_Dev.Shared.Identity;
 #line hidden
 #nullable disable
             WriteLiteral("<nav id=\"navBarSecundario\" class=\"navbar navbar-expand justify-content-center\">\r\n    <div class=\"container\">        \r\n        <div id=\"containerBusca\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4ad3697efd17dfbb3a14f5a6f1814fe7b78fe4fe4098", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4ad3697efd17dfbb3a14f5a6f1814fe7b78fe4fe4088", async() => {
                 WriteLiteral("                \r\n                <input class=\"bomDevSearchInputStyle\" type=\"text\" name=\"searchApp\" style=\"font-size: 14px!important;\"");
                 BeginWriteAttribute("value", " value=\"", 361, "\"", 404, 1);
 #nullable restore

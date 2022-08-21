@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Bom_Dev.Shared
+namespace Data.Models
 {
     public class Category
     {
@@ -17,6 +17,7 @@ namespace Bom_Dev.Shared
         public int CategoryId { get; set; }
 
         [Column("Name")]
+        [Required]
         [StringLength(60)]
         [Display(Name = "Nome")]
         public string Name { get; set; }
@@ -27,6 +28,7 @@ namespace Bom_Dev.Shared
         public string Description { get; set; }
 
         [Column("DateCreated")]
+        [Required]
         [Display(Name = "Data de criação")]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateCreated { get; private set; }
@@ -36,6 +38,7 @@ namespace Bom_Dev.Shared
         public Category ParentCategoryId { get; set; }
 
         [Column("Url")]
+        [Required]
         [Display(Name = "Url")]
         [StringLength(2048)]
         public string Url { get; set; }

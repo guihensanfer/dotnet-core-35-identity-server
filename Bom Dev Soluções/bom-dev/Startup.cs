@@ -1,4 +1,5 @@
-using Bom_Dev.Shared.Identity;
+using Data.Identity;
+using Data.Context;
 using Bom_Dev.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
@@ -45,7 +46,7 @@ namespace Bom_Dev
                     Configuration.GetConnectionString("DefaultConnection")));
 
             #region Identity            
-            services.AddDefaultIdentity<BomDevUser>(options => {
+            services.AddDefaultIdentity<PersonalUser>(options => {
                 options.SignIn.RequireConfirmedAccount = true;
 
                 // Senha

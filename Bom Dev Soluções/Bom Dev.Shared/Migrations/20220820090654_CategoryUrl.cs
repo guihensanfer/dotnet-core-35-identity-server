@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Bom_Dev.Shared.Migrations
+namespace Data.Migrations
 {
     public partial class CategoryUrl : Migration
     {

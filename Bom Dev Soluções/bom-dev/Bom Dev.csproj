@@ -30,7 +30,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\API\API.csproj" />
-    <ProjectReference Include="..\Bom Dev.Shared\Bom Dev.Shared.csproj" />
+    <ProjectReference Include="..\Bom Dev.Shared\Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>

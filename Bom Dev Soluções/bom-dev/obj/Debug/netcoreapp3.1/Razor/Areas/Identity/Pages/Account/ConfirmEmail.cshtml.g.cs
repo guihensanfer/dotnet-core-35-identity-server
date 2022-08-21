@@ -35,7 +35,7 @@ using Bom_Dev.Areas.Identity.Pages;
 #nullable disable
 #nullable restore
 #line 4 "C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\Areas\Identity\Pages\_ViewImports.cshtml"
-using Bom_Dev.Shared.Identity;
+using Data.Context;
 
 #line default
 #line hidden
@@ -48,7 +48,7 @@ using Bom_Dev.Areas.Identity.Pages.Account;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"46de483284bd5553c043e9f688f688db796568c5", @"/Areas/Identity/Pages/Account/ConfirmEmail.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6b8dc2955302457d502251b465453d97ecb09215", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6bc0fa9fed079b98b6aaa51b639225e41a6eaf67", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"95d6b36ca338b32b59135c937ec61968710c082b", @"/Areas/Identity/Pages/Account/_ViewImports.cshtml")]
     public class Areas_Identity_Pages_Account_ConfirmEmail : global::Microsoft.AspNetCore.Mvc.RazorPages.Page
     {
@@ -95,7 +95,7 @@ Write(ViewData["Title"]);
 #line hidden
 #nullable disable
             WriteLiteral("</h1>\r\n<div class=\"alert alert-success\" role=\"alert\">\r\n  E-mail confirmado com sucesso!\r\n  ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "46de483284bd5553c043e9f688f688db796568c55373", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "46de483284bd5553c043e9f688f688db796568c55362", async() => {
                 WriteLiteral("Clique aqui para logar");
             }
             );
