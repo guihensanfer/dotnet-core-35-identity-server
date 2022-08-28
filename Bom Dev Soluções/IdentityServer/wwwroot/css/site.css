@@ -95,15 +95,19 @@ h4, h5, p {
 }
 
 .loginContinuarCom {
-    background: #a2c7a1;
+    background: #01281a;
     padding: 10px;
     border-radius: 0px 0px 7px 7px;
+    border: solid 1px #01281a;
+    border-top: none;
 }
 
 .loginForm {
-    background: darkseagreen;
+    background: #fff;
     border-radius: 7px 7px 0px 0px;
     padding: 15px;
+    border: solid 1px #01281a;
+    border-bottom:none;
 }
 
 .loginMargin4Percent{
