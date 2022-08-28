@@ -6,11 +6,6 @@ namespace Data.Models
 {
     public class Category
     {
-        public Category(DateTime dateCreated)
-        {
-            this.DateCreated = dateCreated;
-        }
-
         [Key]
         [Column("CategoryId")]
         [Display(Name = "Código")]
@@ -31,7 +26,7 @@ namespace Data.Models
         [Required]
         [Display(Name = "Data de criação")]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime DateCreated { get; private set; }
+        public DateTime DateCreated { get; set; }
 
         [ForeignKey("ParentCategoryIdFk")]
         [Display(Name = "Categoria pai")]        

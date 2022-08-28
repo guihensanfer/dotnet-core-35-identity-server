@@ -1,5 +1,5 @@
 ﻿using Data.Models;
-using Data.Context;
+using Data.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,9 +12,9 @@ namespace Bom_Dev.Areas.Adm.Controllers
     [Area("Adm")]    
     public class CategoryController : Controller
     {
-        private readonly IdentityDbContext _context;
+        private readonly IRepository _context;
 
-        public CategoryController(IdentityDbContext context)
+        public CategoryController(IRepository context)
         {
             _context = context;
         }
@@ -22,7 +22,7 @@ namespace Bom_Dev.Areas.Adm.Controllers
         // GET: Adm/Category
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Category.ToListAsync());
+            return View(await _context.GetCategories());
         }
 
         // GET: Adm/Category/Details/5
@@ -33,8 +33,8 @@ namespace Bom_Dev.Areas.Adm.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Category
-                .FirstOrDefaultAsync(m => m.CategoryId == id);
+            var category = await _context.GetCategoryById(id.GetValueOrDefault());
+                
             if (category == null)
             {
                 return NotFound();
@@ -54,12 +54,12 @@ namespace Bom_Dev.Areas.Adm.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CategoryId,Name,Description,DateCreated")] Category category)
+        public async Task<IActionResult> Create([Bind("CategoryId,Name,Description,Url")] Category category)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(category);
-                await _context.SaveChangesAsync();
+                var teste = await _context.InsertCategory(category);
+
                 return RedirectToAction(nameof(Index));
             }
             return View(category);
@@ -73,7 +73,7 @@ namespace Bom_Dev.Areas.Adm.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Category.FindAsync(id);
+            var category = await _context.GetCategoryById(id.GetValueOrDefault());
             if (category == null)
             {
                 return NotFound();
@@ -97,8 +97,7 @@ namespace Bom_Dev.Areas.Adm.Controllers
             {
                 try
                 {
-                    _context.Update(category);
-                    await _context.SaveChangesAsync();
+                    await _context.UpdateCategory(category);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -124,8 +123,7 @@ namespace Bom_Dev.Areas.Adm.Controllers
                 return NotFound();
             }
 
-            var category = await _context.Category
-                .FirstOrDefaultAsync(m => m.CategoryId == id);
+            var category = await _context.GetCategoryById(id.GetValueOrDefault());
             if (category == null)
             {
                 return NotFound();
@@ -139,15 +137,16 @@ namespace Bom_Dev.Areas.Adm.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var category = await _context.Category.FindAsync(id);
-            _context.Category.Remove(category);
-            await _context.SaveChangesAsync();
+            await _context.DeleteCategory(id);
+            
             return RedirectToAction(nameof(Index));
         }
 
         private bool CategoryExists(int id)
         {
-            return _context.Category.Any(e => e.CategoryId == id);
+            var category = _context.GetCategoryById(id);
+
+            return category != null;
         }
     }
 }

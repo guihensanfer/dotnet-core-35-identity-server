@@ -220,3 +220,4 @@ C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\bin\Debug\netcore
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.Views.pdb
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.csproj.CopyComplete
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.genruntimeconfig.cache
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Razor\Areas\Adm\Views\_ViewImports.cshtml.g.cs

@@ -1,5 +1,7 @@
 using Data.Identity;
 using Data.Context;
+using Data.Interface;
+using Data.Repository;
 using Bom_Dev.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
@@ -44,6 +46,7 @@ namespace Bom_Dev
             services.AddDbContext<IdentityDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<IRepository, Repository>();
 
             #region Identity            
             services.AddDefaultIdentity<PersonalUser>(options =>
@@ -116,16 +119,18 @@ namespace Bom_Dev
             app.UseAuthorization();               
 
             app.UseEndpoints(endpoints =>
-            {                
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            {
                 // adm
                 endpoints.MapAreaControllerRoute(
-                    name: "adm",
+                    name: "admArea",
                     areaName: "adm",
                     pattern: "adm/{controller=Category}/{action=Index}/{id?}");
-                endpoints.MapRazorPages();                
+                
+                endpoints.MapRazorPages();
+
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");                        
             });            
         }       
     }

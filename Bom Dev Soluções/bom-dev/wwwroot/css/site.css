@@ -6,15 +6,16 @@ for details on configuring this project to bundle and minify static web assets. 
 #menu0 {
     padding-top: 3px;
     padding-bottom: 3px;
-    background: #48503E;
-    color:#fff;
-    font-size:85%;
+    background: #01281a;
+    color: #fff;
+    font-size: 85%;
 }
 
 #menu {
-    padding-top: 15px;
+    padding-top: 5px;
     padding-bottom: 15px;
-    background:#000;
+    background: #01281a;
+    border-bottom: solid 2px #000;    
 }
 
 a.navbar-brand {
