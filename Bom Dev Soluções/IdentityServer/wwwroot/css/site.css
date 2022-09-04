@@ -1,4 +1,10 @@
-﻿.body-container {
+﻿:root {
+    --colorI: #01281a;
+    --colorII: #fff;
+    --colorIII: #000;
+}
+
+.body-container {
   margin-top: 60px;
   padding-bottom: 40px; }
 
@@ -95,10 +101,10 @@ h4, h5, p {
 }
 
 .loginContinuarCom {
-    background: #01281a;
+    background: var(--colorI);
     padding: 10px;
     border-radius: 0px 0px 7px 7px;
-    border: solid 1px #01281a;
+    border: solid 1px var(--colorI);
     border-top: none;
 }
 
@@ -106,7 +112,7 @@ h4, h5, p {
     background: #fff;
     border-radius: 7px 7px 0px 0px;
     padding: 15px;
-    border: solid 1px #01281a;
+    border: solid 1px var(--colorI);
     border-bottom:none;
 }
 

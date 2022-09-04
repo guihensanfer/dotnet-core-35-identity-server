@@ -3,19 +3,64 @@ for details on configuring this project to bundle and minify static web assets. 
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
 
+:root {
+    --colorI: #01281a;
+    --colorII: #fff;
+    --colorIII: #000;
+}
+
 #menu0 {
-    padding-top: 3px;
-    padding-bottom: 3px;
-    background: #01281a;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background: var(--colorI);
     color: #fff;
     font-size: 85%;
+    padding-right: 8%;
+    padding-left: 8%;    
+}
+
+.menuAdm {
+    margin-right: 7%;
+    margin-left: 7%;
+    padding: 2px 2% 2px 2% !important;
+    background: var(--colorII) !important;
+    color: var(--colorI) !important;
+    font-size:90%;
+    font-weight:bold;
+}
+
+#menuAdmContainer {
+    background: var(--colorI);
+    padding-bottom: 5px;    
+}
+
+.menuAdm div ul li {        
+    font-size: 90%;
+    font-weight: bold;
+}
+
+.menuAdm div ul li a {
+    color: var(--colorI) !important;
+}
+
+#menuDinamico {
+    margin-right: 7%;
+    margin-left: 7%;
+}
+#menuDinamico div ul li {
+    font-size: 120%;
 }
 
 #menu {
     padding-top: 5px;
     padding-bottom: 15px;
-    background: #01281a;
-    border-bottom: solid 2px #000;    
+    background: var(--colorI);
+    border-bottom: solid 2px #000;
+}
+
+#menu .container {
+    border-top: solid 1px #000;
+    padding-top:15px;
 }
 
 a.navbar-brand {
@@ -32,9 +77,9 @@ a.navbar-brand {
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: indianred;
-  border-color: indianred;  
+    color: var(--colorII);
+    background-color: var(--colorI);
+    border-color: var(--colorI);
 }
 
 .nav-pills .nav-link{color: #000;}

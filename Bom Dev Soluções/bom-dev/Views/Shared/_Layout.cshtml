@@ -8,16 +8,39 @@
     <link rel="stylesheet" href="~/css/site.css" />       
 </head>
 <body>
-    <header>
-        <div id="menu0" class="container-fluid-nav text-center">
-            <span>
-                Entregas somente para Curitiba-PR e região metropolitana.
-            </span>
-        </div>
-        <nav id="menu" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light">
+    <header>        
+        <nav id="menu0" class="navbar navbar-expand-md navbar-dark">            
+            @*<div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <span class="nav-link" href="#">Entregas somente para Curitiba-PR e região metropolitana.</span>
+                    </li>                    
+                </ul>
+            </div>*@
+            @*<div class="mx-auto order-0">
+                <span class="nav-link" href="#">Entregas somente para Curitiba-PR e região metropolitana.</span>
+            </div>*@
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <span class="nav-link">Entregas somente para Curitiba-PR e região metropolitana</span>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Fale conosco</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Seja um parceiro</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">bomterrarios.com.br</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <nav id="menu" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark">
             <div class="container">
                 <a id="layoutLogo" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" title="Bom Terrários">
-                    
+
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +48,7 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">     
+                    <ul class="navbar-nav flex-grow-1">
                         @{
                             var projetos = API.Models.Projects.GetProjects();
                             var setores = projetos
@@ -35,47 +58,47 @@
                                 .OrderBy(x => x.ToString())
                                 .ToList();
 
-                            foreach(var setor in setores)
+                            foreach (var setor in setores)
                             {
-                                <li class="nav-item dropdown">                                    
+                                <li class="nav-item dropdown">
                                     @{
                                         var p = setor.GetAttribute<System.ComponentModel.DataAnnotations.DisplayAttribute>();
                                         var x = p is null ? setor.ToString() : p.Name;
-                                        
+
                                         <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             @x.ToString()
                                         </a>
                                     }
-                                    
-                                    <ul class="dropdown-menu dropdown-menu-bomdev" aria-labelledby="navbarDropdownMenuLink">   
+
+                                    <ul class="dropdown-menu dropdown-menu-bomdev" aria-labelledby="navbarDropdownMenuLink">
                                         @{
                                             var projetosSetor = projetos.Where(p => p.department == setor).ToList();
 
-                                            foreach(var projeto in projetosSetor)    
+                                            foreach (var projeto in projetosSetor)
                                             {
                                                 <li>
-                                                    <div class="dropdown-item-bomdev">                                                     
+                                                    <div class="dropdown-item-bomdev">
                                                         <a class="text-light" href="@projeto.linkAccess">
                                                             @projeto.name
                                                             <p class="text-descricao-P text-light">
                                                                 @projeto.bio
-                                                            </p>                                            
+                                                            </p>
                                                         </a>
                                                     </div>
                                                 </li>
                                             }
-                                        }                                        
-                                    </ul>                            
+                                        }
+                                    </ul>
                                 </li>
                             }
-                        }                                           
+                        }
                         <li class="nav-item">
                             <a class="nav-link text-light fundo-arredondado" asp-area="" asp-controller="Home" asp-action="Sobre">Sobre nós</a>
                         </li>
                     </ul>
                 </div>
-            </div>            
-        </nav>        
+            </div>
+        </nav>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
