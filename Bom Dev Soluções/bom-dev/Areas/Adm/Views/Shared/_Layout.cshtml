@@ -22,12 +22,16 @@
         }
 
         <div id="menuAdmContainer" class="container-fluid">
-            <nav id="menu0" class="navbar navbar-expand-md navbar-dark menuAdm">
-                <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <nav id="menu0" class="navbar navbar-expand-md navbar-light menuAdm">
+                <div class="nav-item active">
+                    <a class="nav-link" href="#">BOMTERRARIOS.COM.BR</a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">BOMTERRARIOS.COM.BR</a>
-                        </li>
                         @{
                             foreach (var item in menus)
                             {
@@ -49,10 +53,21 @@
                     </ul>
                 </div>
                 @*<div class="mx-auto order-0">
-                <span class="nav-link" href="#">Entregas somente para Curitiba-PR e região metropolitana.</span>
-            </div>*@
+            <span class="nav-link" href="#">Entregas somente para Curitiba-PR e região metropolitana.</span>
+        </div>*@
                 <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item" id="liSeach" style="display:none;">
+                            <form method="get" action="/adm">
+                                <input required type="text" name="@MenuDinamicViewModel.ParamSearchMenu" id="inputSearch" placeholder="Pesquisar..." value="@Context.Request.Query[MenuDinamicViewModel.ParamSearchMenu]" />
+                                <input type="submit" id="submitSearch" value="Pesquisar" />
+                            </form>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" onclick="$('#liSeach').toggle('slow', function () { $('#inputSearch').focus();}); return false;" class="nav-link text-light" title="Pesquisar ações administrativas">
+                                <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g data-name="Layer 2" style="stroke:#000;fill:#000"><path d="M13 23a10 10 0 1 1 10-10 10 10 0 0 1-10 10Zm0-18a8 8 0 1 0 8 8 8 8 0 0 0-8-8Z" fill="#fff" class="fill-000000" style="stroke:#000;fill:#000" /><path d="M28 29a1 1 0 0 1-.71-.29l-8-8a1 1 0 0 1 1.42-1.42l8 8a1 1 0 0 1 0 1.42A1 1 0 0 1 28 29Z" fill="#fff" class="fill-000000" style="stroke:#000;fill:#000" /></g><path d="M0 0h32v32H0z" fill="none" style="stroke:none" /></svg>
+                            </a>
+                        </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="#">FALE CONOSCO</a>
                         </li>
@@ -78,49 +93,51 @@
                 </div>
             </nav>
 
-            <nav id="menuDinamico" class="navbar navbar-expand-md navbar-dark">
-                <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-                    <ul class="navbar-nav mr-auto">
-                        @{
-                            if (!hasMenuCurrentUrl)
-                            {
-                                string searchMenu = Context.Request.Query[MenuDinamicViewModel.ParamSearchMenu];
+            <div id="menuDinamico" class="navbar navbar-dark navbar-expand-sm">
+                @{
+                    if (!hasMenuCurrentUrl)
+                    {
+                        string searchMenu = Context.Request.Query[MenuDinamicViewModel.ParamSearchMenu];
 
-                                if (!string.IsNullOrWhiteSpace(searchMenu))
-                                {
-                                    var results = MenuDinamicViewModel.SearchMenuChieldByName(searchMenu, menus);
+                        if (!string.IsNullOrWhiteSpace(searchMenu))
+                        {
+                            var results = MenuDinamicViewModel.SearchMenuChieldByName(searchMenu, menus);
 
-                                    if (results != null && results.Any())
-                                    {
-                                        menuFromUrl = new MenuDinamicViewModel()
-                                        {
-                                            Name = "Busca",
-                                            Chieldres = results
-                                        };
-                                    }
-                                    else
-                                    {
-                                        menuFromUrl = new MenuDinamicViewModel()
-                                        {
-                                            Name = "Sem resultados para o termo informado",
-                                            Chieldres = new List<MenuDinamicViewModel>()
-                                        };
-                                    }
-                                }
-                            }
-
-                            if(menuFromUrl == null)
+                            if (results != null && results.Any())
                             {
                                 menuFromUrl = new MenuDinamicViewModel()
                                 {
-                                    Name = "Área de administração",
+                                    Name = "PESQUISAR",
+                                    Chieldres = results
+                                };
+                            }
+                            else
+                            {
+                                menuFromUrl = new MenuDinamicViewModel()
+                                {
+                                    Name = "Sem resultados para o termo informado",
                                     Chieldres = new List<MenuDinamicViewModel>()
                                 };
                             }
+                        }
+                    }
 
-                            <li class="nav-item active">
-                                <span class="nav-link">@menuFromUrl.Name</span>
-                            </li>
+                    if (menuFromUrl == null)
+                    {
+                        menuFromUrl = new MenuDinamicViewModel()
+                        {
+                            Name = "Área de administração",
+                            Chieldres = new List<MenuDinamicViewModel>()
+                        };
+                    }
+
+                    <div class="nav-item active">
+                        <span class="nav-link" id="currentPageDesc">@menuFromUrl.Name</span>
+                    </div>
+                }
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                        @{
                             if (menuFromUrl.Chieldres != null && menuFromUrl.Chieldres.Any())
                             {
                                 foreach (var item in menuFromUrl.Chieldres)
@@ -143,18 +160,9 @@
                     </ul>
                 </div>
                 @*<div class="mx-auto order-0">
-                <span class="nav-link" href="#">Entregas somente para Curitiba-PR e região metropolitana.</span>
-            </div>*@
-                <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Pesquisar ações administrativas">
-                                <svg width="20" height="20" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g data-name="Layer 2"><path d="M13 23a10 10 0 1 1 10-10 10 10 0 0 1-10 10Zm0-18a8 8 0 1 0 8 8 8 8 0 0 0-8-8Z" fill="#fff" class="fill-000000" /><path d="M28 29a1 1 0 0 1-.71-.29l-8-8a1 1 0 0 1 1.42-1.42l8 8a1 1 0 0 1 0 1.42A1 1 0 0 1 28 29Z" fill="#fff" class="fill-000000" /></g><path d="M0 0h32v32H0z" fill="none" /></svg>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            <span class="nav-link" href="#">Entregas somente para Curitiba-PR e região metropolitana.</span>
+        </div>*@
+            </div>
         </div>
     
     </header>

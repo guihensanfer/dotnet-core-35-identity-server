@@ -24,8 +24,7 @@ for details on configuring this project to bundle and minify static web assets. 
     margin-left: 7%;
     padding: 2px 2% 2px 2% !important;
     background: var(--colorII) !important;
-    color: var(--colorI) !important;
-    font-size:90%;
+    color: var(--colorI) !important;    
     font-weight:bold;
 }
 
@@ -34,12 +33,20 @@ for details on configuring this project to bundle and minify static web assets. 
     padding-bottom: 5px;    
 }
 
-.menuAdm div ul li {        
-    font-size: 90%;
+#inputSearch{
+    width:100%;    
+    margin-top:7px;
+}
+#submitSearch {
+    display:none;
+}
+
+.menuAdm .nav-item {
+    font-size: 80%;
     font-weight: bold;
 }
 
-.menuAdm div ul li a {
+.menuAdm .nav-item a {
     color: var(--colorI) !important;
 }
 
@@ -48,7 +55,10 @@ for details on configuring this project to bundle and minify static web assets. 
     margin-left: 7%;
 }
 #menuDinamico div ul li {
-    font-size: 120%;
+    font-size: 120%;    
+}
+#currentPageDesc{
+    color:#FFF;
 }
 
 #menu {

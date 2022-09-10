@@ -11,7 +11,7 @@ namespace Bom_Dev.Areas.Adm.Models
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string Url { get; set; }
-        public bool Enabled { get; set; } = true;
+        public bool Enabled { get; set; } = true;        
 
         public List<MenuDinamicViewModel> Chieldres { get; set; }
 
@@ -27,7 +27,7 @@ namespace Bom_Dev.Areas.Adm.Models
             menuDinamicViewModels.ForEach(x => result.AddRange(x.Chieldres));
             result.RemoveAll(x => !x.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
 
-            return result;
+            return result?.OrderBy(x => x.Name).ToList();
         }
 
         public static List<MenuDinamicViewModel> GetAllMenus()
@@ -42,18 +42,18 @@ namespace Bom_Dev.Areas.Adm.Models
                     {
                         new MenuDinamicViewModel()
                         {
-                            Name = "Adicionar",
-                            Url="/adm/category/create"
+                            Name = "Gerenciar categorias",
+                            Url="/adm/category"
                         },
                         new MenuDinamicViewModel()
                         {
-                            Name = "Gerenciar",
-                            Url="/adm/category"
-                        }
+                            Name = "Adicionar categoria",
+                            Url="/adm/category/create"
+                        }                        
                     }
                 }
             }
-            .Where(x => x.Enabled)
+            .Where(x => x.Enabled)            
             .ToList();
         }
     }
