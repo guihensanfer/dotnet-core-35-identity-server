@@ -4,14 +4,16 @@ using Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Data.Migrations
 {
     [DbContext(typeof(IdentityDbContext))]
-    partial class IdentityDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220925215210_CategoryNorequiredUrl")]
+    partial class CategoryNorequiredUrl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,7 +122,7 @@ namespace Data.Migrations
                         .HasColumnName("Order")
                         .HasColumnType("tinyint");
 
-                    b.Property<int?>("ParentCategoryId")
+                    b.Property<int?>("ParentCategoryIdFk")
                         .HasColumnType("int");
 
                     b.Property<string>("Url")
@@ -129,6 +131,8 @@ namespace Data.Migrations
                         .HasMaxLength(2048);
 
                     b.HasKey("CategoryId");
+
+                    b.HasIndex("ParentCategoryIdFk");
 
                     b.ToTable("Category");
                 });
@@ -266,6 +270,13 @@ namespace Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("UserTokens");
+                });
+
+            modelBuilder.Entity("Data.Models.Category", b =>
+                {
+                    b.HasOne("Data.Models.Category", "ParentCategoryId")
+                        .WithMany()
+                        .HasForeignKey("ParentCategoryIdFk");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

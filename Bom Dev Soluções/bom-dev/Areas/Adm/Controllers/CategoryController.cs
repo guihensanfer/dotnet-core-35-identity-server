@@ -1,9 +1,9 @@
-﻿using Data.Models;
-using Data.Interface;
+﻿using Data.Interface;
+using Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Bom_Dev.Areas.Adm.Controllers
@@ -23,6 +23,18 @@ namespace Bom_Dev.Areas.Adm.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.GetCategories());
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> GetCategoriesByOrder(int order)
+        {
+            Category.OrderView orderView = (Category.OrderView)order;
+
+            var result = await _context.GetCategories(true, orderView, new Optimization() { 
+                LoadedColumns = LoadedColumnsLevel.C
+            });            
+
+            return Json(result);
         }
 
         // GET: Adm/Category/Details/5
@@ -54,11 +66,11 @@ namespace Bom_Dev.Areas.Adm.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CategoryId,Name,Description,Url")] Category category)
+        public async Task<IActionResult> Create([Bind("CategoryId,Name,Description,Url,Enabled,Order,ParentCategoryId")] Category category)
         {
             if (ModelState.IsValid)
-            {
-                var teste = await _context.InsertCategory(category);
+            {                
+                await _context.InsertCategory(category);
 
                 return RedirectToAction(nameof(Index));
             }

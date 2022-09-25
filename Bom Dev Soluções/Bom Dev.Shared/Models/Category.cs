@@ -6,6 +6,13 @@ namespace Data.Models
 {
     public class Category
     {
+        public enum OrderView
+        {
+            First = 1,
+            Second = 2,
+            Third = 3
+        }
+
         [Key]
         [Column("CategoryId")]
         [Display(Name = "Código")]
@@ -30,12 +37,21 @@ namespace Data.Models
 
         [ForeignKey("ParentCategoryIdFk")]
         [Display(Name = "Categoria pai")]        
-        public Category ParentCategoryId { get; set; }
+        public int? ParentCategoryId { get; set; }
 
-        [Column("Url")]
-        [Required]
+        [Column("Url")]        
         [Display(Name = "Url")]
         [StringLength(2048)]
         public string Url { get; set; }
+
+        [Column("Enabled")]
+        [Required]
+        [Display(Name = "Ativo")]        
+        public bool Enabled { get; set; }
+
+        [Column("Order", TypeName = "tinyint")]
+        [Required]
+        [Display(Name = "Ordem")]
+        public OrderView Order { get; set; } = OrderView.First;
     }
 }

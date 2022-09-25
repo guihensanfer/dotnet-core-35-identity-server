@@ -18,23 +18,52 @@ namespace Data.Repository
             _context = context;
         }
 
+        #region Category
         public async Task DeleteCategory(int categoryId)
         {
             var obj = await GetCategoryById(categoryId);
 
-            if(obj != null)
+            if (obj != null)
             {
                 _context.Set<Category>().Remove(obj);
-            }            
+            }
 
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Category>> GetCategories(int? categoryId = null)
-        {            
-            return await _context.Category
-                .Where(x => x.CategoryId.Equals(categoryId.GetValueOrDefault(x.CategoryId)))
-                .AsNoTracking()
+        public async Task<IEnumerable<Category>> GetCategories(bool? enabled = null, Category.OrderView? order = null, Optimization op = null)
+        {
+            IQueryable<Category> query = _context.Category;
+
+            if (enabled.HasValue)
+            {
+                query = query.Where(x => x.Enabled.Equals(enabled.Value));
+            }
+            if (order.HasValue)
+            {
+                var orderId = (int)order.Value;
+
+                query = query.Where(x => ((int)x.Order).Equals(orderId));
+            }
+
+            if (op != null)
+            {
+                switch (op.LoadedColumns)
+                {
+                    case LoadedColumnsLevel.C:
+                        query = query.Select(s => new Category()
+                        {
+                            CategoryId = s.CategoryId,
+                            Name = s.Name,
+                            Order = s.Order
+                        }).OrderBy(x => x.Name);
+
+                        break;
+                }
+            }            
+
+            return await query                
+                .AsNoTracking()                
                 .ToListAsync();
         }
 
@@ -70,5 +99,6 @@ namespace Data.Repository
                 await _context.SaveChangesAsync();
             }
         }
+        #endregion        
     }
 }

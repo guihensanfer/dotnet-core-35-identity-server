@@ -28,15 +28,21 @@
                 <span asp-validation-for="Url" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Enabled" class="control-label"></label>
+                <input asp-for="Enabled" class="form-control" checked="checked" />
+                <span asp-validation-for="Enabled" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label for="nivelSelect" class="control-label"></label>
-                <select id="nivelSelect">
+                <select id="nivelSelect" name="Order" onchange="LoadCategoriesByOrder(this.value);">
                     <option value="1">1º nível</option>
+                    <option value="2">2º nível</option>
+                    <option value="3">3º nível</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="parentCategorySelect" class="control-label"></label>
-                <select id="parentCategorySelect">
-                    
+                <select id="parentCategorySelect" name="ParentCategoryId">
                 </select>
             </div>
             <div class="form-group">
@@ -52,4 +58,53 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <script>
+        $(document).ready(function () {            
+            $('#parentCategorySelect').fadeOut();
+
+        });
+
+        function LoadCategoriesByOrder(_order) {
+            var loading = $("#divProgress");
+            var select = $('#parentCategorySelect');
+            
+            select.empty();
+            if (_order == 1) {
+                select.fadeOut();
+                return null;
+            }
+            else {
+                select.fadeIn();
+            }
+
+            _order--;
+
+            loading.fadeIn();
+            $.ajax({
+                type: 'POST',                                
+                url: '/adm/category/GetCategoriesByOrder',
+                data: jQuery.param({ order: _order}),
+                cache: false,                
+                success: (e) => {                                        
+                    $.each(e, function (index) {
+                        var categoryId = e[index].categoryId;
+                        var name = e[index].name;                        
+
+                        select.append('<option value="'
+                            + categoryId
+                            + '">'
+                            + name
+                            + '</option>');
+                    });
+                },
+                error: (e) => {
+                    
+                },
+                complete: (e) => {
+                    loading.fadeOut();
+                }
+            });
+        }
+    </script>
 }
