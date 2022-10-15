@@ -50,13 +50,26 @@ namespace Data.Repository
             {
                 switch (op.LoadedColumns)
                 {
+                    case LoadedColumnsLevel.B:
+                        query = query.Select(s => new Category()
+                        {
+                            CategoryId = s.CategoryId,
+                            Name = s.Name,
+                            Order = s.Order,
+                            Path = s.Path,
+                            DateCreated = s.DateCreated
+                        }).OrderBy(x => x.Path);
+
+                        break;
+
                     case LoadedColumnsLevel.C:
                         query = query.Select(s => new Category()
                         {
                             CategoryId = s.CategoryId,
                             Name = s.Name,
-                            Order = s.Order
-                        }).OrderBy(x => x.Name);
+                            Order = s.Order,
+                            Path = s.Path
+                        }).OrderBy(x => x.Path);
 
                         break;
                 }

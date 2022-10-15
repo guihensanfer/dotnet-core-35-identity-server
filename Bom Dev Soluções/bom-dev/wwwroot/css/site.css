@@ -14,9 +14,8 @@ for details on configuring this project to bundle and minify static web assets. 
     padding-bottom: 0px;
     background: var(--colorI);
     color: #fff;
-    font-size: 80%;
-    padding-right: 3%;
-    padding-left: 3%;    
+    font-size: 80%;    
+    padding-right:8%;    
 }
 
 #divProgress{    
@@ -44,9 +43,9 @@ for details on configuring this project to bundle and minify static web assets. 
     margin-right: 7%;
     margin-left: 7%;
     padding: 2px 2% 2px 2% !important;
-    background: var(--colorII) !important;
-    color: var(--colorI) !important;    
-    font-weight:bold;
+    background: #06e796 !important;
+    color: var(--colorI) !important;
+    font-weight: bold;
 }
 
 #menuAdmContainer {
@@ -89,9 +88,9 @@ for details on configuring this project to bundle and minify static web assets. 
     padding-left: 3%;
 }
 
-#menu .container-fluid {
-    border-top: solid 1px #000;
-    padding-top:15px;
+#menu .container {
+    border-top: solid 2px #000;
+    padding-top:10px;
 }
 
 a.navbar-brand {

@@ -57,14 +57,14 @@
         </div>*@
                 <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item" id="liSeach" style="display:none;">
+                        <li class="nav-item" id="liSeach">
                             <form method="get" action="/adm">
                                 <input required type="text" name="@MenuDinamicViewModel.ParamSearchMenu" id="inputSearch" placeholder="Pesquisar..." value="@Context.Request.Query[MenuDinamicViewModel.ParamSearchMenu]" />
                                 <input type="submit" id="submitSearch" value="Pesquisar" />
                             </form>
                         </li>
                         <li class="nav-item">
-                            <a href="#" onclick="$('#liSeach').toggle('slow', function () { $('#inputSearch').focus();}); return false;" class="nav-link text-light" title="Pesquisar ações administrativas">
+                            <a href="#" class="nav-link text-light" title="Pesquisar ações administrativas">
                                 <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g data-name="Layer 2" style="stroke:#000;fill:#000"><path d="M13 23a10 10 0 1 1 10-10 10 10 0 0 1-10 10Zm0-18a8 8 0 1 0 8 8 8 8 0 0 0-8-8Z" fill="#fff" class="fill-000000" style="stroke:#000;fill:#000" /><path d="M28 29a1 1 0 0 1-.71-.29l-8-8a1 1 0 0 1 1.42-1.42l8 8a1 1 0 0 1 0 1.42A1 1 0 0 1 28 29Z" fill="#fff" class="fill-000000" style="stroke:#000;fill:#000" /></g><path d="M0 0h32v32H0z" fill="none" style="stroke:none" /></svg>
                             </a>
                         </li>
@@ -166,7 +166,7 @@
         </div>
     
     </header>
-    <div class="container">
+    <div class="container pt-4">
         <main role="main" class="pb-3">
             @RenderBody()
             <partial name="_ProgressPartial" />

@@ -5,11 +5,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Data.Models
 {
     public class Category
-    {
+    {        
         public enum OrderView
         {
+            [Display(Name = "1º")]
             First = 1,
+
+            [Display(Name = "2º")]
             Second = 2,
+
+            [Display(Name = "3º")]
             Third = 3
         }
 
@@ -53,5 +58,11 @@ namespace Data.Models
         [Required]
         [Display(Name = "Ordem")]
         public OrderView Order { get; set; } = OrderView.First;
+
+        [Column("Path")]
+        [StringLength(300)]
+        [Required]
+        [Display(Name = "Endereço")]
+        public string Path { get; set; }   
     }
 }

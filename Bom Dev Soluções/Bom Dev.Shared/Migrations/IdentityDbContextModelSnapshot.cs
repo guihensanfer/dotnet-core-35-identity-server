@@ -123,6 +123,11 @@ namespace Data.Migrations
                     b.Property<int?>("ParentCategoryId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Path")
+                        .HasColumnName("Path")
+                        .HasColumnType("nvarchar(300)")
+                        .HasMaxLength(300);
+
                     b.Property<string>("Url")
                         .HasColumnName("Url")
                         .HasColumnType("nvarchar(2048)")

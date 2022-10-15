@@ -22,7 +22,9 @@ namespace Bom_Dev.Areas.Adm.Controllers
         // GET: Adm/Category
         public async Task<IActionResult> Index()
         {
-            return View(await _context.GetCategories());
+            return View(await _context.GetCategories(null, null, new Optimization() { 
+                LoadedColumns = LoadedColumnsLevel.B
+            }));
         }
 
         [HttpPost]
@@ -66,7 +68,7 @@ namespace Bom_Dev.Areas.Adm.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CategoryId,Name,Description,Url,Enabled,Order,ParentCategoryId")] Category category)
+        public async Task<IActionResult> Create([Bind("CategoryId,Name,Description,Url,Enabled,Order,ParentCategoryId,Path")] Category category)
         {
             if (ModelState.IsValid)
             {                
@@ -98,7 +100,7 @@ namespace Bom_Dev.Areas.Adm.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CategoryId,Name,Description,DateCreated")] Category category)
+        public async Task<IActionResult> Edit(int id, [Bind("CategoryId,DateCreated,Name,Description,Url,Enabled,Order,ParentCategoryId,Path")] Category category)
         {
             if (id != category.CategoryId)
             {

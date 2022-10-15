@@ -13,7 +13,7 @@ namespace Data.Interface
         public Task UpdateCategory([NotNullAttribute] Category category);
         public Task DeleteCategory(int categoryId);
         public Task<IEnumerable<Category>> GetCategories(bool? enabled = null, Category.OrderView? order = null, Optimization op = null);        
-        public Task<Category> GetCategoryById(int categoryId);        
+        public Task<Category> GetCategoryById(int categoryId);
         #endregion        
     }
 }

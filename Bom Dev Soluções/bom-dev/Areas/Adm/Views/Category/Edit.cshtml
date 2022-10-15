@@ -8,14 +8,17 @@
 
 <h4>Category</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<form asp-area="adm" asp-action="Edit">
+
+    <div class="row">
+        <div class="col-md-6">
             <input type="hidden" asp-for="CategoryId" />
+            <input type="hidden" asp-for="DateCreated" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
+                <input asp-for="Name" class="form-control" onblur="refreshCategory();" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -24,16 +27,53 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DateCreated" class="control-label"></label>
-                <input asp-for="DateCreated" class="form-control" />
-                <span asp-validation-for="DateCreated" class="text-danger"></span>
+                <label asp-for="Url" class="control-label"></label>
+                <input asp-for="Url" class="form-control" />
+                <span asp-validation-for="Url" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <label asp-for="Enabled" class="control-label"></label>
+                <input asp-for="Enabled" class="form-control" checked="checked" />
+                <span asp-validation-for="Enabled" class="text-danger"></span>
             </div>
-        </form>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="nivelSelect" class="control-label">Ordem</label>
+                <select id="nivelSelect" class="form-control" name="Order" onchange="loadCategoriesByOrder(this.value);">
+                    @{
+                        var orders = Enum.GetValues(typeof(Data.Models.Category.OrderView))
+                            .Cast<Data.Models.Category.OrderView>();
+
+                        foreach (var order in orders)
+                        {
+                            string index = ((int)order).ToString();
+
+                            <option value="@index">@string.Format("{0}º nível", index)</option>
+                        }
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="parentCategorySelect" class="control-label">Categoria pai</label>
+                <select id="parentCategorySelect" class="form-control" name="ParentCategoryId" onchange="refreshCategory();">
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Path" class="control-label"></label>
+                <input asp-for="Path" class="form-control" readonly />
+                <span asp-validation-for="Path" class="text-danger"></span>
+            </div>
+        </div>
     </div>
-</div>
+
+            
+           
+    <div class="form-group">
+        <input type="submit" value="Salvar" class="btn btn-primary" />
+    </div>
+</form>
+
 
 <div>
     <a asp-area="adm" asp-action="Index">Back to List</a>
@@ -41,4 +81,100 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+<script>
+        $(document).ready(function () {
+            var name = '@Html.Raw(Model.Name)';
+            var path = '@Html.Raw(Model.Path)';
+            var pathSplit = path.split('/');
+            var orderSelect = document.getElementById('nivelSelect');
+            var orderSelectLength = pathSplit.length;
+
+            orderSelect.value = orderSelectLength.toString();
+            loadCategoriesByOrder(orderSelectLength.toString(), function () {
+                if (orderSelectLength > 1) {
+                    var parentSelect = document.getElementById('parentCategorySelect');
+                    var optionsLength = parentSelect.options.length;                    
+                    var parentCategoryPath = path.replace('/' + name, '');
+
+                    for (var x = 0; x < optionsLength; x++) {
+                        if (parentSelect.options[x].text == parentCategoryPath) {
+                            parentSelect.value = parentSelect.options[x].value;
+
+                            break;
+                        }
+                    }
+
+                    parentSelect.onchange();
+                    
+                }
+            });
+        });
+
+        function loadCategoriesByOrder(_order, functionAfter) {
+            var loading = $("#divProgress");
+            var select = $('#parentCategorySelect');
+
+            select.empty();
+            if (_order == 1) {
+                select.fadeOut();
+                return null;
+            }
+            else {
+                select.fadeIn();
+            }
+
+            _order--;
+
+            loading.fadeIn();
+            $.ajax({
+                type: 'POST',
+                url: '/adm/category/GetCategoriesByOrder',
+                data: jQuery.param({ order: _order}),
+                cache: false,
+                success: (e) => {
+                    $.each(e, function (index) {
+                        var categoryId = e[index].categoryId;
+                        var name = e[index].path;
+
+                        select.append('<option value="'
+                            + categoryId
+                            + '">'
+                            + name
+                            + '</option>');
+                    });
+
+                    functionAfter();
+                },
+                error: (e) => {
+
+                },
+                complete: (e) => {
+                    refreshCategory();
+                    loading.fadeOut();
+                }
+            });
+
+            
+        }
+
+    function refreshCategory() {
+        var selectParent = document.getElementById('parentCategorySelect');
+        var selectedParentCategoryPath = null;
+
+        if (selectParent.selectedIndex >= 0) {
+            selectedParentCategoryPath = selectParent.options[selectParent.selectedIndex].text;
+        }
+
+        var textBoxName = document.getElementById('@nameof(Model.Name)').value;
+
+        if (selectedParentCategoryPath == null || selectedParentCategoryPath.trim() == '') {
+            document.getElementById('@nameof(Model.Path)').value = textBoxName;
+        }
+        else {
+            document.getElementById('@nameof(Model.Path)').value = selectedParentCategoryPath + '/' + textBoxName;
+        }
+
+    }
+</script>
 }
