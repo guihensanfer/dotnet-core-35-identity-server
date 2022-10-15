@@ -63,6 +63,6 @@ namespace Data.Models
         [StringLength(300)]
         [Required]
         [Display(Name = "Endereço")]
-        public string Path { get; set; }   
+        public string Path { get; set; }           
     }
 }

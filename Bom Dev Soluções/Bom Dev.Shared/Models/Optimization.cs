@@ -1,13 +1,19 @@
 ﻿namespace Data.Models
-{
-    public enum LoadedColumnsLevel
-    {
-        A, // carrega todas as colunas possiveis
-        B, // carrega algumas colunas
-        C // carrega poucas colunas (geralmente utilizado para selectListItem)
-    }
+{    
     public class Optimization
     {
+        public enum LoadedColumnsLevel
+        {
+            A, // carrega todas as colunas possiveis
+            B, // carrega algumas colunas
+            C // carrega poucas colunas (geralmente utilizado para selectListItem)
+        }
+
+        public Optimization() { }
+        public Optimization(LoadedColumnsLevel loadedColumnsLevel) {
+            this.LoadedColumns = loadedColumnsLevel;
+        }
+
         /// <summary>
         /// Nota de resultados carregados possiveis.
         /// </summary>

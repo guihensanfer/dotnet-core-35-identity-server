@@ -5,6 +5,15 @@
 }
 
 <h1>Delete</h1>
+@{       
+if (@ViewData["msg"] != null) { 
+
+    <div class="alert alert-danger" role="alert">
+        @ViewData["msg"]
+    </div>
+
+}
+}
 
 <h3>Are you sure you want to delete this?</h3>
 <div>

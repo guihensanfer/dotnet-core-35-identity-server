@@ -33,14 +33,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="Enabled" class="control-label"></label>
-                <input asp-for="Enabled" class="form-control" checked="checked" />
+                <input asp-for="Enabled" class="form-control" />
                 <span asp-validation-for="Enabled" class="text-danger"></span>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
                 <label for="nivelSelect" class="control-label">Ordem</label>
-                <select id="nivelSelect" class="form-control" name="Order" onchange="loadCategoriesByOrder(this.value);">
+                <select id="nivelSelect" class="form-control selectDisabled" aria-disabled="true" name="Order" onchange="loadCategoriesByOrder(this.value);" readonly>
                     @{
                         var orders = Enum.GetValues(typeof(Data.Models.Category.OrderView))
                             .Cast<Data.Models.Category.OrderView>();
@@ -56,7 +56,7 @@
             </div>
             <div class="form-group">
                 <label for="parentCategorySelect" class="control-label">Categoria pai</label>
-                <select id="parentCategorySelect" class="form-control" name="ParentCategoryId" onchange="refreshCategory();">
+                <select id="parentCategorySelect" class="form-control selectDisabled" aria-disabled="true" name="ParentCategoryId" onchange="refreshCategory();" readonly>
                 </select>
             </div>
             <div class="form-group">
@@ -144,7 +144,10 @@
                             + '</option>');
                     });
 
-                    functionAfter();
+                    if (functionAfter != null) {
+                        functionAfter();
+                    }
+                    
                 },
                 error: (e) => {
 

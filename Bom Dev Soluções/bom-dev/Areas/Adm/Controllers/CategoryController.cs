@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using static Data.Models.Optimization;
 
 namespace Bom_Dev.Areas.Adm.Controllers
 {
@@ -22,9 +23,7 @@ namespace Bom_Dev.Areas.Adm.Controllers
         // GET: Adm/Category
         public async Task<IActionResult> Index()
         {
-            return View(await _context.GetCategories(null, null, new Optimization() { 
-                LoadedColumns = LoadedColumnsLevel.B
-            }));
+            return View(await _context.GetCategories(new Optimization(LoadedColumnsLevel.B), null, null));
         }
 
         [HttpPost]
@@ -32,9 +31,7 @@ namespace Bom_Dev.Areas.Adm.Controllers
         {
             Category.OrderView orderView = (Category.OrderView)order;
 
-            var result = await _context.GetCategories(true, orderView, new Optimization() { 
-                LoadedColumns = LoadedColumnsLevel.C
-            });            
+            var result = await _context.GetCategories(new Optimization(LoadedColumnsLevel.C), true, orderView);            
 
             return Json(result);
         }
@@ -71,7 +68,16 @@ namespace Bom_Dev.Areas.Adm.Controllers
         public async Task<IActionResult> Create([Bind("CategoryId,Name,Description,Url,Enabled,Order,ParentCategoryId,Path")] Category category)
         {
             if (ModelState.IsValid)
-            {                
+            {
+                bool validationByName = await _context.ExistsCategoryByName(category.Name);
+
+                if (validationByName)
+                {
+                    ViewData.Add("msg", "Nome da categoria já existente.");
+
+                    return View(category);
+                }
+
                 await _context.InsertCategory(category);
 
                 return RedirectToAction(nameof(Index));
@@ -135,7 +141,7 @@ namespace Bom_Dev.Areas.Adm.Controllers
             if (id == null)
             {
                 return NotFound();
-            }
+            }            
 
             var category = await _context.GetCategoryById(id.GetValueOrDefault());
             if (category == null)
@@ -151,6 +157,14 @@ namespace Bom_Dev.Areas.Adm.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            // Check if exists parents categories
+            if (await _context.ExistsParentCategory(id))
+            {
+                ViewData.Add("msg", "Não é possível concluir, exclua primeiro as categorias filhas vinculadas.");
+
+                return await Delete(id);
+            }
+
             await _context.DeleteCategory(id);
             
             return RedirectToAction(nameof(Index));

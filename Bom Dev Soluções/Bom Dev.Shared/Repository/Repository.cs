@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System;
+using static Data.Models.Optimization;
 
 namespace Data.Repository
 {
@@ -31,7 +32,7 @@ namespace Data.Repository
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Category>> GetCategories(bool? enabled = null, Category.OrderView? order = null, Optimization op = null)
+        public async Task<IEnumerable<Category>> GetCategories(Optimization op = null, bool ? enabled = null, Category.OrderView? order = null)
         {
             IQueryable<Category> query = _context.Category;
 
@@ -58,7 +59,8 @@ namespace Data.Repository
                             Order = s.Order,
                             Path = s.Path,
                             DateCreated = s.DateCreated
-                        }).OrderBy(x => x.Path);
+                        })
+                        .OrderBy(x => x.Path);                        
 
                         break;
 
@@ -69,7 +71,8 @@ namespace Data.Repository
                             Name = s.Name,
                             Order = s.Order,
                             Path = s.Path
-                        }).OrderBy(x => x.Path);
+                        })
+                        .OrderBy(x => x.Path);
 
                         break;
                 }
@@ -83,6 +86,7 @@ namespace Data.Repository
         public async Task<Category> GetCategoryById(int categoryId)
         {
             return await _context.Category
+                .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.CategoryId.Equals(categoryId));
         }
 
@@ -101,16 +105,57 @@ namespace Data.Repository
             }
 
             return await Task.FromResult(0);
-        }
+        }        
 
         public async Task UpdateCategory(Category category)
         {
             if (category != null)
             {
+                var oldCategory = await GetCategoryById(category.CategoryId);
+                string oldName = oldCategory.Name;
+                string newName = category.Name;
+
+                
+
+                if (!string.Equals(oldName, newName, StringComparison.Ordinal))
+                {
+                    // if new name, then update path all parents category
+                    
+                    var parentsCategory = _context.Set<Category>()                        
+                        .Where(x =>
+
+                            x.CategoryId != category.CategoryId && // prevent error to update after this code
+                            x.Path.Contains(oldName) && // get all contains by name old name category
+                            (int)x.Order >= (int)category.Order
+
+                        );                    
+                    
+
+                    await parentsCategory.ForEachAsync(x =>
+                    {
+                        x.Path = x.Path.Replace(oldName, newName);                        
+                    });
+
+                    
+                }                
+
+                // Update new category data
                 _context.Set<Category>().Update(category);
 
                 await _context.SaveChangesAsync();
-            }
+            }            
+        }
+
+        public async Task<bool> ExistsParentCategory(int categoryId)
+        {
+            return await _context.Set<Category>()
+                .AnyAsync(x => x.ParentCategoryId == categoryId);
+        }
+
+        public async Task<bool> ExistsCategoryByName(string name)
+        {
+            return await _context.Set<Category>()
+                .AnyAsync(x => x.Name == name);
         }
         #endregion        
     }

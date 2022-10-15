@@ -8,7 +8,16 @@
 
 <h4>Category</h4>
 <hr />
+@{
+    if (@ViewData["msg"] != null)
+    {
 
+        <div class="alert alert-danger" role="alert">
+            @ViewData["msg"]
+        </div>
+
+    }
+}
 <form asp-area="adm" asp-action="Create">
     <div class="row">
         <div class="col-md-6">
@@ -37,7 +46,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="nivelSelect" class="control-label">Ordem</label>
-                <select id="nivelSelect" name="Order" onchange="loadCategoriesByOrder(this.value);">
+                <select id="nivelSelect" name="Order" class="form-control" onchange="loadCategoriesByOrder(this.value);">
                     @{
                         var orders = Enum.GetValues(typeof(Data.Models.Category.OrderView))
                             .Cast<Data.Models.Category.OrderView>();
@@ -53,7 +62,7 @@
             </div>
             <div class="form-group">
                 <label for="parentCategorySelect" class="control-label">Categoria pai</label>
-                <select id="parentCategorySelect" name="ParentCategoryId" onchange="refreshCategory();">
+                <select id="parentCategorySelect" name="ParentCategoryId" class="form-control" onchange="refreshCategory();">
                 </select>
             </div>
             <div class="form-group">
@@ -63,8 +72,8 @@
             </div>
         </div>
     </div>
-    
-    
+
+
     <div class="form-group">
         <input type="submit" value="Create" class="btn btn-primary" />
     </div>
@@ -76,8 +85,8 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    
-<script>
+
+    <script>
         $(document).ready(function () {
             $('#parentCategorySelect').fadeOut();
 
@@ -89,7 +98,11 @@
 
             select.empty();
             if (_order == 1) {
+                select.empty();
                 select.fadeOut();
+
+                refreshCategory();
+
                 return null;
             }
             else {
@@ -134,7 +147,7 @@
             selectedParentCategoryPath = selectParent.options[selectParent.selectedIndex].text;
         }
 
-        var textBoxName = document.getElementById('@nameof(Model.Name)').value;
+        var textBoxName = document.getElementById('@nameof(Model.Name)').value;        
 
         if (selectedParentCategoryPath == null || selectedParentCategoryPath.trim() == '') {
             document.getElementById('@nameof(Model.Path)').value = textBoxName;
@@ -144,5 +157,5 @@
         }
 
     }
-</script>
+    </script>
 }

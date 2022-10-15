@@ -7,15 +7,24 @@ for details on configuring this project to bundle and minify static web assets. 
     --colorI: #01281a;
     --colorII: #fff;
     --colorIII: #000;
+    --colorIV: #01150e;
 }
 
 #menu0 {
     padding-top: 0px;
     padding-bottom: 0px;
     background: var(--colorI);
+    border-bottom: solid 1px var(--colorIV);
+    /*background: var(--colorIV);*/    
     color: #fff;
-    font-size: 80%;    
-    padding-right:8%;    
+    font-size: 80%;
+    padding-right: 8%;
+}
+
+.spacer {
+    border-top: 15px solid;
+    border-bottom: 15px solid;
+    border-color: transparent;
 }
 
 #divProgress{    
@@ -88,9 +97,14 @@ for details on configuring this project to bundle and minify static web assets. 
     padding-left: 3%;
 }
 
-#menu .container {
-    border-top: solid 2px #000;
-    padding-top:10px;
+.selectDisabled {
+    pointer-events: none;
+    touch-action: none;
+
+}
+
+#menu .container {    
+    padding-top:5px;
 }
 
 a.navbar-brand {
