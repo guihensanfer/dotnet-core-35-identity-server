@@ -36,10 +36,16 @@
                 <input asp-for="Enabled" class="form-control" />
                 <span asp-validation-for="Enabled" class="text-danger"></span>
             </div>
+            
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="nivelSelect" class="control-label">Ordem</label>
+                <label asp-for="Index" class="control-label"></label>
+                <input asp-for="Index" class="form-control" checked="checked" />
+                <span asp-validation-for="Index" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="nivelSelect" class="control-label">Nível</label>
                 <select id="nivelSelect" class="form-control selectDisabled" aria-disabled="true" name="Order" onchange="loadCategoriesByOrder(this.value);" readonly>
                     @{
                         var orders = Enum.GetValues(typeof(Data.Models.Category.OrderView))
@@ -54,7 +60,7 @@
                     }
                 </select>
             </div>
-            <div class="form-group">
+            <div id="divParentCategorySelect" class="form-group">
                 <label for="parentCategorySelect" class="control-label">Categoria pai</label>
                 <select id="parentCategorySelect" class="form-control selectDisabled" aria-disabled="true" name="ParentCategoryId" onchange="refreshCategory();" readonly>
                 </select>
@@ -117,11 +123,11 @@
 
             select.empty();
             if (_order == 1) {
-                select.fadeOut();
+                $('#divParentCategorySelect').fadeOut();
                 return null;
             }
             else {
-                select.fadeIn();
+                $('#divParentCategorySelect').fadeIn();
             }
 
             _order--;

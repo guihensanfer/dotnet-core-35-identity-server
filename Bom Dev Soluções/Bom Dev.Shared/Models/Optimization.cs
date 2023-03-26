@@ -1,7 +1,7 @@
 ﻿namespace Data.Models
 {    
     public class Optimization
-    {
+    {       
         public enum LoadedColumnsLevel
         {
             A, // carrega todas as colunas possiveis

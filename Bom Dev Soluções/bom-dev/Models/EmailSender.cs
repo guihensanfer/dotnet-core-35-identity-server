@@ -37,7 +37,7 @@ namespace Bom_Dev.Models
         public static string password { get; internal set; }
         public static short port { get; internal set; }
         public static bool enableSsl { get; internal set; }
-        public static string displayName { get; internal set; } = "Bom Terrários Floricultura";
+        public static string displayName { get; internal set; } = "Bom Dev Floricultura";
         public static string signatureHTML { get; internal set; }        
 
         public static string CorpoEmailConfirmarEmail(string linkConfirmacao)

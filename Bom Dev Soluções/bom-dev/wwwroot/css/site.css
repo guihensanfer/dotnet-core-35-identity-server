@@ -4,10 +4,16 @@ for details on configuring this project to bundle and minify static web assets. 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
 
 :root {
-    --colorI: #01281a;
-    --colorII: #fff;
+    --colorI: #f0f0f0;
+    --colorII: #cd5c5c;
     --colorIII: #000;
     --colorIV: #01150e;
+}
+
+.btn-secondary{
+    background-color:#FFF;
+    color:#000;
+    border-color:#FFF;
 }
 
 #menu0 {
@@ -15,11 +21,34 @@ for details on configuring this project to bundle and minify static web assets. 
     padding-bottom: 0px;
     background: var(--colorI);
     border-bottom: solid 1px var(--colorIV);
-    /*background: var(--colorIV);*/    
+    /*background: var(--colorIV);*/
     color: #fff;
     font-size: 80%;
     padding-right: 8%;
 }
+
+.menuBreadcrumb{
+    font-size:80%;    
+    
+}
+
+    .menuBreadcrumb ol {
+        background: #FFF;
+        margin-bottom: 0 !important;
+    }
+
+span.caret::after {
+    content: "";
+    display: inline-block;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid black;
+    width: 0;
+    height: 0;
+    margin-left: 5px;
+}
+
+
 
 .spacer {
     border-top: 15px solid;
@@ -52,7 +81,7 @@ for details on configuring this project to bundle and minify static web assets. 
     margin-right: 7%;
     margin-left: 7%;
     padding: 2px 2% 2px 2% !important;
-    background: #06e796 !important;
+    background: #323232 !important;
     color: var(--colorI) !important;
     font-weight: bold;
 }
@@ -65,6 +94,7 @@ for details on configuring this project to bundle and minify static web assets. 
 #inputSearch{
     width:100%;    
     margin-top:7px;
+    color:#fff;
 }
 #submitSearch {
     display:none;
@@ -87,7 +117,7 @@ for details on configuring this project to bundle and minify static web assets. 
     font-size: 120%;    
 }
 #currentPageDesc{
-    color:#FFF;
+    color:#000;
 }
 
 #menu {    
@@ -178,17 +208,18 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
-/*Bom Terrários 2*/
+/*Bom Dev 2*/
 
 #layoutLogo{  
-  width: 82px;
-  height: 42px;
-  background-image: url(../img/bt.svg);  
+  width: 53px;
+  height: 80px;
+  background-image: url(../img/bd.svg);  
   background-repeat: no-repeat;  
-  background-size: 82px 42px;  
+  background-size: 53px 80px; 
+  margin-top:-35px;
 }
 
-/*Bom Terrários 1*/
+/*Bom Dev 1*/
 /*#layoutLogo{  
   width: 85px;
   height: 16px;
@@ -238,7 +269,13 @@ a {
   margin-right: .1rem;
 }
 
-input[type="text"],input[type="email"], input[type="tel"],input[type="password"]{background: transparent;border:none;border-bottom:solid 2px #626262;border-radius: 0px;}
+
+input[type="text"], input[type="email"], input[type="tel"], input[type="password"] {
+    background: transparent;
+    border: none;
+    border-bottom: solid 2px #626262;
+    border-radius: 0px;
+}
 .bomDevSearchInputStyle {
     background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaWQ9IkxheWVyXzFfMV8iIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDE2IDE2OyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMTYgMTYiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik01LDEwYzEuMTk4LDAsMi4yODQtMC40NDEsMy4xNDctMS4xNDZsNyw3bDAuNzA3LTAuNzA3bC03LTdDOS41NTksNy4yODQsMTAsNi4xOTgsMTAsNWMwLTIuNzU3LTIuMjQzLTUtNS01UzAsMi4yNDMsMCw1ICBTMi4yNDMsMTAsNSwxMHogTTUsMWMyLjIwOSwwLDQsMS43OTEsNCw0YzAsMi4yMDktMS43OTEsNC00LDRTMSw3LjIwOSwxLDVDMSwyLjc5MSwyLjc5MSwxLDUsMXoiLz48L3N2Zz4=') !important;
     background-repeat: no-repeat !important;

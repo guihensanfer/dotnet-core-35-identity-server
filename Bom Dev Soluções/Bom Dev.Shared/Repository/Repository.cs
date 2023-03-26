@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System;
 using static Data.Models.Optimization;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Data.Repository
 {
@@ -30,58 +31,86 @@ namespace Data.Repository
             }
 
             await _context.SaveChangesAsync();
-        }
+        }       
 
-        public async Task<IEnumerable<Category>> GetCategories(Optimization op = null, bool ? enabled = null, Category.OrderView? order = null)
+        public async Task<IEnumerable<Category>> GetCategories(Optimization op = null, bool? enabled = null, List<Category.OrderView> order = null, int? parentCategoryId = null, string parentCategoryFromPath = null)
         {
-            IQueryable<Category> query = _context.Category;
+            IQueryable<Category> query = _context.Set<Category>().AsQueryable();
 
             if (enabled.HasValue)
             {
                 query = query.Where(x => x.Enabled.Equals(enabled.Value));
             }
-            if (order.HasValue)
+            if (order != null && order.Any())
             {
-                var orderId = (int)order.Value;
+                var orderIds = order.Select(x => (int)x);
 
-                query = query.Where(x => ((int)x.Order).Equals(orderId));
+                query = query.Where(x => orderIds.Contains((int)x.Order));
+            }
+            if (parentCategoryId.HasValue)
+            {
+                query = query.Where(x => x.ParentCategoryId == parentCategoryId.Value);
+            }
+            if (!string.IsNullOrEmpty(parentCategoryFromPath))
+            {
+                query = query.Where(x => x.Path.StartsWith(parentCategoryFromPath));
             }
 
-            if (op != null)
+            switch (op?.LoadedColumns)
             {
-                switch (op.LoadedColumns)
-                {
-                    case LoadedColumnsLevel.B:
-                        query = query.Select(s => new Category()
-                        {
-                            CategoryId = s.CategoryId,
-                            Name = s.Name,
-                            Order = s.Order,
-                            Path = s.Path,
-                            DateCreated = s.DateCreated
-                        })
-                        .OrderBy(x => x.Path);                        
+                case LoadedColumnsLevel.A:
 
-                        break;
+                    break;
 
-                    case LoadedColumnsLevel.C:
-                        query = query.Select(s => new Category()
-                        {
-                            CategoryId = s.CategoryId,
-                            Name = s.Name,
-                            Order = s.Order,
-                            Path = s.Path
-                        })
-                        .OrderBy(x => x.Path);
+                case LoadedColumnsLevel.B:                    
+                    query = query.Select(s => new
+                    {
+                        s.CategoryId,
+                        s.Name,
+                        s.Order,
+                        s.Path,
+                        s.DateCreated,
+                        s.ParentCategoryId,
+                        s.Url
+                    }).OrderBy(x => x.Path)
+                    .Select(s => new Category()
+                    {
+                        CategoryId = s.CategoryId,
+                        Name = s.Name,
+                        Order = s.Order,
+                        Path = s.Path,
+                        DateCreated = s.DateCreated,
+                        ParentCategoryId = s.ParentCategoryId,
+                        Url = s.Url 
+                    });
 
-                        break;
-                }
-            }            
+                    break;
 
-            return await query                
-                .AsNoTracking()                
+                case LoadedColumnsLevel.C:
+                    query = query.Select(s => new
+                    {
+                        s.CategoryId,
+                        s.Name,
+                        s.Order,
+                        s.Path,
+                        s.Url
+                    }).OrderBy(x => x.Path)
+                    .Select(s => new Category()
+                    {
+                        CategoryId = s.CategoryId,
+                        Name = s.Name,
+                        Order = s.Order,
+                        Path = s.Path,
+                        Url = s.Url
+                    });
+
+                    break;
+            }
+
+            return await query
+                .AsNoTracking()
                 .ToListAsync();
-        }
+        }        
 
         public async Task<Category> GetCategoryById(int categoryId)
         {
@@ -157,6 +186,46 @@ namespace Data.Repository
             return await _context.Set<Category>()
                 .AnyAsync(x => x.Name == name);
         }
-        #endregion        
+        #endregion
+
+        #region CacheObject
+        public async Task<CacheObject> GetCacheObject(string key = null, int? cacheObjectId = null)
+        {
+            IQueryable<CacheObject> query = _context.CacheObject;
+
+            query = query.Where(x => x.Expiration >= DateTime.Now);
+
+            if (!string.IsNullOrEmpty(key))
+            {
+                query = query.Where(x => x.Key == key.ToString());
+            }
+            else if (cacheObjectId.HasValue)
+            {
+                query = query.Where(x => x.CacheObjectId == cacheObjectId.Value);
+            }
+
+            return await query.AsNoTracking().FirstOrDefaultAsync();
+        }
+
+        public async Task<int> UpdateCacheObject([NotNull] CacheObject cacheObject)
+        {
+            if (cacheObject != null)
+            {
+                var current = await GetCacheObject(cacheObject.Key);
+
+                if(current != null)
+                {
+                    _context.Set<CacheObject>().Remove(current);
+                }        
+                
+                await _context.Set<CacheObject>().AddAsync(cacheObject);
+
+                return await _context.SaveChangesAsync();
+            }
+
+            return await Task.FromResult(0);
+        }
+
+        #endregion
     }
 }

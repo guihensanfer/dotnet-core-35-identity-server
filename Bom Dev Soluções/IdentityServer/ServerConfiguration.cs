@@ -11,7 +11,7 @@ namespace IdentityServer
         public ServerConfiguration(string clientBomDevURLBase)
         {
             if (string.IsNullOrEmpty(clientBomDevURLBase))
-                throw new System.ArgumentNullException(nameof(clientBomDevURLBase), "Standard client Bom Terrários is null.");
+                throw new System.ArgumentNullException(nameof(clientBomDevURLBase), "Standard client Bom Dev is null.");
 
             _clientBomDevURLBase = clientBomDevURLBase;
         }
@@ -72,7 +72,7 @@ namespace IdentityServer
                 Client client1 = new Client
                 {
                     ClientId = "WebClient",
-                    ClientName = "SSO Bom Terrários",
+                    ClientName = "SSO Bom Dev",
                     ClientSecrets = new[] {
                         new Secret("89C9FD35E23FA2E1A63EE8A59FB9F".Sha512()) },
                     AllowedGrantTypes = GrantTypes.Hybrid,

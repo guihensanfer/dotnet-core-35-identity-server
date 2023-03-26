@@ -15,20 +15,8 @@ namespace Bom_Dev.Controllers
             _logger = logger;
         }        
 
-        public IActionResult Index(string searchApp = null)
-        {
-            var projetos = API.Models.Projects.GetProjects();
-
-            if(!string.IsNullOrWhiteSpace(searchApp))
-                projetos = projetos
-                    .Where(x => x.name.Contains(searchApp, System.StringComparison.OrdinalIgnoreCase) 
-                        || x.description.Contains(searchApp) 
-                        || x.keywords.Contains(searchApp, System.StringComparison.OrdinalIgnoreCase))
-                    .OrderBy(x => x.lastReleaseDate)
-                    .ToList();
-
-            @ViewData["projetos"] = projetos;            
-
+        public IActionResult Index()
+        {                      
             return View();
         }                      
 

@@ -1,4 +1,5 @@
-﻿using Data.Interface;
+﻿using Data.Extensions;
+using Data.Interface;
 using Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -21,9 +22,16 @@ namespace Bom_Dev.Areas.Adm.Controllers
         }
 
         // GET: Adm/Category
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string enabled, string order)
         {
-            return View(await _context.GetCategories(new Optimization(LoadedColumnsLevel.B), null, null));
+            bool? _enabled = enabled.ToNullableBool();
+            int? _order = order.ToNullableInt();
+
+            return View(await _context.GetCategories(new Optimization(LoadedColumnsLevel.B), 
+                _enabled,
+                _order.HasValue ?
+                    new List<Category.OrderView>() { (Category.OrderView)_order.Value } :
+                    null));
         }
 
         [HttpPost]
@@ -31,7 +39,9 @@ namespace Bom_Dev.Areas.Adm.Controllers
         {
             Category.OrderView orderView = (Category.OrderView)order;
 
-            var result = await _context.GetCategories(new Optimization(LoadedColumnsLevel.C), true, orderView);            
+            var result = await _context.GetCategories(new Optimization(LoadedColumnsLevel.C), true, new List<Category.OrderView>() {
+                orderView
+            });            
 
             return Json(result);
         }
@@ -65,7 +75,7 @@ namespace Bom_Dev.Areas.Adm.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CategoryId,Name,Description,Url,Enabled,Order,ParentCategoryId,Path")] Category category)
+        public async Task<IActionResult> Create([Bind("CategoryId,Name,Description,Url,Enabled,Order,ParentCategoryId,Path,Index")] Category category)
         {
             if (ModelState.IsValid)
             {
@@ -106,7 +116,7 @@ namespace Bom_Dev.Areas.Adm.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CategoryId,DateCreated,Name,Description,Url,Enabled,Order,ParentCategoryId,Path")] Category category)
+        public async Task<IActionResult> Edit(int id, [Bind("CategoryId,DateCreated,Name,Description,Url,Enabled,Order,ParentCategoryId,Path,Index")] Category category)
         {
             if (id != category.CategoryId)
             {

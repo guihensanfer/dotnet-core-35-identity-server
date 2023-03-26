@@ -7,6 +7,7 @@ namespace Data.Context
     public class IdentityDbContext : IdentityDbContext<Identity.PersonalUser>
     {
         public DbSet<Category> Category { get; set; }
+        public DbSet<CacheObject> CacheObject { get; set; }
 
         public IdentityDbContext(DbContextOptions<IdentityDbContext> options)
             : base(options)

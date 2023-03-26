@@ -1,11 +1,15 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace Data.Models
 {
     public class Category
     {        
+        /// <summary>
+        /// Adicione neste enum a quantidade desejada.
+        /// </summary>
         public enum OrderView
         {
             [Display(Name = "1º")]
@@ -15,7 +19,28 @@ namespace Data.Models
             Second = 2,
 
             [Display(Name = "3º")]
-            Third = 3
+            Third = 3,
+
+            [Display(Name = "4º")]
+            Fourth= 4,
+
+            [Display(Name = "5º")]
+            Fifth = 5,
+
+            [Display(Name = "6º")]
+            Sixth = 6,
+
+            [Display(Name = "7º")]
+            Seventh = 7,
+
+            [Display(Name = "8º")]
+            Eighth = 8,
+
+            [Display(Name = "9º")]
+            Ninth = 9,
+
+            [Display(Name = "10º")]
+            Tenth = 10
         }
 
         [Key]
@@ -56,13 +81,42 @@ namespace Data.Models
 
         [Column("Order", TypeName = "tinyint")]
         [Required]
-        [Display(Name = "Ordem")]
+        [Display(Name = "Nível")]
         public OrderView Order { get; set; } = OrderView.First;
+
+        [Column("Index", TypeName = "tinyint")]        
+        [Display(Name = "Ordenaçao")]
+        public int? Index { get; set; }
 
         [Column("Path")]
         [StringLength(300)]
         [Required]
         [Display(Name = "Endereço")]
-        public string Path { get; set; }           
+        public string Path { get; set; }     
+        
+        public string GetPathByOrder(OrderView order)
+        {
+            var firstParentArray = Path.Split('/');
+            string firstParentStr;
+
+            if (firstParentArray != null && firstParentArray.Any())
+            {
+                int orderInt = (int)order;
+
+                if(orderInt >= firstParentArray.Length)
+                {
+                    return null;
+                }
+
+                firstParentStr = firstParentArray[orderInt];
+
+                if (!string.IsNullOrEmpty(firstParentStr))
+                {
+                    return firstParentStr;
+                }
+            }
+
+            return null;
+        }        
     }
 }

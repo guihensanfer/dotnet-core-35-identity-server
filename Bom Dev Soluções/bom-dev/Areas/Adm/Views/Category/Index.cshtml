@@ -4,11 +4,53 @@
     ViewData["Title"] = "Index";
 }
 
+
+
 <h1>Categorias</h1>
 
 <p>
     <a asp-area="Adm" asp-action="Create">Create New</a>
 </p>
+
+<div class="toolbar">
+    <form method="get">
+        <div class="toolbar-content">
+            <nav class="navbar navbar-expand-md navbar-light">
+                <div class="nav-item active">
+                    <label for="selectEnabled">Status</label>
+                    <select name="enabled" id="selectEnabled" class="form-control">
+                        <option value="all">Todos</option>
+                        <option value="true">Ativo</option>
+                        <option value="false">Inativados</option>
+                    </select>
+                </div>
+                <div class="nav-item active">
+                    <label for="selectOrder">Nível</label>
+                    <select name="order" id="selectOrder" class="form-control">
+                        <option value="all">Todos</option>
+                        @{
+                            var orders = Enum.GetValues(typeof(Data.Models.Category.OrderView))
+                                .Cast<Data.Models.Category.OrderView>();
+
+                            foreach (var order in orders)
+                            {
+                                string index = ((int)order).ToString();
+
+                                <option value="@index">@string.Format("{0}º nível", index)</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="nav-item active">
+                    <label>&nbsp;</label>
+                    <input type="submit" value="Filtrar" class="form-control" />
+                </div>
+            </nav>
+        </div>
+    </form>
+
+</div>
+
 <table class="table">
     <thead>
         <tr>
@@ -18,9 +60,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Order)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateCreated)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -28,7 +67,7 @@
         @{
             bool flagBold = true;
             foreach (var item in Model)
-            {                
+            {
                 if (item.Order == Data.Models.Category.OrderView.First)
                 {
                     flagBold = !flagBold;
@@ -60,24 +99,36 @@
                         }
                     </td>
                     <td>
-                        @if (flagBold)
-                        {
-                            <strong>@Html.DisplayFor(modelItem => item.DateCreated)</strong>
-                        }
-                        else
-                        {
-                            @Html.DisplayFor(modelItem => item.DateCreated)
-                        }
-                    </td>
-                    <td>
                         <a asp-area="adm" asp-action="Edit" asp-route-id="@item.CategoryId">Edit</a> |
                         <a asp-area="adm" asp-action="Details" asp-route-id="@item.CategoryId">Details</a> |
                         <a asp-area="adm" asp-action="Delete" asp-route-id="@item.CategoryId">Delete</a>
                     </td>
-                </tr>                
-          }
+                </tr>
+
+            }
 
         }
 
     </tbody>
 </table>
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            // Obtém a string de consulta (query string) da URL
+            var queryString = window.location.search;
+            // Cria um objeto URLSearchParams a partir da string de consulta
+            var searchParams = new URLSearchParams(queryString);
+            var selectEnabled = document.getElementById('selectEnabled');
+            var selectOrder = document.getElementById('selectOrder');
+            const defaultSelectedValue = 'all';
+
+            selectEnabled.value = searchParams.get('enabled') ?? defaultSelectedValue;
+            selectOrder.value = searchParams.get('order') ?? defaultSelectedValue;
+
+        });
+
+
+    </script>
+
+}

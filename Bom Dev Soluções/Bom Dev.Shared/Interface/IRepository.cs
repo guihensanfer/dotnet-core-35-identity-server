@@ -12,10 +12,15 @@ namespace Data.Interface
         public Task<int> InsertCategory([NotNullAttribute] Category category);
         public Task UpdateCategory([NotNullAttribute] Category category);
         public Task DeleteCategory(int categoryId);
-        public Task<IEnumerable<Category>> GetCategories(Optimization op = null, bool ? enabled = null, Category.OrderView? order = null);        
+        public Task<IEnumerable<Category>> GetCategories(Optimization op = null, bool ? enabled = null, List<Category.OrderView> order = null, int? parentCategoryId = null, string parentCategoryFromPath = null);        
         public Task<Category> GetCategoryById(int categoryId);
         public Task<bool> ExistsParentCategory(int categoryId);
         public Task<bool> ExistsCategoryByName(string name);
-        #endregion        
+        #endregion
+
+        #region CacheObject
+        public Task<CacheObject> GetCacheObject(string key = null, int? cacheObjectId = null);        
+        public Task<int> UpdateCacheObject([NotNullAttribute] CacheObject cacheObject);
+        #endregion
     }
 }

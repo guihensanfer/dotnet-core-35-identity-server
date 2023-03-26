@@ -14,23 +14,7 @@
 <div class="container">
     <h4 style="margin-top: 2%;">Apps</h4>
     <ul style="list-style: none;margin:0;padding:0;margin-top:2%;">
-        @{
-            List<API.Models.Projects.Project> projetos = (@ViewData["projetos"] as List<API.Models.Projects.Project>);
-
-            foreach(var proj in projetos)
-            {
-                string statusDesenvolvimento = proj.hasRelease.Equals(false) ? "(Em breve) " : null;
-                var p = proj.department.GetAttribute<System.ComponentModel.DataAnnotations.DisplayAttribute>();
-                var projetoSetor = p is null ? null : p.Name;
-
-                <li class="bloco-destaque" style="background-color:@System.Drawing.ColorTranslator.ToHtml(proj.colorId.background);color:@System.Drawing.ColorTranslator.ToHtml(proj.colorId.foreColor);">                                        
-                    <h3>@proj.name</h3>        
-                    <h4>@string.Concat(statusDesenvolvimento, proj.bio)</h4>
-                    <span class="fundo-arredondado text-light fundo-blur">@projetoSetor</span>
-                    <a class="fundo-arredondado fundo-blur text-light" style="margin-top:15px;display:block;text-align:center;" href="@proj.linkAccess">Saiba mais...</a>                    
-                </li>
-            }
-        }        
+            
     </ul>
 </div>
 
@@ -54,7 +38,7 @@
             var x = document.getElementsByClassName("container")[1];
             x.classList.remove("container");
 
-            console.log("Bom Terrários -> Container principal removido");
+            console.log("Bom Dev -> Container principal removido");
         });
     </script>
 }

@@ -491,3 +491,4 @@ C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\bin\Debug\netcore
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ProgressPartial.cshtml.g.cs

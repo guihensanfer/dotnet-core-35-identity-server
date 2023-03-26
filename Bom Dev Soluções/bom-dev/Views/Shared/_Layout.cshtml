@@ -3,13 +3,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Bom Terrários</title>
+    <title>@ViewData["Title"] - Bom Dev</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />       
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header>        
-        <nav id="menu0" class="navbar navbar-expand-md navbar-dark">            
+        <nav id="menu0" class="navbar navbar-expand-md navbar-light">            
             @*<div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
@@ -39,7 +40,7 @@
         </nav>
         <nav id="menu" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark">
             <div class="container">
-                <a id="layoutLogo" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" title="Bom Terrários">
+                <a id="layoutLogo" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" title="Bom Dev">
 
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -49,52 +50,20 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
-                        @{
-                            var projetos = API.Models.Projects.GetProjects();
-                            var setores = projetos
-                                .Where(x => x.enable)
-                                .Select(x => x.department)
-                                .Distinct()
-                                .OrderBy(x => x.ToString())
-                                .ToList();
-
-                            foreach (var setor in setores)
-                            {
-                                <li class="nav-item dropdown">
-                                    @{
-                                        var p = setor.GetAttribute<System.ComponentModel.DataAnnotations.DisplayAttribute>();
-                                        var x = p is null ? setor.ToString() : p.Name;
-
-                                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            @x.ToString()
-                                        </a>
-                                    }
-
-                                    <ul class="dropdown-menu dropdown-menu-bomdev" aria-labelledby="navbarDropdownMenuLink">
-                                        @{
-                                            var projetosSetor = projetos.Where(p => p.department == setor).ToList();
-
-                                            foreach (var projeto in projetosSetor)
-                                            {
-                                                <li>
-                                                    <div class="dropdown-item-bomdev">
-                                                        <a class="text-light" href="@projeto.linkAccess">
-                                                            @projeto.name
-                                                            <p class="text-descricao-P text-light">
-                                                                @projeto.bio
-                                                            </p>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                            }
-                                        }
-                                    </ul>
-                                </li>
-                            }
-                        }
+                        @await Component.InvokeAsync("CategoryMenu")
+                        @*<li class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown button
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>                 
                         <li class="nav-item">
                             <a class="nav-link text-light fundo-arredondado" asp-area="" asp-controller="Home" asp-action="Sobre">Sobre nós</a>
-                        </li>
+                        </li>*@
                     </ul>
                 </div>
             </div>
@@ -103,6 +72,7 @@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
+            <partial name="_ProgressPartial" />
         </main>
     </div>
 

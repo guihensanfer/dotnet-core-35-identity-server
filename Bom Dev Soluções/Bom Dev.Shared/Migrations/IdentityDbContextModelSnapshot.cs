@@ -89,6 +89,34 @@ namespace Data.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("Data.Models.CacheObject", b =>
+                {
+                    b.Property<int>("CacheObjectId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("CacheObjectId")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Expiration")
+                        .HasColumnName("Expiration")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Key")
+                        .IsRequired()
+                        .HasColumnName("Key")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnName("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CacheObjectId");
+
+                    b.ToTable("CacheObject");
+                });
+
             modelBuilder.Entity("Data.Models.Category", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -110,6 +138,10 @@ namespace Data.Migrations
                         .HasColumnName("Enabled")
                         .HasColumnType("bit");
 
+                    b.Property<byte?>("Index")
+                        .HasColumnName("Index")
+                        .HasColumnType("tinyint");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnName("Name")
@@ -124,6 +156,7 @@ namespace Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Path")
+                        .IsRequired()
                         .HasColumnName("Path")
                         .HasColumnType("nvarchar(300)")
                         .HasMaxLength(300);
