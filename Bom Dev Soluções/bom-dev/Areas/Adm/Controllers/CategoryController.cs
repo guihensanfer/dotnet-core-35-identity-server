@@ -1,9 +1,12 @@
-﻿using Data.Extensions;
+﻿using Bom_Dev.Controllers;
+using Data.Extensions;
 using Data.Interface;
 using Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using static Data.Models.Optimization;
@@ -15,15 +18,18 @@ namespace Bom_Dev.Areas.Adm.Controllers
     public class CategoryController : Controller
     {
         private readonly IRepository _context;
+        //private readonly IStringLocalizer<CategoryController> _localizer;
+        private readonly IViewLocalizer _localizer;
 
-        public CategoryController(IRepository context)
+        public CategoryController(IRepository context, IViewLocalizer localizer)
         {
             _context = context;
+            _localizer = localizer;
         }
 
         // GET: Adm/Category
         public async Task<IActionResult> Index(string enabled, string order)
-        {
+        {            
             bool? _enabled = enabled.ToNullableBool();
             int? _order = order.ToNullableInt();
 
@@ -67,6 +73,8 @@ namespace Bom_Dev.Areas.Adm.Controllers
         // GET: Adm/Category/Create
         public IActionResult Create()
         {
+            ViewBag["teste"] = _localizer["teste"];
+
             return View();
         }
 

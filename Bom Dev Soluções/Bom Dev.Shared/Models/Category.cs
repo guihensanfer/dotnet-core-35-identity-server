@@ -48,6 +48,12 @@ namespace Data.Models
         [Display(Name = "Código")]
         public int CategoryId { get; set; }
 
+        /// <summary>
+        /// Used for translation
+        /// </summary>
+        [Column("Guid")]        
+        public Guid Guid { get; set; }
+
         [Column("Name")]
         [Required]
         [StringLength(60)]

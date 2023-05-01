@@ -36,5 +36,9 @@ namespace Data.Models
 
         [Column("Expiration")]
         public DateTime Expiration { get; set; } = DateTime.Now.AddHours(48);
+
+        [Column("Language")]
+        [StringLength(15)]
+        public string Language { get; set; } = "pt-br";
     }
 }

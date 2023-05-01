@@ -6,18 +6,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System;
-using static Data.Models.Optimization;
 using System.Diagnostics.CodeAnalysis;
+using Data.Context.Language;
 
 namespace Data.Repository
 {
     public class Repository : IRepository
     {
         private readonly IdentityDbContext _context;
+        private readonly UserLanguage _userLanguage;
 
-        public Repository(IdentityDbContext context)
+
+        public Repository(IdentityDbContext context, UserLanguage userLanguage)
         {
             _context = context;
+            _userLanguage = userLanguage;
         }
 
         #region Category
@@ -58,51 +61,44 @@ namespace Data.Repository
 
             switch (op?.LoadedColumns)
             {
-                case LoadedColumnsLevel.A:
+                case Optimization.LoadedColumnsLevel.A:
 
                     break;
 
-                case LoadedColumnsLevel.B:                    
-                    query = query.Select(s => new
-                    {
-                        s.CategoryId,
-                        s.Name,
-                        s.Order,
-                        s.Path,
-                        s.DateCreated,
-                        s.ParentCategoryId,
-                        s.Url
-                    }).OrderBy(x => x.Path)
-                    .Select(s => new Category()
-                    {
-                        CategoryId = s.CategoryId,
-                        Name = s.Name,
-                        Order = s.Order,
-                        Path = s.Path,
-                        DateCreated = s.DateCreated,
-                        ParentCategoryId = s.ParentCategoryId,
-                        Url = s.Url 
-                    });
+                case Optimization.LoadedColumnsLevel.B:
+                    query = from s in query
+                            join t in _context.TranslationObject
+                            on new {ObjectGuid = s.Guid, Language = _userLanguage.Language} equals new { t.ObjectGuid, t.Language} into translations
+                            from translation in translations.DefaultIfEmpty()
+                            orderby s.Path
+                            select new Category()
+                            {
+                                CategoryId = s.CategoryId,
+                                Name = translation == null ? s.Name : translation.Value,
+                                Order = s.Order,
+                                Path = s.Path,
+                                DateCreated = s.DateCreated,
+                                ParentCategoryId = s.ParentCategoryId,
+                                Url = s.Url
+                            };                                               
 
                     break;
 
-                case LoadedColumnsLevel.C:
-                    query = query.Select(s => new
-                    {
-                        s.CategoryId,
-                        s.Name,
-                        s.Order,
-                        s.Path,
-                        s.Url
-                    }).OrderBy(x => x.Path)
-                    .Select(s => new Category()
-                    {
-                        CategoryId = s.CategoryId,
-                        Name = s.Name,
-                        Order = s.Order,
-                        Path = s.Path,
-                        Url = s.Url
-                    });
+                case Optimization.LoadedColumnsLevel.C:
+
+                    query = from s in query
+                            join t in _context.TranslationObject
+                            on new { ObjectGuid = s.Guid, Language = _userLanguage.Language } equals new { t.ObjectGuid, t.Language } into translations
+                            from translation in translations.DefaultIfEmpty()
+                            orderby s.Path
+                            select new Category()
+                            {
+                                CategoryId = s.CategoryId,
+                                Name = translation == null ? s.Name : translation.Value,
+                                Order = s.Order,
+                                Path = s.Path,
+                                Url = s.Url
+                            };
 
                     break;
             }

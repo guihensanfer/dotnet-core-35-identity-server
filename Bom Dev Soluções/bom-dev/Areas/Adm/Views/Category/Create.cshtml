@@ -1,5 +1,4 @@
 ﻿@model Data.Models.Category
-
 @{
     ViewData["Title"] = "Create";
 }
@@ -23,9 +22,14 @@
         <div class="col-md-6">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label asp-for="Name" class="control-label">Teste</label>
                 <input asp-for="Name" class="form-control" onblur="refreshCategory();" />
                 <span asp-validation-for="Name" class="text-danger"></span>
+                <details>
+                    <summary>@ViewBag["teste"]</summary>
+                    <p>No campo Nome, informe nome do idioma e nome da categoria neste padrão: </br>{"pt-Br":"Minha categoria", "en-Us":"My category"}</p>
+                </details>
+
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
@@ -41,7 +45,7 @@
                 <label asp-for="Enabled" class="control-label"></label>
                 <input asp-for="Enabled" class="form-control" checked="checked" />
                 <span asp-validation-for="Enabled" class="text-danger"></span>
-            </div>            
+            </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
@@ -152,7 +156,7 @@
             selectedParentCategoryPath = selectParent.options[selectParent.selectedIndex].text;
         }
 
-        var textBoxName = document.getElementById('@nameof(Model.Name)').value;        
+        var textBoxName = document.getElementById('@nameof(Model.Name)').value;
 
         if (selectedParentCategoryPath == null || selectedParentCategoryPath.trim() == '') {
             document.getElementById('@nameof(Model.Path)').value = textBoxName;

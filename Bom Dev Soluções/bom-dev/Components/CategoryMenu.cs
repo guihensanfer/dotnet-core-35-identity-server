@@ -85,7 +85,7 @@ namespace Bom_Dev.Components
                     }
 
                     sb.Append("  </div>");
-                    sb.Append("</div>");
+                    sb.Append("</div>");                    
                 }                
 
                 cache.Value = sb.ToString();

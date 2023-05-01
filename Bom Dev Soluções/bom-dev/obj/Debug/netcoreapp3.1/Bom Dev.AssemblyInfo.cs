@@ -13,12 +13,12 @@ using System.Reflection;
 
 [assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-Bom_Dev-916F7C48-8A71-43D1-A185-3D84D5E93F63")]
-[assembly: System.Reflection.AssemblyCompanyAttribute("Bom Dev")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Bom_Dev")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("Bom Dev")]
-[assembly: System.Reflection.AssemblyTitleAttribute("Bom Dev")]
+[assembly: System.Reflection.AssemblyProductAttribute("Bom_Dev")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Bom_Dev")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.
