@@ -1,4 +1,5 @@
 ﻿using Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -14,6 +15,7 @@ namespace Bom_Dev.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<JsonResult> GetCategoriesByParentIdFromPath(string path)
         {
             if (!string.IsNullOrWhiteSpace(path))

@@ -47,31 +47,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Resources\Controllers\HomeController.Designer.cs">
-      <DependentUpon>HomeController.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Resources\Controllers\HomeController.en-US.resx">
+    <EmbeddedResource Update="Resources\Models\SharedResources.en-US.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Controllers\HomeController.pt-BR.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Controllers\HomeController.resx">
-      <LastGenOutput>HomeController.Designer.cs</LastGenOutput>
-      <Generator>PublicResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Controllers\Resources.en-US.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Controllers\Resources.pt-BR.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Resources.pt-BR.resx">
+    <EmbeddedResource Update="Resources\Models\SharedResources.pt-BR.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -418,12 +418,6 @@ C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\bin\Debug\netcore
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\API.pdb
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\Data.pdb
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.csproj.AssemblyReference.cache
-C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Controllers.HomeController.resources
-C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Controllers.HomeController.en-US.resources
-C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Controllers.HomeController.pt-BR.resources
-C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Controllers.Resources.en-US.resources
-C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Controllers.Resources.pt-BR.resources
-C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Resources.pt-BR.resources
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.csproj.GenerateResource.cache
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.AssemblyInfoInputs.cache
@@ -506,3 +500,6 @@ C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcore
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.pdb
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom Dev.genruntimeconfig.cache
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Models.SharedResources.en-US.resources
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Models.SharedResources.pt-BR.resources
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_SelectLanguagePartial.cshtml.g.cs
