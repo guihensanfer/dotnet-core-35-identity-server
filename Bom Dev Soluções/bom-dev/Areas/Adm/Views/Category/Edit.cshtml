@@ -15,11 +15,16 @@
         <div class="col-md-6">
             <input type="hidden" asp-for="CategoryId" />
             <input type="hidden" asp-for="DateCreated" />
+            <input type="hidden" asp-for="Guid" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" onblur="refreshCategory();" />
                 <span asp-validation-for="Name" class="text-danger"></span>
+                <details>
+                    <summary>Em outros idiomas</summary>
+                    <p>No campo Nome, informe nome do idioma e nome da categoria neste padrão: </br>{"pt-Br":"Minha categoria", "en-Us":"My category"}</p>
+                </details>
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
@@ -36,7 +41,7 @@
                 <input asp-for="Enabled" class="form-control" />
                 <span asp-validation-for="Enabled" class="text-danger"></span>
             </div>
-            
+
         </div>
         <div class="col-md-6">
             <div class="form-group">

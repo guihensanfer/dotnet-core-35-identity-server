@@ -20,37 +20,6 @@ namespace Bom_Dev.Controllers
             _logger = logger;
             _localizer = localizer;
         }
-        private string _currentLanguage;
-
-        private string CurrentLanguage
-        {
-            get
-            {
-                if (!string.IsNullOrEmpty(_currentLanguage))
-                {
-                    return _currentLanguage;
-                }
-
-
-
-                if (string.IsNullOrEmpty(_currentLanguage))
-                {
-                    var feature = HttpContext.Features.Get<IRequestCultureFeature>();
-                    _currentLanguage = feature.RequestCulture.Culture.Name.ToLower();
-                }
-
-                return _currentLanguage;
-            }
-        }
-
-        public ActionResult RedirectToDefaultLanguage()
-        {
-            var lang = CurrentLanguage;
-            
-
-            return RedirectToAction("Index", new { culture = lang });
-        }
-
 
         [HttpPost]
         public IActionResult SetLanguage(string culture, string returnUrl)

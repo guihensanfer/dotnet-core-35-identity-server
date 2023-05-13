@@ -22,11 +22,11 @@
         <div class="col-md-6">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label">Teste</label>
+                <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" onblur="refreshCategory();" />
                 <span asp-validation-for="Name" class="text-danger"></span>
                 <details>
-                    <summary>@ViewBag["teste"]</summary>
+                    <summary>Em outros idiomas</summary>
                     <p>No campo Nome, informe nome do idioma e nome da categoria neste padrão: </br>{"pt-Br":"Minha categoria", "en-Us":"My category"}</p>
                 </details>
 

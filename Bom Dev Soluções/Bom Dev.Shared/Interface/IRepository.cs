@@ -19,8 +19,14 @@ namespace Data.Interface
         #endregion
 
         #region CacheObject
-        public Task<CacheObject> GetCacheObject(string key = null, int? cacheObjectId = null);        
-        public Task<int> UpdateCacheObject([NotNullAttribute] CacheObject cacheObject);
+        public Task<CacheObject> GetCacheObject(string key, string language, int? cacheObjectId = null);        
+        public Task<int> SetCacheObject([NotNullAttribute] CacheObject cacheObject);
+        #endregion
+
+        #region TranslationObject
+        public Task SetTranslationObject([NotNullAttribute] TranslationObject translationObject);
+        public Task DeleteTranslationObject(Guid objectGuid, string language = null);
+        public Task<IEnumerable<TranslationObject>> GetTranslationObject(Guid objectGuid, string language = null);
         #endregion
     }
 }

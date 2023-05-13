@@ -4,8 +4,8 @@ for details on configuring this project to bundle and minify static web assets. 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
 
 :root {
-    --colorI: #f0f0f0;
-    --colorII: #cd5c5c;
+    --colorI: #323232;
+    --colorII: #FFF;
     --colorIII: #000;
     --colorIV: #01150e;
 }
@@ -19,13 +19,25 @@ for details on configuring this project to bundle and minify static web assets. 
 #menu0 {
     padding-top: 0px;
     padding-bottom: 0px;
-    background: var(--colorI);
-    border-bottom: solid 1px var(--colorIV);
+    background: var(--colorI);    
     /*background: var(--colorIV);*/
     color: #fff;
-    font-size: 80%;
-    padding-right: 8%;
+    font-size: 80%;    
 }
+
+#menu{
+    
+    background: var(--colorI);
+    font-size:90%;
+}
+
+    #menu .btn {
+        font-size:90%;
+    }
+
+    #menu a {
+        font-size: 90%;
+    }   
 
 .menuBreadcrumb{
     font-size:80%;    
@@ -83,18 +95,26 @@ span.caret::after {
     padding: 2px 2% 2px 2% !important;
     background: #323232 !important;
     color: var(--colorI) !important;
-    font-weight: bold;
+    font-weight: bold;    
 }
 
-#menuAdmContainer {
-    background: var(--colorI);
-    padding-bottom: 5px;    
-}
+    .menuAdm .btn {
+        font-size:90%;
+    }
+
+    .menuAdm #selectLanguageImg{
+        width:16px;
+        height:16px;
+    }
+
+    #menuAdmContainer {
+        background: var(--colorI);
+        padding-bottom: 5px;
+    }
 
 #inputSearch{
     width:100%;    
-    margin-top:7px;
-    color:#fff;
+    
 }
 #submitSearch {
     display:none;
@@ -105,9 +125,6 @@ span.caret::after {
     font-weight: bold;
 }
 
-.menuAdm .nav-item a {
-    color: var(--colorI) !important;
-}
 
 #menuDinamico {
     margin-right: 7%;
@@ -118,13 +135,6 @@ span.caret::after {
 }
 #currentPageDesc{
     color:#000;
-}
-
-#menu {    
-    padding-bottom: 15px;
-    background: var(--colorI);    
-    padding-right: 3%;
-    padding-left: 3%;
 }
 
 .selectDisabled {
@@ -210,13 +220,13 @@ body {
 
 /*Bom Dev 2*/
 
-#layoutLogo{  
-  width: 53px;
-  height: 80px;
-  background-image: url(../img/bd.svg);  
-  background-repeat: no-repeat;  
-  background-size: 53px 80px; 
-  margin-top:-35px;
+#layoutLogo {
+    width: 80px !important;
+    height: 20px !important;
+    background-image: url(../img/bd.png);
+    background-repeat: no-repeat !important;
+    background-size: 80px 20px !important;
+    /*margin-top:-35px;*/
 }
 
 /*Bom Dev 1*/

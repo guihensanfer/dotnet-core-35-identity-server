@@ -22,7 +22,7 @@
         }
 
         <div id="menuAdmContainer" class="container-fluid">
-            <nav id="menu0" class="navbar navbar-expand-md navbar-light menuAdm">
+            <nav id="menu0" class="navbar navbar-expand-md navbar-dark menuAdm">
                 <div class="nav-item active">
                     <a class="nav-link" href="#">BOMDEV.COM.BR</a>
                 </div>
@@ -38,13 +38,13 @@
                                 if (hasMenuCurrentUrl && item.Name.Equals(menuFromUrl.Name))
                                 {
                                     <li class="nav-item active">
-                                        <a class="nav-link" href="@item.Url">@item.Name</a>
+                                        <a class="btn btn-secondary" href="@item.Url">@item.Name</a>
                                     </li>
                                 }
                                 else
                                 {
                                     <li class="nav-item">
-                                        <a class="nav-link" href="@item.Url">@item.Name</a>
+                                        <a class="btn btn-secondary" href="@item.Url">@item.Name</a>
                                     </li>
                                 }
                             }
@@ -57,24 +57,22 @@
         </div>*@
                 <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item" id="liSeach">
-                            <form method="get" action="/adm">
-                                <input required type="text" name="@MenuDinamicViewModel.ParamSearchMenu" id="inputSearch" placeholder="Pesquisar açõs admin..." value="@Context.Request.Query[MenuDinamicViewModel.ParamSearchMenu]" />
-                                <input type="submit" id="submitSearch" value="Pesquisar" />
-                            </form>
-                        </li>
+                        <li class="nav-item" id="liSeach">                            
+                                <form class="btn btn-secondary" method="get" action="/adm">
+                                    <input required type="text" name="@MenuDinamicViewModel.ParamSearchMenu" id="inputSearch" placeholder="Pesquisar açõs admin..." value="@Context.Request.Query[MenuDinamicViewModel.ParamSearchMenu]" />
+                                    <input type="submit" id="submitSearch" value="Pesquisar" />
+                                </form>                                                       
+                        </li>                      
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-light" title="Pesquisar ações administrativas">
-                                <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g data-name="Layer 2" style="stroke:#000;fill:#000"><path d="M13 23a10 10 0 1 1 10-10 10 10 0 0 1-10 10Zm0-18a8 8 0 1 0 8 8 8 8 0 0 0-8-8Z" fill="#fff" class="fill-000000" style="stroke:#000;fill:#fff" /><path d="M28 29a1 1 0 0 1-.71-.29l-8-8a1 1 0 0 1 1.42-1.42l8 8a1 1 0 0 1 0 1.42A1 1 0 0 1 28 29Z" fill="#fff" class="fill-000000" style="stroke:#000;fill:#fff" /></g><path d="M0 0h32v32H0z" fill="none" style="stroke:none" /></svg>
-                            </a>
+                            @await Html.PartialAsync("../../../../Views/Shared/_SelectLanguagePartial")
                         </li>
-                       
+
                         @if (SignInManager.IsSignedIn(User))
                         {
                             var nomeUser = UserManager.GetUserAsync(User).Result?.FullName ?? User.Identity.Name;
 
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Minha conta @nomeUser">@nomeUser</a>
+                                <a class="btn btn-secondary" asp-area="Identity" asp-page="/Account/Manage/Index" title="Minha conta @nomeUser">@nomeUser</a>
                             </li>
 
                         }
@@ -172,7 +170,7 @@
 
     <footer class="footer text-muted">
         <div class="container">
-            @Data.Util.copyright - <a asp-area="" asp-controller="Home" asp-action="Sobre">Sobre nós</a>
+            @Data.Utility.copyright - <a asp-area="" asp-controller="Home" asp-action="Sobre">Sobre nós</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

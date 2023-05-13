@@ -9,17 +9,27 @@
 
 @{
     var requestCulture = Context.Features.Get<IRequestCultureFeature>();
-    var cultureItems = LocOptions.Value.SupportedUICultures
-    .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
-    .ToList();
+    var cultureItems = LocOptions.Value.SupportedUICultures;
     var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}";
 }
 
-<div title="@Localizer["Request culture provider:"] @requestCulture?.Provider?.GetType().Name">
-    <form id="selectLanguage" asp-action="@SupportedCultures.ChangeURLParameter" asp-route-returnUrl="@Context.Request.Path" method="get" class="form-horizontal" role="form">
-        @Localizer["Language:"] 
-        <select name="culture" asp-for="@requestCulture.RequestCulture.UICulture.Name" asp-items="cultureItems">            
-        </select>
-        <input type="submit" value="Send" />
-    </form>
-</div>
+<form id="selectLanguage" asp-area="" asp-controller="Home" asp-action="SetLanguage" asp-route-returnUrl="@returnUrl" method="post" class="form-horizontal" role="form">
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="/img/language.png" id="selectLanguageImg" width="16" height="16" class="mr-2">
+            @requestCulture.RequestCulture.Culture.Name
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            @{
+                foreach (var culture in cultureItems)
+                {
+                    <a class="dropdown-item language-option" onclick="$('#selectLanguage input[name=\'culture\']').val($(this).data('value'));$('#selectLanguage').submit();" href="#" data-value="@culture.Name">
+                        @culture.DisplayName
+                    </a>
+                }
+            }
+        </div>
+    </div>
+    <input type="hidden" name="culture" value="" />
+</form>

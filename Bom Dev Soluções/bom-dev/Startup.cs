@@ -10,8 +10,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Localization;
-using Microsoft.AspNetCore.Localization.Routing;
-using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -54,15 +52,8 @@ namespace Bom_Dev
 
             services.AddControllersWithViews()
                 .AddRazorRuntimeCompilation();
-            services.AddRazorPages();                
+            services.AddRazorPages();
             services.AddTransient<IEmailSender, EmailSender>();
-
-            
-
-
-            // injeta o idioma para todos os outros pontos do projeto
-            services.AddScoped<Data.Context.Language.UserLanguage>();
-
 
             // Atualiza as informações de conexão com e-mail conforme appsettings
             EmailConfig.host = Configuration.GetValue<string>("Email:Host");
@@ -145,12 +136,6 @@ namespace Bom_Dev
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            
-            // atualiza o idioma quando modificado
-            // sempre que uma solicitação for processada pelo pipeline do aplicativo,
-            // o middleware UpdateUserLanguageMiddleware atualizará o valor do serviço UserLanguage 
-            //app.UseMiddleware<UpdateUserLanguageMiddleware>();
-
             app.UseRouting();    
                         
             app.UseAuthentication();             
@@ -163,7 +148,7 @@ namespace Bom_Dev
                 endpoints.MapAreaControllerRoute(
                     name: "admArea",
                     areaName: "adm",
-                    pattern: "/adm/{controller=Category}/{action=Index}/{id?}");                
+                    pattern: "/adm/{controller=Category}/{action=Index}/{id?}");
 
                 endpoints.MapRazorPages();
 

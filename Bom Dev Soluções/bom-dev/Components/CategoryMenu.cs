@@ -22,14 +22,14 @@ namespace Bom_Dev.Components
         public async Task<IViewComponentResult> InvokeAsync()
         {
             string defaultKey = CacheObject.Objects.MenuItensSite.ToString();
-            var cache = await _context.GetCacheObject(defaultKey);
+            var cache = await _context.GetCacheObject(defaultKey, System.Globalization.CultureInfo.CurrentCulture.Name);
 
             if (cache == null)
                 cache = new CacheObject(defaultKey);
 
             if (string.IsNullOrWhiteSpace(cache.Value))
             {
-                var categories = await _context.GetCategories(new Optimization(Optimization.LoadedColumnsLevel.A), true,
+                var categories = await _context.GetCategories(new Optimization(Optimization.LoadedColumnsLevel.B), true,
                     new List<Category.OrderView>() { 
                         Category.OrderView.First,
                         Category.OrderView.Second
@@ -49,13 +49,13 @@ namespace Bom_Dev.Components
                     if (string.IsNullOrEmpty(c1.Url))
                     {
                         sb.AppendFormat("  <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton{0}\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">", c1.CategoryId);
-                        sb.Append(c1.Name);
+                        sb.Append(c1.NameView);
                         sb.Append("  </button>");
                     }                    
                     else
                     {
                         sb.AppendFormat("  <a href=\"{1}\" class=\"btn btn-secondary\">", c1.CategoryId, c1.Url);
-                        sb.Append(c1.Name);
+                        sb.Append(c1.NameView);
                         sb.Append("  </a>");
                     }
                     sb.Append("  <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">");
@@ -72,14 +72,14 @@ namespace Bom_Dev.Components
                     {
                         if (string.IsNullOrEmpty(c2.Url))
                         {
-                            sb.AppendFormat("    <a class=\"dropdown-item\" onclick=\"menuShowCategories('{1}', this)\" href=\"#\">{0}&nbsp;&nbsp;&nbsp;<span class=\"caret\"></span></a>",
-                            c2.Name,
+                            sb.AppendFormat("    <a class=\"dropdown-item\" onclick=\"menuShowCategories('{1}', this)\" href=\"#\">{0}</a>",
+                            c2.NameView,
                             c2.Path);
                         }
                         else
                         {
                             sb.AppendFormat("    <a class=\"dropdown-item\" href=\"{1}\">{0}</a>",
-                            c2.Name,
+                            c2.NameView,
                             c2.Url);
                         }                        
                     }
@@ -89,7 +89,7 @@ namespace Bom_Dev.Components
                 }                
 
                 cache.Value = sb.ToString();
-                await _context.UpdateCacheObject(cache);
+                await _context.SetCacheObject(cache);
             }            
 
             return new HtmlContentViewComponentResult(new HtmlString(cache.Value));

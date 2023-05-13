@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Globalization;
 
 namespace Data.Models
 {
@@ -13,6 +14,13 @@ namespace Data.Models
         public CacheObject(string key)
         {
             this.Key = key;
+            this.Language = System.Globalization.CultureInfo.CurrentCulture.Name;
+        }
+
+        public CacheObject(string key, CultureInfo culture)
+        {
+            this.Key = key;
+            this.Language = culture.Name;
         }
 
         public enum Objects

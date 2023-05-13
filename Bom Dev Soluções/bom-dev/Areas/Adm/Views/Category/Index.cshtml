@@ -55,7 +55,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Path)
+                @Html.DisplayNameFor(model => model.NameView)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Order)
@@ -78,25 +78,11 @@
 
                 <tr>
                     <td>
-                        @if (flagBold)
-                        {
-                            <strong>@Html.DisplayFor(modelItem => item.Path)</strong>
-                        }
-                        else
-                        {
-                            @Html.DisplayFor(modelItem => item.Path)
-                        }
+                        @Html.DisplayFor(modelItem => item.NameView)
 
                     </td>
                     <td>
-                        @if (flagBold)
-                        {
-                            <strong>@Html.DisplayFor(modelItem => item.Order)</strong>
-                        }
-                        else
-                        {
-                            @Html.DisplayFor(modelItem => item.Order)
-                        }
+                        @Html.DisplayFor(modelItem => item.Order)
                     </td>
                     <td>
                         <a asp-area="adm" asp-action="Edit" asp-route-id="@item.CategoryId">Edit</a> |

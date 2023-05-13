@@ -72,9 +72,7 @@ namespace Bom_Dev.Areas.Adm.Controllers
 
         // GET: Adm/Category/Create
         public IActionResult Create()
-        {
-            ViewBag["teste"] = _localizer["teste"];
-
+        {            
             return View();
         }
 
@@ -124,7 +122,7 @@ namespace Bom_Dev.Areas.Adm.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CategoryId,DateCreated,Name,Description,Url,Enabled,Order,ParentCategoryId,Path,Index")] Category category)
+        public async Task<IActionResult> Edit(int id, [Bind("CategoryId,DateCreated,Name,Description,Url,Enabled,Order,ParentCategoryId,Path,Index,Guid")] Category category)
         {
             if (id != category.CategoryId)
             {

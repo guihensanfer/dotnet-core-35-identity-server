@@ -1,16 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Início";
 }
-<nav id="navBarSecundario" class="navbar navbar-expand justify-content-center">
-    <div class="container">        
-        <div id="containerBusca">
-            <form method="GET">                
-                <input class="bomDevSearchInputStyle" type="text" name="searchApp" style="font-size: 14px!important;" value="@Context.Request.Query["searchApp"]" placeholder="Buscar apps..." required />
-                <button type="submit" class="btn btn-primary" style="font-size:14px!important;">Buscar</button>
-            </form>
-        </div>                        
-    </div>
-</nav>
 <div class="container">
     <h4 style="margin-top: 2%;">Apps</h4>
     <ul style="list-style: none;margin:0;padding:0;margin-top:2%;">
@@ -34,11 +24,6 @@
         }        
     </style>
     <script>
-        $( document ).ready(function() {
-            var x = document.getElementsByClassName("container")[1];
-            x.classList.remove("container");
-
-            console.log("Bom Dev -> Container principal removido");
-        });
+        
     </script>
 }

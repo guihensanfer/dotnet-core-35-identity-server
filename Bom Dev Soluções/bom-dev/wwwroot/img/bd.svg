@@ -2,13 +2,16 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="47.257191mm"
-   height="71.866013mm"
-   viewBox="0 0 47.25719 71.866013"
+   width="36.983269mm"
+   height="9.1224403mm"
+   viewBox="0 0 36.983268 9.1224404"
    version="1.1"
    id="svg474"
    inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
-   sodipodi:docname="rep-log2.svg"
+   sodipodi:docname="bd.svg"
+   inkscape:export-filename="bd.png"
+   inkscape:export-xdpi="54.943764"
+   inkscape:export-ydpi="54.943764"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,9 +27,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="1.8707913"
-     inkscape:cx="13.630596"
-     inkscape:cy="109.5793"
+     inkscape:zoom="3.7415826"
+     inkscape:cx="79.244542"
+     inkscape:cy="19.510461"
      inkscape:window-width="1366"
      inkscape:window-height="705"
      inkscape:window-x="-8"
@@ -48,38 +51,30 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-138.67161,-86.908505)">
+     transform="translate(-142.84397,-107.98112)">
     <g
        aria-label="B"
        id="text4537"
        style="font-size:52.9167px;font-family:'Varela Round';-inkscape-font-specification:'Varela Round';fill:#ff0000;stroke:none;stroke-width:20;stroke-linecap:round;stroke-dasharray:none;paint-order:stroke markers fill"
        transform="translate(0.56576286,3.0475987)" />
     <path
-       id="rect1295"
-       style="fill:#ff0000;stroke:#ffffff;stroke-width:2;stroke-linecap:round;stroke-dasharray:none;paint-order:stroke markers fill"
-       d="m 139.67161,87.908505 v 69.866015 h 0.37621 l 22.45185,-13.86685 22.18573,13.86685 h 0.2434 V 87.908505 Z" />
+       id="rect2927"
+       style="fill:#ffffff;stroke:none;stroke-width:2.6846;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:fill markers stroke"
+       d="M 142.84397 107.98112 L 142.84397 117.10356 L 179.82724 117.10356 L 179.82724 109.25443 L 179.74559 109.25443 L 179.74559 110.08125 L 177.4894 110.08125 L 177.4894 107.98112 L 142.84397 107.98112 z "
+       inkscape:export-filename="bd.png"
+       inkscape:export-xdpi="54.943764"
+       inkscape:export-ydpi="54.943764" />
     <text
        xml:space="preserve"
-       style="font-size:38.8145px;font-family:'Clicker Script';-inkscape-font-specification:'Clicker Script';fill:#ffffff;stroke:none;stroke-width:1.467;stroke-linecap:round;stroke-dasharray:none;paint-order:stroke markers fill"
-       x="148.57431"
-       y="126.52244"
-       id="text1402"><tspan
-         sodipodi:role="line"
-         id="tspan1400"
-         style="fill:#ffffff;stroke:none;stroke-width:1.467"
-         x="148.57431"
-         y="126.52244">B</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:8.61128px;font-family:'Clicker Script';-inkscape-font-specification:'Clicker Script';fill:#ffffff;stroke:#ffffff;stroke-width:0.678054;stroke-linecap:round;stroke-dasharray:none;paint-order:stroke markers fill"
-       x="141.16455"
-       y="146.89258"
+       style="font-size:8.61128px;font-family:'Clicker Script';-inkscape-font-specification:'Clicker Script';fill:#000000;stroke:#000000;stroke-width:0.678054;stroke-linecap:round;stroke-dasharray:none;paint-order:stroke markers fill"
+       x="144.57356"
+       y="113.67902"
        id="text1508"
-       transform="rotate(-14.290811)"><tspan
+       transform="rotate(0.709189)"><tspan
          sodipodi:role="line"
          id="tspan1506"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.61128px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.678054;stroke-dasharray:none"
-         x="141.16455"
-         y="146.89258">ev</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.61128px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.678054;stroke-dasharray:none"
+         x="144.57356"
+         y="113.67902">bomdev</tspan></text>
   </g>
 </svg>

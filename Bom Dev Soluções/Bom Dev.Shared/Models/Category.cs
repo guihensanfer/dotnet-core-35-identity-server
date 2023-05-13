@@ -6,7 +6,15 @@ using System.Linq;
 namespace Data.Models
 {
     public class Category
-    {        
+    {
+        public Category() {            
+        }
+
+        public Category(string nameView)
+        {
+            _nameView = nameView;
+        }
+
         /// <summary>
         /// Adicione neste enum a quantidade desejada.
         /// </summary>
@@ -56,9 +64,25 @@ namespace Data.Models
 
         [Column("Name")]
         [Required]
-        [StringLength(60)]
+        [StringLength(600)]
         [Display(Name = "Nome")]
         public string Name { get; set; }
+
+        private string _nameView;
+
+        /// <summary>
+        /// Translated name
+        /// </summary>
+        public string NameView
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_nameView))
+                    return Name;
+
+                return _nameView;
+            }
+        }
 
         [Column("Description")]
         [StringLength(300)]
