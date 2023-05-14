@@ -25,10 +25,17 @@ for details on configuring this project to bundle and minify static web assets. 
     font-size: 80%;    
 }
 
-#menu{
-    
+.inputSearch {
+    background-image: url(../img/search.png) !important;
+    background-size: 16px !important;
+    background-position-x: left !important;
+    background-repeat:no-repeat !important;
+    padding-left:20px;
+}
+
+#menu {
     background: var(--colorI);
-    font-size:90%;
+    font-size: 90%;
 }
 
     #menu .btn {
@@ -37,6 +44,10 @@ for details on configuring this project to bundle and minify static web assets. 
 
     #menu a {
         font-size: 90%;
+    }
+
+    #menu .nav-link {
+        color:#fff;
     }   
 
 .menuBreadcrumb{
@@ -103,8 +114,8 @@ span.caret::after {
     }
 
     .menuAdm #selectLanguageImg{
-        width:16px;
-        height:16px;
+        width:12px;
+        height:12px;
     }
 
     #menuAdmContainer {
@@ -115,9 +126,6 @@ span.caret::after {
 #inputSearch{
     width:100%;    
     
-}
-#submitSearch {
-    display:none;
 }
 
 .menuAdm .nav-item {
@@ -134,7 +142,7 @@ span.caret::after {
     font-size: 120%;    
 }
 #currentPageDesc{
-    color:#000;
+    color:#fff;
 }
 
 .selectDisabled {

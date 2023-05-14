@@ -45,7 +45,7 @@ namespace Bom_Dev.Components
                          .Where(x => x.ParentCategoryId == c1.CategoryId)
                          .OrderBy(x => x.Index);
 
-                    sb.Append("<div class=\"dropdown\">");
+                    sb.Append("<div class=\"dropdown\" style=\"margin-left:1px\">");
                     if (string.IsNullOrEmpty(c1.Url))
                     {
                         sb.AppendFormat("  <button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton{0}\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">", c1.CategoryId);
@@ -63,7 +63,7 @@ namespace Bom_Dev.Components
 
                     sb.Append("<nav aria-label=\"breadcrumb\" class=\"menuBreadcrumb\">");
                     sb.Append("<ol class=\"breadcrumb\">");
-                    sb.AppendFormat("<li class=\"breadcrumb-item active\">{0}</li>", c1.Path);
+                    sb.AppendFormat("<li class=\"breadcrumb-item active\">{0}</li>", c1.NameView);
                     sb.Append("</ol>");
                     sb.Append("</nav>");                                           
 

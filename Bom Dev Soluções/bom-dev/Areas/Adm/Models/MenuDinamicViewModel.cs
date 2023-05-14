@@ -36,7 +36,7 @@ namespace Bom_Dev.Areas.Adm.Models
             {
                 new MenuDinamicViewModel()
                 {
-                    Name = "CATEGORIAS",
+                    Name = "Categorias",
                     Url="/adm/category",
                     Chieldres = new List<MenuDinamicViewModel>()
                     {

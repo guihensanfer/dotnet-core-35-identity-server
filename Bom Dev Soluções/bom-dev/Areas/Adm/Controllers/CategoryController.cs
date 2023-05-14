@@ -1,12 +1,10 @@
-﻿using Bom_Dev.Controllers;
-using Data.Extensions;
+﻿using Data.Extensions;
 using Data.Interface;
 using Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Localization;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using static Data.Models.Optimization;
