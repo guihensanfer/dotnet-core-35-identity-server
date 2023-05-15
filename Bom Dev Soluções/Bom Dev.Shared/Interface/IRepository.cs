@@ -28,5 +28,9 @@ namespace Data.Interface
         public Task DeleteTranslationObject(Guid objectGuid, string language = null);
         public Task<IEnumerable<TranslationObject>> GetTranslationObject(Guid objectGuid, string language = null);
         #endregion
+
+        #region ErrorLogs
+        public Task InsertErrorLog([NotNullAttribute]ErrorLogs errorLog);
+        #endregion
     }
 }

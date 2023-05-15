@@ -4,14 +4,16 @@ using Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Data.Migrations
 {
     [DbContext(typeof(IdentityDbContext))]
-    partial class IdentityDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230515140236_ErrosLog")]
+    partial class ErrosLog
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -178,70 +180,6 @@ namespace Data.Migrations
                     b.HasKey("CategoryId");
 
                     b.ToTable("Category");
-                });
-
-            modelBuilder.Entity("Data.Models.ErrorLogs", b =>
-                {
-                    b.Property<int>("ErrorLogsId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("ErrorLogsId")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnName("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateExpiration")
-                        .HasColumnName("DateExpiration")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("IpAddress")
-                        .HasColumnName("IpAddress")
-                        .HasColumnType("nvarchar(45)")
-                        .HasMaxLength(45);
-
-                    b.Property<string>("Language")
-                        .HasColumnName("Language")
-                        .HasColumnType("nvarchar(15)")
-                        .HasMaxLength(15);
-
-                    b.Property<string>("Message")
-                        .HasColumnName("Message")
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("RequestMethod")
-                        .HasColumnName("RequestMethod")
-                        .HasColumnType("nvarchar(10)")
-                        .HasMaxLength(10);
-
-                    b.Property<string>("RequestUrl")
-                        .HasColumnName("RequestUrl")
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("StackTrace")
-                        .HasColumnName("StackTrace")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .HasColumnName("Title")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("UserAgent")
-                        .HasColumnName("UserAgent")
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
-
-                    b.Property<string>("UserId")
-                        .HasColumnName("UserId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ErrorLogsId");
-
-                    b.ToTable("ErrorLogs");
                 });
 
             modelBuilder.Entity("Data.Models.TranslationObject", b =>

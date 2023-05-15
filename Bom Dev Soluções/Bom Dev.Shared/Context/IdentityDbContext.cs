@@ -9,6 +9,7 @@ namespace Data.Context
         public DbSet<Category> Category { get; set; }
         public DbSet<CacheObject> CacheObject { get; set; }
         public DbSet<TranslationObject> TranslationObject { get; set; }
+        public DbSet<ErrorLogs> ErrorLogs { get; set; }
 
         public IdentityDbContext(DbContextOptions<IdentityDbContext> options)
             : base(options)

@@ -43,6 +43,11 @@
         </button>
         <div class="dropdown-menu">
             <div class="dropdown-item">
+                <div class="nav-link">
+                    <a style="color:#000;" asp-area="Identity" asp-page="/Account/Manage/Index">Minha conta</a>
+                </div>
+            </div>
+            <div class="dropdown-item">
                 <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                     <button type="submit" class="nav-link btn btn-link text-dark">Sair</button>
                 </form>

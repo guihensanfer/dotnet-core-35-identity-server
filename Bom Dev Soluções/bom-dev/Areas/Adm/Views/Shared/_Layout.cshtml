@@ -24,7 +24,9 @@
         <div id="menuAdmContainer" class="container-fluid">
             <nav id="menu0" class="navbar navbar-expand-md navbar-dark menuAdm">
                 <div class="nav-item active">
-                    <a class="nav-link" href="https://localhost:44378">BOMDEV.COM.BR</a>
+                    <a class="nav-link" href="@string.Format("{0}://{1}", Context.Request.Scheme, Context.Request.Host)" title="Ir ao principal">
+                        <img src="~/img/bd.png" alt="bomdev" width="70">
+                    </a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">

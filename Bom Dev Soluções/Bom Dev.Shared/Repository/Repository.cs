@@ -66,6 +66,25 @@ namespace Data.Repository
             switch (op?.LoadedColumns)
             {
                 case Optimization.LoadedColumnsLevel.A:
+                    query = from s in query
+                            join t in _context.TranslationObject
+                            on new { ObjectGuid = s.Guid, Language = _currentLanguage } equals new { t.ObjectGuid, t.Language } into translations
+                            from translation in translations.DefaultIfEmpty()
+                            orderby s.Path
+                            select new Category(translation == null ? s.Name : translation.Value)
+                            {
+                                CategoryId = s.CategoryId,
+                                Name = s.Name,
+                                Order = s.Order,
+                                Path = s.Path,
+                                DateCreated = s.DateCreated,
+                                ParentCategoryId = s.ParentCategoryId,
+                                Url = s.Url,
+                                Index = s.Index,
+                                Guid = s.Guid,
+                                Enabled = s.Enabled,
+                                Description = s.Description
+                            };
 
                     break;
 
@@ -149,7 +168,20 @@ namespace Data.Repository
                             });
                         }                        
                     }
-                    catch { }
+                    catch (Exception ex) {
+                        await InsertErrorLog(new ErrorLogs()
+                        {
+                            IpAddress = null,
+                            Language = _currentLanguage,
+                            Message = ex.Message,
+                            RequestMethod = null,
+                            RequestUrl = null,
+                            StackTrace = ex.StackTrace,
+                            Title = "15052023-InvalidTranslateJSONParse",
+                            UserAgent = null,
+                            UserId = null
+                        });
+                    }
                 }
                 else
                 {
@@ -314,6 +346,13 @@ namespace Data.Repository
 
                 await _context.SaveChangesAsync();
             }
+        }
+        #endregion
+
+        #region ErrorLogs
+        public async Task InsertErrorLog([NotNullAttribute] ErrorLogs errorLog)
+        {
+            await _context.Set<ErrorLogs>().AddAsync(errorLog);
         }
         #endregion
     }

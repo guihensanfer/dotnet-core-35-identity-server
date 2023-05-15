@@ -1,6 +1,19 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
+$(document).ready(function () {
+    var menu = document.getElementById("menu");
+        
+    if (menu != null) {
+        var container = document.getElementsByClassName('containerAfterMenu')[0];
+        const defaultMargin = 0;
+        var menuClientHeight = (menu.clientHeight + defaultMargin) + 'px';
+
+        if (container != null) {
+            container.style.paddingTop = menuClientHeight;
+        }        
+    }
+});
 // Write your JavaScript code.
 $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
     if (!$(this).next().hasClass('show')) {

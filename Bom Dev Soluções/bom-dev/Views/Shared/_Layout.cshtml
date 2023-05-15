@@ -11,24 +11,24 @@
 <body>
     <header>
         <!--<nav id="menu0" class="navbar navbar-expand-md navbar-light">-->
-            @*<div class="container-fluid">*@
-            <!--<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" title="Bom Dev">
-                <img src="/img/bd.png" width="80" height="20" alt="">
-            </a>
-            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <span class="nav-link">Engenheiro responsável: Guilherme Ferreira</span>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Fale conosco</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">bomdev.com.br</a>
-                    </li>
-                </ul>
-            </div>-->
-            @*</div>*@
+        @*<div class="container-fluid">*@
+        <!--<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" title="Bom Dev">
+            <img src="/img/bd.png" width="80" height="20" alt="">
+        </a>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <span class="nav-link">Engenheiro responsável: Guilherme Ferreira</span>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Fale conosco</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">bomdev.com.br</a>
+                </li>
+            </ul>
+        </div>-->
+        @*</div>*@
         <!--</nav>-->
         <nav id="menu" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark">
             @*<div class="container-fluid">*@
@@ -41,7 +41,7 @@
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                 <partial name="_LoginPartial" />
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav">
                     @await Component.InvokeAsync("CategoryMenu")
                 </ul>
             </div>
@@ -60,7 +60,7 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>    
     @RenderSection("Scripts", required: false)
 </body>
 </html>

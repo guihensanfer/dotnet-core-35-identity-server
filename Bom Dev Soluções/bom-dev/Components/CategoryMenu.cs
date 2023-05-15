@@ -29,7 +29,7 @@ namespace Bom_Dev.Components
 
             if (string.IsNullOrWhiteSpace(cache.Value))
             {
-                var categories = await _context.GetCategories(new Optimization(Optimization.LoadedColumnsLevel.B), true,
+                var categories = await _context.GetCategories(new Optimization(Optimization.LoadedColumnsLevel.A), true,
                     new List<Category.OrderView>() { 
                         Category.OrderView.First,
                         Category.OrderView.Second

@@ -19,10 +19,11 @@ for details on configuring this project to bundle and minify static web assets. 
 #menu0 {
     padding-top: 0px;
     padding-bottom: 0px;
-    background: var(--colorI);    
-    /*background: var(--colorIV);*/
+    background: var(--colorII) !important;   
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
     color: #fff;
-    font-size: 80%;    
+    font-size: 80%;
 }
 
 .inputSearch {
@@ -36,6 +37,12 @@ for details on configuring this project to bundle and minify static web assets. 
 #menu {
     background: var(--colorI);
     font-size: 90%;
+    position:fixed;
+    left:10px;
+    right:10px;
+    top:0px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
 
     #menu .btn {
@@ -102,11 +109,10 @@ span.caret::after {
 
 .menuAdm {
     margin-right: 7%;
-    margin-left: 7%;
-    padding: 2px 2% 2px 2% !important;
+    margin-left: 7%;    
     background: #323232 !important;
     color: var(--colorI) !important;
-    font-weight: bold;    
+    font-weight: bold;
 }
 
     .menuAdm .btn {
@@ -137,6 +143,8 @@ span.caret::after {
 #menuDinamico {
     margin-right: 7%;
     margin-left: 7%;
+    padding-bottom:0px;
+    padding-top:0px;
 }
 #menuDinamico div ul li {
     font-size: 120%;    
@@ -257,6 +265,9 @@ a {
 }
 
 .nav-item{margin-left: 4px;}
+.nav-item:first-child {
+    margin-left: 0px !important;
+}
 
 .text-info
 {
