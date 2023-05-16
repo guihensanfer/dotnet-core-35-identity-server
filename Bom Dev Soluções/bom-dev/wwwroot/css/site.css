@@ -34,13 +34,18 @@ for details on configuring this project to bundle and minify static web assets. 
     padding-left:20px;
 }
 
+.containerAfter{
+    margin-left:2%;
+    margin-right:2%;
+}
+
 #menu {
     background: var(--colorI);
     font-size: 90%;
-    position:fixed;
-    left:10px;
-    right:10px;
-    top:0px;
+    position: fixed;
+    left: 10px;
+    right: 10px;
+    top: 0px;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
 }

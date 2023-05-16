@@ -485,7 +485,6 @@ C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcore
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Razor\Views\Home\Sobre.cshtml.g.cs
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
@@ -503,3 +502,4 @@ C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcore
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Models.SharedResources.en-US.resources
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Models.SharedResources.pt-BR.resources
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_SelectLanguagePartial.cshtml.g.cs
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Razor\Views\Home\About.cshtml.g.cs

@@ -5,7 +5,7 @@ $(document).ready(function () {
     var menu = document.getElementById("menu");
         
     if (menu != null) {
-        var container = document.getElementsByClassName('containerAfterMenu')[0];
+        var container = document.getElementsByClassName('containerAfter')[0];
         const defaultMargin = 0;
         var menuClientHeight = (menu.clientHeight + defaultMargin) + 'px';
 

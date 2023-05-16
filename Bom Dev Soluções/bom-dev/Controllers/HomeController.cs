@@ -48,7 +48,7 @@ namespace Bom_Dev.Controllers
             return View();
         }                      
 
-        public IActionResult Sobre()
+        public IActionResult About()
         {
             return View();
         }

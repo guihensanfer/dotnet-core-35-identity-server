@@ -2,14 +2,14 @@
     ViewData["Title"] = "Sobre nós";
 }
 <div class="jumbotron jumbotron-fluid">
-    <div class="container">
+    <div class="containerAfter">
         <div>
             <h1 class="display-4">Sobre nós</h1>
             <h4>Desenvolvimento de software com viés humano e sustentável</h4>
         </div>        
     </div>
 </div>
-<div class="container">
+<div class="containerAfter">
     <div class="row aboutPage">
         <div class="col-md-12">
             <h3>Objetivos</h3>
@@ -83,11 +83,10 @@
         }
     </style>
     <script>
-        //$( document ).ready(function() {
-        //    var x = document.getElementsByClassName("container")[1];
-        //    x.classList.remove("container");
-
-        //    console.log("Bom Dev -> Container principal removido");
-        //});
+        $( document ).ready(function() {            
+            var y = document.getElementsByClassName("containerAfter")[0];
+            y.classList.remove("containerAfter");
+            y.style = "";            
+        });
     </script>
 }
