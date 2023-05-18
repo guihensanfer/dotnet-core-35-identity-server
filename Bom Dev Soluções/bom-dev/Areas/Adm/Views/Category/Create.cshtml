@@ -63,15 +63,15 @@
                     }
                 </select>
             </div>
-            <div class="form-group">
-                <label asp-for="Enabled" class="control-label"></label>
-                <input asp-for="Enabled" class="form-control" checked="checked" />
-                <span asp-validation-for="Enabled" class="text-danger"></span>
-            </div>
             <div id="divparentCategorySelect" class="form-group">
                 <label for="parentCategorySelect" class="control-label">Categoria pai</label>
                 <select id="parentCategorySelect" name="ParentCategoryId" class="form-control" onchange="refreshCategory();">
                 </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Enabled" class="control-label"></label>
+                <input asp-for="Enabled" class="form-control" checked="checked" />
+                <span asp-validation-for="Enabled" class="text-danger"></span>
             </div>
         </div>
     </div>
@@ -123,7 +123,7 @@
                 success: (e) => {
                     $.each(e, function (index) {
                         var categoryId = e[index].categoryId;
-                        var name = e[index].path;
+                        var name = e[index].pathView;
 
                         select.append('<option value="'
                             + categoryId

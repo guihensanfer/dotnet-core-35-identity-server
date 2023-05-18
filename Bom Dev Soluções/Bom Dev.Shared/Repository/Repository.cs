@@ -71,7 +71,7 @@ namespace Data.Repository
             {
                 case Optimization.LoadedColumnsLevel.A:
                     query = from s in query                                                        
-                            orderby s.Path
+                            orderby s.Index
                             select new Category()
                             {
                                 CategoryId = s.CategoryId,
@@ -91,7 +91,7 @@ namespace Data.Repository
 
                 case Optimization.LoadedColumnsLevel.B:
                     query = from s in query                            
-                            orderby s.Path
+                            orderby s.Index
                             select new Category()
                             {
                                 CategoryId = s.CategoryId,
@@ -100,7 +100,8 @@ namespace Data.Repository
                                 Path = s.Path,
                                 DateCreated = s.DateCreated,
                                 ParentCategoryId = s.ParentCategoryId,
-                                Url = s.Url
+                                Url = s.Url,
+                                Enabled = s.Enabled
                             };                                               
 
                     break;
@@ -108,14 +109,15 @@ namespace Data.Repository
                 case Optimization.LoadedColumnsLevel.C:
 
                     query = from s in query                            
-                            orderby s.Path
+                            orderby s.Index
                             select new Category()
                             {
                                 CategoryId = s.CategoryId,
                                 Name = s.Name,                                
                                 Order = s.Order,
                                 Path = s.Path,
-                                Url = s.Url
+                                Url = s.Url,
+                                Enabled = s.Enabled
                             };
 
                     break;
@@ -241,6 +243,7 @@ namespace Data.Repository
         public async Task InsertErrorLog([NotNullAttribute] ErrorLogs errorLog)
         {
             await _context.Set<ErrorLogs>().AddAsync(errorLog);
+            await _context.SaveChangesAsync();
         }
         #endregion
     }

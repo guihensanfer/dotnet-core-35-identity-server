@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Text;
 
 namespace Data.Models
 {
@@ -138,21 +139,26 @@ namespace Data.Models
                     return Path;
                 }
 
-                const char separator = '/';
+                const char separator = '/';              
                 var vs = Path.Split(separator);
 
                 if(vs != null && vs.Any())
                 {
-                    List<string> result = new List<string>();
+                    var result = new StringBuilder();
 
                     foreach(var item in vs)
                     {
                         var translate = Utility.TryParseTranslation(item);
 
-                        result.Add(translate);
+                        result.Append(translate);
+                        result.Append(separator);
                     }
 
-                    return string.Join(separator, result);
+                    if (result.Length > 0)
+                    {                        
+                        result.Length--; // Remove o último separador
+                        return result.ToString();
+                    }
                 }
 
                 return Path;

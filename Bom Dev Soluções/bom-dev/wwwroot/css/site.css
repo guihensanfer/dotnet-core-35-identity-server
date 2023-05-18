@@ -287,9 +287,25 @@ a {
     margin-left: 0px !important;
 }
 
-.text-info
-{
-  color: #A0A0A0 !important;
+.toolbar{
+    background:#F0F0F0;
+    padding:0.5%;
+    border-radius:15px;
+    margin-bottom:1%;
+    display:table;        
+}
+.toolbar .dropdown {
+    display: inline-block;
+}
+    .toolbar button {
+        background: transparent;
+        border: none;
+        margin-left: 0.5%;
+        margin-right: 0.5%;
+    }
+
+.text-info {
+    color: #A0A0A0 !important;
 }
 
 .dropdown-item-bomdev{margin-left: 20px;margin-top:1.5%;margin-bottom:1.5%;margin-right: 15px;}

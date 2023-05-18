@@ -1,13 +1,19 @@
-﻿using Data.Extensions;
+﻿using Bom_Dev.Areas.Adm.Models;
+using Data.Extensions;
+using Data.Identity;
 using Data.Interface;
 using Data.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.Extensions;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using System.Threading.Tasks;
-using static Data.Models.Optimization;
 
 namespace Bom_Dev.Areas.Adm.Controllers
 {
@@ -16,27 +22,84 @@ namespace Bom_Dev.Areas.Adm.Controllers
     public class CategoryController : Controller
     {
         private readonly IRepository _context;
-        //private readonly IStringLocalizer<CategoryController> _localizer;
+        private readonly UserManager<PersonalUser> _userManager;
         private readonly IViewLocalizer _localizer;
 
-        public CategoryController(IRepository context, IViewLocalizer localizer)
+        public CategoryController(IRepository context, IViewLocalizer localizer, UserManager<PersonalUser> userManager)
         {
             _context = context;
             _localizer = localizer;
+            _userManager = userManager;
         }
 
         // GET: Adm/Category
-        public async Task<IActionResult> Index(bool? enabled = null, int? order = null, string name = null, int? parentCategoryId = null)
-        {                        
-            return View(await _context.GetCategories(
-                 op: new Optimization(LoadedColumnsLevel.B), 
+        public async Task<IActionResult> Index(bool? enabled = null, int? order = null, string name = null, int? parentCategoryId = null, bool? exportToExcel = null)
+        {
+            if (!parentCategoryId.HasValue && !order.HasValue)
+            {
+                // parentCategoryId is used for navagation chieldrens categories                
+
+                order = (int)Category.OrderView.First;
+            }
+
+            var data = await _context.GetCategories(
+                 op: new Optimization(Optimization.LoadedColumnsLevel.C),
                  enabled: enabled,
                 order: order.HasValue ?
                     new List<Category.OrderView>() { (Category.OrderView)order.Value } :
                     null,
                 parentCategoryId: parentCategoryId,
                 parentCategoryFromPath: null,
-                name: name));
+                name: name);
+
+            if(exportToExcel.HasValue && exportToExcel.Value && data.Any())
+            {
+                try
+                {
+                    var catToViewModel = data.Select(x => new CategoryViewModel()
+                    {
+                        Name = x.NameView,
+                        Order = (int)x.Order,
+                        Path = x.PathView,
+                        Enabled = x.Enabled,
+                        Url = x.Url
+                    }).ToList();
+
+                    var dataToTable = Data.Utility.ConvertListToDataTable(catToViewModel);
+                    DateTime currentDate = DateTime.Now;
+
+                    await Data.Utility.ExportDataTableToExcelAsync(dataToTable);
+
+                    ViewData["successMsg"] = "Pronto! Disponível em seu repositório Downloads.";
+                }
+                catch(Exception ex)
+                {
+                    string userId = null;                    
+                    var user = await _userManager.GetUserAsync(User);
+
+                    ViewData["errorMsg"] = ex.Message;
+                    if (user != null)
+                    {
+                        userId = user.Id;
+                    }
+
+                    await _context.InsertErrorLog(new ErrorLogs()
+                    {
+                        IpAddress = HttpContext.Connection.RemoteIpAddress.ToString(),
+                        Language = CultureInfo.CurrentCulture.Name,
+                        Message = ex.Message,
+                        RequestMethod = "GET",
+                        RequestUrl = HttpContext.Request.GetEncodedUrl(),
+                        StackTrace = ex.StackTrace,
+                        Title = "18052023-CategoryAdmExportToExcel",
+                        UserAgent = HttpContext.Request.Headers["User-Agent"].ToString(),
+                        UserId = userId
+                    });                    
+                }
+                
+            }
+
+            return View(data);
         }
 
         [HttpPost]
@@ -44,7 +107,7 @@ namespace Bom_Dev.Areas.Adm.Controllers
         {
             Category.OrderView orderView = (Category.OrderView)order;
 
-            var result = await _context.GetCategories(new Optimization(LoadedColumnsLevel.C), true, new List<Category.OrderView>() {
+            var result = await _context.GetCategories(new Optimization(Optimization.LoadedColumnsLevel.C), true, new List<Category.OrderView>() {
                 orderView
             });            
 
