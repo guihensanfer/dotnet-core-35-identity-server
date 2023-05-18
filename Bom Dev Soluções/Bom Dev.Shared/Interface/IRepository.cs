@@ -12,7 +12,7 @@ namespace Data.Interface
         public Task<int> InsertCategory([NotNullAttribute] Category category);
         public Task UpdateCategory([NotNullAttribute] Category category);
         public Task DeleteCategory(int categoryId);
-        public Task<IEnumerable<Category>> GetCategories(Optimization op = null, bool ? enabled = null, List<Category.OrderView> order = null, int? parentCategoryId = null, string parentCategoryFromPath = null);        
+        public Task<IEnumerable<Category>> GetCategories(Optimization op = null, bool? enabled = null, List<Category.OrderView> order = null, int? parentCategoryId = null, string parentCategoryFromPath = null, string name = null);        
         public Task<Category> GetCategoryById(int categoryId);
         public Task<bool> ExistsParentCategory(int categoryId);
         public Task<bool> ExistsCategoryByName(string name);
@@ -21,12 +21,6 @@ namespace Data.Interface
         #region CacheObject
         public Task<CacheObject> GetCacheObject(string key, string language, int? cacheObjectId = null);        
         public Task<int> SetCacheObject([NotNullAttribute] CacheObject cacheObject);
-        #endregion
-
-        #region TranslationObject
-        public Task SetTranslationObject([NotNullAttribute] TranslationObject translationObject);
-        public Task DeleteTranslationObject(Guid objectGuid, string language = null);
-        public Task<IEnumerable<TranslationObject>> GetTranslationObject(Guid objectGuid, string language = null);
         #endregion
 
         #region ErrorLogs

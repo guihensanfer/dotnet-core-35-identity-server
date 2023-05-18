@@ -39,6 +39,19 @@ for details on configuring this project to bundle and minify static web assets. 
     margin-right:2%;
 }
 
+.control-label{
+    font-weight:bold;
+}
+
+.form-group{
+    margin-bottom:4%;
+}
+
+details{
+    opacity:0.5;
+}
+
+
 #menu {
     background: var(--colorI);
     font-size: 90%;
@@ -276,7 +289,7 @@ a {
 
 .text-info
 {
-  color: #323232!important;
+  color: #A0A0A0 !important;
 }
 
 .dropdown-item-bomdev{margin-left: 20px;margin-top:1.5%;margin-bottom:1.5%;margin-right: 15px;}

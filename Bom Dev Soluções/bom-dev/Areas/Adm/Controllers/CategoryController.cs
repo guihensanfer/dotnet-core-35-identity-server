@@ -26,16 +26,17 @@ namespace Bom_Dev.Areas.Adm.Controllers
         }
 
         // GET: Adm/Category
-        public async Task<IActionResult> Index(string enabled, string order)
-        {            
-            bool? _enabled = enabled.ToNullableBool();
-            int? _order = order.ToNullableInt();
-
-            return View(await _context.GetCategories(new Optimization(LoadedColumnsLevel.B), 
-                _enabled,
-                _order.HasValue ?
-                    new List<Category.OrderView>() { (Category.OrderView)_order.Value } :
-                    null));
+        public async Task<IActionResult> Index(bool? enabled = null, int? order = null, string name = null, int? parentCategoryId = null)
+        {                        
+            return View(await _context.GetCategories(
+                 op: new Optimization(LoadedColumnsLevel.B), 
+                 enabled: enabled,
+                order: order.HasValue ?
+                    new List<Category.OrderView>() { (Category.OrderView)order.Value } :
+                    null,
+                parentCategoryId: parentCategoryId,
+                parentCategoryFromPath: null,
+                name: name));
         }
 
         [HttpPost]
@@ -92,6 +93,9 @@ namespace Bom_Dev.Areas.Adm.Controllers
                     return View(category);
                 }
 
+                category.Name = category.Name.Trim();
+                category.Description = category.Description?.Trim();
+
                 await _context.InsertCategory(category);
 
                 return RedirectToAction(nameof(Index));
@@ -129,6 +133,9 @@ namespace Bom_Dev.Areas.Adm.Controllers
 
             if (ModelState.IsValid)
             {
+                category.Name = category.Name.Trim();
+                category.Description = category.Description?.Trim();
+
                 try
                 {
                     await _context.UpdateCategory(category);

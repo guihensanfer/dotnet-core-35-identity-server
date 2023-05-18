@@ -10,7 +10,7 @@ namespace Data
     {
         public const string copyright = "(c) Copyright 2021 Bom Dev. Todos os direitos reservados.";
 
-        public static bool IsValidJson(string input)
+        private static bool IsValidJson(string input)
         {
             try
             {
@@ -25,6 +25,37 @@ namespace Data
             {
                 return false;
             }
+        }
+
+        public static string TryParseTranslation(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return null;
+            
+            if (!value.StartsWith('{') || !value.EndsWith('}'))
+                return null;
+
+            if (!IsValidJson(value))
+                return null;
+
+            try
+            {
+                var cultures = JsonConvert.DeserializeObject<Dictionary<string, string>>(value);
+
+                if (cultures != null)
+                {
+                    var currentLanguage = System.Globalization.CultureInfo.CurrentCulture.Name;                    
+
+                    foreach(var culture in cultures)
+                    {
+                        if(string.Equals(culture.Key, currentLanguage, StringComparison.OrdinalIgnoreCase))
+                            return culture.Value;
+                    }                                        
+                }
+            }
+            catch { }          
+
+            return null;
         }
     }    
 }

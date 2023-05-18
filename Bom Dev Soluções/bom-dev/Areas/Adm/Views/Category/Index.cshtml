@@ -13,21 +13,25 @@
 </p>
 
 <div class="toolbar">
-    <form method="get">
+    <form id="filtersForm" method="get">
         <div class="toolbar-content">
             <nav class="navbar navbar-expand-md navbar-light">
                 <div class="nav-item active">
-                    <label for="selectEnabled">Status</label>
+                    <label for="selectEnabled">@Html.DisplayNameFor(model => model.Name)</label>
+                    <input id="inputName" class="form-control" type="text" name="name" value="" />
+
+                </div>
+                <div class="nav-item active">
+                    <label for="selectEnabled">@Html.DisplayNameFor(model => model.Enabled)</label>
                     <select name="enabled" id="selectEnabled" class="form-control">
-                        <option value="all">Todos</option>
-                        <option value="true">Ativo</option>
-                        <option value="false">Inativados</option>
+                        <option value="all">-</option>
+                        <option value="true">Sim</option>
+                        <option value="false">Não</option>
                     </select>
                 </div>
                 <div class="nav-item active">
-                    <label for="selectOrder">Nível</label>
-                    <select name="order" id="selectOrder" class="form-control">
-                        <option value="all">Todos</option>
+                    <label for="selectOrder">@Html.DisplayNameFor(model => model.Order)</label>
+                    <select name="order" id="selectOrder" value="1" class="form-control">                        
                         @{
                             var orders = Enum.GetValues(typeof(Data.Models.Category.OrderView))
                                 .Cast<Data.Models.Category.OrderView>();
@@ -45,6 +49,10 @@
                     <label>&nbsp;</label>
                     <input type="submit" value="Filtrar" class="form-control" />
                 </div>
+                <div class="nav-item active">
+                    <label>&nbsp;</label>
+                    <input type="reset" value="Limpar filtros" class="form-control" />
+                </div>
             </nav>
         </div>
     </form>
@@ -55,7 +63,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NameView)
+                
+            </th>
+            <th>
+                Nome
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Order)
@@ -78,13 +89,17 @@
 
                 <tr>
                     <td>
+                        <a asp-area="adm" asp-action="Index" asp-route-parentCategoryId="@item.CategoryId">+</a>
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.NameView)
-
+                        
+                        <h6 class="text-info">@Html.DisplayFor(modelItem => item.PathView)</h6>
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Order)
                     </td>
-                    <td>
+                    <td>                         
                         <a asp-area="adm" asp-action="Edit" asp-route-id="@item.CategoryId">Edit</a> |
                         <a asp-area="adm" asp-action="Details" asp-route-id="@item.CategoryId">Details</a> |
                         <a asp-area="adm" asp-action="Delete" asp-route-id="@item.CategoryId">Delete</a>
@@ -107,14 +122,13 @@
             var searchParams = new URLSearchParams(queryString);
             var selectEnabled = document.getElementById('selectEnabled');
             var selectOrder = document.getElementById('selectOrder');
-            const defaultSelectedValue = 'all';
+            var inputName = document.getElementById('inputName');
+            const defaultSelectedValue = '-';
 
             selectEnabled.value = searchParams.get('enabled') ?? defaultSelectedValue;
-            selectOrder.value = searchParams.get('order') ?? defaultSelectedValue;
-
+            selectOrder.value = searchParams.get('order') ?? '1';            
+            inputName.value = searchParams.get('name') ?? '';
         });
-
-
     </script>
 
 }

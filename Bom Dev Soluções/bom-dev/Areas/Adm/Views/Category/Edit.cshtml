@@ -12,38 +12,34 @@
 <form asp-area="adm" asp-action="Edit">
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <input type="hidden" asp-for="CategoryId" />
             <input type="hidden" asp-for="DateCreated" />
             <input type="hidden" asp-for="Guid" />
+            <input type="hidden" asp-for="Path" />
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" onblur="refreshCategory();" />
                 <span asp-validation-for="Name" class="text-danger"></span>
-                <details>
-                    <summary>Em outros idiomas</summary>
-                    <p>No campo Nome, informe nome do idioma e nome da categoria neste padrão: </br>{"pt-Br":"Minha categoria", "en-Us":"My category"}</p>
-                </details>
+                @await Html.PartialAsync("_LanguageDetailsPartial")
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
+                @await Html.PartialAsync("_LanguageDetailsPartial")
             </div>
             <div class="form-group">
                 <label asp-for="Url" class="control-label"></label>
                 <input asp-for="Url" class="form-control" />
                 <span asp-validation-for="Url" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Enabled" class="control-label"></label>
-                <input asp-for="Enabled" class="form-control" />
-                <span asp-validation-for="Enabled" class="text-danger"></span>
-            </div>
+           
 
         </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="form-group">
                 <label asp-for="Index" class="control-label"></label>
                 <input asp-for="Index" class="form-control" checked="checked" />
@@ -65,15 +61,16 @@
                     }
                 </select>
             </div>
+
             <div id="divParentCategorySelect" class="form-group">
                 <label for="parentCategorySelect" class="control-label">Categoria pai</label>
                 <select id="parentCategorySelect" class="form-control selectDisabled" aria-disabled="true" name="ParentCategoryId" onchange="refreshCategory();" readonly>
                 </select>
             </div>
             <div class="form-group">
-                <label asp-for="Path" class="control-label"></label>
-                <input asp-for="Path" class="form-control" readonly />
-                <span asp-validation-for="Path" class="text-danger"></span>
+                <label asp-for="Enabled" class="control-label"></label>
+                <input asp-for="Enabled" class="form-control" />
+                <span asp-validation-for="Enabled" class="text-danger"></span>
             </div>
         </div>
     </div>

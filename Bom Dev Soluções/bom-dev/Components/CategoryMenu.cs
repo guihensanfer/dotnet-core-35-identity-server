@@ -25,7 +25,10 @@ namespace Bom_Dev.Components
             var cache = await _context.GetCacheObject(defaultKey, System.Globalization.CultureInfo.CurrentCulture.Name);
 
             if (cache == null)
+            {
                 cache = new CacheObject(defaultKey);
+                cache.Expiration = DateTime.Now.AddDays(7);
+            }                
 
             if (string.IsNullOrWhiteSpace(cache.Value))
             {

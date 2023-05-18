@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Data.Extensions;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -7,14 +9,7 @@ namespace Data.Models
 {
     public class Category
     {
-        public Category() {            
-        }
-
-        public Category(string nameView)
-        {
-            _nameView = nameView;
-        }
-
+     
         /// <summary>
         /// Adicione neste enum a quantidade desejada.
         /// </summary>
@@ -66,9 +61,7 @@ namespace Data.Models
         [Required]
         [StringLength(600)]
         [Display(Name = "Nome")]
-        public string Name { get; set; }
-
-        private string _nameView;
+        public string Name { get; set; }        
 
         /// <summary>
         /// Translated name
@@ -77,10 +70,22 @@ namespace Data.Models
         {
             get
             {
-                if (string.IsNullOrEmpty(_nameView))
-                    return Name;
+                var translation = Utility.TryParseTranslation(Name);
 
-                return _nameView;
+                return translation.ToNullableStringOrDefault(Name);
+            }
+        }
+
+        /// <summary>
+        /// Translated name
+        /// </summary>
+        public string DescriptionView
+        {
+            get
+            {
+                var translation = Utility.TryParseTranslation(Description);
+
+                return translation.ToNullableStringOrDefault(Description);
             }
         }
 
@@ -123,6 +128,36 @@ namespace Data.Models
         [Required]
         [Display(Name = "Endereço")]
         public string Path { get; set; }     
+
+        public string PathView
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(Path))
+                {
+                    return Path;
+                }
+
+                const char separator = '/';
+                var vs = Path.Split(separator);
+
+                if(vs != null && vs.Any())
+                {
+                    List<string> result = new List<string>();
+
+                    foreach(var item in vs)
+                    {
+                        var translate = Utility.TryParseTranslation(item);
+
+                        result.Add(translate);
+                    }
+
+                    return string.Join(separator, result);
+                }
+
+                return Path;
+            }
+        }
         
         public string GetPathByOrder(OrderView order)
         {

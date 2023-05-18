@@ -40,7 +40,7 @@ namespace Data.Repository
             await _context.SaveChangesAsync();
         }       
 
-        public async Task<IEnumerable<Category>> GetCategories(Optimization op = null, bool? enabled = null, List<Category.OrderView> order = null, int? parentCategoryId = null, string parentCategoryFromPath = null)
+        public async Task<IEnumerable<Category>> GetCategories(Optimization op = null, bool? enabled = null, List<Category.OrderView> order = null, int? parentCategoryId = null, string parentCategoryFromPath = null, string name = null)
         {
             IQueryable<Category> query = _context.Set<Category>().AsQueryable();
 
@@ -62,16 +62,17 @@ namespace Data.Repository
             {
                 query = query.Where(x => x.Path.StartsWith(parentCategoryFromPath));
             }
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                query = query.Where(x => x.Name.Contains(name));
+            }
 
             switch (op?.LoadedColumns)
             {
                 case Optimization.LoadedColumnsLevel.A:
-                    query = from s in query
-                            join t in _context.TranslationObject
-                            on new { ObjectGuid = s.Guid, Language = _currentLanguage } equals new { t.ObjectGuid, t.Language } into translations
-                            from translation in translations.DefaultIfEmpty()
+                    query = from s in query                                                        
                             orderby s.Path
-                            select new Category(translation == null ? s.Name : translation.Value)
+                            select new Category()
                             {
                                 CategoryId = s.CategoryId,
                                 Name = s.Name,
@@ -89,12 +90,9 @@ namespace Data.Repository
                     break;
 
                 case Optimization.LoadedColumnsLevel.B:
-                    query = from s in query
-                            join t in _context.TranslationObject
-                            on new {ObjectGuid = s.Guid, Language = _currentLanguage } equals new { t.ObjectGuid, t.Language} into translations
-                            from translation in translations.DefaultIfEmpty()
+                    query = from s in query                            
                             orderby s.Path
-                            select new Category(translation == null ? s.Name : translation.Value)
+                            select new Category()
                             {
                                 CategoryId = s.CategoryId,
                                 Name = s.Name,                                
@@ -109,12 +107,9 @@ namespace Data.Repository
 
                 case Optimization.LoadedColumnsLevel.C:
 
-                    query = from s in query
-                            join t in _context.TranslationObject
-                            on new { ObjectGuid = s.Guid, Language = _currentLanguage } equals new { t.ObjectGuid, t.Language } into translations
-                            from translation in translations.DefaultIfEmpty()
+                    query = from s in query                            
                             orderby s.Path
-                            select new Category(translation == null ? s.Name : translation.Value)
+                            select new Category()
                             {
                                 CategoryId = s.CategoryId,
                                 Name = s.Name,                                
@@ -148,45 +143,7 @@ namespace Data.Repository
                 }
                 category.Guid = Guid.NewGuid();
 
-                await _context.Set<Category>().AddAsync(category);
-
-                // If has others languages
-                if (Utility.IsValidJson(category.Name))
-                {
-                    try
-                    {
-                        Dictionary<string, string> translations = JsonConvert.DeserializeObject<Dictionary<string, string>>(category.Name);
-
-                        foreach(var lang in translations)
-                        {
-                            await SetTranslationObject(new TranslationObject()
-                            {
-                                CreatedDate = DateTime.Now,
-                                Language = lang.Key,
-                                Value = lang.Value,
-                                ObjectGuid = category.Guid                                
-                            });
-                        }                        
-                    }
-                    catch (Exception ex) {
-                        await InsertErrorLog(new ErrorLogs()
-                        {
-                            IpAddress = null,
-                            Language = _currentLanguage,
-                            Message = ex.Message,
-                            RequestMethod = null,
-                            RequestUrl = null,
-                            StackTrace = ex.StackTrace,
-                            Title = "15052023-InvalidTranslateJSONParse",
-                            UserAgent = null,
-                            UserId = null
-                        });
-                    }
-                }
-                else
-                {
-                    await DeleteTranslationObject(category.Guid);
-                }
+                await _context.Set<Category>().AddAsync(category);                
 
                 return await _context.SaveChangesAsync();
             }
@@ -225,34 +182,7 @@ namespace Data.Repository
                 }                
 
                 // Update new category data
-                _context.Set<Category>().Update(category);
-
-                // If has others languages
-                if (Utility.IsValidJson(category.Name))
-                {
-                    try
-                    {
-                        Dictionary<string, string> translations = JsonConvert.DeserializeObject<Dictionary<string, string>>(category.Name);
-
-                        foreach (var lang in translations)
-                        {
-                            await SetTranslationObject(new TranslationObject()
-                            {
-                                CreatedDate = DateTime.Now,
-                                Language = lang.Key,
-                                Value = lang.Value,
-                                ObjectGuid = category.Guid
-                            });
-                        }
-                    }
-                    catch(Exception ex) {
-                        
-                    }
-                }
-                else
-                {
-                    await DeleteTranslationObject(category.Guid);
-                }
+                _context.Set<Category>().Update(category);             
 
                 await _context.SaveChangesAsync();               
             }            
@@ -305,49 +235,7 @@ namespace Data.Repository
             return await Task.FromResult(0);
         }
 
-        #endregion
-
-        #region TranslationObject
-        public async Task<IEnumerable<TranslationObject>> GetTranslationObject(Guid objectGuid, string language = null)
-        {
-            bool languageHasValue = !string.IsNullOrWhiteSpace(language);
-
-            var result = from x in _context.Set<TranslationObject>()?.AsNoTracking()
-                         where x.ObjectGuid == objectGuid &&
-                         (!languageHasValue || x.Language.ToUpper() == language.ToUpper())
-                         select x;
-
-            return await result.ToListAsync();            
-        }
-
-
-
-        public async Task DeleteTranslationObject(Guid objectGuid, string language = null)
-        {
-            var obj = await GetTranslationObject(objectGuid, language);
-
-            if(obj != null && obj.Any())
-            {
-                _context.Set<TranslationObject>().RemoveRange(obj);
-
-                await _context.SaveChangesAsync();
-            }            
-        }
-
-        public async Task SetTranslationObject(TranslationObject translationObject)
-        {
-            if(translationObject != null)
-            {
-                // Remove old translations
-                await DeleteTranslationObject(translationObject.ObjectGuid, translationObject.Language);
-
-                // Add new
-                _context.Set<TranslationObject>().Add(translationObject);
-
-                await _context.SaveChangesAsync();
-            }
-        }
-        #endregion
+        #endregion        
 
         #region ErrorLogs
         public async Task InsertErrorLog([NotNullAttribute] ErrorLogs errorLog)
