@@ -1,7 +1,8 @@
 ﻿namespace Data.Models
 {    
     public class Optimization
-    {       
+    {
+        public const int SizePerPageDefault = 2;
         public enum LoadedColumnsLevel
         {
             A, // carrega todas as colunas possiveis
@@ -10,18 +11,25 @@
         }
 
         public Optimization() { }
-        public Optimization(LoadedColumnsLevel loadedColumnsLevel) {
-            this.LoadedColumns = loadedColumnsLevel;
+        public Optimization(LoadedColumnsLevel loadedColumnsLevel, int page, int sizePerPage = SizePerPageDefault) {
+            LoadedColumns = loadedColumnsLevel;
+            Page = page;
+            SizePerPage = sizePerPage;
         }
 
         /// <summary>
         /// Nota de resultados carregados possiveis.
         /// </summary>
-        public LoadedColumnsLevel LoadedColumns { get; set; } = LoadedColumnsLevel.A;        
+        public LoadedColumnsLevel LoadedColumns { get; set; } = LoadedColumnsLevel.A;
 
         /// <summary>
         /// Total de itens por resultado.
         /// </summary>
-        public short? Take { get; set; }
+        public int SizePerPage { get; set; } = SizePerPageDefault;
+
+        /// <summary>
+        /// Pagina que se quer ler.
+        /// </summary>
+        public int Page { get; set; } = 1;
     }
 }

@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<Data.Models.Category>
+@using Microsoft.AspNetCore.WebUtilities
+@using Microsoft.AspNetCore.Http.Extensions
 
 @{
     ViewData["Title"] = "Index";
@@ -10,7 +12,7 @@
 
         <div class="alert alert-danger" role="alert">
             @ViewData["errorMsg"]
-        </div>        
+        </div>
     }
     if (@ViewData["successMsg"] != null)
     {
@@ -22,14 +24,15 @@
 
 <h1>Categorias</h1>
 
-<p>
-    <a asp-area="Adm" asp-action="Create">Create New</a>
-</p>
-
 <div class="toolbar">
     <div class="dropdown">
-        <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g data-name="Layer 2"><path d="M13 23a10 10 0 1 1 10-10 10 10 0 0 1-10 10Zm0-18a8 8 0 1 0 8 8 8 8 0 0 0-8-8Z" fill="#000" class="fill-000000" /><path d="M28 29a1 1 0 0 1-.71-.29l-8-8a1 1 0 0 1 1.42-1.42l8 8a1 1 0 0 1 0 1.42A1 1 0 0 1 28 29Z" fill="#000" class="fill-000000" /></g><path d="M0 0h32v32H0z" fill="none" /></svg>
+        <a class="btn" asp-area="Adm" asp-action="Create">
+            Create New
+        </a>
+    </div>
+    <div class="dropdown">
+        <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Filtrar dados">
+            <img src="~/img/filter.png" alt="Filtrar dados" width="16" height="16" />
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <h6 class="dropdown-header">Pesquisar</h6>
@@ -83,7 +86,7 @@
 
 
     <div class="dropdown">
-        <button class="btn btn-secondary" type="button" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-secondary" type="button" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Exportar dados">
             <img src="~/img/excel.png" width="16" height="16" alt="Export to excel" />
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdown2">
@@ -155,6 +158,36 @@
 
     </tbody>
 </table>
+
+<nav>    
+    <ul class="pagination">
+        @{
+            int.TryParse(ViewData["totalPages"].ToString(), out int totalPages);
+            int.TryParse(ViewData["page"].ToString(), out int page);
+            // Obtenha a URL atual
+            var currentUrl = Context.Request.GetEncodedUrl();
+            // Analise a URL usando a classe Uri
+            var uri = new Uri(currentUrl);
+
+            // Obtenha a coleção de consultas da URL
+            var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
+
+            for (int i = 1; i <= totalPages; i++)
+            {
+                // Remova o parâmetro específico
+                query.Remove("page");
+                query.Add("page", i.ToString());
+
+                // Construa a nova URL sem o parâmetro removido
+                var newUrl = $"{uri.GetLeftPart(UriPartial.Path)}?{query}";
+                <li class="page-item @(i == page ? "active" : "")">
+                    <a class="page-link" href ="@newUrl">@i</a>
+                </li>
+            }
+        }
+    </ul>    
+</nav>
+
 @section Scripts {
 
     <script>

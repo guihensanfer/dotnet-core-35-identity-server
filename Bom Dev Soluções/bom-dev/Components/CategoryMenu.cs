@@ -32,19 +32,19 @@ namespace Bom_Dev.Components
 
             if (string.IsNullOrWhiteSpace(cache.Value))
             {
-                var categories = await _context.GetCategories(new Optimization(Optimization.LoadedColumnsLevel.A), true,
+                var categories = await _context.GetCategories(new Optimization(Optimization.LoadedColumnsLevel.A, 1), true,
                     new List<Category.OrderView>() { 
                         Category.OrderView.First,
                         Category.OrderView.Second
                     });
-                var categoriesFirstOrder = categories.Where(x => x.Order == Category.OrderView.First)
+                var categoriesFirstOrder = categories.Items.Where(x => x.Order == Category.OrderView.First)
                     .OrderBy(x => x.Index);
                 StringBuilder sb = new StringBuilder();
                 
                 // first order
                 foreach(var c1 in categoriesFirstOrder)
                 {
-                    var categoriesSecondOrder = categories
+                    var categoriesSecondOrder = categories.Items
                          .Where(x => x.ParentCategoryId == c1.CategoryId)
                          .OrderBy(x => x.Index);
 

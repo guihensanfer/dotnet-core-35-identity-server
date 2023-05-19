@@ -25,7 +25,7 @@ namespace Bom_Dev.Controllers
                 // Para obter o nível acima                
                 Category.OrderView order = (Category.OrderView)len + 1;                
 
-                var result = await _context.GetCategories(new Optimization(Optimization.LoadedColumnsLevel.C), 
+                var result = await _context.GetCategories(new Optimization(Optimization.LoadedColumnsLevel.C, 1), 
                     true, 
                     new System.Collections.Generic.List<Category.OrderView>() { order }, // Somente nivel +1 a frente
                     null, 

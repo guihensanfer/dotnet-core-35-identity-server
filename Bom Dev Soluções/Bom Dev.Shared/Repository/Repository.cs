@@ -40,7 +40,7 @@ namespace Data.Repository
             await _context.SaveChangesAsync();
         }       
 
-        public async Task<IEnumerable<Category>> GetCategories(Optimization op = null, bool? enabled = null, List<Category.OrderView> order = null, int? parentCategoryId = null, string parentCategoryFromPath = null, string name = null)
+        public async Task<PagedListResult<Category>> GetCategories(Optimization op, bool? enabled = null, List<Category.OrderView> order = null, int? parentCategoryId = null, string parentCategoryFromPath = null, string name = null)
         {
             IQueryable<Category> query = _context.Set<Category>().AsQueryable();
 
@@ -67,65 +67,81 @@ namespace Data.Repository
                 query = query.Where(x => x.Name.Contains(name));
             }
 
+            // Count of all possible results without considering filters
+            int totalItems = query.AsNoTracking().Count();
+
             switch (op?.LoadedColumns)
             {
                 case Optimization.LoadedColumnsLevel.A:
-                    query = from s in query                                                        
-                            orderby s.Index
-                            select new Category()
-                            {
-                                CategoryId = s.CategoryId,
-                                Name = s.Name,
-                                Order = s.Order,
-                                Path = s.Path,
-                                DateCreated = s.DateCreated,
-                                ParentCategoryId = s.ParentCategoryId,
-                                Url = s.Url,
-                                Index = s.Index,
-                                Guid = s.Guid,
-                                Enabled = s.Enabled,
-                                Description = s.Description
-                            };
+                    query = query
+                        .Skip((op.Page - 1) * op.SizePerPage)
+                        .Take(op.SizePerPage)
+                        .Select(s => new Category()
+                        {
+                            CategoryId = s.CategoryId,
+                            Name = s.Name,
+                            Order = s.Order,
+                            Path = s.Path,
+                            DateCreated = s.DateCreated,
+                            ParentCategoryId = s.ParentCategoryId,
+                            Url = s.Url,
+                            Index = s.Index,
+                            Guid = s.Guid,
+                            Enabled = s.Enabled,
+                            Description = s.Description
+                        });
 
                     break;
 
                 case Optimization.LoadedColumnsLevel.B:
-                    query = from s in query                            
-                            orderby s.Index
-                            select new Category()
-                            {
-                                CategoryId = s.CategoryId,
-                                Name = s.Name,                                
-                                Order = s.Order,
-                                Path = s.Path,
-                                DateCreated = s.DateCreated,
-                                ParentCategoryId = s.ParentCategoryId,
-                                Url = s.Url,
-                                Enabled = s.Enabled
-                            };                                               
+                    query = query
+                        .Skip((op.Page - 1) * op.SizePerPage)
+                        .Take(op.SizePerPage)
+                        .Select(s => new Category()
+                        {
+                            CategoryId = s.CategoryId,
+                            Name = s.Name,
+                            Order = s.Order,
+                            Path = s.Path,
+                            DateCreated = s.DateCreated,
+                            ParentCategoryId = s.ParentCategoryId,
+                            Url = s.Url,
+                            Enabled = s.Enabled
+                        });
 
                     break;
 
                 case Optimization.LoadedColumnsLevel.C:
 
-                    query = from s in query                            
-                            orderby s.Index
-                            select new Category()
-                            {
-                                CategoryId = s.CategoryId,
-                                Name = s.Name,                                
-                                Order = s.Order,
-                                Path = s.Path,
-                                Url = s.Url,
-                                Enabled = s.Enabled
-                            };
+                    query = query
+                        .Skip((op.Page - 1) * op.SizePerPage)
+                        .Take(op.SizePerPage)
+                        .Select(s => new Category()
+                        {
+                            CategoryId = s.CategoryId,
+                            Name = s.Name,
+                            Order = s.Order,
+                            Path = s.Path,
+                            Url = s.Url,
+                            Enabled = s.Enabled
+                        });
 
                     break;
             }
-
-            return await query
+            
+            int totalPages = (int)Math.Ceiling(totalItems / (double)op.SizePerPage);
+            var data = await query
                 .AsNoTracking()
                 .ToListAsync();
+
+            return new PagedListResult<Category>
+            {
+                Items = data.OrderBy(x => x.Index),
+                PageNumber = op.Page,
+                PageSize = op.SizePerPage,
+                TotalItems = totalItems,
+                TotalPages = totalPages
+            }; 
         }        
 
         public async Task<Category> GetCategoryById(int categoryId)

@@ -12,7 +12,7 @@ namespace Data.Interface
         public Task<int> InsertCategory([NotNullAttribute] Category category);
         public Task UpdateCategory([NotNullAttribute] Category category);
         public Task DeleteCategory(int categoryId);
-        public Task<IEnumerable<Category>> GetCategories(Optimization op = null, bool? enabled = null, List<Category.OrderView> order = null, int? parentCategoryId = null, string parentCategoryFromPath = null, string name = null);        
+        public Task<PagedListResult<Category>> GetCategories(Optimization op = null, bool? enabled = null, List<Category.OrderView> order = null, int? parentCategoryId = null, string parentCategoryFromPath = null, string name = null);        
         public Task<Category> GetCategoryById(int categoryId);
         public Task<bool> ExistsParentCategory(int categoryId);
         public Task<bool> ExistsCategoryByName(string name);
