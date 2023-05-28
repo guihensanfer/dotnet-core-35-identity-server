@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 
@@ -71,7 +72,7 @@ namespace Data.Models
         {
             get
             {
-                var translation = Utility.TryParseTranslation(Name);
+                var translation = SupportedCultures.TryParseTranslation(Name);
 
                 return translation.ToNullableStringOrDefault(Name);
             }
@@ -84,7 +85,7 @@ namespace Data.Models
         {
             get
             {
-                var translation = Utility.TryParseTranslation(Description);
+                var translation = SupportedCultures.TryParseTranslation(Description);
 
                 return translation.ToNullableStringOrDefault(Description);
             }
@@ -130,39 +131,36 @@ namespace Data.Models
         [Display(Name = "Endereço")]
         public string Path { get; set; }     
 
-        public string PathView
+        public string PathView(CultureInfo culture = null)
         {
-            get
+            if (string.IsNullOrWhiteSpace(Path))
             {
-                if (string.IsNullOrWhiteSpace(Path))
-                {
-                    return Path;
-                }
-
-                const char separator = '/';              
-                var vs = Path.Split(separator);
-
-                if(vs != null && vs.Any())
-                {
-                    var result = new StringBuilder();
-
-                    foreach(var item in vs)
-                    {
-                        var translate = Utility.TryParseTranslation(item);
-
-                        result.Append(translate);
-                        result.Append(separator);
-                    }
-
-                    if (result.Length > 0)
-                    {                        
-                        result.Length--; // Remove o último separador
-                        return result.ToString();
-                    }
-                }
-
                 return Path;
             }
+
+            const char separator = '/';
+            var vs = Path.Split(separator);
+
+            if (vs != null && vs.Any())
+            {
+                var result = new StringBuilder();
+
+                foreach (var item in vs)
+                {
+                    string translate = SupportedCultures.TryParseTranslation(item, culture);                
+
+                    result.Append(translate);
+                    result.Append(separator);
+                }
+
+                if (result.Length > 0)
+                {
+                    result.Length--; // Remove o último separador
+                    return result.ToString();
+                }
+            }
+
+            return Path;
         }
         
         public string GetPathByOrder(OrderView order)

@@ -2,6 +2,7 @@ using Bom_Dev.Models;
 using Data.Context;
 using Data.Identity;
 using Data.Interface;
+using Data.Models;
 using Data.Repository;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;

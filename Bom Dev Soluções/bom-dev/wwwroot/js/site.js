@@ -42,7 +42,7 @@ function loadingClose() {
     loading.fadeOut();
 }
 
-function gerarTrilhaDeNavegacao(pathStr, pathToBack) {
+function gerarTrilhaDeNavegacao(categoryId, pathStr, pathToBack) {
     var niveis = pathStr.split('/');
     const items = [];
 
@@ -50,7 +50,7 @@ function gerarTrilhaDeNavegacao(pathStr, pathToBack) {
         if (i === niveis.length - 1) {
             items.push('<li class="breadcrumb-item active" aria-current="page">' + niveis[i] + '</li>');
         } else if (i === niveis.length - 2) {
-            items.push('<li class="breadcrumb-item"><a href="#" onclick=\"menuShowCategories(\'' + pathToBack + '\', this); return false;\">' + niveis[i] + '</a></li>');
+            items.push('<li class="breadcrumb-item"><a href="#" onclick=\"menuShowCategories(' + categoryId + ',\'' + pathToBack + '\', this, null); return false;\">' + niveis[i] + '</a></li>');
         }
     }
 
@@ -58,14 +58,14 @@ function gerarTrilhaDeNavegacao(pathStr, pathToBack) {
 }
 
 
-function menuShowCategories(path, sender) {
+function menuShowCategories(categoryId, path, sender, backCategoryId) {
     const parent = sender.closest('.dropdown-menu');
     const loading = loadingShow();
 
     $.ajax({
         type: 'POST',
-        url: '/ViewComponent/GetCategoriesByParentIdFromPath',
-        data: jQuery.param({ path }),
+        url: '/ViewComponent/GetCategoriesByParentId',
+        data: jQuery.param({ parentCategoryId: categoryId }),
         cache: false,
         success: (categories) => {
             let first = true;
@@ -78,19 +78,19 @@ function menuShowCategories(path, sender) {
             if (penultimo <= 0) {
                 // chegou na raiz onde não tem mais categorias filhos
                 first = false;
-                html = gerarTrilhaDeNavegacao(path, null);
+                html = gerarTrilhaDeNavegacao(backCategoryId, path, categoryId);
             }
 
             if (first) {
                 const antepenultimo = arr.slice(0, -1);
                 const stringPenultimo = antepenultimo.join("/");
-                html = gerarTrilhaDeNavegacao(path, stringPenultimo);
+                html = gerarTrilhaDeNavegacao(backCategoryId,path, stringPenultimo);
             }
 
-            categories.forEach(({ name, path: pathItem, url }) => {
+            categories.forEach(({ categoryId: categoryIdItem, name, path: pathItem, url, parentCategoryId }) => {
                 if (url === null || url === '') {
                     html += `
-                        <a class="dropdown-item" onclick="menuShowCategories('${pathItem}', this);return false;" href="#">
+                        <a class="dropdown-item" onclick="menuShowCategories(${categoryIdItem},'${pathItem}', this,${parentCategoryId});return false;" href="#">
                           ${name}</span>
                         </a>`;
                 } else {

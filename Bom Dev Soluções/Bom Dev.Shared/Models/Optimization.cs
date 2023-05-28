@@ -2,7 +2,7 @@
 {    
     public class Optimization
     {
-        public const int SizePerPageDefault = 2;
+        public const int SizePerPageDefault = 15;
         public enum LoadedColumnsLevel
         {
             A, // carrega todas as colunas possiveis
@@ -28,7 +28,7 @@
         public int SizePerPage { get; set; } = SizePerPageDefault;
 
         /// <summary>
-        /// Pagina que se quer ler.
+        /// Página que se quer ler.
         /// </summary>
         public int Page { get; set; } = 1;
     }

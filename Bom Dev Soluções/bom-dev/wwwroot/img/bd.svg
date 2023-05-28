@@ -2,42 +2,50 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="36.983269mm"
-   height="9.1224403mm"
-   viewBox="0 0 36.983268 9.1224404"
+   width="37.073982mm"
+   height="8.5586214mm"
+   viewBox="0 0 37.073981 8.5586216"
    version="1.1"
    id="svg474"
    inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
    sodipodi:docname="bd.svg"
-   inkscape:export-filename="bd.png"
-   inkscape:export-xdpi="61.811737"
-   inkscape:export-ydpi="61.811737"
+   inkscape:export-filename="bd2.png"
+   inkscape:export-xdpi="58.234913"
+   inkscape:export-ydpi="58.234913"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
      id="namedview476"
-     pagecolor="#ffffff"
+     pagecolor="#aeaeae"
      bordercolor="#000000"
      borderopacity="0.25"
      inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
+     inkscape:pageopacity="0"
      inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
+     inkscape:deskcolor="#c5c5c5"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="3.7415826"
-     inkscape:cx="79.244542"
-     inkscape:cy="19.510461"
+     inkscape:zoom="3.9526339"
+     inkscape:cx="65.778923"
+     inkscape:cy="41.997312"
      inkscape:window-width="1366"
      inkscape:window-height="705"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="text1508"
+     showguides="false" />
   <defs
      id="defs471">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : -4.028985 : 1"
+       inkscape:vp_y="0 : 1000.0001 : 0"
+       inkscape:vp_z="36.983271 : -4.028985 : 1"
+       inkscape:persp3d-origin="18.491634 : -5.5493917 : 1"
+       id="perspective1468" />
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath809">
@@ -51,30 +59,41 @@
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-142.84397,-107.98112)">
+     transform="translate(-143.07996,-108.19689)">
     <g
        aria-label="B"
        id="text4537"
        style="font-size:52.9167px;font-family:'Varela Round';-inkscape-font-specification:'Varela Round';fill:#ff0000;stroke:none;stroke-width:20;stroke-linecap:round;stroke-dasharray:none;paint-order:stroke markers fill"
        transform="translate(0.56576286,3.0475987)" />
-    <path
-       id="rect2927"
-       style="fill:#ffffff;stroke:none;stroke-width:2.6846;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:fill markers stroke"
-       d="M 142.84397 107.98112 L 142.84397 117.10356 L 179.82724 117.10356 L 179.82724 109.25443 L 179.74559 109.25443 L 179.74559 110.08125 L 177.4894 110.08125 L 177.4894 107.98112 L 142.84397 107.98112 z "
-       inkscape:export-filename="bd.png"
-       inkscape:export-xdpi="54.943764"
-       inkscape:export-ydpi="54.943764" />
-    <text
-       xml:space="preserve"
-       style="font-size:8.61128px;font-family:'Clicker Script';-inkscape-font-specification:'Clicker Script';fill:#000000;stroke:#000000;stroke-width:0.678054;stroke-linecap:round;stroke-dasharray:none;paint-order:stroke markers fill"
-       x="144.57356"
-       y="113.67902"
+    <g
+       aria-label="bomdev"
+       transform="rotate(0.709189)"
        id="text1508"
-       transform="rotate(0.709189)"><tspan
-         sodipodi:role="line"
-         id="tspan1506"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.61128px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.678054;stroke-dasharray:none"
-         x="144.57356"
-         y="113.67902">bomdev</tspan></text>
+       style="font-size:8.61128px;font-family:'Clicker Script';-inkscape-font-specification:'Clicker Script';fill:#ffffff;stroke:#ffffff;stroke-width:0.678054;stroke-linecap:round;paint-order:stroke markers fill">
+      <path
+         d="m 145.26734,113.67902 v -6.34072 h 0.58446 v 2.55226 q 0.37002,-0.45411 0.82833,-0.67696 0.45832,-0.22705 1.00493,-0.22705 0.97129,0 1.65666,0.70639 0.68958,0.70219 0.68958,1.70712 0,0.99232 -0.69378,1.69451 -0.69378,0.70219 -1.66928,0.70219 -0.55923,0 -1.01334,-0.23967 -0.45411,-0.23967 -0.8031,-0.71901 v 0.84094 z m 2.35465,-0.4499 q 0.49195,0 0.90822,-0.23967 0.41627,-0.24388 0.66014,-0.68117 0.24808,-0.43729 0.24808,-0.92504 0,-0.48775 -0.24808,-0.92924 -0.24808,-0.4415 -0.66855,-0.68537 -0.41627,-0.24808 -0.8914,-0.24808 -0.48354,0 -0.92084,0.24808 -0.43308,0.24387 -0.66855,0.66014 -0.23126,0.41627 -0.23126,0.93765 0,0.7947 0.52139,1.3287 0.52559,0.534 1.29085,0.534 z"
+         style="font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';stroke-dasharray:5.42399979, 0.67799997;stroke-dashoffset:0;stroke:#000000;stroke-opacity:1;stroke-width:0.678;stroke-linecap:butt;stroke-linejoin:miter;paint-order:fill markers stroke;fill:#008080"
+         id="path16545" />
+      <path
+         d="m 153.26894,108.98655 q 1.05538,0 1.74916,0.76526 0.63071,0.69798 0.63071,1.65246 0,0.95867 -0.66855,1.67768 -0.66435,0.71481 -1.71132,0.71481 -1.05118,0 -1.71974,-0.71481 -0.66434,-0.71901 -0.66434,-1.67768 0,-0.95027 0.63071,-1.64826 0.69378,-0.76946 1.75337,-0.76946 z m 0,0.57605 q -0.73162,0 -1.25722,0.54241 -0.52559,0.54241 -0.52559,1.31187 0,0.49616 0.23967,0.92504 0.23967,0.42888 0.64753,0.66435 0.40786,0.23126 0.89561,0.23126 0.48775,0 0.8956,-0.23126 0.40786,-0.23547 0.64753,-0.66435 0.23967,-0.42888 0.23967,-0.92504 0,-0.76946 -0.52979,-1.31187 -0.52559,-0.54241 -1.25301,-0.54241 z"
+         style="font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';stroke-dasharray:5.42399979, 0.67799997;stroke-dashoffset:0;stroke:#000000;stroke-opacity:1;stroke-width:0.678;stroke-linecap:butt;stroke-linejoin:miter;paint-order:fill markers stroke;fill:#008080"
+         id="path16547" />
+      <path
+         d="m 156.73784,109.10428 h 0.58446 v 0.79049 q 0.30694,-0.43729 0.6307,-0.63912 0.44571,-0.2691 0.93766,-0.2691 0.33217,0 0.63071,0.13035 0.29853,0.13034 0.48775,0.34899 0.18921,0.21444 0.32796,0.61809 0.29433,-0.5382 0.73583,-0.81571 0.4415,-0.28172 0.95027,-0.28172 0.47513,0 0.83674,0.23967 0.36581,0.23967 0.54241,0.66855 0.1766,0.42888 0.1766,1.28665 v 2.4976 h -0.60128 v -2.4976 q 0,-0.73583 -0.10512,-1.00914 -0.10511,-0.27751 -0.3616,-0.4457 -0.25229,-0.16819 -0.60548,-0.16819 -0.42888,0 -0.78629,0.25229 -0.35319,0.25228 -0.51718,0.67275 -0.16398,0.42047 -0.16398,1.40438 v 1.79121 h -0.58446 v -2.34203 q 0,-0.82833 -0.10512,-1.12266 -0.10091,-0.29854 -0.3574,-0.47514 -0.25649,-0.1808 -0.60968,-0.1808 -0.40786,0 -0.76527,0.24808 -0.35319,0.24387 -0.52559,0.66014 -0.16818,0.41627 -0.16818,1.27403 v 1.93838 h -0.58446 z"
+         style="font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';stroke-dasharray:5.42399979, 0.67799997;stroke-dashoffset:0;stroke:#000000;stroke-opacity:1;stroke-width:0.678;stroke-linecap:butt;stroke-linejoin:miter;paint-order:fill markers stroke;fill:#008080"
+         id="path16549" />
+      <path
+         d="m 169.38566,107.3383 v 6.34072 h -0.58026 v -0.78628 q -0.37001,0.44991 -0.83253,0.67696 -0.45832,0.22706 -1.00493,0.22706 -0.97129,0 -1.66087,-0.70219 -0.68537,-0.7064 -0.68537,-1.71553 0,-0.98811 0.69378,-1.6903 0.69378,-0.70219 1.66928,-0.70219 0.56343,0 1.01754,0.23967 0.45832,0.23967 0.8031,0.71901 v -2.60693 z m -2.35465,2.21589 q -0.49195,0 -0.90822,0.24387 -0.41627,0.23967 -0.66435,0.67696 -0.24387,0.43729 -0.24387,0.92504 0,0.48355 0.24808,0.92504 0.24807,0.4415 0.66434,0.68958 0.42048,0.24387 0.89981,0.24387 0.48355,0 0.91663,-0.24387 0.43309,-0.24388 0.66435,-0.66015 0.23547,-0.41626 0.23547,-0.93765 0,-0.79469 -0.52559,-1.32869 -0.52139,-0.534 -1.28665,-0.534 z"
+         style="font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';stroke-dasharray:5.42399979, 0.67799997;stroke-dashoffset:0;stroke:#000000;stroke-opacity:1;stroke-width:0.678;stroke-linecap:butt;stroke-linejoin:miter;paint-order:fill markers stroke;fill:#008080"
+         id="path16551" />
+      <path
+         d="m 174.57008,112.16112 0.49616,0.26069 q -0.24387,0.47934 -0.56343,0.77367 -0.31956,0.29433 -0.71901,0.44991 -0.39945,0.15137 -0.90402,0.15137 -1.11845,0 -1.74916,-0.73163 -0.63071,-0.73582 -0.63071,-1.66086 0,-0.87038 0.534,-1.55155 0.67696,-0.86617 1.81224,-0.86617 1.16891,0 1.86689,0.8872 0.49616,0.6265 0.50457,1.56415 h -4.11222 q 0.0168,0.7989 0.50877,1.31188 0.49195,0.50877 1.21517,0.50877 0.34899,0 0.67696,-0.12194 0.33217,-0.12193 0.56343,-0.32376 0.23126,-0.20183 0.50036,-0.65173 z m 0,-1.23199 q -0.11773,-0.47093 -0.34478,-0.75264 -0.22285,-0.28172 -0.59287,-0.45411 -0.37002,-0.1724 -0.77788,-0.1724 -0.67275,0 -1.15629,0.43309 -0.3532,0.31535 -0.53401,0.94606 z"
+         style="font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';stroke-dasharray:5.42399979, 0.67799997;stroke-dashoffset:0;stroke:#000000;stroke-opacity:1;stroke-width:0.678;stroke-linecap:butt;stroke-linejoin:miter;paint-order:fill markers stroke;fill:#008080"
+         id="path16553" />
+      <path
+         d="m 175.88196,109.10428 h 0.6265 l 1.53052,3.33014 1.51791,-3.33014 h 0.63071 l -2.09396,4.57474 h -0.10511 z"
+         style="font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';stroke-dasharray:5.42399979, 0.67799997;stroke-dashoffset:0;stroke:#000000;stroke-opacity:1;stroke-width:0.678;stroke-linecap:butt;stroke-linejoin:miter;paint-order:fill markers stroke;fill:#008080"
+         id="path16555" />
+    </g>
   </g>
 </svg>

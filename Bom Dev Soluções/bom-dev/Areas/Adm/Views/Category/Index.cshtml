@@ -20,11 +20,22 @@
             @ViewData["successMsg"]
         </div>
     }
+    
 }
 
 <h1>Categorias</h1>
 
 <div class="toolbar">
+    @{
+        if (Context.Request.QueryString.HasValue)
+        {
+        <div class="dropdown">
+            <a class="btn" href="#" onclick="history.back()" title="Voltar">
+                <img src="~/img/back.png" alt="Back" width="16" height="16" />
+            </a>
+        </div>
+        }
+    }    
     <div class="dropdown">
         <a class="btn" asp-area="Adm" asp-action="Create">
             Create New
@@ -137,7 +148,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.NameView)
 
-                        <h6 class="text-info">@Html.DisplayFor(modelItem => item.PathView)</h6>
+                        <h6 class="text-info">@item.PathView()</h6>
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Enabled)
@@ -159,7 +170,7 @@
     </tbody>
 </table>
 
-<nav>    
+<nav>
     <ul class="pagination">
         @{
             int.TryParse(ViewData["totalPages"].ToString(), out int totalPages);
@@ -181,11 +192,11 @@
                 // Construa a nova URL sem o parâmetro removido
                 var newUrl = $"{uri.GetLeftPart(UriPartial.Path)}?{query}";
                 <li class="page-item @(i == page ? "active" : "")">
-                    <a class="page-link" href ="@newUrl">@i</a>
+                    <a class="page-link" href="@newUrl">@i</a>
                 </li>
             }
         }
-    </ul>    
+    </ul>
 </nav>
 
 @section Scripts {

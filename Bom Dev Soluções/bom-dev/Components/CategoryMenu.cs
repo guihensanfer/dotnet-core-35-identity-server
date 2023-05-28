@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Html;
 using System.Linq;
 using System.Collections.Generic;
 using System;
+using System.Web;
 
 namespace Bom_Dev.Components
 {
@@ -32,7 +33,7 @@ namespace Bom_Dev.Components
 
             if (string.IsNullOrWhiteSpace(cache.Value))
             {
-                var categories = await _context.GetCategories(new Optimization(Optimization.LoadedColumnsLevel.A, 1), true,
+                var categories = await _context.GetCategories(new Optimization(Optimization.LoadedColumnsLevel.A, 1, 200), true,
                     new List<Category.OrderView>() { 
                         Category.OrderView.First,
                         Category.OrderView.Second
@@ -57,7 +58,7 @@ namespace Bom_Dev.Components
                     }                    
                     else
                     {
-                        sb.AppendFormat("  <a href=\"{1}\" class=\"btn btn-secondary\">", c1.CategoryId, c1.Url);
+                        sb.AppendFormat("  <a href=\"{0}\" class=\"btn btn-secondary\">", c1.Url);
                         sb.Append(c1.NameView);
                         sb.Append("  </a>");
                     }
@@ -74,10 +75,12 @@ namespace Bom_Dev.Components
                     foreach (var c2 in categoriesSecondOrder)
                     {
                         if (string.IsNullOrEmpty(c2.Url))
-                        {
-                            sb.AppendFormat("    <a class=\"dropdown-item\" onclick=\"menuShowCategories('{1}', this)\" href=\"#\">{0}</a>",
+                        {                                                                          
+                            sb.AppendFormat("    <a class=\"dropdown-item\" onclick=\"menuShowCategories({2},'{1}', this, {3})\" href=\"#\">{0}</a>",
                             c2.NameView,
-                            c2.Path);
+                            c2.PathView(),
+                            c2.CategoryId,
+                            c2.ParentCategoryId);
                         }
                         else
                         {

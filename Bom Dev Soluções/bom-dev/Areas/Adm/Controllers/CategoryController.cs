@@ -1,4 +1,5 @@
 ﻿using Bom_Dev.Areas.Adm.Models;
+using Bom_Dev.Models;
 using Data.Extensions;
 using Data.Identity;
 using Data.Interface;
@@ -86,7 +87,7 @@ namespace Bom_Dev.Areas.Adm.Controllers
                 {
                     Name = x.NameView,
                     Order = (int)x.Order,
-                    Path = x.PathView,
+                    Path = x.PathView(),
                     Enabled = x.Enabled,
                     Url = x.Url
                 }).ToList();
@@ -184,7 +185,7 @@ namespace Bom_Dev.Areas.Adm.Controllers
                 }
 
                 category.Name = category.Name.Trim();
-                category.Description = category.Description?.Trim();
+                category.Description = category.Description?.Trim();                
 
                 await _context.InsertCategory(category);
 
@@ -225,7 +226,7 @@ namespace Bom_Dev.Areas.Adm.Controllers
             {
                 category.Name = category.Name.Trim();
                 category.Description = category.Description?.Trim();
-
+                
                 try
                 {
                     await _context.UpdateCategory(category);
