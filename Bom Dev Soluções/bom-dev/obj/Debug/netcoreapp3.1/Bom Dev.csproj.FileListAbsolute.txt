@@ -526,3 +526,11 @@ C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcore
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Views.Shared._Layout.pt-BR.resources
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Areas.Adm.Views.Shared._Layout.en-US.resources
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Areas.Adm.Views.Shared._Layout.pt-BR.resources
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Views.Shared._LoginPartial.en-US.resources
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Views.Shared._LoginPartial.pt-BR.resources
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Views.Shared._ProgressPartial.en-US.resources
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Views.Shared._ProgressPartial.pt-BR.resources
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Views.Shared.Error.en-US.resources
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Views.Shared.Error.pt-BR.resources
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Views.Shared._SelectLanguagePartial.en-US.resources
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Views.Shared._SelectLanguagePartial.pt-BR.resources

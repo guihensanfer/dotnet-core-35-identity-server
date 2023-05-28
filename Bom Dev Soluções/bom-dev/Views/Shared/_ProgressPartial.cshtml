@@ -1,3 +1,5 @@
-﻿<div id="divProgress" style="display:none;">
-    <img src="~/img/loading.gif" alt="Carregando..." />
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+<div id="divProgress" style="display:none;">
+    <img src="~/img/loading.gif" alt="@Localizer["DOMAltDescription"]" title="@Localizer["DOMAltDescription"]" />
 </div>
