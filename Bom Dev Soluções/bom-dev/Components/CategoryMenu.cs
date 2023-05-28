@@ -76,7 +76,7 @@ namespace Bom_Dev.Components
                     {
                         if (string.IsNullOrEmpty(c2.Url))
                         {                                                                          
-                            sb.AppendFormat("    <a class=\"dropdown-item\" onclick=\"menuShowCategories({2},'{1}', this, {3})\" href=\"#\">{0}</a>",
+                            sb.AppendFormat("    <a class=\"dropdown-item\" onclick=\"menuShowCategories({2},'{1}', this, {3}, event)\" href=\"#\">{0}</a>",
                             c2.NameView,
                             c2.PathView(),
                             c2.CategoryId,

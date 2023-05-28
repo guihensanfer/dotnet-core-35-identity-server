@@ -50,15 +50,27 @@ function gerarTrilhaDeNavegacao(categoryId, pathStr, pathToBack) {
         if (i === niveis.length - 1) {
             items.push('<li class="breadcrumb-item active" aria-current="page">' + niveis[i] + '</li>');
         } else if (i === niveis.length - 2) {
-            items.push('<li class="breadcrumb-item"><a href="#" onclick=\"menuShowCategories(' + categoryId + ',\'' + pathToBack + '\', this, null); return false;\">' + niveis[i] + '</a></li>');
+            items.push('<li class="breadcrumb-item"><a href="#" onclick=\"handleClick(event); menuShowCategories(' + categoryId + ',\'' + pathToBack + '\', this, null, event); return false;\">' + niveis[i] + '</a></li>');
         }
     }
 
     return '<nav aria-label="breadcrumb" class="menuBreadcrumb"><ol class="breadcrumb">' + items.join('') + '</ol></nav>';
 }
 
+function handleClick(e, id) {
+    // console.log("e.Target", e.currentTarget.textContent);
+    console.log("e.Target", e);
+    e.stopPropagation(); // Or e.preventDefault();
+}
 
-function menuShowCategories(categoryId, path, sender, backCategoryId) {
+//$("#teste .dropdown-item").click(function (e) {
+//    e.stopPropagation();
+//});
+
+function menuShowCategories(categoryId, path, sender, backCategoryId, e) {    
+    e.stopPropagation();
+    e.preventDefault();
+
     const parent = sender.closest('.dropdown-menu');
     const loading = loadingShow();
 
@@ -90,7 +102,7 @@ function menuShowCategories(categoryId, path, sender, backCategoryId) {
             categories.forEach(({ categoryId: categoryIdItem, name, path: pathItem, url, parentCategoryId }) => {
                 if (url === null || url === '') {
                     html += `
-                        <a class="dropdown-item" onclick="menuShowCategories(${categoryIdItem},'${pathItem}', this,${parentCategoryId});return false;" href="#">
+                        <a class="dropdown-item" onclick="menuShowCategories(${categoryIdItem},'${pathItem}', this,${parentCategoryId}, event);return false;" href="#">
                           ${name}</span>
                         </a>`;
                 } else {
@@ -102,8 +114,8 @@ function menuShowCategories(categoryId, path, sender, backCategoryId) {
         },
         error: () => { },
         complete: () => {
-            loadingClose(loading);
-            parent.previousElementSibling.click();
+            loadingClose(loading);            
+            //parent.previousElementSibling.click();
         },
     });
 }
