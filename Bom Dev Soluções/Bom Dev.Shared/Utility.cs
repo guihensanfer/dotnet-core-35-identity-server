@@ -1,7 +1,6 @@
 ﻿using ClosedXML.Excel;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,14 +8,13 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Data
 {
     public class Utility
     {
-        public const string copyright = "(c) Copyright 2021 Bom Dev. Todos os direitos reservados.";
+        public const string ProjectViewName = "Bomdev";        
 
         public static bool IsValidJson(string input)
         {

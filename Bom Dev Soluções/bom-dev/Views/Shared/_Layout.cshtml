@@ -1,9 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Bom Dev</title>
+    <title>@ViewData["Title"] - @Data.Utility.ProjectViewName</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
@@ -32,7 +34,7 @@
         <!--</nav>-->
         <nav id="menu" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light">
             @*<div class="container-fluid">*@
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" title="Bom Dev">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" title="@Data.Utility.ProjectViewName">
                 <img src="/img/bd2.png" alt="bomdev">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -51,18 +53,18 @@
     <main role="main" class="pb-3">
         <div class="containerAfter">
             @RenderBody()
-        </div>        
+        </div>
         <partial name="_ProgressPartial" />
     </main>
 
     <footer class="footer text-muted">
         <div class="containerAfter">
-            @Data.Utility.copyright - <a asp-area="" asp-controller="Home" asp-action="About">Sobre nós</a>
+            @Localizer["Copyright"]            
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>    
+    <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

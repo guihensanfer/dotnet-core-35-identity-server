@@ -66,6 +66,7 @@ details{
 
 
 #menu {
+    z-index:1000;
     background: var(--colorI);
     font-size: 90%;
     position: fixed;
@@ -159,7 +160,7 @@ span.caret::after {
     }
 
     #menuAdmContainer {
-        background: var(--colorIII);
+        background: var(--colorIV);
         padding-bottom: 5px;
     }
 
@@ -364,8 +365,11 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
 }
 
 /*  */
-@media (max-width: 580px) {  
-  .fundo-arredondado{
-    background:transparent;      
-  }    
+@media (max-width: 580px) {
+    .m-MarginTop30{
+        margin-top:30px;
+    }
+    .fundo-arredondado {
+        background: transparent;
+    }    
 }

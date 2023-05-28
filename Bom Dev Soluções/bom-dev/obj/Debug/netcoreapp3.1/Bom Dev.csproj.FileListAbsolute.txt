@@ -518,3 +518,11 @@ C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\bin\Debug\netcore
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\SixLabors.Fonts.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\System.IO.Packaging.dll
 C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\bin\Debug\netcoreapp3.1\XLParser.dll
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Views.Home.About.en-US.resources
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Views.Home.About.pt-BR.resources
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Views.Home.Index.en-US.resources
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Views.Home.Index.pt-BR.resources
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Views.Shared._Layout.en-US.resources
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Views.Shared._Layout.pt-BR.resources
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Areas.Adm.Views.Shared._Layout.en-US.resources
+C:\Users\guihe\source\repos\bom-dev\Bom Dev Soluções\bom-dev\obj\Debug\netcoreapp3.1\Bom_Dev.Resources.Areas.Adm.Views.Shared._Layout.pt-BR.resources

@@ -2,19 +2,20 @@
 @using Bom_Dev.Areas.Adm.Models
 @inject SignInManager<PersonalUser> SignInManager
 @inject UserManager<PersonalUser> UserManager
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Adm Bom Dev</title>
+    <title>@ViewData["Title"] - Adm @Data.Utility.ProjectViewName</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header>
-        @{ 
+        @{
             string path = Context.Request.Path;
             var menus = MenuDinamicViewModel.GetAllMenus();
             var menuFromUrl = MenuDinamicViewModel.GetMenuFromUrl(path, menus);
@@ -55,8 +56,8 @@
                     </ul>
                 </div>
                 @*<div class="mx-auto order-0">
-            <span class="nav-link" href="#">Entregas somente para Curitiba-PR e região metropolitana.</span>
-        </div>*@
+                        <span class="nav-link" href="#">Entregas somente para Curitiba-PR e região metropolitana.</span>
+                    </div>*@
                 <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
@@ -174,11 +175,11 @@
                     </ul>
                 </div>
                 @*<div class="mx-auto order-0">
-            <span class="nav-link" href="#">Entregas somente para Curitiba-PR e região metropolitana.</span>
-        </div>*@
+                        <span class="nav-link" href="#">Entregas somente para Curitiba-PR e região metropolitana.</span>
+                    </div>*@
             </div>
         </div>
-    
+
     </header>
     <div class="container pt-4">
         <main role="main" class="pb-3">
@@ -189,7 +190,7 @@
 
     <footer class="footer text-muted">
         <div class="container">
-            @Data.Utility.copyright - <a asp-area="" asp-controller="Home" asp-action="About">Sobre nós</a>
+            @Localizer["Copyright"]
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

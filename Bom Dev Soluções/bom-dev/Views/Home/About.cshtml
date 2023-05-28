@@ -1,92 +1,99 @@
-﻿@{
-    ViewData["Title"] = "Sobre nós";
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer["PageTitle"];
 }
 <div class="jumbotron jumbotron-fluid">
-    <div class="containerAfter">
-        <div>
-            <h1 class="display-4">Sobre nós</h1>
-            <h4>Desenvolvimento de software com viés humano e sustentável</h4>
-        </div>        
+    <div class="containerAfter m-MarginTop30">
+        <div>            
+            <h1 class="display-4">@Localizer["PageTitle"]</h1>
+            <h4>@Localizer["PurpuseTitle"]</h4>
+        </div>
     </div>
 </div>
 <div class="containerAfter">
     <div class="row aboutPage">
-        <div class="col-md-12">
-            <h3>Objetivos</h3>
-            <div class="container">
-                <ul style="list-style-type: disc;">
-                    <li>
-                        <p>Desenvolvimento de projetos que agregue valor ao dia-dia das pessoas;</p>
-                    </li>
-                    <li>
-                        <p>Construção de soluções tecnológicas com foco sustentável.</p>
-                    </li>
-                </ul>                                
-            </div>
-        </div>
-        <div class="col-md-4" style="margin-top:20px;">
-            <h3>Missão</h3>
+        <div class="col-md-12" style="margin-top:20px;">
+            <h3>@Localizer["MissionTitle"]</h3>
             <div class="container">
                 <ul style="list-style-type: none;">
                     <li>
-                        <p>Desenvolvimento de soluções tecnológicas para agregar valor ao meio.</p>
-                    </li>                                        
-                </ul>                                
-            </div>
-        </div>        
-        <div class="col-md-4"  style="margin-top:20px;">
-            <h3>Valores</h3>
-            <div class="container">
-                <ul style="list-style-type: disc;">
-                    <li>
-                        <p>Mente aberta;</p>
-                    </li>   
-                    <li>
-                        <p>Empátia;</p>
-                    </li>                                     
-                    <li>
-                        <p>Espírito empreendedor.</p>
+                        <p>
+                            @Localizer["Mission"]
+                        </p>
                     </li>
-                </ul>                                
+                </ul>
             </div>
         </div>
-        <div class="col-md-4" style="margin-top:20px;">
-            <h3>Visão</h3>
+        <div class="col-md-12" style="margin-top:20px;">
+            <h3>@Localizer["VisionTitle"]</h3>
             <div class="container">
                 <ul style="list-style-type: none;">
                     <li>
-                        <p>Ser referência em desenvolvimento de projetos de tecnologia para ajudar pessoas e processos.</p>
-                    </li>                                        
-                </ul>                                
+                        <p>
+                            @Localizer["Vision"]
+                        </p>
+                    </li>
+                </ul>
             </div>
         </div>
+        <div class="col-md-12" style="margin-top:20px;">
+            <h3>@Localizer["ValuesTitle"]</h3>
+            <div class="container">
+                <ul style="list-style-type: disc;">
+                    <li>
+                        <p>@Localizer["Values1"]</p>
+                    </li>
+                    <li>
+                        <p>@Localizer["Values2"]</p>
+                    </li>
+                    <li>
+                        <p>@Localizer["Values3"]</p>
+                    </li>
+                    <li>
+                        <p>@Localizer["Values4"]</p>
+                    </li>
+                    <li>
+                        <p>@Localizer["Values5"]</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <img src="~/img/bd3.png" alt="@Data.Utility.ProjectViewName" />
     </div>
 </div>
 
 @section Scripts{
     <style>
-        body header .navbar{margin-bottom: 0px!important;}
-        .aboutPage p{font-size:130%;}
-        .jumbotron{
+        body header .navbar {
+            margin-bottom: 0px !important;
+        }
+
+        .aboutPage p {
+            font-size: 130%;
+        }
+
+        .jumbotron {
             background-image: url(../img/sobre_slide.png);
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
             height: 414px;
-        }                
-        .jumbotron h1, .jumbotron h4{
-            color:#FFFFFF;
-            background:rgba(0, 0, 0, 0.7);
-            padding:5px;
-            border-radius: 7px;
-            display:table;
         }
+
+            .jumbotron h1, .jumbotron h4 {
+                color: #FFFFFF;
+                background: rgba(0, 0, 0, 0.7);
+                padding: 5px;
+                border-radius: 7px;
+                display: table;
+            }
     </style>
     <script>
-        $( document ).ready(function() {            
+        $(document).ready(function () {
             var y = document.getElementsByClassName("containerAfter")[0];
             y.classList.remove("containerAfter");
-            y.style = "";            
+            y.style = "";
         });
     </script>
 }
