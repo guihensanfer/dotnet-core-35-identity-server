@@ -33,7 +33,7 @@
 input[type="text"], input[type="email"], input[type="tel"], input[type="password"] {
     background: transparent;
     border: none;
-    border-bottom: solid 2px #626262;
+    border-bottom: solid 1px #626262;
     border-radius: 0px;
 }
 
@@ -60,11 +60,11 @@ h4, h5, p {
 }
 
 #layoutLogo {
-    width: 82px;
+    width: 180px;
     height: 42px;
-    background-image: url(../img/bt.svg);
+    background-image: url(../img/bd3.png);
     background-repeat: no-repeat;
-    background-size: 82px 42px;
+    background-size: 180px 42px;
 }
 
 .loginDescricaoADireita {
@@ -96,24 +96,24 @@ h4, h5, p {
 }
 
 .canvas-background{
-    background-image:url('../img/canvas/background.jpg');
+    /*background-image:url('../img/canvas/background.jpg');*/
     background-size: cover;
    
 }
 
 .loginContinuarCom {
-    background: var(--colorII);
+    /*background: #F9F9F9;*/
     padding: 10px;
     border-radius: 0px 0px 7px 7px;
-    border: solid 1px var(--colorI);
+    border: solid 1px #dcdcdc;
     border-top: none;
 }
 
 .loginForm {
-    background: var(--colorI);
+    /*background: #F5F5F5;*/
     border-radius: 7px 7px 0px 0px;
     padding: 15px;
-    border: solid 1px var(--colorI);
+    border: solid 1px #dcdcdc;
     border-bottom:none;
 }
 

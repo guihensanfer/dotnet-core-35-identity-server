@@ -1,7 +1,8 @@
 ﻿/* Please see/ documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,400;0,700;1,100&display=swap');
+
 
 :root {
     --colorI: #ffffff;
@@ -19,12 +20,16 @@ for details on configuring this project to bundle and minify static web assets. 
     color: var(--colorII);
     border-color: #FFF;
 }
-.btn{
-    border:none;    
+.btn {
+    border: none;
+    /*border: solid 1px var(--colorIII);*/
+    /*background: #DCDCDC;*/
+    padding: 12px;    
 }
 
+
 .btn:hover {
-    border:solid 1px var(--colorIII);
+    
     background:initial;
     color:initial;
 }
@@ -66,36 +71,47 @@ details{
 
 
 #menu {
-    z-index:1000;
+    z-index: 1000;
     background: var(--colorI);
     font-size: 90%;
     position: fixed;
     left: 0px;
     right: 0px;
     top: 0px;
-    border-bottom: solid 1px var(--colorIII);
+    border-bottom: solid 1px #dcdcdc;
     border-top: none;
     /*border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;*/
-    background-color: rgba(255, 255, 255, 0.95); /* Cor de fundo com transparência */    
+    background-color: rgba(255, 255, 255, 0.95); /* Cor de fundo com transparência */
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
     #menu .btn {
-        font-size:90%;
+        font-size: 90%;
+        font-weight: bold;
     }
+
 
     #menu a {
         font-size: 90%;
+        font-weight: bold;
     }
 
     #menu .nav-link {
         color:#fff;
-    }   
+        font-weight:bold;
+    }
 
-.menuBreadcrumb{
-    font-size:80%;    
-    
-}
+    #menu .navbar-brand{
+        padding-bottom:0px;
+        padding-top:0px;        
+        margin-right:2%;
+    }
+
+    .menuBreadcrumb {
+        font-size: 80%;
+    }
 
     .menuBreadcrumb ol {
         background: #FFF;
@@ -289,8 +305,8 @@ body {
   background-size: 85px 16px;  
 }*/
 
-h1,h2,h3,h4,h5,a,span,p, label, input, button{font-family: 'Lato', sans-serif;}
-h4,h5,p{font-weight: 300;}
+h1,h2,h3,h4,h5,a,span,p, label, input, button{font-family: 'Lato', sans-serif; font-weight:400;}
+h4,h5,p{font-weight: 400;}
 .text-descricao-P{font-size: 90%;}
 .link-destacado{color:#1e90ff;}
 
@@ -353,7 +369,7 @@ a {
 input[type="text"], input[type="email"], input[type="tel"], input[type="password"] {
     background: transparent;
     border: none;
-    border-bottom: solid 2px #626262;
+    border-bottom: solid 1px #626262;
     border-radius: 0px;
 }
 .bomDevSearchInputStyle {
