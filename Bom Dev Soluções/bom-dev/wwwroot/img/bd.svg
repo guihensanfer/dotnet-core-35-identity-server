@@ -27,9 +27,9 @@
      inkscape:deskcolor="#c5c5c5"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="1.3974672"
-     inkscape:cx="168.87696"
-     inkscape:cy="-39.356918"
+     inkscape:zoom="0.69873358"
+     inkscape:cx="74.420354"
+     inkscape:cy="-7.1558033"
      inkscape:window-width="1366"
      inkscape:window-height="705"
      inkscape:window-x="-8"
@@ -100,6 +100,48 @@
            y="-5.0801325"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';fill:#000000;stroke:#000000;stroke-width:1;stroke-dasharray:none"
            id="tspan979">Bomdev Softwares</tspan></text>
+      <rect
+         style="font-size:8.61128px;font-family:'Clicker Script';-inkscape-font-specification:'Clicker Script';fill:#ffffff;stroke:none;stroke-width:2.84832;stroke-linecap:round;stroke-dasharray:none;paint-order:fill markers stroke"
+         id="rect977-0"
+         width="139.99632"
+         height="33.291862"
+         x="114.1606"
+         y="12.842545"
+         transform="rotate(-0.70918928)"
+         ry="0"
+         inkscape:export-filename="bd3.png"
+         inkscape:export-xdpi="36.220547"
+         inkscape:export-ydpi="36.220547" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.2277px;font-family:'Cherry Bomb One';-inkscape-font-specification:'Cherry Bomb One';fill:#000000;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-dasharray:none;paint-order:fill markers stroke"
+         x="152.81113"
+         y="28.012856"
+         id="text981-6"
+         transform="rotate(-0.70919007)"
+         inkscape:export-filename="bd2.png"
+         inkscape:export-xdpi="25.884758"
+         inkscape:export-ydpi="25.884758"><tspan
+           sodipodi:role="line"
+           x="152.81113"
+           y="28.012856"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';fill:#000000;stroke:#000000;stroke-width:1;stroke-dasharray:none"
+           id="tspan979-9">Bomdev</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.7288px;font-family:'Cherry Bomb One';-inkscape-font-specification:'Cherry Bomb One';fill:#000000;stroke:#000000;stroke-width:0.704557;stroke-linecap:round;stroke-dasharray:none;paint-order:fill markers stroke"
+         x="124.04238"
+         y="41.297749"
+         id="text1352"
+         transform="rotate(-0.70919007)"
+         inkscape:export-filename="bd2.png"
+         inkscape:export-xdpi="25.884758"
+         inkscape:export-ydpi="25.884758"><tspan
+           sodipodi:role="line"
+           x="124.04238"
+           y="41.297749"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';fill:#000000;stroke:#000000;stroke-width:0.704557;stroke-dasharray:none"
+           id="tspan1350">Software Development</tspan></text>
     </g>
   </g>
 </svg>

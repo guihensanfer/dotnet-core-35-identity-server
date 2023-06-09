@@ -288,11 +288,12 @@ body {
 /*Bom Dev 2*/
 
 #layoutLogo {
-    width: 80px !important;
+    width:190px;
+    /*width: 80px !important;
     height: 20px !important;
     background-image: url(../img/bd.png);
     background-repeat: no-repeat !important;
-    background-size: 80px 20px !important;
+    background-size: 80px 20px !important;*/
     /*margin-top:-35px;*/
 }
 
