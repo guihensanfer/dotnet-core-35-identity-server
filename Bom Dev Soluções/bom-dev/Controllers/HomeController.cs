@@ -53,6 +53,11 @@ namespace Bom_Dev.Controllers
             return View();
         }
 
+        public IActionResult PrivacyPolicy()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public async Task<IActionResult> Error()
         {

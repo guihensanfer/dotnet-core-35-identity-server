@@ -3,75 +3,104 @@
 @{
     ViewData["Title"] = "Cadastrar-se";
 }
-<div class="row">    
-    <div class="col-md-12 col-md-offset-2">
-        <section>
-            <div id="divContinuarOutrosProvedores" style="margin-left: 25%;margin-right: 25%;border-bottom: dashed 2px #DCDCDC;padding-top: 10px;padding-bottom: 10px;">
-                <h4 class="text-dark">J&aacute; possui uma conta?</h4>                            
-                <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                    <div>
-                        <p>
-                            <button type="submit" class="btn btn-primary" name="provider" value="@Bom_Dev.Startup.IdentityServerScheme" title="Logar usando uma conta @Data.Utility.ProjectViewName ou outras contas.">Clique aqui para logar</button>
-                        </p>
-                    </div>
-                </form>                            
-            </div>        
-        </section>
+
+<div class="row">
+    <div class="col-md-9" id="registerDivMaster">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                        <div id="divCadastroBomDev">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="text-dark">Criar uma nova conta</h4>
+
+                                    <div asp-validation-summary="All" class="text-danger"></div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="text-dark" asp-for="Input.Email"></label>
+                                        <input asp-for="Input.Email" class="form-control" />
+                                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                        <details>
+                                            <summary>Privacidade com esta informação</summary>
+                                            <p>Não compartilhamos esta informação, usaremos somente para finalidade de identificação interna.</p>
+                                        </details>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                        <label class="text-dark" asp-for="Input.Nome"></label>
+                                        <input asp-for="Input.Nome" class="form-control" />
+                                        <span asp-validation-for="Input.Nome" class="text-danger"></span>
+                                        <details>
+                                            <summary>Privacidade com esta informação</summary>
+                                            <p>Não compartilhamos esta informação, usaremos somente para finalidade de identificação interna.</p>
+                                        </details>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="text-dark" asp-for="Input.PhoneNumber"></label>
+                                        <input asp-for="Input.PhoneNumber" class="form-control" />
+                                        <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                                        <details>
+                                            <summary>Privacidade com esta informação</summary>
+                                            <p>Não compartilhamos esta informação, você não é obrigado a informar isso. Te pediremos esta informação quando necessário algum contato por telefone ou algum tipo de integração que requeira tal informação.</p>
+                                        </details>                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-12" style="margin-top:7%;">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-dark" asp-for="Input.Password"></label>
+                                                <input asp-for="Input.Password" class="form-control" />
+                                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                                <details>
+                                                    <summary>Privacidade com esta informação</summary>
+                                                    <p>Não compartilhamos esta informação, usaremos somente para finalidade de identificação interna.</p>
+                                                </details>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-dark" asp-for="Input.ConfirmPassword"></label>
+                                                <input asp-for="Input.ConfirmPassword" class="form-control" />
+                                                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btnBmdBlack">Registrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
     </div>
-    <div class="col-md-12">
-        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <div id="divCadastroBomDev" style="margin-left: 25%;margin-right: 25%;padding-bottom:5%;padding-top:5%;">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h4 class="text-dark">Criar uma nova conta</h4>
-                        <hr />
-                        <div asp-validation-summary="All" class="text-danger"></div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label class="text-dark" asp-for="Input.Email"></label>
-                            <input asp-for="Input.Email" class="form-control" />
-                            <span asp-validation-for="Input.Email" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="form-group">
-                            <label class="text-dark" asp-for="Input.Nome"></label>
-                            <input asp-for="Input.Nome" class="form-control" />
-                            <span asp-validation-for="Input.Nome" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label class="text-dark" asp-for="Input.PhoneNumber"></label>
-                            <input asp-for="Input.PhoneNumber" class="form-control" />
-                            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="col-md-12" style="margin-top:7%;">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="text-dark" asp-for="Input.Password"></label>
-                                    <input asp-for="Input.Password" class="form-control" />
-                                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="text-dark" asp-for="Input.ConfirmPassword"></label>
-                                    <input asp-for="Input.ConfirmPassword" class="form-control" />
-                                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>                                                                            
-                <button type="submit" class="btn btn-primary">Registrar</button>
-            </div>            
-        </form>
-    </div>    
+    <div class="col-md-3" style="margin-top:1%;">
+        <div class="" id="registerToolbox">
+            <div style="padding:7%;">
+                <div>
+                    <h4 class="text-light">Crie seu Bomdev ID</h4>
+                    <h5 class="text-light">Tenha acesso as aplicações com apenas uma conta.</h5>
+                    <h6 class="text-light" style="margin-bottom:5%;">Temos compromisso com a sua segurança e privacidade, nenhuma informação será compartilhada ou solicitada sem o seu concentimento.</h6>
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <button type="submit" class="btn btn-primary text-link" name="provider" value="@Bom_Dev.Startup.IdentityServerScheme" title="Logar usando uma conta @Data.Utility.ProjectViewName ou outras contas.">Clique aqui para logar</button>
+                    </form>
+                    <a asp-action="privacypolicy" asp-controller="home" class="text-link">Ver política de privacidade</a>
+                    <img src="~/img/desenho-1.svg" width="450" style="margin-top:10%;" />
+                </div>                
+            </div>
+            
+        </div>
+    </div>
 </div>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

@@ -140,7 +140,14 @@ h4, h5, p {
     /*background:#FFF !important;*/
 }
 
-@media (max-width: 720px) {
+@media (max-width: 1000px) {    
+
+    #LeftBackground {
+        width:50%;
+    }
+}
+
+@media (max-width: 800px) {
     .descricaoADireita {
         display:none;
     }

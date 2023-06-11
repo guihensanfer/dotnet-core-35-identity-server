@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="contactUsP1" xml:space="preserve">
+    <value>Se você tiver alguma dúvida ou preocupação sobre nossa Política de Privacidade ou sobre o uso de suas informações pessoais, entre em contato conosco através dos seguintes meios:</value>
+  </data>
+  <data name="contactUsTitle" xml:space="preserve">
+    <value>Entre em Contato Conosco</value>
+  </data>
+  <data name="dataGetP1" xml:space="preserve">
+    <value>Manteremos suas informações pessoais apenas pelo tempo necessário para os fins descritos nesta política ou conforme exigido por lei. Após esse período, suas informações serão excluídas de nossos sistemas.</value>
+  </data>
+  <data name="dataGetTitle" xml:space="preserve">
+    <value>Retenção de Informações Pessoais</value>
+  </data>
+  <data name="dataSafeP1" xml:space="preserve">
+    <value>Implementamos medidas de segurança adequadas para proteger as informações pessoais que você fornece contra acesso não autorizado, alteração, divulgação ou destruição. As informações pessoais fornecidas são armazenadas em servidores seguros e mantidas confidenciais.</value>
+  </data>
+  <data name="dataSafeTitle" xml:space="preserve">
+    <value>Proteção das Informações Pessoais</value>
+  </data>
+  <data name="dataSharedP1" xml:space="preserve">
+    <value>Não compartilharemos suas informações pessoais com terceiros, a menos que sejamos obrigados por lei ou para fornecer serviços relacionados à aplicação. Em tais casos, garantimos que as empresas ou indivíduos com os quais compartilhamos suas informações mantenham a confidencialidade e segurança adequadas.</value>
+  </data>
+  <data name="dataSharedTitle" xml:space="preserve">
+    <value>Compartilhamento de Informações Pessoais</value>
+  </data>
+  <data name="FirstText" xml:space="preserve">
+    <value>Esta Política de Privacidade descreve como nós, Bomdev, coletamos, usamos e protegemos as informações pessoais que você fornece em nosso site. Valorizamos a sua privacidade e estamos comprometidos em proteger os seus dados pessoais. Por favor, leia atentamente esta política antes de fornecer qualquer informação pessoal em nosso site.</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Política de privacidade</value>
+  </data>
+  <data name="personalDataP1" xml:space="preserve">
+    <value>Nós podemos coletar as seguintes informações pessoais fornecidas por você:</value>
+  </data>
+  <data name="personalDataP2" xml:space="preserve">
+    <value>Nome: Coletamos o seu nome para fins de identificação e personalização em nossa aplicação.</value>
+  </data>
+  <data name="personalDataP3" xml:space="preserve">
+    <value>E-mail: Coletamos o seu endereço de e-mail para enviar informações relevantes sobre a aplicação, como atualizações, notificações e comunicações importantes.</value>
+  </data>
+  <data name="personalDataP4" xml:space="preserve">
+    <value>Telefone: O número de telefone é solicitado para entrar em contato com você em caso de necessidade ou para fins de autenticação.</value>
+  </data>
+  <data name="personalDataP5" xml:space="preserve">
+    <value>Senha: Sua senha é criptografada e armazenada de forma segura. Ela é necessária para acessar sua conta e garantir a proteção dos seus dados pessoais.</value>
+  </data>
+  <data name="personalDataTitle" xml:space="preserve">
+    <value>Coleta de Informações Pessoais</value>
+  </data>
+  <data name="personalDataUsesP1" xml:space="preserve">
+    <value>As informações pessoais que coletamos são utilizadas exclusivamente para os seguintes fins:</value>
+  </data>
+  <data name="personalDataUsesP2" xml:space="preserve">
+    <value>Exibição dentro da aplicação: Seu nome e outras informações pessoais podem ser exibidos dentro da aplicação para fins de personalização e melhor experiência do usuário.</value>
+  </data>
+  <data name="personalDataUsesP3" xml:space="preserve">
+    <value>Comunicações: Utilizaremos seu endereço de e-mail para enviar informações relevantes sobre a aplicação, como atualizações, notificações e comunicações importantes.</value>
+  </data>
+  <data name="personalDataUsesP4" xml:space="preserve">
+    <value>Contato: Podemos entrar em contato com você através do número de telefone fornecido em caso de necessidade ou para autenticação.</value>
+  </data>
+  <data name="personalDataUsesTitle" xml:space="preserve">
+    <value>Uso das Informações Pessoais</value>
+  </data>
+  <data name="privacyChangesP1" xml:space="preserve">
+    <value>Reservamo-nos o direito de atualizar ou modificar esta Política de Privacidade a qualquer momento, e tais alterações entrarão em vigor imediatamente após a publicação da versão revisada em nosso site. É sua responsabilidade revisar periodicamente esta política para estar ciente de quaisquer alterações.</value>
+  </data>
+  <data name="privacyChangesTitle" xml:space="preserve">
+    <value>Alterações nesta Política de Privacidade</value>
+  </data>
+  <data name="rightsP1" xml:space="preserve">
+    <value>Você tem o direito de acessar, corrigir, atualizar ou excluir suas informações pessoais a qualquer momento. Se você deseja exercer qualquer um desses direitos, entre em contato conosco através dos canais fornecidos abaixo.</value>
+  </data>
+  <data name="rightsTitle" xml:space="preserve">
+    <value>Seus Direitos</value>
+  </data>
+  <data name="SumaryTitle" xml:space="preserve">
+    <value>Tópicos</value>
+  </data>
+</root>

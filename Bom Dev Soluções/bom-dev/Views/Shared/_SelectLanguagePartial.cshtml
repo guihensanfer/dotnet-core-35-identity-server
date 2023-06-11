@@ -16,7 +16,7 @@
 
     <div class="dropdown">
         <button title="@Localizer["DOMTitleChangeLanguage"]" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="/img/language.png" id="selectLanguageImg" width="16" height="16" class="mr-2">
+            @requestCulture.RequestCulture.Culture.EnglishName
             @requestCulture.RequestCulture.Culture.Name
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

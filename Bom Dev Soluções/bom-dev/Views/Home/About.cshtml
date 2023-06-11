@@ -4,9 +4,9 @@
     ViewData["Title"] = Localizer["PageTitle"];
 }
 <div class="jumbotron jumbotron-fluid">
-    <div class="containerAfter m-MarginTop30">
+    <div class="containerAfter">
         <div>            
-            <h1 class="display-4">@Localizer["PageTitle"]</h1>
+            <h1>@Localizer["PageTitle"]</h1>
             <h4>@Localizer["PurpuseTitle"]</h4>
         </div>
     </div>
@@ -81,13 +81,15 @@
             height: 414px;
         }
 
-            .jumbotron h1, .jumbotron h4 {
-                color: #FFFFFF;
-                background: rgba(0, 0, 0, 0.7);
+            .jumbotron div {
+                color: #000;
+                background: #fff;
                 padding: 5px;
                 border-radius: 7px;
                 display: table;
             }
+
+       
     </style>
     <script>
         $(document).ready(function () {

@@ -27,9 +27,9 @@
      inkscape:deskcolor="#c5c5c5"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.69873358"
-     inkscape:cx="74.420354"
-     inkscape:cy="-7.1558033"
+     inkscape:zoom="0.49407925"
+     inkscape:cx="122.44999"
+     inkscape:cy="103.22231"
      inkscape:window-width="1366"
      inkscape:window-height="705"
      inkscape:window-x="-8"
@@ -74,13 +74,13 @@
          id="g3635"
          transform="translate(1.9030641,1.3148544)" />
       <rect
-         style="fill:#ffffff;stroke:none;stroke-width:2.20072;stroke-dasharray:none;paint-order:fill markers stroke"
+         style="fill:#ffffff;stroke:none;stroke-width:2.50768;stroke-dasharray:none;paint-order:fill markers stroke"
          id="rect977"
-         width="147.19087"
+         width="191.11557"
          height="18.902735"
-         x="131.33551"
+         x="131.19235"
          y="-19.737488"
-         transform="rotate(-0.70918915)"
+         transform="rotate(-0.70918912)"
          ry="0"
          inkscape:export-filename="bd2.png"
          inkscape:export-xdpi="36.220547"
@@ -99,7 +99,7 @@
            x="136.12747"
            y="-5.0801325"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';fill:#000000;stroke:#000000;stroke-width:1;stroke-dasharray:none"
-           id="tspan979">Bomdev Softwares</tspan></text>
+           id="tspan979">Bomdev Software House</tspan></text>
       <rect
          style="font-size:8.61128px;font-family:'Clicker Script';-inkscape-font-specification:'Clicker Script';fill:#ffffff;stroke:none;stroke-width:2.84832;stroke-linecap:round;stroke-dasharray:none;paint-order:fill markers stroke"
          id="rect977-0"
@@ -142,6 +142,33 @@
            y="41.297749"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';fill:#000000;stroke:#000000;stroke-width:0.704557;stroke-dasharray:none"
            id="tspan1350">Software Development</tspan></text>
+      <rect
+         style="font-size:8.61128px;font-family:'Clicker Script';-inkscape-font-specification:'Clicker Script';fill:none;stroke:none;stroke-width:2.50768;stroke-linecap:round;stroke-dasharray:none;paint-order:fill markers stroke"
+         id="rect977-3"
+         width="191.11557"
+         height="18.902735"
+         x="44.881359"
+         y="-49.538155"
+         transform="rotate(-0.70918912)"
+         ry="0"
+         inkscape:export-filename="bd4.png"
+         inkscape:export-xdpi="36.220547"
+         inkscape:export-ydpi="36.220547" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.2277px;font-family:'Cherry Bomb One';-inkscape-font-specification:'Cherry Bomb One';fill:#ffffff;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-dasharray:none;paint-order:fill markers stroke"
+         x="49.816479"
+         y="-34.880802"
+         id="text981-1"
+         transform="rotate(-0.70919007)"
+         inkscape:export-filename="bd2.png"
+         inkscape:export-xdpi="25.884758"
+         inkscape:export-ydpi="25.884758"><tspan
+           sodipodi:role="line"
+           x="49.816479"
+           y="-34.880802"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';fill:#ffffff;stroke:#ffffff;stroke-width:1;stroke-dasharray:none"
+           id="tspan979-5">Bomdev Software House</tspan></text>
     </g>
   </g>
 </svg>

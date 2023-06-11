@@ -5,7 +5,7 @@ for details on configuring this project to bundle and minify static web assets. 
 
 
 :root {
-    --colorI: #ffffff;
+    --colorI: #051F20;
     --colorII: #000;
     --colorIII: #008080;
     --colorIV: #01150e;
@@ -13,6 +13,12 @@ for details on configuring this project to bundle and minify static web assets. 
 
 .text-link{
     color: var(--colorIII) !important;
+    background:transparent !important;
+    padding:0px !important;    
+}
+
+.text-link:hover{
+    text-decoration:underline;
 }
 
 .btn-secondary {
@@ -37,12 +43,19 @@ for details on configuring this project to bundle and minify static web assets. 
 #menu0 {
     padding-top: 0px;
     padding-bottom: 0px;
-    background: var(--colorI) !important;   
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
+    background: var(--colorI);       
     color: #fff;
     font-size: 80%;
 }
+
+#menu0 button {
+    background:transparent;
+    padding:5px;
+    color:#fff;
+}
+    #menu0 * {
+        font-size:98%;
+    }
 
 .inputSearch {
     background-image: url(../img/search.png) !important;
@@ -51,10 +64,32 @@ for details on configuring this project to bundle and minify static web assets. 
     background-repeat:no-repeat !important;
     padding-left:20px;
 }
+.ListStyleTypeDisc {
+    list-style-type: disc;
+}
 
-.containerAfter{
-    margin-left:2%;
-    margin-right:2%;
+.m-t-1p{
+    margin-top:2%;
+}
+.m-t-2p {
+    margin-top: 2%;
+}
+
+.toolbox {
+    font-size: 90%;
+    border: solid 1px #A0A0A0;
+    border-radius: 15px;
+    padding-top: 5%;
+    /*padding-bottom: 1%;*/
+}
+
+ol li {
+    margin-bottom: 2%;
+}
+
+.containerAfter {
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 .control-label{
@@ -69,28 +104,62 @@ details{
     opacity:0.5;
 }
 
-
-#menu {
-    z-index: 1000;
-    background: var(--colorI);
-    font-size: 90%;
-    position: fixed;
-    left: 0px;
-    right: 0px;
-    top: 0px;
-    border-bottom: solid 1px #dcdcdc;
-    border-top: none;
-    /*border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;*/
-    background-color: rgba(255, 255, 255, 0.95); /* Cor de fundo com transparência */
-    padding-top: 0px;
-    padding-bottom: 0px;
+.btnBmdTurquesa {
+    background: var(--colorIII) !important;    
+    color: var(--colorI) !important;
+    padding: 7px 12px 7px 12px !important;
+    
+    border-radius: 5px;
 }
 
-    #menu .btn {
-        font-size: 90%;
-        font-weight: bold;
-    }
+.btnBmdTurquesa:hover{
+    text-decoration:underline;
+}
+
+.btnBmdWhite {
+    background: transparent !important;
+    border: solid 1px #FFF !important;
+    color: #fff !important;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.btnBmdBlack {
+    background: transparent !important;
+    border: solid 1px #323232 !important;
+    color: #323232 !important;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+#menu {
+    background: var(--colorI);
+    font-size: 90%;
+    /*position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;*/
+    border-top: solid 1px #424242;
+    /*border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;*/
+
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+#registerToolbox{
+    background:var(--colorI);
+    border:none !important;
+    border-radius:15px;
+    overflow:hidden;
+}
+
+#menu .btn {
+    font-size: 90%;
+    font-weight: bold;
+    background: transparent;
+    color: #fff;
+}
 
 
     #menu a {
@@ -222,9 +291,10 @@ a.navbar-brand {
 }
 
 .btn-primary {
-  color: #1e90ff;
-  background-color: #F5F5F5;
+  color: #fff;
+  background-color: var(--colorIII);
   border: none;
+  padding:6px;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -352,11 +422,17 @@ a {
   position: relative;    
 }
 
+#registerDivMaster {
+    /*border-right:solid 1px #dcdcdc;*/
+    padding-top: 1%;        
+    
+}
+
 .dropdown-submenu a::after {
-  transform: rotate(-90deg);
-  position: absolute;
-  right: 6px;
-  top: .8em;
+    transform: rotate(-90deg);
+    position: absolute;
+    right: 6px;
+    top: .8em;
 }
 
 .dropdown-submenu .dropdown-menu {

@@ -49,10 +49,10 @@ namespace Bom_Dev
                 options.SupportedCultures = supportedCultures;
                 options.SupportedUICultures = supportedCultures;                
             });
-            
+
 
             services.AddControllersWithViews()
-                .AddRazorRuntimeCompilation();
+                .AddRazorRuntimeCompilation();                
             services.AddRazorPages();
             services.AddTransient<IEmailSender, EmailSender>();
 
