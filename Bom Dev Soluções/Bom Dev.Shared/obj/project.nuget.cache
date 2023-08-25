@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4k6rHRnHzR+Dz48V5CtynpxLAJmBe/1d/EIHM4OMXdPmviQjW376QDU/hgdR94/GBBTSZU8AjOvefsq1nzt2Kw==",
+  "dgSpecHash": "Kyei3FEqpBgUqiNP9Gh/nJ29qpsKzU/8ENak2OFlnf1j54CCO8aLyChELPql1qc1xYYVCqYPHHfDinhv33QmLw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\Bom Dev.Shared\\Bom Dev.Shared.csproj",
+  "projectFilePath": "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\Bom Dev.Shared\\Bom Dev.Shared.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\guihe\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.3\\microsoft.aspnetcore.cryptography.internal.5.0.3.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.3\\microsoft.aspnetcore.cryptography.keyderivation.5.0.3.nupkg.sha512",

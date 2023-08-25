@@ -5692,21 +5692,17 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\guihe\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\guihe\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\IdentityServer\\IdentityServer.csproj",
+      "projectUniqueName": "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\IdentityServer\\IdentityServer.csproj",
       "projectName": "IdentityServer",
-      "projectPath": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\IdentityServer\\IdentityServer.csproj",
+      "projectPath": "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\IdentityServer\\IdentityServer.csproj",
       "packagesPath": "C:\\Users\\guihe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\IdentityServer\\obj\\",
+      "outputPath": "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\IdentityServer\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
         "C:\\Users\\guihe\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -5722,8 +5718,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\Bom Dev.Shared\\Bom Dev.Shared.csproj": {
-              "projectPath": "C:\\Users\\guihe\\Desktop\\Bom Dev\\Bom Dev Soluções\\Bom Dev.Shared\\Bom Dev.Shared.csproj"
+            "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\Bom Dev.Shared\\Bom Dev.Shared.csproj": {
+              "projectPath": "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\Bom Dev.Shared\\Bom Dev.Shared.csproj"
             }
           }
         }
@@ -5787,7 +5783,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
       }
     }
   }
