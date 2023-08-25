@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="147.19087mm"
+   height="18.902735mm"
+   viewBox="0 0 147.19087 18.902735"
+   version="1.1"
+   id="svg474"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   sodipodi:docname="bd.svg"
+   inkscape:export-filename="bd2.png"
+   inkscape:export-xdpi="109.5049"
+   inkscape:export-ydpi="109.5049"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview476"
+     pagecolor="#aeaeae"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#c5c5c5"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.49407925"
+     inkscape:cx="122.44999"
+     inkscape:cy="103.22231"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="text1508"
+     showguides="false" />
+  <defs
+     id="defs471">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 6.3151283 : 1"
+       inkscape:vp_y="0 : 1000.0001 : 0"
+       inkscape:vp_z="36.983271 : 6.3151283 : 1"
+       inkscape:persp3d-origin="18.491634 : 4.7947213 : 1"
+       id="perspective1468" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath809">
+      <path
+         id="path811"
+         style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.264583"
+         d="m 108.75096,107.99662 v 22.53403 h 22.23068 v -22.53403 z m 6.35465,12.08454 c 0.001,-6e-5 0.002,1e-5 0.003,0 0.0301,-2.7e-4 0.0667,0.0148 0.10283,0.0522 0.0328,0.034 0.0654,0.0683 0.0987,0.1018 0.0122,0.0134 0.0244,0.027 0.0367,0.0403 0.11896,0.12835 -0.0108,0.24828 -0.12971,0.11989 -0.0109,-0.0118 -0.022,-0.0236 -0.0326,-0.0357 -0.0331,-0.0334 -0.0655,-0.0674 -0.0982,-0.10128 -0.084,-0.0872 -0.05,-0.17389 0.0191,-0.17725 z" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-131.33551,19.737489)">
+    <g
+       aria-label="B"
+       id="text4537"
+       style="font-size:52.9167px;font-family:'Varela Round';-inkscape-font-specification:'Varela Round';fill:#ff0000;stroke:none;stroke-width:20;stroke-linecap:round;stroke-dasharray:none;paint-order:stroke markers fill"
+       transform="translate(0.56576286,3.0475987)" />
+    <g
+       aria-label="bomdev"
+       transform="rotate(0.709189)"
+       id="text1508"
+       style="font-size:8.61128px;font-family:'Clicker Script';-inkscape-font-specification:'Clicker Script';fill:#ffffff;stroke:#ffffff;stroke-width:0.678054;stroke-linecap:round;paint-order:stroke markers fill">
+      <g
+         id="g3635"
+         transform="translate(1.9030641,1.3148544)" />
+      <rect
+         style="fill:#ffffff;stroke:none;stroke-width:2.50768;stroke-dasharray:none;paint-order:fill markers stroke"
+         id="rect977"
+         width="191.11557"
+         height="18.902735"
+         x="131.19235"
+         y="-19.737488"
+         transform="rotate(-0.70918912)"
+         ry="0"
+         inkscape:export-filename="bd2.png"
+         inkscape:export-xdpi="36.220547"
+         inkscape:export-ydpi="36.220547" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.2277px;font-family:'Cherry Bomb One';-inkscape-font-specification:'Cherry Bomb One';fill:#000000;stroke:#000000;stroke-width:1;stroke-dasharray:none;paint-order:fill markers stroke"
+         x="136.12747"
+         y="-5.0801325"
+         id="text981"
+         transform="rotate(-0.70919007)"
+         inkscape:export-filename="bd2.png"
+         inkscape:export-xdpi="25.884758"
+         inkscape:export-ydpi="25.884758"><tspan
+           sodipodi:role="line"
+           x="136.12747"
+           y="-5.0801325"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';fill:#000000;stroke:#000000;stroke-width:1;stroke-dasharray:none"
+           id="tspan979">Bomdev Software House</tspan></text>
+      <rect
+         style="font-size:8.61128px;font-family:'Clicker Script';-inkscape-font-specification:'Clicker Script';fill:#ffffff;stroke:none;stroke-width:2.84832;stroke-linecap:round;stroke-dasharray:none;paint-order:fill markers stroke"
+         id="rect977-0"
+         width="139.99632"
+         height="33.291862"
+         x="114.1606"
+         y="12.842545"
+         transform="rotate(-0.70918928)"
+         ry="0"
+         inkscape:export-filename="bd3.png"
+         inkscape:export-xdpi="36.220547"
+         inkscape:export-ydpi="36.220547" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.2277px;font-family:'Cherry Bomb One';-inkscape-font-specification:'Cherry Bomb One';fill:#000000;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-dasharray:none;paint-order:fill markers stroke"
+         x="152.81113"
+         y="28.012856"
+         id="text981-6"
+         transform="rotate(-0.70919007)"
+         inkscape:export-filename="bd2.png"
+         inkscape:export-xdpi="25.884758"
+         inkscape:export-ydpi="25.884758"><tspan
+           sodipodi:role="line"
+           x="152.81113"
+           y="28.012856"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';fill:#000000;stroke:#000000;stroke-width:1;stroke-dasharray:none"
+           id="tspan979-9">Bomdev</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.7288px;font-family:'Cherry Bomb One';-inkscape-font-specification:'Cherry Bomb One';fill:#000000;stroke:#000000;stroke-width:0.704557;stroke-linecap:round;stroke-dasharray:none;paint-order:fill markers stroke"
+         x="124.04238"
+         y="41.297749"
+         id="text1352"
+         transform="rotate(-0.70919007)"
+         inkscape:export-filename="bd2.png"
+         inkscape:export-xdpi="25.884758"
+         inkscape:export-ydpi="25.884758"><tspan
+           sodipodi:role="line"
+           x="124.04238"
+           y="41.297749"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';fill:#000000;stroke:#000000;stroke-width:0.704557;stroke-dasharray:none"
+           id="tspan1350">Software Development</tspan></text>
+      <rect
+         style="font-size:8.61128px;font-family:'Clicker Script';-inkscape-font-specification:'Clicker Script';fill:none;stroke:none;stroke-width:2.50768;stroke-linecap:round;stroke-dasharray:none;paint-order:fill markers stroke"
+         id="rect977-3"
+         width="191.11557"
+         height="18.902735"
+         x="44.881359"
+         y="-49.538155"
+         transform="rotate(-0.70918912)"
+         ry="0"
+         inkscape:export-filename="bd4.png"
+         inkscape:export-xdpi="36.220547"
+         inkscape:export-ydpi="36.220547" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.2277px;font-family:'Cherry Bomb One';-inkscape-font-specification:'Cherry Bomb One';fill:#ffffff;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-dasharray:none;paint-order:fill markers stroke"
+         x="49.816479"
+         y="-34.880802"
+         id="text981-1"
+         transform="rotate(-0.70919007)"
+         inkscape:export-filename="bd2.png"
+         inkscape:export-xdpi="25.884758"
+         inkscape:export-ydpi="25.884758"><tspan
+           sodipodi:role="line"
+           x="49.816479"
+           y="-34.880802"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';fill:#ffffff;stroke:#ffffff;stroke-width:1;stroke-dasharray:none"
+           id="tspan979-5">Bomdev Software House</tspan></text>
+    </g>
+  </g>
+</svg>

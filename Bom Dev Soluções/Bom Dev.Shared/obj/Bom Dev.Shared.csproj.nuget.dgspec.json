@@ -44,9 +44,13 @@
               "target": "Package",
               "version": "[3.1.11, )"
             },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
             "Microsoft.Extensions.Identity.Core": {
               "target": "Package",
-              "version": "[5.0.3, )"
+              "version": "[3.1.25, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

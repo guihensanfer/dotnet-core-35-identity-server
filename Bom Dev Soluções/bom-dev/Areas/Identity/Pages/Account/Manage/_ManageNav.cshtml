@@ -1,4 +1,4 @@
-@inject SignInManager<BomDevUser> SignInManager
+@inject SignInManager<PersonalUser> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }

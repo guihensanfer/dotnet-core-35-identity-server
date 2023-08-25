@@ -1,6 +1,6 @@
 using System.Text;
 using System.Threading.Tasks;
-using Bom_Dev.Shared.Identity;
+using Data.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,9 +12,9 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class ConfirmEmailModel : PageModel
     {
-        private readonly UserManager<BomDevUser> _userManager;
+        private readonly UserManager<PersonalUser> _userManager;
 
-        public ConfirmEmailModel(UserManager<BomDevUser> userManager)
+        public ConfirmEmailModel(UserManager<PersonalUser> userManager)
         {
             _userManager = userManager;
         }

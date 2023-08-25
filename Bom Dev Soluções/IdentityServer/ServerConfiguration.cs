@@ -53,7 +53,6 @@ namespace IdentityServer
                     Scopes = { "employeesWebApi" },
                     UserClaims = { "role",
                             "given_name",
-                            "family_name",
                             "email",
                             "phone",
                             "address"
@@ -72,12 +71,11 @@ namespace IdentityServer
             {                
                 Client client1 = new Client
                 {
-                    ClientId = "client1",
-                    ClientName = "Client 1",
+                    ClientId = "WebClient",
+                    ClientName = "SSO Bom Dev",
                     ClientSecrets = new[] {
-                        new Secret("client1_secret_code".Sha512()) },
-                    AllowedGrantTypes = GrantTypes.
-                    Hybrid,
+                        new Secret("89C9FD35E23FA2E1A63EE8A59FB9F".Sha512()) },
+                    AllowedGrantTypes = GrantTypes.Hybrid,
                     AllowedScopes = {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
@@ -96,38 +94,10 @@ namespace IdentityServer
                     RequirePkce = false,
                     RequireConsent = false,
                 };
-
-                Client client2 = new Client
-                {                    
-                    ClientName = "Client 2",
-                    ClientId = "client2",
-                    ClientSecrets = {
-                        new Secret("client2_secret_code".Sha512())
-                    },
-                    AllowedGrantTypes = GrantTypes.Hybrid,
-                    AllowedScopes = {
-                        IdentityServerConstants.StandardScopes.OpenId,
-                        IdentityServerConstants.StandardScopes.Profile,
-                        IdentityServerConstants.StandardScopes.Address,
-                        IdentityServerConstants.StandardScopes.Email,
-                        IdentityServerConstants.StandardScopes.Phone,
-                        "employeesWebApi",
-                        "roles"
-                    },                    
-                    RedirectUris = new List<string> {
-                        $"{_clientBomDevURLBase}/signin-oidc"
-                    },
-                    PostLogoutRedirectUris = new List<string> {
-                         $"{_clientBomDevURLBase}/signout-callback-oidc"
-                    },                    
-                    RequirePkce = false,
-                    RequireConsent = true,
-                    //AllowedCorsOrigins = new[] {  $"{MVCClientHTTPSBaseURL}/signin-oidc",  $"{MVCClientHTTPSBaseURL}/signout-callback-oidc" }
-                };
+               
 
                 List<Client> clients = new List<Client>();
-                clients.Add(client1);
-                clients.Add(client2);
+                clients.Add(client1);                
 
                 return clients;
             }

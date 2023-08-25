@@ -2,44 +2,82 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Bom_Dev.Models;
-using System.Linq;
+using Microsoft.Extensions.Localization;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Http;
+using System;
+using Data.Models;
+using Microsoft.AspNetCore.Http.Extensions;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using Data.Identity;
 
 namespace Bom_Dev.Controllers
-{
+{    
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<HomeController> _logger;        
+        private readonly Data.Interface.IRepository _repository;
+        private readonly UserManager<PersonalUser> _userManager;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, Data.Interface.IRepository repository, UserManager<PersonalUser> userManager)
         {
-            _logger = logger;
-        }        
+            _logger = logger;            
+            _repository = repository;
+            _userManager = userManager;
+        }
 
-        public IActionResult Index(string searchApp = null)
-        {
-            var projetos = Models.Projetos.InstanciarProjetos();            
+        [HttpPost]
+        public IActionResult SetLanguage(string culture, string returnUrl)
+        {            
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+            );
 
-            if(!string.IsNullOrWhiteSpace(searchApp))
-                projetos = projetos
-                    .Where(x => x.Nome.Contains(searchApp, System.StringComparison.OrdinalIgnoreCase) 
-                        || x.DescricaoBreve.Contains(searchApp) 
-                        || x.PalavrasChaves.Contains(searchApp, System.StringComparison.OrdinalIgnoreCase))
-                    .OrderBy(x => x.DataLancamento)
-                    .ToList();
+            return LocalRedirect(returnUrl);
+        }
 
-            @ViewData["projetos"] = projetos;            
-
+        public IActionResult Index()
+        {            
             return View();
         }                      
 
-        public IActionResult Sobre()
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult PrivacyPolicy()
         {
             return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public async Task<IActionResult> Error()
         {
+            string userId = null;
+            var user = await _userManager.GetUserAsync(User);
+
+            if(user != null)
+            {
+                userId = user.Id;
+            }
+
+            await _repository.InsertErrorLog(new ErrorLogs()
+            {
+                IpAddress = HttpContext.Connection.RemoteIpAddress.ToString(),
+                Language = System.Globalization.CultureInfo.CurrentCulture.Name,
+                Message = HttpContext.TraceIdentifier,
+                RequestMethod = "GET",
+                RequestUrl = HttpContext.Request.GetEncodedUrl(),
+                StackTrace = null,
+                Title = "150520231123-GenericErrorController",
+                UserAgent = HttpContext.Request.Headers["User-Agent"].ToString(),
+                UserId = userId
+            });
+
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }

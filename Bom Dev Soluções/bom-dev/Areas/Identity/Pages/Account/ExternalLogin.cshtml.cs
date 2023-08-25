@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using Bom_Dev.Shared.Identity;
+using Data.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -17,14 +17,14 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class ExternalLoginModel : PageModel
     {
-        private readonly SignInManager<BomDevUser> _signInManager;
-        private readonly UserManager<BomDevUser> _userManager;
+        private readonly SignInManager<PersonalUser> _signInManager;
+        private readonly UserManager<PersonalUser> _userManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger<ExternalLoginModel> _logger;
 
         public ExternalLoginModel(
-            SignInManager<BomDevUser> signInManager,
-            UserManager<BomDevUser> userManager,
+            SignInManager<PersonalUser> signInManager,
+            UserManager<PersonalUser> userManager,
             ILogger<ExternalLoginModel> logger,
             IEmailSender emailSender)
         {
@@ -105,7 +105,7 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
 
                     if(user is null)
                     {
-                        user = new BomDevUser()
+                        user = new PersonalUser()
                         {
                             UserName = info.Principal.FindFirstValue(ClaimTypes.Name),
                             Email = userId
@@ -150,10 +150,10 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                var user = new BomDevUser { 
+                var user = new PersonalUser { 
                     UserName = Input.Email, 
                     Email = Input.Email, 
-                    Nome = info.Principal.FindFirstValue(ClaimTypes.Name) ?? info.Principal.FindFirstValue(ClaimTypes.GivenName)                    
+                    FullName = info.Principal.FindFirstValue(ClaimTypes.Name) ?? info.Principal.FindFirstValue(ClaimTypes.GivenName)                    
                 };
 
                 var result = await _userManager.CreateAsync(user);

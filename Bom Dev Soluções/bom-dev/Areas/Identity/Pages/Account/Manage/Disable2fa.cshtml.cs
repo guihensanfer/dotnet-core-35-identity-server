@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Bom_Dev.Shared.Identity;
+using Data.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -12,11 +12,11 @@ namespace Bom_Dev.Areas.Identity.Pages.Account.Manage
 {
     public class Disable2faModel : PageModel
     {
-        private readonly UserManager<BomDevUser> _userManager;
+        private readonly UserManager<PersonalUser> _userManager;
         private readonly ILogger<Disable2faModel> _logger;
 
         public Disable2faModel(
-            UserManager<BomDevUser> userManager,
+            UserManager<PersonalUser> userManager,
             ILogger<Disable2faModel> logger)
         {
             _userManager = userManager;

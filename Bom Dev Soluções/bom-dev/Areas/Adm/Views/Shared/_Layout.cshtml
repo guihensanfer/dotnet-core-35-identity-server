@@ -1,0 +1,201 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Bom_Dev.Areas.Adm.Models
+@inject SignInManager<PersonalUser> SignInManager
+@inject UserManager<PersonalUser> UserManager
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Adm @Data.Utility.ProjectViewName</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        @{
+            string path = Context.Request.Path;
+            var menus = MenuDinamicViewModel.GetAllMenus();
+            var menuFromUrl = MenuDinamicViewModel.GetMenuFromUrl(path, menus);
+            bool hasMenuCurrentUrl = menuFromUrl != null;
+        }
+
+        <div id="menuAdmContainer" class="container-fluid">
+            <nav id="menu0" class="navbar navbar-expand-md navbar-dark menuAdm">
+                <div class="nav-item active">
+                    <a class="nav-link" href="" title="Bomdev">
+                        <img src="~/img/bd2.png" alt="bomdev" width="120">
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                    <ul class="navbar-nav mr-auto">
+                        @{
+                            foreach (var item in menus)
+                            {
+                                if (hasMenuCurrentUrl && item.Name.Equals(menuFromUrl.Name))
+                                {
+                                    <li class="nav-item active">
+                                        <a class="btn btn-secondary" href="@item.Url">@item.Name</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="nav-item">
+                                        <a class="btn btn-secondary" href="@item.Url">@item.Name</a>
+                                    </li>
+                                }
+                            }
+                        }
+
+                    </ul>
+                </div>
+                @*<div class="mx-auto order-0">
+                        <span class="nav-link" href="#">Entregas somente para Curitiba-PR e região metropolitana.</span>
+                    </div>*@
+                <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="@string.Format("{0}://{1}", Context.Request.Scheme, Context.Request.Host)">Voltar ao site principal</a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <svg width="12" height="12" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g data-name="Layer 2"><path d="M13 23a10 10 0 1 1 10-10 10 10 0 0 1-10 10Zm0-18a8 8 0 1 0 8 8 8 8 0 0 0-8-8Z" fill="#000" class="fill-000000" /><path d="M28 29a1 1 0 0 1-.71-.29l-8-8a1 1 0 0 1 1.42-1.42l8 8a1 1 0 0 1 0 1.42A1 1 0 0 1 28 29Z" fill="#000" class="fill-000000" /></g><path d="M0 0h32v32H0z" fill="none" /></svg>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <h6 class="dropdown-header">Pesquisar no admin</h6>
+                                    <div class="dropdown-item">
+                                        <form method="get" action="/adm">
+                                            <input required type="text" name="@MenuDinamicViewModel.ParamSearchMenu" id="inputSearch" value="@Context.Request.Query[MenuDinamicViewModel.ParamSearchMenu]" placeholder="Termo de busca" />
+                                            </br>
+                                            </br>
+                                            <input type="submit" />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+                        <li class="nav-item">
+                            @await Html.PartialAsync("../../../../Views/Shared/_SelectLanguagePartial")
+                        </li>
+
+
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            var nomeUser = UserManager.GetUserAsync(User).Result?.FullName ?? User.Identity.Name;
+
+                            <li class="nav-item">
+                                <a class="btn btn-secondary" asp-area="Identity" asp-page="/Account/Manage/Index" title="Minha conta @nomeUser">@nomeUser</a>
+                            </li>
+
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <form id="external-account" asp-area="Identity" asp-page="/Account/ExternalLogin" method="post" class="form-horizontal">
+                                    <button class="nav-link text-light btn btn-primary fundo-arredondado" style="background:transparent;padding:0;margin-top:12px;" type="submit" name="provider" value="@Startup.IdentityServerScheme">Entre ou cadastre-se</button>
+                                </form>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </nav>
+
+            <div id="menuDinamico" class="navbar navbar-light navbar-expand-sm">
+                @{
+                    if (!hasMenuCurrentUrl)
+                    {
+                        string searchMenu = Context.Request.Query[MenuDinamicViewModel.ParamSearchMenu];
+
+                        if (!string.IsNullOrWhiteSpace(searchMenu))
+                        {
+                            var results = MenuDinamicViewModel.SearchMenuChieldByName(searchMenu, menus);
+
+                            if (results != null && results.Any())
+                            {
+                                menuFromUrl = new MenuDinamicViewModel()
+                                {
+                                    Name = "PESQUISAR",
+                                    Chieldres = results
+                                };
+                            }
+                            else
+                            {
+                                menuFromUrl = new MenuDinamicViewModel()
+                                {
+                                    Name = "Sem resultados para o termo informado",
+                                    Chieldres = new List<MenuDinamicViewModel>()
+                                };
+                            }
+                        }
+                    }
+
+                    if (menuFromUrl == null)
+                    {
+                        menuFromUrl = new MenuDinamicViewModel()
+                        {
+                            Name = "Área de administração",
+                            Chieldres = new List<MenuDinamicViewModel>()
+                        };
+                    }
+
+                    <div class="nav-item active">
+                        <span class="nav-link" id="currentPageDesc">@menuFromUrl.Name</span>
+                    </div>
+                }
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                        @{
+                            if (menuFromUrl.Chieldres != null && menuFromUrl.Chieldres.Any())
+                            {
+                                foreach (var item in menuFromUrl.Chieldres)
+                                {
+                                    if (item.Url.Equals(path, StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        <li class="nav-item active">
+                                            <a class="nav-link" style="color:#fff;" href="@item.Url">@item.Name</a>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="nav-item">
+                                            <a class="nav-link" style="color:#fff;" href="@item.Url">@item.Name</a>
+                                        </li>
+                                    }
+                                }
+                            }
+                        }
+                    </ul>
+                </div>
+                @*<div class="mx-auto order-0">
+                        <span class="nav-link" href="#">Entregas somente para Curitiba-PR e região metropolitana.</span>
+                    </div>*@
+            </div>
+        </div>
+
+    </header>
+    <div class="container pt-4">
+        <main role="main" class="pb-3">
+            @RenderBody()
+            <partial name="_ProgressPartial" />
+        </main>
+    </div>
+
+    <footer class="footer text-muted">
+        <div class="container">
+            @Localizer["Copyright"]
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,91 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer["PageTitle"];
+}
+
+<div class="containerAfter">    
+    <div class="row m-t-2p">
+        <div class="col-md-3">
+            <div class="toolbox">
+                <div class="container">
+                    <h5 class="text-dark">@Localizer["SumaryTitle"]</h5>
+                    <ol>
+                        <li>
+                            <a href="#personalData">@Localizer["personalDataTitle"]</a>
+                        </li>
+                        <li>
+                            <a href="#personalDataUses">@Localizer["personalDataUsesTitle"]</a>
+                        </li>
+                        <li>
+                            <a href="#dataSafe">@Localizer["dataSafeTitle"]</a>
+                        </li>
+                        <li>
+                            <a href="#dataShared">@Localizer["dataSharedTitle"]</a>
+                        </li>
+                        <li>
+                            <a href="#dataGet">@Localizer["dataGetTitle"]</a>
+                        </li>
+                        <li>
+                            <a href="#rights">@Localizer["rightsTitle"]</a>
+                        </li>
+                        <li>
+                            <a href="#privacyChanges">@Localizer["privacyChangesTitle"]</a>
+                        </li>
+                        <li>
+                            <a href="#contactUs">@Localizer["contactUsTitle"]</a>
+                        </li>
+                    </ol>
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="col-md-9">
+            <h4 class="text-dark">@Localizer["PageTitle"]</h4>
+            <p>
+                @Localizer["FirstText"]
+            </p>
+            <h5 class="text-dark m-t-2p" id="personalData">@Localizer["personalDataTitle"]</h5>
+            <p>
+                @Localizer["personalDataP1"]
+            </p>
+            <ol>
+                <li>@Localizer["personalDataP2"]</li>
+                <li>@Localizer["personalDataP3"]</li>
+                <li>@Localizer["personalDataP4"]</li>
+                <li>@Localizer["personalDataP5"]</li>
+            </ol>
+            <h5 class="text-dark m-t-2p" id="personalDataUses">@Localizer["personalDataUsesTitle"]</h5>
+            <p>@Localizer["personalDataUsesP1"]</p>
+            <ol>
+                <li>@Localizer["personalDataUsesP2"]</li>
+                <li>@Localizer["personalDataUsesP3"]</li>
+                <li>@Localizer["personalDataUsesP4"]</li>
+            </ol>
+            <h5 class="text-dark m-t-2p" id="dataSafe">@Localizer["dataSafeTitle"]</h5>
+            <p>@Localizer["dataSafeP1"]</p>
+            <h5 class="text-dark" id="dataShared">@Localizer["dataSharedTitle"]</h5>
+            <p>
+                @Localizer["dataSharedP1"]
+            </p>
+            <h5 class="text-dark m-t-2p" id="dataGet">@Localizer["dataGetTitle"]</h5>
+            <p>
+                @Localizer["dataGetP1"]
+            </p>
+            <h5 class="text-dark m-t-2p" id="rights">@Localizer["rightsTitle"]</h5>
+            <p>
+                @Localizer["rightsP1"]
+            </p>
+            <h5 class="text-dark m-t-2p" id="privacyChanges">@Localizer["privacyChangesTitle"]</h5>
+            <p>
+                @Localizer["privacyChangesP1"]
+            </p>
+            <h5 class="text-dark m-t-2p" id="contactUs">@Localizer["contactUsTitle"]</h5>
+            <p>
+                @Localizer["contactUsP1"]
+                <a asp-action="About" asp-controller="home">@Localizer["contactUsTitle"]</a>
+            </p>
+        </div>
+    </div>
+</div>

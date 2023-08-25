@@ -8,20 +8,20 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using Bom_Dev.Shared.Identity;
+using Data.Identity;
 
 namespace Bom_Dev.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class LoginModel : PageModel
     {
-        private readonly UserManager<BomDevUser> _userManager;
-        private readonly SignInManager<BomDevUser> _signInManager;
+        private readonly UserManager<PersonalUser> _userManager;
+        private readonly SignInManager<PersonalUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
-        public LoginModel(SignInManager<BomDevUser> signInManager, 
+        public LoginModel(SignInManager<PersonalUser> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<BomDevUser> userManager)
+            UserManager<PersonalUser> userManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;

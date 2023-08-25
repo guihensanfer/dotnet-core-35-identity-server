@@ -1,60 +1,43 @@
-﻿@{
-    ViewData["Title"] = "Início";
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer["PageTitle"];
 }
-<nav id="navBarSecundario" class="navbar navbar-expand justify-content-center">
-    <div class="container">        
-        <div id="containerBusca">
-            <form method="GET">                
-                <input class="bomDevSearchInputStyle" type="text" name="searchApp" style="font-size: 14px!important;" value="@Context.Request.Query["searchApp"]" placeholder="Buscar apps..." required />
-                <button type="submit" class="btn btn-primary" style="font-size:14px!important;">Buscar</button>
-            </form>
-        </div>                        
-    </div>
-</nav>
-<div class="container">
+<div class="container containerAfter">
     <h4 style="margin-top: 2%;">Apps</h4>
     <ul style="list-style: none;margin:0;padding:0;margin-top:2%;">
-        @{
-            List<Bom_Dev.Models.Projetos.Projeto> projetos = (@ViewData["projetos"] as List<Bom_Dev.Models.Projetos.Projeto>);
-
-            foreach(var proj in projetos)
-            {
-                string statusDesenvolvimento = proj.EmDesenvolvimentoInicial ? "(Em desenvolvimento) " : null;
-                var p = proj.Setor.GetAttribute<System.ComponentModel.DataAnnotations.DisplayAttribute>();
-                var projetoSetor = p is null ? null : p.Name;
-
-                <li class="bloco-destaque" style="background-color:@System.Drawing.ColorTranslator.ToHtml(proj.CorIdentidade.Fundo);color:@System.Drawing.ColorTranslator.ToHtml(proj.CorIdentidade.Texto);">                                        
-                    <h3>@proj.Nome</h3>        
-                    <h4>@string.Concat(statusDesenvolvimento, proj.DescricaoBreve)</h4>
-                    <span class="fundo-arredondado text-light fundo-blur">@projetoSetor</span>
-                    <a class="fundo-arredondado fundo-blur text-light" style="margin-top:15px;display:block;text-align:center;" href="@proj.LinkAcesso">Saiba mais...</a>                    
-                </li>
-            }
-        }        
     </ul>
 </div>
 
 @section Scripts
 {
     <style>
-        #navBarSecundario{padding-top:0.5%;padding-bottom:0.5%;}
-        #containerBusca{padding:1% 2% 1% 2%;border-radius:15px;background:#F0F0F0;}
+        #navBarSecundario {
+            padding-top: 0.5%;
+            padding-bottom: 0.5%;
+        }
+
+        #containerBusca {
+            padding: 1% 2% 1% 2%;
+            border-radius: 15px;
+            background: #F0F0F0;
+        }
+
         .bloco-destaque {
             display: inline-block;
             width: 250px;
             padding: 2%;
             margin-right: 1.5%;
-        }   
-        @@media (max-width: 580px) {  
-            .bloco-destaque{width: 100%;margin-bottom: 0.5%;}
-        }        
+        }
+
+        @@media (max-width: 580px) {
+            .bloco-destaque {
+                width: 100%;
+                margin-bottom: 0.5%;
+            }
+        }
     </style>
     <script>
-        $( document ).ready(function() {
-            var x = document.getElementsByClassName("container")[1];
-            x.classList.remove("container");
 
-            console.log("Bom Dev -> Container principal removido");
-        });
     </script>
 }

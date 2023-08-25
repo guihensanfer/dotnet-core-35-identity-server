@@ -1,0 +1,164 @@
+﻿@model Data.Models.Category
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Category</h4>
+<hr />
+@{
+    if (@ViewData["msg"] != null)
+    {
+
+        <div class="alert alert-danger" role="alert">
+            @ViewData["msg"]
+        </div>
+
+    }
+}
+<form asp-area="adm" asp-action="Create">
+    <div class="row">
+        <div class="col-md-12">
+            <input type="hidden" asp-for="Path" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" onblur="refreshCategory();" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+                @await Html.PartialAsync("_LanguageDetailsPartial")
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+                @await Html.PartialAsync("_LanguageDetailsPartial")
+            </div>
+            <div class="form-group">
+                <label asp-for="Url" class="control-label"></label>
+                <input asp-for="Url" class="form-control" />
+                <span asp-validation-for="Url" class="text-danger"></span>
+            </div>            
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="Index" class="control-label"></label>
+                <input asp-for="Index" class="form-control" checked="checked" />
+                <span asp-validation-for="Index" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="nivelSelect" class="control-label">Nível</label>
+                <select id="nivelSelect" name="Order" class="form-control" onchange="loadCategoriesByOrder(this.value);">
+                    @{
+                        var orders = Enum.GetValues(typeof(Data.Models.Category.OrderView))
+                            .Cast<Data.Models.Category.OrderView>();
+
+                        foreach (var order in orders)
+                        {
+                            string index = ((int)order).ToString();
+
+                            <option value="@index">@string.Format("{0}º nível", index)</option>
+                        }
+                    }
+                </select>
+            </div>
+            <div id="divparentCategorySelect" class="form-group">
+                <label for="parentCategorySelect" class="control-label">Categoria pai</label>
+                <select id="parentCategorySelect" name="ParentCategoryId" class="form-control" onchange="refreshCategory();">
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Enabled" class="control-label"></label>
+                <input asp-for="Enabled" class="form-control" checked="checked" />
+                <span asp-validation-for="Enabled" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-area="adm" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        $(document).ready(function () {
+            $('#divparentCategorySelect').fadeOut();
+
+        });
+
+        function loadCategoriesByOrder(_order) {
+            var loading = $("#divProgress");
+            var select = $('#parentCategorySelect');
+
+            select.empty();
+            if (_order == 1) {
+                select.empty();
+                $('#divparentCategorySelect').fadeOut();
+
+                refreshCategory();
+
+                return null;
+            }
+            else {
+                $('#divparentCategorySelect').fadeIn();
+            }
+
+            _order--;
+
+            loading.fadeIn();
+            $.ajax({
+                type: 'POST',
+                url: '/adm/category/GetCategoriesByOrder',
+                data: jQuery.param({ order: _order}),
+                cache: false,
+                success: (e) => {
+                    $.each(e, function (index) {
+                        var categoryId = e[index].categoryId;
+                        var name = e[index].pathView;
+
+                        select.append('<option value="'
+                            + categoryId
+                            + '">'
+                            + name
+                            + '</option>');
+                    });
+                },
+                error: (e) => {
+
+                },
+                complete: (e) => {
+                    refreshCategory();
+                    loading.fadeOut();
+                }
+            });
+        }
+
+    function refreshCategory() {
+        var selectParent = document.getElementById('parentCategorySelect');
+        var selectedParentCategoryPath = null;
+
+        if (selectParent.selectedIndex >= 0) {
+            selectedParentCategoryPath = selectParent.options[selectParent.selectedIndex].text;
+        }
+
+        var textBoxName = document.getElementById('@nameof(Model.Name)').value;
+
+        if (selectedParentCategoryPath == null || selectedParentCategoryPath.trim() == '') {
+            document.getElementById('@nameof(Model.Path)').value = textBoxName;
+        }
+        else {
+            document.getElementById('@nameof(Model.Path)').value = selectedParentCategoryPath + '/' + textBoxName;
+        }
+
+    }
+    </script>
+}

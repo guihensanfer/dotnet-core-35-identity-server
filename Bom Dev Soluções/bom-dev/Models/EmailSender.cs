@@ -37,7 +37,7 @@ namespace Bom_Dev.Models
         public static string password { get; internal set; }
         public static short port { get; internal set; }
         public static bool enableSsl { get; internal set; }
-        public static string displayName { get; internal set; } = "Bom Dev Software House";
+        public static string displayName { get; internal set; } = Data.Utility.ProjectViewName + " Software Development";
         public static string signatureHTML { get; internal set; }        
 
         public static string CorpoEmailConfirmarEmail(string linkConfirmacao)

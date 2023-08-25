@@ -1,32 +1,74 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<BomDevUser> SignInManager
-@inject UserManager<BomDevUser> UserManager
+@inject SignInManager<PersonalUser> SignInManager
+@inject UserManager<PersonalUser> UserManager
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
-<ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
-    var nomeUser = UserManager.GetUserAsync(User).Result?.Nome ?? User.Identity.Name;
+<ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+        <div class="dropdown">
+            <button title="@Localizer["PesquisarTitle"]" class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <svg width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g data-name="Layer 2"><path d="M13 23a10 10 0 1 1 10-10 10 10 0 0 1-10 10Zm0-18a8 8 0 1 0 8 8 8 8 0 0 0-8-8Z" fill="#fff" class="fill-000000" /><path d="M28 29a1 1 0 0 1-.71-.29l-8-8a1 1 0 0 1 1.42-1.42l8 8a1 1 0 0 1 0 1.42A1 1 0 0 1 28 29Z" fill="#fff" class="fill-000000" /></g><path d="M0 0h32v32H0z" fill="none" /></svg>
+                &nbsp;@Localizer["PesquisarTitle"]
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <h6 class="dropdown-header">@Localizer["PesquisarTitle"]</h6>
+                <div class="dropdown-item">
+                    <form method="get" asp-action="Search" asp-controller="Home">
 
-    <li class="nav-item">        
-        <a class="nav-link text-dark fundo-arredondado" style="font-weight: bold;margin-top: 2px;" asp-area="Identity" asp-page="/Account/Manage/Index" title="Minha conta @nomeUser">@nomeUser</a>
+                        <input required type="text" name="search" placeholder="@Localizer["PesquisarInputPlaceHolder"]" />
+                        </br>
+                        </br>
+                        <input type="submit" />
+                    </form>
+                </div>
+            </div>
+        </div>
     </li>
-    <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button type="submit" class="nav-link btn btn-link fundo-arredondado" style="color:#FF0000;">Sair</button>
-        </form>
-    </li>
-}
-else
-{
-    <li class="nav-item">
-        <a class="nav-link text-dark fundo-arredondado" asp-area="Identity" asp-page="/Account/Register">              
-            Cadastrar-se
-        </a>
-    </li>
-    <li class="nav-item">
-        <form id="external-account" asp-area="Identity" asp-page="/Account/ExternalLogin" method="post" class="form-horizontal">
-            <button class="nav-link text-dark fundo-arredondado btn btn-primary" style="background:transparent;" type="submit" name="provider" value="@Startup.IdentityServerScheme">Login</button>
-        </form>        
-    </li>
-}
+    
+    @if (SignInManager.IsSignedIn(User))
+    {
+        var nomeUser = UserManager.GetUserAsync(User).Result?.FullName ?? User.Identity.Name;
+
+        <li class="nav-item">
+            <!-- Split dropup button -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary">
+                    <a class="btnBmdWhite" asp-area="Identity" asp-page="/Account/Manage/Index" title="@Localizer["DOMTitleMyAccount"] @nomeUser">@nomeUser</a>
+                </button>
+                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu">
+                    <div class="dropdown-item">
+                        <div class="nav-link">
+                            <a style="color:#000;" asp-area="Identity" asp-page="/Account/Manage/Index">@Localizer["DOMTitleMyAccount"]</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-item">
+                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                            <button type="submit" class="nav-link btn btn-link text-dark">@Localizer["AccountLogOff"]</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            @*<button class="btn btn-lg btn-secondary" style="font-weight: bold;" asp-area="Identity" asp-page="/Account/Manage/Index" title="Minha conta @nomeUser">@nomeUser</button>
+                <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu show">
+
+                </div>*@
+        </li>
+
+    }
+    else
+    {
+        <li class="nav-item">
+            <form id="external-account" asp-area="Identity" asp-page="/Account/ExternalLogin" method="post" class="form-horizontal">
+                <button class="nav-link btn btn-primary btnBmdWhite" style="margin-top:5px;" type="submit" name="provider" value="@Startup.IdentityServerScheme">@Localizer["AccountLogIn"]</button>
+            </form>
+        </li>
+    }
 </ul>
