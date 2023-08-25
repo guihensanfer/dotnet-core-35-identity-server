@@ -34,18 +34,18 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
         }
 
         [BindProperty]
-        public InputModel Input { get; set; }
+        public InputModel Input { get; set; }        
 
         public string ReturnUrl { get; set; }        
 
         public class InputModel
-        {            
-            [Required(ErrorMessage = "{0} é obrigatório.")]
+        {
+            [Required(ErrorMessage = "{0} required")]
             [EmailAddress]
             [Display(Name = "E-mail")]
             public string Email { get; set; }
 
-            [Required(ErrorMessage = "{0} é obrigatório.")]
+            [Required(ErrorMessage = "{0} required")]
             [StringLength(100, ErrorMessage = "A {0} deve ter no mínimo {2} e no máximo {1} caracteres.", MinimumLength = 8)]
             [DataType(DataType.Password)]
             [Display(Name = "Senha")]
@@ -55,6 +55,13 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
             [Display(Name = "Confirmar senha")]
             [Compare(nameof(Password), ErrorMessage = "Senhas não coincidem.")]
             public string ConfirmPassword { get; set; }
+            
+            [Display(Name = "SubscribeToUpdates")]            
+            public bool SubscribeToUpdates { get; set; }
+            
+            [Display(Name = "AcceptedTerms")]
+            [Required(ErrorMessage ="{0} required")]
+            public bool AcceptedTerms { get; set; }
 
             [Display(Name = "Nome completo")]
             [StringLength(256, ErrorMessage = "A {0} deve ter no mínimo {2} e no máximo {1} caracteres.", MinimumLength = 8)]
@@ -63,6 +70,8 @@ namespace Bom_Dev.Areas.Identity.Pages.Account
             [Display(Name = "Telefone")]
             [DataType(DataType.PhoneNumber)]
             public string PhoneNumber { get; set; }
+
+
         }
 
         public void OnGetAsync(string returnUrl = null)

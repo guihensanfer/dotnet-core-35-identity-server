@@ -147,11 +147,11 @@ details{
     padding-bottom: 3px;
 }
 
-#registerToolbox{
-    background:var(--colorI);
-    border:none !important;
-    border-radius:15px;
-    overflow:hidden;
+#registerToolbox {
+    /*background:#f0f0f0;*/
+    border: solid 2px var(--colorI);
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 #menu .btn {

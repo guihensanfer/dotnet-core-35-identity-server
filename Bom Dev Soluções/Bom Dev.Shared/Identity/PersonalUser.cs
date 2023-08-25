@@ -12,8 +12,12 @@ namespace Data.Identity
         public string FullName{get;set;}
 
         [PersonalData]        
-        [Display(Name = "Desejo receber informações sobre produtos, serviços e eventos.")]                
+        [Display(Name = "SubscribeToUpdates")]        
         public bool SubscribeToUpdates { get; set; }
 
+        [PersonalData]
+        [Display(Name = "AcceptedTerms")]
+        [Required(ErrorMessage = "{0} required")]
+        public bool AcceptedTerms { get; set; }
     }
 }

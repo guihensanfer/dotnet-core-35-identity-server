@@ -16,15 +16,13 @@ namespace Bom_Dev.Controllers
 {    
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly IStringLocalizer<SharedResources> _localizer;
+        private readonly ILogger<HomeController> _logger;        
         private readonly Data.Interface.IRepository _repository;
         private readonly UserManager<PersonalUser> _userManager;
 
-        public HomeController(ILogger<HomeController> logger, Data.Interface.IRepository repository, UserManager<PersonalUser> userManager, IStringLocalizer<SharedResources> localizer)
+        public HomeController(ILogger<HomeController> logger, Data.Interface.IRepository repository, UserManager<PersonalUser> userManager)
         {
-            _logger = logger;
-            _localizer = localizer;
+            _logger = logger;            
             _repository = repository;
             _userManager = userManager;
         }
@@ -42,9 +40,7 @@ namespace Bom_Dev.Controllers
         }
 
         public IActionResult Index()
-        {
-            var teste = _localizer["teste"];
-
+        {            
             return View();
         }                      
 

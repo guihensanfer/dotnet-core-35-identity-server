@@ -24,6 +24,9 @@ namespace Data.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<bool>("AcceptedTerms")
+                        .HasColumnType("bit");
+
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
@@ -68,6 +71,9 @@ namespace Data.Migrations
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("SubscribeToUpdates")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
@@ -242,38 +248,6 @@ namespace Data.Migrations
                     b.HasKey("ErrorLogsId");
 
                     b.ToTable("ErrorLogs");
-                });
-
-            modelBuilder.Entity("Data.Models.TranslationObject", b =>
-                {
-                    b.Property<int>("TranslationObjectId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("TranslationObjectId")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnName("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Language")
-                        .HasColumnName("Language")
-                        .HasColumnType("nvarchar(15)")
-                        .HasMaxLength(15);
-
-                    b.Property<Guid>("ObjectGuid")
-                        .HasColumnName("ObjectGuid")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Value")
-                        .IsRequired()
-                        .HasColumnName("Value")
-                        .HasColumnType("nvarchar(500)")
-                        .HasMaxLength(500);
-
-                    b.HasKey("TranslationObjectId");
-
-                    b.ToTable("TranslationObject");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -17,6 +17,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using System.Reflection;
 
 namespace Bom_Dev
 {
@@ -40,14 +41,15 @@ namespace Bom_Dev
             services.AddMvc()
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
                 .AddDataAnnotationsLocalization();
-            
+                
+
             services.Configure<RequestLocalizationOptions>(options =>
             {                
                 var supportedCultures = SupportedCultures.GetCultures();
 
                 options.DefaultRequestCulture = new RequestCulture(culture: SupportedCultures.DefaultLanguage, uiCulture: SupportedCultures.DefaultLanguage);
                 options.SupportedCultures = supportedCultures;
-                options.SupportedUICultures = supportedCultures;                
+                options.SupportedUICultures = supportedCultures;                                     
             });
 
 
@@ -82,6 +84,7 @@ namespace Bom_Dev
 
                 // Máximo tentativas login
                 options.Lockout.MaxFailedAccessAttempts = 3;
+                
             })
             .AddEntityFrameworkStores<IdentityDbContext>();
             #endregion

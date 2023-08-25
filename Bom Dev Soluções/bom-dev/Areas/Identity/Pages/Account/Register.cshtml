@@ -1,8 +1,10 @@
 @page
 @model RegisterModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 @{
-    ViewData["Title"] = "Cadastrar-se";
+    ViewData["Title"] = @Localizer["PageTitle"];
 }
+
 
 <div class="row">
     <div class="col-md-9" id="registerDivMaster">
@@ -14,7 +16,7 @@
                         <div id="divCadastroBomDev">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h4 class="text-dark">Criar uma nova conta</h4>
+                                    <h4 class="text-dark">@Localizer["PageTitle"]</h4>
 
                                     <div asp-validation-summary="All" class="text-danger"></div>
                                 </div>
@@ -24,8 +26,8 @@
                                         <input asp-for="Input.Email" class="form-control" />
                                         <span asp-validation-for="Input.Email" class="text-danger"></span>
                                         <details>
-                                            <summary>Privacidade com esta informação</summary>
-                                            <p>Não compartilhamos esta informação, usaremos somente para finalidade de identificação interna.</p>
+                                            <summary>@Localizer["PrivacyFieldTitle"]</summary>
+                                            <p>@Localizer["PrivacyFieldEmail"]</p>
                                         </details>
                                     </div>
                                 </div>
@@ -35,8 +37,8 @@
                                         <input asp-for="Input.Nome" class="form-control" />
                                         <span asp-validation-for="Input.Nome" class="text-danger"></span>
                                         <details>
-                                            <summary>Privacidade com esta informação</summary>
-                                            <p>Não compartilhamos esta informação, usaremos somente para finalidade de identificação interna.</p>
+                                            <summary>@Localizer["PrivacyFieldTitle"]</summary>
+                                            <p>@Localizer["PrivacyFieldName"]</p>
                                         </details>
                                     </div>
                                 </div>
@@ -46,9 +48,9 @@
                                         <input asp-for="Input.PhoneNumber" class="form-control" />
                                         <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
                                         <details>
-                                            <summary>Privacidade com esta informação</summary>
-                                            <p>Não compartilhamos esta informação, você não é obrigado a informar isso. Te pediremos esta informação quando necessário algum contato por telefone ou algum tipo de integração que requeira tal informação.</p>
-                                        </details>                                        
+                                            <summary>@Localizer["PrivacyFieldTitle"]</summary>
+                                            <p>@Localizer["PrivacyFieldPhone"]</p>
+                                        </details>
                                     </div>
                                 </div>
                                 <div class="col-md-12" style="margin-top:7%;">
@@ -59,8 +61,8 @@
                                                 <input asp-for="Input.Password" class="form-control" />
                                                 <span asp-validation-for="Input.Password" class="text-danger"></span>
                                                 <details>
-                                                    <summary>Privacidade com esta informação</summary>
-                                                    <p>Não compartilhamos esta informação, usaremos somente para finalidade de identificação interna.</p>
+                                                    <summary>@Localizer["PrivacyFieldTitle"]</summary>
+                                                    <p>@Localizer["PrivacyFieldPassword"]</p>
                                                 </details>
                                             </div>
                                         </div>
@@ -71,32 +73,47 @@
                                                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                                             </div>
                                         </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="text-dark" asp-for="Input.SubscribeToUpdates"></label>
+                                                <input asp-for="Input.SubscribeToUpdates" class="form-control" />
+                                                <span asp-validation-for="Input.SubscribeToUpdates" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="text-dark" asp-for="Input.AcceptedTerms"></label>
+                                                <input asp-for="Input.AcceptedTerms" class="form-control" required />
+                                                <span asp-validation-for="Input.AcceptedTerms" class="text-danger"></span>
+                                                <a asp-action="privacypolicy" target="_blank" asp-controller="home" class="text-link">@Localizer["PrivacyPolicyButton"]</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary btnBmdBlack">Registrar</button>
+                            <button type="submit" class="btn btn-primary btnBmdBlack">@Localizer["RegisterButton"]</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        
+
     </div>
-    <div class="col-md-3" style="margin-top:1%;">
+    <div class="col-md-3" style="margin-top:1%;display:none;">
         <div class="" id="registerToolbox">
             <div style="padding:7%;">
                 <div>
-                    <h4 class="text-light">Crie seu Bomdev ID</h4>
-                    <h5 class="text-light">Tenha acesso as aplicações com apenas uma conta.</h5>
-                    <h6 class="text-light" style="margin-bottom:5%;">Temos compromisso com a sua segurança e privacidade, nenhuma informação será compartilhada ou solicitada sem o seu concentimento.</h6>
+                    <h4 class="text-dark">@Localizer["DescriptionTitle"]</h4>
+                    <h5 class="text-dark">@Localizer["DescriptionP1"]</h5>
+                    <h6 class="text-dark" style="margin-bottom:5%;">@Localizer["DescriptionP2"]</h6>
                     <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <button type="submit" class="btn btn-primary text-link" name="provider" value="@Bom_Dev.Startup.IdentityServerScheme" title="Logar usando uma conta @Data.Utility.ProjectViewName ou outras contas.">Clique aqui para logar</button>
+                        <button type="submit" class="btn btn-primary text-link" name="provider" value="@Bom_Dev.Startup.IdentityServerScheme" title="Logar usando uma conta @Data.Utility.ProjectViewName ou outras contas.">@Localizer["LogInButton"]</button>
                     </form>
-                    <a asp-action="privacypolicy" asp-controller="home" class="text-link">Ver política de privacidade</a>
+                    <a asp-action="privacypolicy" asp-controller="home" class="text-link">@Localizer["PrivacyPolicyButton"]</a>
                     <img src="~/img/desenho-1.svg" width="450" style="margin-top:10%;" />
-                </div>                
+                </div>
             </div>
-            
+
         </div>
     </div>
 </div>
@@ -105,9 +122,14 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
     <style>
-        @@media (max-width: 580px) {  
-            #divCadastroBomDev{margin:0px!important;}
-            #divContinuarOutrosProvedores{margin:0px!important;}
+        @@media (max-width: 580px) {
+            #divCadastroBomDev {
+                margin: 0px !important;
+            }
+
+            #divContinuarOutrosProvedores {
+                margin: 0px !important;
+            }
         }
     </style>
 }

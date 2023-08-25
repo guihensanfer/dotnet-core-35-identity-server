@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "O2CruT1zl1DtAlucrRDYVdKpx+LwWQ2y3LZSnSYP24JjTJ/1ZGIR/oN2BjhsrftgG5ht0oZBzF0m6tGxtZ9bTQ==",
+  "dgSpecHash": "K3YqxC0i+lPkTzGZf5ze7024ggw3zHKtZ4zJYneY4vQvsondQBl8UrXJElvMS7G5K6K4HtqcjG9QvHK5J1rz3g==",
   "success": true,
   "projectFilePath": "C:\\Users\\guihe\\source\\repos\\bom-dev\\Bom Dev Soluções\\bom-dev\\Bom Dev.csproj",
   "expectedPackageFiles": [
@@ -123,6 +123,7 @@
     "C:\\Users\\guihe\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\newtonsoft.json.bson\\1.0.1\\newtonsoft.json.bson.1.0.1.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\nuget.frameworks\\4.7.0\\nuget.frameworks.4.7.0.nupkg.sha512",
+    "C:\\Users\\guihe\\.nuget\\packages\\recaptchanet\\3.1.0\\recaptchanet.3.1.0.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\guihe\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
