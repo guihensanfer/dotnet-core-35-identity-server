@@ -1,35 +1,19 @@
-# Bom Dev - Solução de Aplicações
+# Web Project Developed in .NET Core 3.5 with Authentication Using Identity Server
 
-Este repositório contém uma solução desenvolvida com .NET Core 3.5, composta por um projeto Web MVC que integra com o IdentityServer4 para autenticação via OAuth2/OpenID Connect. O sistema realiza login automático utilizando o fluxo Authorization Code.
+This repository contains a solution developed with .NET Core 3.5, consisting of a Web MVC project integrated with IdentityServer4 for authentication via OAuth2/OpenID Connect. The system performs automatic login using the Authorization Code flow.
 
-## Tecnologias Utilizadas
+## Technologies Used
 
 - .NET Core 3.5
 - ASP.NET Core MVC
 - IdentityServer4
+- Microsoft SQL Server
 - OAuth2 / OpenID Connect
-- Autenticação baseada em Cookies
+- Cookie-based Authentication
 
-## Estrutura do Projeto
+## Project Structure
 
-A solução está organizada da seguinte forma:
+The solution is organized as follows:
 
-- **BomDev.Web**: Aplicação ASP.NET Core MVC que atua como cliente do IdentityServer4.
-- **BomDev.IdentityServer**: Servidor de identidade responsável pela autenticação e emissão de tokens.
-
-## No projeto MVC, a autenticação é configurada no Startup.cs utilizando o middleware de OpenID Connect:
-
-services.AddAuthentication(options =>
-{
-    options.DefaultScheme = "Cookies";
-    options.DefaultChallengeScheme = "oidc";
-})
-.AddCookie("Cookies")
-.AddOpenIdConnect("oidc", options =>
-{
-    options.Authority = "https://localhost:5001";
-    options.ClientId = "mvc";
-    options.ClientSecret = "secret";
-    options.ResponseType = "code";
-    options.SaveTokens = true;
-});
+- **BomDev.Web**: ASP.NET Core MVC application that acts as a client to IdentityServer4.
+- **BomDev.IdentityServer**: Identity server responsible for authentication and token issuance.
